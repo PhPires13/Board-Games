@@ -17,4 +17,4 @@ $(BIN_DIR)/board_games: $(OBJ_DIR)/BoardGame.o $(SRC_DIR)/main.o
 	$(CC) $(CFLAGS) $(OBJ_DIR)/BoardGame.o $(OBJ_DIR)/main.o -o $(BIN_DIR)/board_games
 
 clean:
-	rm -f board_games $(OBJ_DIR)/*.o
+	rm -f $(BIN_DIR)/board_games $(OBJ_DIR)/*.o
