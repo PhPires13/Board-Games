@@ -6,8 +6,10 @@
 
 #include <iostream>
 
-BoardGame::BoardGame(Player& _player1, Player& _player2, const int _boardWidth, const int _boardHeight,
-    char const symbol1, char const symbol2): player1(_player1), player2(_player2), boardWidth(_boardWidth), boardHeight(_boardHeight) {
+BoardGame::BoardGame(
+    Player& _player1, Player& _player2, const int _boardWidth, const int _boardHeight, const char symbol1,
+    const char symbol2
+    ): player1(_player1), player2(_player2), boardWidth(_boardWidth), boardHeight(_boardHeight) {
     this->board = std::vector<std::vector<char>>(
         this->boardHeight, std::vector<char>(this->boardWidth, ' ')
         );
