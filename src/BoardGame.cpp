@@ -20,20 +20,35 @@ BoardGame::BoardGame(
 }
 
 void BoardGame::printBoard() const {
-    for (int i = 0; i < this->boardHeight; i++) { // Each line
-        for (int j = 0; j < this->boardWidth; j++) { // Each column
-            std::cout << this->board[i][j];
-            if (j < this->boardWidth - 1) std::cout << '|';
+    for (int line = 0; line < this->boardHeight; line++) { // Each line
+        // Print upper border
+        if (line == 0) {
+            for (int column = 0; column < this->boardWidth; column++) { // Each column
+                std::cout << "=====";
+                if (column < this->boardWidth - 1) std::cout << '=';
+            }
+            std::cout << std::endl;
         }
 
+        /// Print the line content
+        for (int column = 0; column < this->boardWidth; column++) { // Each column
+            std::cout << "  " << this->board[line][column] << "  ";
+            if (column < this->boardWidth - 1) std::cout << '|';
+        }
         std::cout << std::endl;
 
-        if (i < this->boardHeight - 1) { // Not the last line
-            for (int j = 0; j < this->boardWidth; j++) { //
-                std::cout << '-';
-                if (j < this->boardWidth - 1) std::cout << '+'; // Intersections
+        // Print the line border
+        if (line < this->boardHeight - 1) { // Not the last line
+            for (int column = 0; column < this->boardWidth; column++) { //
+                std::cout << "-----";
+                if (column < this->boardWidth - 1) std::cout << '+'; // Intersections
             }
-
+            std::cout << std::endl;
+        } else { // Print the lower border
+            for (int column = 0; column < this->boardWidth; column++) { // Each column
+                std::cout << "=====";
+                if (column < this->boardWidth - 1) std::cout << '=';
+            }
             std::cout << std::endl;
         }
     }
