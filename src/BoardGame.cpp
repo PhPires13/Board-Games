@@ -70,19 +70,19 @@ std::vector<int> BoardGame::readMove() {
     return move;
 }
 
-int BoardGame::isMoveValid(const std::vector<int>& move) const {
-    if (move.empty() || (move.size() > 2)) return BoardGame::incorrectFormat;
+MoveStatus BoardGame::isMoveValid(const std::vector<int>& move) const {
+    if (move.empty() || (move.size() > 2)) return MoveStatus::INCORRECT_FORMAT;
 
     if (move.size() == 1) {
-        if ((move[0] < 0) || (move[0] >= this->boardWidth)) return BoardGame::invalidMove; // Verifica coluna
+        if ((move[0] < 0) || (move[0] >= this->boardWidth)) return MoveStatus::INVALID_MOVE; // Verifica coluna
     }
 
     if (move.size() == 2) {
-        if ((move[0] < 0) || (move[0] >= this->boardHeight)) return BoardGame::invalidMove; // Verifica linha
-        if ((move[1] < 0) || (move[1] >= this->boardWidth)) return BoardGame::invalidMove; // Verifica coluna
+        if ((move[0] < 0) || (move[0] >= this->boardHeight)) return MoveStatus::INVALID_MOVE; // Verifica linha
+        if ((move[1] < 0) || (move[1] >= this->boardWidth)) return MoveStatus::INVALID_MOVE; // Verifica coluna
     }
 
-    return BoardGame::validMove;
+    return MoveStatus::VALID_MOVE;
 }
 
 void BoardGame::makeMove(const std::vector<int>& move, const char symbol) {
@@ -99,15 +99,15 @@ void BoardGame::makeMove(const std::vector<int>& move, const char symbol) {
     }
 }
 
-int BoardGame::getGameState() const {
+GameState BoardGame::getGameState() const {
     // Check if board is full
     for (int i = 0; i < this->boardHeight; i++) {
         for (int j = 0; j < this->boardWidth; j++) {
-            if (this->board[i][j] == ' ') return BoardGame::notOver; // Game is not over
+            if (this->board[i][j] == ' ') return GameState::NOT_OVER; // Game is not over
         }
     }
 
-    return BoardGame::tie; // Tie
+    return GameState::TIE; // Tie
 }
 
 Player& BoardGame::whoseTurn(const int turn) const {
@@ -129,11 +129,11 @@ void BoardGame::playGame() {
         this->printBoard();
 
         // Check game satate
-        const int gameState = this->getGameState();
-        if (gameState != BoardGame::notOver) {
-            if (gameState == BoardGame::tie) std::cout << "O jogo empatou!" << std::endl;
-            else if (gameState == BoardGame::player1Wins) std::cout << player1.getNick() << " wins!" << std::endl;
-            else if (gameState == BoardGame::player2Wins) std::cout << player2.getNick() << " wins!" << std::endl;
+        const GameState gameState = this->getGameState();
+        if (gameState != GameState::NOT_OVER) {
+            if (gameState == GameState::TIE) std::cout << "O jogo empatou!" << std::endl;
+            else if (gameState == GameState::PLAYER1_WINS) std::cout << player1.getNick() << " wins!" << std::endl;
+            else if (gameState == GameState::PLAYER2_WINS) std::cout << player2.getNick() << " wins!" << std::endl;
             break;
         }
 
@@ -143,10 +143,10 @@ void BoardGame::playGame() {
             std::cout << "Turno de jogador " << turnPlayer.getName() << ": ";
             std::vector<int> move = BoardGame::readMove();
 
-            const int moveValidation = this->isMoveValid(move);
-            if (moveValidation != BoardGame::validMove) {
-                if (moveValidation == BoardGame::invalidMove) std::cout << "ERRO: jogada inválida" << std::endl;
-                else if (moveValidation == BoardGame::incorrectFormat) std::cout << "ERRO: formato incorreto" << std::endl;
+            const MoveStatus moveValidation = this->isMoveValid(move);
+            if (moveValidation != MoveStatus::VALID_MOVE) {
+                if (moveValidation == MoveStatus::INVALID_MOVE) std::cout << "ERRO: jogada inválida" << std::endl;
+                else if (moveValidation == MoveStatus::INCORRECT_FORMAT) std::cout << "ERRO: formato incorreto" << std::endl;
                 continue;
             }
 

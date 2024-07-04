@@ -9,23 +9,25 @@
 
 #include "Player.hpp"
 
+enum MoveStatus {
+    INCORRECT_FORMAT = -1,
+    INVALID_MOVE = 0,
+    VALID_MOVE = 1,
+};
+
+enum GameState {
+    NOT_OVER = 0,
+    PLAYER1_WINS = 1,
+    PLAYER2_WINS = 2,
+    TIE = 3,
+};
+
 class BoardGame {
     static constexpr int defaultBoardWidth = 4;
     static constexpr int defaultBoardHeight = 4;
 
     static constexpr char defaultSymbol1 = 'X';
     static constexpr char defaultSymbol2 = 'O';
-
-    // TODO: Migrar para ENUM
-    static constexpr int incorrectFormat = -1;
-    static constexpr int invalidMove = 0;
-    static constexpr int validMove = 1;
-
-    // TODO: Migrar para ENUM
-    static constexpr int notOver = 0;
-    static constexpr int player1Wins = 1;
-    static constexpr int player2Wins = 2;
-    static constexpr int tie = 3;
 
     Player& player1;
     Player& player2;
@@ -66,9 +68,9 @@ class BoardGame {
     *
     * @param move: The move to be checked
     *
-    * @return: incorrectFormat (-1), invalidMove (0) or validMove (1)
+    * @return: MovieStatus enum
     */
-    int isMoveValid(const std::vector<int>& move) const;
+    MoveStatus isMoveValid(const std::vector<int>& move) const;
 
     /*
     * Execute move on the board
@@ -81,9 +83,9 @@ class BoardGame {
     /*
     * Check if the game is over
     *
-    * @return: notOver (0), player1Wins (1), player2Wins (2) or tie (3)
+    * @return: GameState enum
     */
-    int getGameState() const;
+    GameState getGameState() const;
 
     /*
     * Check whose turn is it
