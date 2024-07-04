@@ -22,6 +22,9 @@ enum GameState {
     TIE = 3,
 };
 
+/*
+ * Class to represent a board game, it is responsible for controlling all the processes of the game and the players in the match
+ */
 class BoardGame {
     static constexpr int defaultBoardWidth = 4;
     static constexpr int defaultBoardHeight = 4;

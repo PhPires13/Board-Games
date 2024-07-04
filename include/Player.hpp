@@ -8,6 +8,9 @@
 #include <list>
 #include <string>
 
+/*
+ * Class that represents the player, it is also responsible for allowing the interaction with the database
+ */
 class Player {
     std::string nick;
     std::string name;
