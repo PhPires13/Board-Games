@@ -16,10 +16,12 @@ class BoardGame {
     static constexpr char defaultSymbol1 = 'X';
     static constexpr char defaultSymbol2 = 'O';
 
+    // TODO: Migrar para ENUM
     static constexpr int incorrectFormat = -1;
     static constexpr int invalidMove = 0;
     static constexpr int validMove = 1;
 
+    // TODO: Migrar para ENUM
     static constexpr int notOver = 0;
     static constexpr int player1Wins = 1;
     static constexpr int player2Wins = 2;
