@@ -9,4 +9,6 @@ add_executable(Board_Games src/main.cpp
         include/BoardGame.hpp
         src/BoardGame.cpp
         include/Player.hpp
-        src/Player.cpp)
+        src/Player.cpp
+        include/Manager.hpp
+        src/Manager.cpp)

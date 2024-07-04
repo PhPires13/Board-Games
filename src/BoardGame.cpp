@@ -134,8 +134,8 @@ GameState BoardGame::playGame() {
         const GameState gameState = this->getGameState();
         if (gameState != GameState::NOT_OVER) {
             if (gameState == GameState::TIE) std::cout << "O jogo empatou!" << std::endl;
-            else if (gameState == GameState::PLAYER1_WINS) std::cout << player1.getNick() << " wins!" << std::endl;
-            else if (gameState == GameState::PLAYER2_WINS) std::cout << player2.getNick() << " wins!" << std::endl;
+            else if (gameState == GameState::PLAYER1_WINS) std::cout << player1.getNick() << " ganhou!" << std::endl;
+            else if (gameState == GameState::PLAYER2_WINS) std::cout << player2.getNick() << " ganhou!" << std::endl;
 
             return gameState;
         }

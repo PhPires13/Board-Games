@@ -9,9 +9,15 @@
 #include <string>
 
 enum CreationStatus {
-    SUCCESS,
+    CREATED,
     INCORRECT_DATA,
     DUPLICATED_PLAYER
+};
+
+enum DeletionStatus {
+    DELETED,
+    PLAYER_NOT_FOUND,
+    DELETION_ERROR
 };
 
 /*
@@ -125,16 +131,16 @@ public:
      *
      * @param nick: The player's nickname
      *
-     * @return:
+     * @return: DeletionStatus enum
      */
-    static int deletePlayer(const std::string& nick);
+    static DeletionStatus deletePlayer(const std::string& nick);
 
     /*
      * Load all players from the database
      *
      * @return: A list with all players
      */
-    static std::list<Player> loadAllPlayers();
+    static std::list<Player> getAllPlayers();
 };
 
 #endif //PLAYER_HPP

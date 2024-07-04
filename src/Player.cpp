@@ -44,7 +44,7 @@ char Player::getSymbol() const {
 
 CreationStatus Player::createPlayer(const std::string& nick, const std::string& name) {
     // TODO: Implementar
-    return CreationStatus::SUCCESS;
+    return CreationStatus::CREATED;
 }
 
 Player Player::loadPlayer(const std::string& nick) {
@@ -57,12 +57,12 @@ int Player::updatePlayer(const std::string& nick, const bool toAddWin, const boo
     return 0;
 }
 
-int Player::deletePlayer(const std::string& nick) {
+DeletionStatus Player::deletePlayer(const std::string& nick) {
     // TODO: Implementar
-    return 0;
+    return DeletionStatus::DELETED;
 }
 
-std::list<Player> Player::loadAllPlayers() {
+std::list<Player> Player::getAllPlayers() {
     // TODO: Implementar
     return std::list<Player>();
 }
