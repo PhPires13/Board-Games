@@ -8,6 +8,12 @@
 #include <list>
 #include <string>
 
+enum CreationStatus {
+    SUCCESS,
+    INCORRECT_DATA,
+    DUPLICATED_PLAYER
+};
+
 /*
  * Class that represents the player, it is also responsible for allowing the interaction with the database
  */
@@ -15,6 +21,7 @@ class Player {
     std::string nick;
     std::string name;
 
+    // TODO: count statistics for each game
     uint wins;
     uint losses;
 
@@ -29,7 +36,7 @@ public:
      * @param _wins: Player's wins
      * @param _losses: Player's losses
      */
-    Player(std::string _nick, std::string _name, uint _wins = 0, uint _losses = 0);
+    Player(const std::string& _nick, const std::string& _name, uint _wins = 0, uint _losses = 0);
 
     /*
      * Get the player's nickname
@@ -90,9 +97,9 @@ public:
      * @param _nick: The player's nickname
      * @param _name: The player's name
      *
-     * @return:
+     * @return: CreationStatus enum
      */
-    static int createPlayer(std::string _nick, std::string _name);
+    static CreationStatus createPlayer(const std::string& nick, const std::string& name);
 
     /*
      * Load a player from the database
@@ -101,7 +108,7 @@ public:
      *
      * @return: The player loaded
      */
-    static Player loadPlayer(std::string nick);
+    static Player loadPlayer(const std::string& nick);
 
     /*
      * Update a player in the database
@@ -111,7 +118,7 @@ public:
      * @param toAddLoss: If a loss should be added
      * @param (optional) name: The player's name to be changed
      */
-    static int updatePlayer(std::string nick, bool toAddWin, bool toAddLoss, std::string name = "");
+    static int updatePlayer(const std::string& nick, bool toAddWin, bool toAddLoss, const std::string& name = "");
 
     /*
      * Delete a player from the database
@@ -120,7 +127,7 @@ public:
      *
      * @return:
      */
-    static int deletePlayer(std::string nick);
+    static int deletePlayer(const std::string& nick);
 
     /*
      * Load all players from the database

@@ -11,10 +11,12 @@ BoardGame::BoardGame(
     Player& _player1, Player& _player2, const int _boardWidth, const int _boardHeight, const char symbol1,
     const char symbol2
     ): player1(_player1), player2(_player2), boardWidth(_boardWidth), boardHeight(_boardHeight) {
+    // Initializa o tabuleiro vazio
     this->board = std::vector<std::vector<char>>(
         this->boardHeight, std::vector<char>(this->boardWidth, ' ')
         );
 
+    // Define os simbolos para cada jogador
     player1.setSymbol(symbol1);
     player2.setSymbol(symbol2);
 }

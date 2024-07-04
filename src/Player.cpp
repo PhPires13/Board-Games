@@ -5,7 +5,7 @@
 #include "Player.hpp"
 
 Player::Player(
-    const std::string _nick, const std::string _name, const uint _wins, const uint _losses
+    const std::string& _nick, const std::string& _name, const uint _wins, const uint _losses
     ): nick(_nick), name(_name), wins(_wins), losses(_losses) {
     this->symbol = ' ';
 }
@@ -42,22 +42,22 @@ char Player::getSymbol() const {
     return this->symbol;
 }
 
-int Player::createPlayer(const std::string _nick, const std::string _name) {
+CreationStatus Player::createPlayer(const std::string& nick, const std::string& name) {
     // TODO: Implementar
-    return 0;
+    return CreationStatus::SUCCESS;
 }
 
-Player Player::loadPlayer(const std::string nick) {
+Player Player::loadPlayer(const std::string& nick) {
     // TODO: Implementar
     return Player("", "");
 }
 
-int Player::updatePlayer(const std::string nick, const bool toAddWin, const bool toAddLoss, const std::string name) {
+int Player::updatePlayer(const std::string& nick, const bool toAddWin, const bool toAddLoss, const std::string& name) {
     // TODO: Implementar
     return 0;
 }
 
-int Player::deletePlayer(const std::string nick) {
+int Player::deletePlayer(const std::string& nick) {
     // TODO: Implementar
     return 0;
 }
