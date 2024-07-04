@@ -114,7 +114,7 @@ Player& BoardGame::whoseTurn(const int turn) const {
     return (turn%2 != 0 ? this->player1 : this->player2);
 }
 
-void BoardGame::playGame() {
+GameState BoardGame::playGame() {
     int turn = 0;
 
     while (true) {
@@ -134,7 +134,8 @@ void BoardGame::playGame() {
             if (gameState == GameState::TIE) std::cout << "O jogo empatou!" << std::endl;
             else if (gameState == GameState::PLAYER1_WINS) std::cout << player1.getNick() << " wins!" << std::endl;
             else if (gameState == GameState::PLAYER2_WINS) std::cout << player2.getNick() << " wins!" << std::endl;
-            break;
+
+            return gameState;
         }
 
         // Make the move

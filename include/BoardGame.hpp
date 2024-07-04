@@ -99,8 +99,10 @@ class BoardGame {
 
     /*
     * Play the game
+    *
+    * @return: The game state at the end
     */
-    void playGame();
+    GameState playGame();
 };
 
 #endif //BOARDGAME_HPP
