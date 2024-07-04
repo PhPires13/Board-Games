@@ -26,6 +26,7 @@ enum GameState {
  * Class to represent a board game, it is responsible for controlling all the processes of the game and the players in the match
  */
 class BoardGame {
+protected:
     static constexpr int defaultBoardWidth = 4;
     static constexpr int defaultBoardHeight = 4;
 
@@ -39,7 +40,7 @@ class BoardGame {
     int boardHeight;
     std::vector<std::vector<char>> board;
 
-    public:
+public:
     /*
     * Create a BoardGame instance
     *

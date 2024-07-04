@@ -20,7 +20,7 @@ class Player {
 
     char symbol;
 
-    public:
+public:
     /*
      * Create a new player instance
      *
