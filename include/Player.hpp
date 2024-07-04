@@ -15,8 +15,8 @@ class Player {
     std::string nick;
     std::string name;
 
-    int wins;
-    int losses;
+    uint wins;
+    uint losses;
 
     char symbol;
 
@@ -29,7 +29,7 @@ class Player {
      * @param _wins: Player's wins
      * @param _losses: Player's losses
      */
-    Player(std::string _nick, std::string _name, int _wins = 0, int _losses = 0);
+    Player(std::string _nick, std::string _name, uint _wins = 0, uint _losses = 0);
 
     /*
      * Get the player's nickname
@@ -50,14 +50,14 @@ class Player {
      *
      * @return: The player's wins
      */
-    int getWins() const;
+    uint getWins() const;
 
     /*
      * Get the player's losses
      *
      * @return: The player's losses
      */
-    int getLosses() const;
+    uint getLosses() const;
 
     /*
      * Add a win to the player

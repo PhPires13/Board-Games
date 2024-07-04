@@ -5,7 +5,7 @@
 #include "Player.hpp"
 
 Player::Player(
-    const std::string _nick, const std::string _name, const int _wins, const int _losses
+    const std::string _nick, const std::string _name, const uint _wins, const uint _losses
     ): nick(_nick), name(_name), wins(_wins), losses(_losses) {
     this->symbol = ' ';
 }
@@ -18,11 +18,11 @@ std::string Player::getName() const {
     return this->name;
 }
 
-int Player::getWins() const {
+uint Player::getWins() const {
     return this->wins;
 }
 
-int Player::getLosses() const {
+uint Player::getLosses() const {
     return this->losses;
 }
 
