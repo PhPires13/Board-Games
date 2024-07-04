@@ -87,7 +87,7 @@ int BoardGame::isMoveValid(const std::vector<int>& move) const {
 
 void BoardGame::makeMove(const std::vector<int>& move, const char symbol) {
     if (move.size() == 2)
-        this->board[move[1]][move[0]] = symbol;
+        this->board[move[0]][move[1]] = symbol;
     else {
         // Place the piece in the first empty space of the column
         for (int i = this->boardHeight - 1; i >= 0; i--) {
