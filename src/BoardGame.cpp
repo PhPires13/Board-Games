@@ -5,6 +5,7 @@
 #include "BoardGame.hpp"
 
 #include <iostream>
+#include <sstream>
 
 BoardGame::BoardGame(
     Player& _player1, Player& _player2, const int _boardWidth, const int _boardHeight, const char symbol1,
@@ -41,10 +42,16 @@ void BoardGame::printBoard() const {
 std::vector<int> BoardGame::readMove() {
     // Read all inputted numbers separated by spaces and add to the vector
     std::vector<int> move;
+
+    std::string line;
+    std::getline(std::cin, line);
+    std::stringstream lineStream(line);
+
     int value;
-    while (std::cin >> value) {
+    while (lineStream >> value) {
         move.push_back(value);
     }
+
     return move;
 }
 
@@ -106,7 +113,7 @@ void BoardGame::playGame() {
 
         this->printBoard();
 
-        // Verifica o estado do jogo
+        // Check game satate
         const int gameState = this->getGameState();
         if (gameState != BoardGame::notOver) {
             if (gameState == BoardGame::tie) std::cout << "O jogo empatou!" << std::endl;
@@ -115,9 +122,9 @@ void BoardGame::playGame() {
             break;
         }
 
-        // Realiza a jogada
+        // Make the move
         Player& turnPlayer = this->whoseTurn(turn);
-        while (true) {
+        while (true) { // While it is valid
             std::cout << "Turno de jogador " << turnPlayer.getName() << ": ";
             std::vector<int> move = BoardGame::readMove();
 
