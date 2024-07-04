@@ -42,9 +42,9 @@ char Player::getSymbol() const {
     return this->symbol;
 }
 
-bool Player::savePlayer(const Player& player) {
+int Player::createPlayer(const std::string _nick, const std::string _name) {
     // TODO: Implementar
-    return true;
+    return 0;
 }
 
 Player Player::loadPlayer(const std::string nick) {
@@ -52,9 +52,14 @@ Player Player::loadPlayer(const std::string nick) {
     return Player("", "");
 }
 
-bool Player::deletePlayer(const std::string nick) {
+int Player::updatePlayer(const std::string nick, const bool toAddWin, const bool toAddLoss, const std::string name) {
     // TODO: Implementar
-    return true;
+    return 0;
+}
+
+int Player::deletePlayer(const std::string nick) {
+    // TODO: Implementar
+    return 0;
 }
 
 std::list<Player> Player::loadAllPlayers() {
