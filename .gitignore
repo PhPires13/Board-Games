@@ -35,5 +35,5 @@
 .idea/
 cmake-build-debug/
 
-# Others
-bin/*
+# Executables
+bin/[^.]*
