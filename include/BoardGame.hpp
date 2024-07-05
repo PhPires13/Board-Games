@@ -74,7 +74,7 @@ public:
     *
     * @return: MovieStatus enum
     */
-    MoveStatus isMoveValid(const std::vector<int>& move) const;
+    virtual MoveStatus isMoveValid(const std::vector<int>& move) const;
 
     /*
     * Execute move on the board
@@ -82,14 +82,14 @@ public:
     * @param move: The move to be executed
     * @param symbol: The symbol to be placed on the board
     */
-    void makeMove(const std::vector<int>& move, char symbol);
+    virtual void makeMove(const std::vector<int>& move, char symbol);
 
     /*
     * Check if the game is over
     *
     * @return: GameState enum
     */
-    GameState getGameState() const;
+    virtual GameState getGameState() const;
 
     /*
     * Check whose turn is it
