@@ -7,6 +7,7 @@
 #include <iostream>
 #include <sstream>
 
+#include "BoardGame.hpp"
 #include "Player.hpp"
 
 Manager::Manager(const std::string& _databasePath): databasePath(_databasePath) {
@@ -66,13 +67,39 @@ void Manager::listPlayers(const std::string &arguments) const {
     // TOOD: Print players with stats
 }
 
-void Manager::executeMatch(const std::string &arguments) const {
+BoardGame* Manager::createMatch(char game, const Player& player1, const Player& player2, const std::string& extraArguments) const {
+    if (game == 'R') {
+
+    } else if (game == 'L') {
+
+    }
+}
+
+
+void Manager::playMatch(const std::string &arguments) const {
     std::stringstream ss(arguments);
     char game;
     std::string nick1, nick2;
     ss >> game >> nick1 >> nick2;
 
-    // TODO: implement calling each game
+    // Recover players
+    Player player1 = Player::loadPlayer(nick1);
+    Player player2 = Player::loadPlayer(nick2);
+
+    // Create a game instance of the specified type
+    std::string extraArguments;
+    std::getline(ss, extraArguments);
+    BoardGame* boardGame = createMatch(game, player1, player2, extraArguments);
+
+    // Play the match
+    GameState gameState = boardGame->playGame();
+
+    // Update players stats
+    bool player1Won = gameState == GameState::PLAYER1_WINS;
+    bool player2Won = gameState == GameState::PLAYER2_WINS;
+
+    Player::updatePlayer(player1.getNick(), player1Won, player2Won);
+    Player::updatePlayer(player2.getNick(), player2Won, player1Won);
 }
 
 void Manager::menu() const {
@@ -97,7 +124,7 @@ void Manager::menu() const {
         else if (command == "LJ")
             listPlayers(arguments);
         else if (command == "EP")
-            executeMatch(arguments);
+            playMatch(arguments);
         else if (command == "FS")
             break;
         else

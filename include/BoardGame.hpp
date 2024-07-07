@@ -33,6 +33,7 @@ protected:
     static constexpr char defaultSymbol1 = 'X';
     static constexpr char defaultSymbol2 = 'O';
 
+    // TODO: Remove player from board game
     Player& player1;
     Player& player2;
 

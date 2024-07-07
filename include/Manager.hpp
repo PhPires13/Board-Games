@@ -7,9 +7,12 @@
 
 #include <string>
 
+#include "Player.hpp"
+
+class BoardGame;
+
 class Manager {
     std::string databasePath;
-    // TODO: dict of games type BoardGame
 
 public:
     Manager(const std::string& _databasePath);
@@ -22,7 +25,9 @@ public:
 
     void listPlayers(const std::string& arguments) const;
 
-    void executeMatch(const std::string& arguments) const;
+    BoardGame* createMatch(char game, const Player& player1, const Player& player2, const std::string& extraArguments) const;
+
+    void playMatch(const std::string& arguments) const;
 
     void menu() const;
 };
