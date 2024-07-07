@@ -5,7 +5,8 @@
 #include "Player.hpp"
 
 Player::Player(
-    const std::string& _nick, const std::string& _name, const uint _wins, const uint _losses
+    const std::string& _nick, const std::string& _name, const std::unordered_map<char, uint>& _wins,
+    const std::unordered_map<char, uint>& _losses
     ): nick(_nick), name(_name), wins(_wins), losses(_losses) {
     this->symbol = ' ';
 }
@@ -18,20 +19,28 @@ std::string Player::getName() const {
     return this->name;
 }
 
-uint Player::getWins() const {
+std::unordered_map<char, uint> Player::getWins() const {
     return this->wins;
 }
 
-uint Player::getLosses() const {
+std::unordered_map<char, uint> Player::getLosses() const {
     return this->losses;
 }
 
-void Player::addWin() {
-    this->wins++;
+uint Player::getWins(const char game) const {
+    return this->wins.at(game);
 }
 
-void Player::addLoss() {
-    this->losses++;
+uint Player::getLosses(const char game) const {
+    return this->losses.at(game);
+}
+
+void Player::addWin(const char game) {
+    this->wins[game]++;
+}
+
+void Player::addLoss(const char game) {
+    this->losses[game]++;
 }
 
 void Player::setSymbol(const char symbol) {
@@ -47,12 +56,12 @@ CreationStatus Player::createPlayer(const std::string& nick, const std::string& 
     return CreationStatus::CREATED;
 }
 
-Player Player::loadPlayer(const std::string& nick) {
+Player* Player::loadPlayer(const std::string& nick) {
     // TODO: Implementar
-    return Player("", "");
+    return &Player("", "");
 }
 
-int Player::updatePlayer(const std::string& nick, const bool toAddWin, const bool toAddLoss, const std::string& name) {
+int Player::updatePlayer(const std::string& nick, const char game, const bool toAddWin, const bool toAddLoss, const std::string& name) {
     // TODO: Implementar
     return 0;
 }

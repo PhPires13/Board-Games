@@ -27,9 +27,8 @@ class Player {
     std::string nick;
     std::string name;
 
-    // TODO: count statistics for each game
-    uint wins;
-    uint losses;
+    std::unordered_map<char, uint> wins;
+    std::unordered_map<char, uint> losses;
 
     char symbol;
 
@@ -39,10 +38,10 @@ public:
      *
      * @param _nick: Player's nickname
      * @param _name: Player's name
-     * @param _wins: Player's wins
-     * @param _losses: Player's losses
+     * @param _wins: Player's wins stats
+     * @param _losses: Player's losses stats
      */
-    Player(const std::string& _nick, const std::string& _name, uint _wins = 0, uint _losses = 0);
+    Player(const std::string& _nick, const std::string& _name, const std::unordered_map<char, uint>& _wins = {}, const std::unordered_map<char, uint>& _losses = {});
 
     /*
      * Get the player's nickname
@@ -61,26 +60,48 @@ public:
     /*
      * Get the player's wins
      *
-     * @return: The player's wins
+     * @return: The player's wins stats
      */
-    uint getWins() const;
+    std::unordered_map<char, uint> getWins() const;
 
     /*
      * Get the player's losses
      *
-     * @return: The player's losses
+     * @return: The player's losses stats
      */
-    uint getLosses() const;
+    std::unordered_map<char, uint> getLosses() const;
+
+    /*
+     * Get the player's wins
+     *
+     * @param game: The game to get the wins
+     *
+     * @return: The player's wins
+     */
+    uint getWins(char game) const;
+
+    /*
+     * Get the player's losses
+     *
+     * @param game: The game to get the losses
+     *
+     * @return: The player's losses stats
+     */
+    uint getLosses(char game) const;
 
     /*
      * Add a win to the player
+     *
+     * @param game: The game to add the win
      */
-    void addWin();
+    void addWin(char game);
 
     /*
      * Add a loss to the player
+     *
+     * @param game: The game to add the loss
      */
-    void addLoss();
+    void addLoss(char game);
 
     /*
      * Set the player's symbol
@@ -114,17 +135,18 @@ public:
      *
      * @return: The player loaded
      */
-    static Player loadPlayer(const std::string& nick);
+    static Player* loadPlayer(const std::string& nick);
 
     /*
      * Update a player in the database
      *
      * @param nick: The player's nickname
+     * @param game: The game stat to be updated
      * @param toAddWin: If a win should be added
      * @param toAddLoss: If a loss should be added
      * @param (optional) name: The player's name to be changed
      */
-    static int updatePlayer(const std::string& nick, bool toAddWin, bool toAddLoss, const std::string& name = "");
+    static int updatePlayer(const std::string& nick, char game, bool toAddWin, bool toAddLoss, const std::string& name = "");
 
     /*
      * Delete a player from the database

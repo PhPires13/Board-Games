@@ -80,16 +80,25 @@ void Manager::playMatch(const std::string &arguments) const {
     std::stringstream ss(arguments);
     char game;
     std::string nick1, nick2;
-    ss >> game >> nick1 >> nick2;
+    try {
+        ss >> game >> nick1 >> nick2;
+    } catch (std::exception& e) {
+        std::cout << "ERRO: dados incorretos" << std::endl;
+        return;
+    }
 
     // Recover players
-    Player player1 = Player::loadPlayer(nick1);
-    Player player2 = Player::loadPlayer(nick2);
+    Player* player1 = Player::loadPlayer(nick1);
+    Player* player2 = Player::loadPlayer(nick2);
+    if (player1 == nullptr || player2 == nullptr) {
+        std::cout << "ERRO: jogador inexistente" << std::endl;
+        return;
+    }
 
     // Create a game instance of the specified type
     std::string extraArguments;
     std::getline(ss, extraArguments);
-    BoardGame* boardGame = createMatch(game, player1, player2, extraArguments);
+    BoardGame* boardGame = createMatch(game, *player1, *player2, extraArguments);
 
     // Play the match
     GameState gameState = boardGame->playGame();
@@ -98,8 +107,8 @@ void Manager::playMatch(const std::string &arguments) const {
     bool player1Won = gameState == GameState::PLAYER1_WINS;
     bool player2Won = gameState == GameState::PLAYER2_WINS;
 
-    Player::updatePlayer(player1.getNick(), player1Won, player2Won);
-    Player::updatePlayer(player2.getNick(), player2Won, player1Won);
+    Player::updatePlayer(player1->getNick(), game, player1Won, player2Won);
+    Player::updatePlayer(player2->getNick(), game, player2Won, player1Won);
 }
 
 void Manager::menu() const {
