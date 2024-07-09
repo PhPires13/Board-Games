@@ -58,7 +58,7 @@ CreationStatus Player::createPlayer(const std::string& nick, const std::string& 
 
 Player* Player::loadPlayer(const std::string& nick) {
     // TODO: Implementar
-    return &Player("", "");
+    return nullptr;
 }
 
 int Player::updatePlayer(const std::string& nick, const char game, const bool toAddWin, const bool toAddLoss, const std::string& name) {

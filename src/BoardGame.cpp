@@ -7,14 +7,9 @@
 #include <iostream>
 #include <sstream>
 
-BoardGame::BoardGame(
-    Player& _player1, Player& _player2, const int _boardWidth, const int _boardHeight, const char symbol1,
-    const char symbol2
-    ): player1(_player1), player2(_player2), boardWidth(_boardWidth), boardHeight(_boardHeight) {
-    // Initializa o tabuleiro vazio
-    this->board = std::vector<std::vector<char>>(
-        this->boardHeight, std::vector<char>(this->boardWidth, ' ')
-        );
+BoardGame::BoardGame(Player& _player1, Player& _player2, const int boardHeight, const int boardWidth,
+    const char symbol1, const char symbol2
+    ): player1(_player1), player2(_player2), board(boardHeight, boardWidth) {
 
     // Define os simbolos para cada jogador
     player1.setSymbol(symbol1);
@@ -22,38 +17,7 @@ BoardGame::BoardGame(
 }
 
 void BoardGame::printBoard() const {
-    for (int line = 0; line < this->boardHeight; line++) { // Each line
-        // Print upper border
-        if (line == 0) {
-            for (int column = 0; column < this->boardWidth; column++) { // Each column
-                std::cout << "=====";
-                if (column < this->boardWidth - 1) std::cout << '=';
-            }
-            std::cout << std::endl;
-        }
-
-        /// Print the line content
-        for (int column = 0; column < this->boardWidth; column++) { // Each column
-            std::cout << "  " << this->board[line][column] << "  ";
-            if (column < this->boardWidth - 1) std::cout << '|';
-        }
-        std::cout << std::endl;
-
-        // Print the line border
-        if (line < this->boardHeight - 1) { // Not the last line
-            for (int column = 0; column < this->boardWidth; column++) { //
-                std::cout << "-----";
-                if (column < this->boardWidth - 1) std::cout << '+'; // Intersections
-            }
-            std::cout << std::endl;
-        } else { // Print the lower border
-            for (int column = 0; column < this->boardWidth; column++) { // Each column
-                std::cout << "=====";
-                if (column < this->boardWidth - 1) std::cout << '=';
-            }
-            std::cout << std::endl;
-        }
-    }
+    this->board.print();
 }
 
 std::vector<int> BoardGame::readMove() {
@@ -76,36 +40,26 @@ MoveStatus BoardGame::isMoveValid(const std::vector<int>& move) const {
     if (move.empty() || (move.size() > 2)) return MoveStatus::INCORRECT_FORMAT;
 
     if (move.size() == 1) {
-        if ((move[0] < 0) || (move[0] >= this->boardWidth)) return MoveStatus::INVALID_MOVE; // Verifica coluna
+        if ((move[0] < 0) || (move[0] >= this->board.getWidth())) return MoveStatus::INVALID_MOVE; // Verifica coluna
     }
 
     if (move.size() == 2) {
-        if ((move[0] < 0) || (move[0] >= this->boardHeight)) return MoveStatus::INVALID_MOVE; // Verifica linha
-        if ((move[1] < 0) || (move[1] >= this->boardWidth)) return MoveStatus::INVALID_MOVE; // Verifica coluna
+        if ((move[0] < 0) || (move[0] >= this->board.getHeight())) return MoveStatus::INVALID_MOVE; // Verifica linha
+        if ((move[1] < 0) || (move[1] >= this->board.getHeight())) return MoveStatus::INVALID_MOVE; // Verifica coluna
     }
 
     return MoveStatus::VALID_MOVE;
 }
 
 void BoardGame::makeMove(const std::vector<int>& move, const char symbol) {
-    if (move.size() == 2)
-        this->board[move[0]][move[1]] = symbol;
-    else {
-        // Place the piece in the first empty space of the column
-        for (int i = this->boardHeight - 1; i >= 0; i--) {
-            if (this->board[i][move[0]] == ' ') {
-                this->board[i][move[0]] = symbol;
-                break;
-            }
-        }
-    }
+    this->board.placeSymbol(move, symbol);
 }
 
 GameState BoardGame::getGameState() const {
     // Check if board is full
-    for (int i = 0; i < this->boardHeight; i++) {
-        for (int j = 0; j < this->boardWidth; j++) {
-            if (this->board[i][j] == ' ') return GameState::NOT_OVER; // Game is not over
+    for (int i = 0; i < this->board.getHeight(); i++) {
+        for (int j = 0; j < this->board.getWidth(); j++) {
+            if (this->board.getSymbol(i, j) == ' ') return GameState::NOT_OVER; // Game is not over
         }
     }
 

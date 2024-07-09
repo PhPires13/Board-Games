@@ -7,6 +7,7 @@
 
 #include <vector>
 
+#include "Board.hpp"
 #include "Player.hpp"
 
 enum MoveStatus {
@@ -27,8 +28,8 @@ enum GameState {
  */
 class BoardGame {
 protected:
-    static constexpr int defaultBoardWidth = 4;
     static constexpr int defaultBoardHeight = 4;
+    static constexpr int defaultBoardWidth = 4;
 
     static constexpr char defaultSymbol1 = 'X';
     static constexpr char defaultSymbol2 = 'O';
@@ -36,9 +37,7 @@ protected:
     Player& player1;
     Player& player2;
 
-    int boardWidth;
-    int boardHeight;
-    std::vector<std::vector<char>> board;
+    Board board;
 
 public:
     /**
@@ -46,13 +45,13 @@ public:
      *
      * @param _player1 Player 1 of the game
      * @param _player2 Player 2 of the game
-     * @param _boardWidth Width of the board
-     * @param _boardHeight Height of the board
+     * @param boardHeight Height of the board
+     * @param boardWidth Width of the board
      * @param symbol1 Symbol of player 1
      * @param symbol2 Symbol of player 2
      */
-    BoardGame(Player& _player1, Player& _player2, int _boardWidth = BoardGame::defaultBoardWidth,
-    int _boardHeight = BoardGame::defaultBoardHeight, char symbol1 = BoardGame::defaultSymbol1,
+    BoardGame(Player& _player1, Player& _player2, int boardHeight = BoardGame::defaultBoardHeight,
+    int boardWidth = BoardGame::defaultBoardWidth, char symbol1 = BoardGame::defaultSymbol1,
     char symbol2 = BoardGame::defaultSymbol2);
 
     /**
