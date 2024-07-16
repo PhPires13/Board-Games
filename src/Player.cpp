@@ -4,10 +4,13 @@
 
 #include "Player.hpp"
 
-Player::Player(
-    const std::string& _nick, const std::string& _name, const std::unordered_map<char, uint>& _wins,
-    const std::unordered_map<char, uint>& _losses
-    ): nick(_nick), name(_name), wins(_wins), losses(_losses) {
+#include <utility>
+
+Player::Player(std::string  _nick, std::string  _name,
+    const uint _reversiWins, const uint _reversiLosses,
+    const uint _lig4Wins, const uint _lig4Losses
+    ): nick(std::move(_nick)), name(std::move(_name)), reversiWins(_reversiWins), reversiLosses(_reversiLosses),
+lig4Wins(_lig4Wins), lig4Losses(_lig4Losses) {
     this->symbol = ' ';
 }
 
@@ -19,28 +22,38 @@ std::string Player::getName() const {
     return this->name;
 }
 
-std::unordered_map<char, uint> Player::getWins() const {
-    return this->wins;
-}
-
-std::unordered_map<char, uint> Player::getLosses() const {
-    return this->losses;
-}
-
 uint Player::getWins(const char game) const {
-    return this->wins.at(game);
+    if (game == 'L')
+        return this->lig4Wins;
+
+    if (game == 'R')
+        return this->reversiWins;
+
+    return 0;
 }
 
 uint Player::getLosses(const char game) const {
-    return this->losses.at(game);
+    if (game == 'L')
+        return this->lig4Losses;
+
+    if (game == 'R')
+        return this->reversiLosses;
+
+    return 0;
 }
 
 void Player::addWin(const char game) {
-    this->wins[game]++;
+    if (game == 'L')
+        this->lig4Wins++;
+    else if (game == 'R')
+        this->reversiWins++;
 }
 
 void Player::addLoss(const char game) {
-    this->losses[game]++;
+    if (game == 'L')
+        this->lig4Losses++;
+    else if (game == 'R')
+        this->reversiLosses++;
 }
 
 void Player::setSymbol(const char symbol) {

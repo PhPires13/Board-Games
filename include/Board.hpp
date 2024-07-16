@@ -7,7 +7,7 @@
 
 #include <vector>
 
-class Board {
+class Board final {
     int height;
     int width;
     std::vector<std::vector<char>> board;

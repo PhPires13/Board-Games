@@ -28,8 +28,11 @@ class Player {
     std::string nick;
     std::string name;
 
-    std::unordered_map<char, uint> wins;
-    std::unordered_map<char, uint> losses;
+    uint reversiWins;
+    uint reversiLosses;
+
+    uint lig4Wins;
+    uint lig4Losses;
 
     char symbol;
 
@@ -39,10 +42,13 @@ public:
      *
      * @param _nick Player's nickname
      * @param _name Player's name
-     * @param _wins Player's wins stats
-     * @param _losses Player's losses stats
+     * @param _reversiWins Player's wins in reversi
+     * @param _reversiLosses Player's losses in reversi
+     * @param _lig4Wins Player's wins in lig4
+     * @param _lig4Losses Player's losses in lig4
      */
-    Player(const std::string& _nick, const std::string& _name, const std::unordered_map<char, uint>& _wins = {}, const std::unordered_map<char, uint>& _losses = {});
+    Player(std::string  _nick, std::string  _name, uint _reversiWins = 0, uint _reversiLosses = 0,
+     uint _lig4Wins = 0, uint _lig4Losses = 0);
 
     /**
      * Get the player's nickname
@@ -59,32 +65,18 @@ public:
     std::string getName() const;
 
     /**
-     * Get the player's wins
+     * Get the player's wins of a game
+     *
+     * @param game letter that represents the game
      *
      * @return The player's wins stats
-     */
-    std::unordered_map<char, uint> getWins() const;
-
-    /**
-     * Get the player's losses
-     *
-     * @return The player's losses stats
-     */
-    std::unordered_map<char, uint> getLosses() const;
-
-    /**
-     * Get the player's wins
-     *
-     * @param game The game to get the wins
-     *
-     * @return The player's wins
      */
     uint getWins(char game) const;
 
     /**
-     * Get the player's losses
+     * Get the player's losses of a game
      *
-     * @param game The game to get the losses
+     * @param game letter that represents the game
      *
      * @return The player's losses stats
      */

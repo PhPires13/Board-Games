@@ -69,9 +69,9 @@ void Manager::listPlayers(const std::string &arguments) const {
 
 BoardGame* Manager::createMatch(char game, const Player& player1, const Player& player2, const std::string& extraArguments) const {
     if (game == 'R') {
-
+        // TODO: adicionar criacao do reversi
     } else if (game == 'L') {
-
+        // TODO: Adicionar criacao do lig4
     }
 }
 
