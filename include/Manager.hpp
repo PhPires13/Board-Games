@@ -19,7 +19,7 @@ public:
 
     static void printMenu();
 
-    void createPlayer(const std::string& arguments) const;
+    void createPlayer(std::string& arguments) const;
 
     void deletePlayer(const std::string& arguments) const;
 

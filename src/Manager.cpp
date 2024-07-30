@@ -31,14 +31,26 @@ void Manager::printMenu() {
     std::cout << "> " << std::endl;
 }
 
-void Manager::createPlayer(const std::string& arguments) const {
-    std::stringstream ss(arguments);
+void Manager::createPlayer(std::string& arguments) const {
     std::string nick, name;
+    char symbol = 0;
+
+    // Check if the arguments contains a symbol at the end
+    const uint lastSpace = arguments.find_last_of(' ');
+    if ((lastSpace != std::string::npos) && (lastSpace + 1 == arguments.size() - 1)) {
+        symbol = arguments[lastSpace + 1];
+        arguments = arguments.substr(0, lastSpace); // Remove the symbol from the arguments
+    }
+
+    // Read the rest of the arguments
+    std::stringstream ss(arguments);
     ss >> nick;
     std::getline(ss, name);
 
-    CreationStatus creationStatus = Player::createPlayer(nick, name);
+    // Create the player
+    const CreationStatus creationStatus = Player::createPlayer(nick, name, symbol);
 
+    // Check the creation status
     if (creationStatus == CreationStatus::CREATED)
         std::cout << "Jogador " << nick << " cadastrado com sucesso" << std::endl;
     else if (creationStatus == CreationStatus::INCORRECT_DATA)
@@ -131,6 +143,11 @@ void Manager::menu() const {
         std::string arguments;
         ss >> command;
         std::getline(ss, arguments);
+
+        // Remove non-alphanumeric characters from the end of the arguments
+        arguments.erase(std::remove_if(arguments.begin(), arguments.end(), [](char c) {
+            return !std::isalnum(c);
+        }), arguments.end());
 
         // TODO: pass databasePath argument
         if (command == "CJ")
