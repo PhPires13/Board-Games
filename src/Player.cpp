@@ -4,14 +4,17 @@
 
 #include "Player.hpp"
 
-#include <utility>
+#include <cctype>
 
-Player::Player(std::string  _nick, std::string  _name,
-    const uint _reversiWins, const uint _reversiLosses,
-    const uint _lig4Wins, const uint _lig4Losses
-    ): nick(std::move(_nick)), name(std::move(_name)), reversiWins(_reversiWins), reversiLosses(_reversiLosses),
-lig4Wins(_lig4Wins), lig4Losses(_lig4Losses) {
-    this->symbol = ' ';
+Player::Player(const std::string& _nick, std::string _name, const char symbol,
+    const uint _reversiWins, const uint _reversiLosses, const uint _lig4Wins, const uint _lig4Losses
+    ): nick(_nick), name(std::move(_name)), reversiWins(_reversiWins), reversiLosses(_reversiLosses), lig4Wins(_lig4Wins), lig4Losses(_lig4Losses) {
+    // If the symbol is not valid or hasnt't been choosen
+    if (symbol < firstValidSymbol || symbol > lastValidSymbol)
+        // the symbol will be the first letter of the nickname
+        this->symbol = static_cast<char>(std::toupper(_nick[0]));
+    else
+        this->symbol = symbol;
 }
 
 std::string Player::getNick() const {
@@ -20,6 +23,14 @@ std::string Player::getNick() const {
 
 std::string Player::getName() const {
     return this->name;
+}
+
+char Player::getSymbol() const {
+    return this->symbol;
+}
+
+void Player::setSymbol(const char symbol) {
+    this->symbol = symbol;
 }
 
 uint Player::getWins(const char game) const {
@@ -56,15 +67,7 @@ void Player::addLoss(const char game) {
         this->reversiLosses++;
 }
 
-void Player::setSymbol(const char symbol) {
-    this->symbol = symbol;
-}
-
-char Player::getSymbol() const {
-    return this->symbol;
-}
-
-CreationStatus Player::createPlayer(const std::string& nick, const std::string& name) {
+CreationStatus Player::createPlayer(const std::string& nick, const std::string& name, const char symbol) {
     // TODO: Implementar
     return CreationStatus::CREATED;
 }
@@ -74,7 +77,8 @@ Player* Player::loadPlayer(const std::string& nick) {
     return nullptr;
 }
 
-int Player::updatePlayer(const std::string& nick, const char game, const bool toAddWin, const bool toAddLoss, const std::string& name) {
+int Player::updatePlayer(const std::string& nick, const char game, const bool toAddWin, const bool toAddLoss,
+    const std::string& name, const char symbol) {
     // TODO: Implementar
     return 0;
 }

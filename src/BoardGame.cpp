@@ -7,13 +7,15 @@
 #include <iostream>
 #include <sstream>
 
-BoardGame::BoardGame(Player& _player1, Player& _player2, const int boardHeight, const int boardWidth,
-    const char symbol1, const char symbol2
+BoardGame::BoardGame(Player& _player1, Player& _player2, const int boardHeight, const int boardWidth
     ): player1(_player1), player2(_player2), board(boardHeight, boardWidth) {
 
-    // Define os simbolos para cada jogador
-    player1.setSymbol(symbol1);
-    player2.setSymbol(symbol2);
+    // Check if the players have the same symbol
+    if (player1.getSymbol() == player2.getSymbol()) {
+        // Change temporarily all the symbols to the default ones
+        player1.setSymbol(BoardGame::defaultSymbol1);
+        player2.setSymbol(BoardGame::defaultSymbol2);
+    }
 }
 
 void BoardGame::printBoard() const {

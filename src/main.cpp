@@ -6,8 +6,8 @@
 #include "Player.hpp"
 
 int main(int argc, char* argv[]) {
-    Player player1 = Player("J1", "Pedro");
-    Player player2 = Player("J2", "João");
+    Player player1 = Player("Ped", "Pedro");
+    Player player2 = Player("Joa", "João");
 
     BoardGame boardGame = BoardGame(player1, player2);
 

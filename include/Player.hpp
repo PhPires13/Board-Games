@@ -7,7 +7,6 @@
 
 #include <list>
 #include <string>
-#include <unordered_map>
 
 enum CreationStatus {
     CREATED,
@@ -25,8 +24,15 @@ enum DeletionStatus {
  * Class that represents the player, it is also responsible for allowing the interaction with the database
  */
 class Player {
+
+    static constexpr int firstValidSymbol = 33;
+    static constexpr char lastValidSymbol = 126;
+
+
     std::string nick;
     std::string name;
+
+    char symbol;
 
     uint reversiWins;
     uint reversiLosses;
@@ -34,20 +40,19 @@ class Player {
     uint lig4Wins;
     uint lig4Losses;
 
-    char symbol;
-
 public:
     /**
      * Create a new player instance
      *
      * @param _nick Player's nickname
      * @param _name Player's name
+     * @param symbol Player's symbol
      * @param _reversiWins Player's wins in reversi
      * @param _reversiLosses Player's losses in reversi
      * @param _lig4Wins Player's wins in lig4
      * @param _lig4Losses Player's losses in lig4
      */
-    Player(std::string  _nick, std::string  _name, uint _reversiWins = 0, uint _reversiLosses = 0,
+    Player(const std::string& _nick, std::string _name, char symbol = 0, uint _reversiWins = 0, uint _reversiLosses = 0,
      uint _lig4Wins = 0, uint _lig4Losses = 0);
 
     /**
@@ -63,6 +68,20 @@ public:
      * @return The player's name
      */
     std::string getName() const;
+
+    /**
+     * Get the player's symbol
+     *
+     * @return The player's symbol
+     */
+    char getSymbol() const;
+
+    /**
+     * Set the player's symbol, it is just during execution time, it does not change the database
+     *
+     * @param symbol The symbol to be set
+     */
+    void setSymbol(char symbol);
 
     /**
      * Get the player's wins of a game
@@ -97,29 +116,15 @@ public:
     void addLoss(char game);
 
     /**
-     * Set the player's symbol
-     *
-     * @param symbol The symbol to be set
-     */
-    void setSymbol(char symbol);
-
-    /**
-     * Get the player's symbol
-     *
-     * @return The player's symbol
-     */
-    char getSymbol() const;
-
-
-    /**
      * Create a new player in the database
      *
      * @param nick The player's nickname
      * @param name The player's name
+     * @param symbol The player's symbol
      *
      * @return CreationStatus enum
      */
-    static CreationStatus createPlayer(const std::string& nick, const std::string& name);
+    static CreationStatus createPlayer(const std::string& nick, const std::string& name, char symbol = 0);
 
     /**
      * Load a player from the database
@@ -138,8 +143,9 @@ public:
      * @param toAddWin If a win should be added
      * @param toAddLoss If a loss should be added
      * @param name (optional) The player's name to be changed
+     * @param symbol (optional) The player's symbol to be changed
      */
-    static int updatePlayer(const std::string& nick, char game, bool toAddWin, bool toAddLoss, const std::string& name = "");
+    static int updatePlayer(const std::string& nick, char game, bool toAddWin, bool toAddLoss, const std::string& name = "", char symbol = 0);
 
     /**
      * Delete a player from the database

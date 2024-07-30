@@ -47,12 +47,9 @@ public:
      * @param _player2 Player 2 of the game
      * @param boardHeight Height of the board
      * @param boardWidth Width of the board
-     * @param symbol1 Symbol of player 1
-     * @param symbol2 Symbol of player 2
      */
     BoardGame(Player& _player1, Player& _player2, int boardHeight = BoardGame::defaultBoardHeight,
-    int boardWidth = BoardGame::defaultBoardWidth, char symbol1 = BoardGame::defaultSymbol1,
-    char symbol2 = BoardGame::defaultSymbol2);
+    int boardWidth = BoardGame::defaultBoardWidth);
 
     /**
      * Print the current board state
