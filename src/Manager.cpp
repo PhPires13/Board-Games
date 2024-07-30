@@ -15,13 +15,20 @@ Manager::Manager(const std::string& _databasePath): databasePath(_databasePath) 
 }
 
 void Manager::printMenu() {
-     std::cout << "CJ: Cadastrar Jogador (<Apelido> <Nome>)" << std::endl;
-     std::cout << "RJ: Remover Jogador (<Apelido>)" << std::endl;
-     std::cout << "LJ: Listar Jogadores (<Ordem: [A|N]>)" << std::endl;
-     std::cout << "EP: Executar Partida (<Jogo: (R|L)> <Apelido Jogador 1> <Apelido Jogador 2>)" << std::endl;
-     std::cout << "FS: Finalizar Sistema" << std::endl;
-     std::cout << std::endl;
-     std::cout << "> " << std::endl;
+    std::cout << "Obs.:" << std::endl;
+    std::cout << "?: parametros opcionais" << std::endl;
+    std::cout << "R: reversi, tabuleiro: quadrado, min 6x6 \t";
+    std::cout << "L: lig4, tabuleiro: min 4x4";
+    std::cout << std::endl << std::endl;
+
+    std::cout << "------------------------------------ MENU ------------------------------------"  << std::endl;
+    std::cout << "CJ: Cadastrar Jogador (<Apelido> <Nome> <? Simbolo>)" << std::endl;
+    std::cout << "RJ: Remover Jogador (<Apelido>)" << std::endl;
+    std::cout << "LJ: Listar Jogadores (<Ordem: [A|N]>)" << std::endl;
+    std::cout << "EP: Executar Partida (<Jogo: (R|L)> <Apelido Jogador 1> <Apelido Jogador 2> <? Altura Tabuleiro> <? Largura Tabuleiro>)" << std::endl;
+    std::cout << "FS: Finalizar Sistema" << std::endl;
+    std::cout << std::endl;
+    std::cout << "> " << std::endl;
 }
 
 void Manager::createPlayer(const std::string& arguments) const {

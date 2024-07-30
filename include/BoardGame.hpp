@@ -49,7 +49,7 @@ public:
      * @param boardWidth Width of the board
      */
     BoardGame(Player& _player1, Player& _player2, int boardHeight = BoardGame::defaultBoardHeight,
-    int boardWidth = BoardGame::defaultBoardWidth);
+     int boardWidth = BoardGame::defaultBoardWidth);
 
     /**
      * Print the current board state
