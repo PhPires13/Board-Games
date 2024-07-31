@@ -4,7 +4,6 @@
 
 #include "BoardGame.hpp"
 
-#include <algorithm>
 #include <iostream>
 #include <sstream>
 
