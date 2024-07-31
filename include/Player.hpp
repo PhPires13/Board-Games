@@ -7,6 +7,7 @@
 
 #include <list>
 #include <string>
+#include <cstdint>
 
 enum CreationStatus {
     CREATED,
@@ -34,11 +35,11 @@ class Player {
 
     char symbol;
 
-    uint reversiWins;
-    uint reversiLosses;
+    uint32_t reversiWins;
+    uint32_t reversiLosses;
 
-    uint lig4Wins;
-    uint lig4Losses;
+    uint32_t lig4Wins;
+    uint32_t lig4Losses;
 
 public:
     /**
@@ -52,8 +53,8 @@ public:
      * @param _lig4Wins Player's wins in lig4
      * @param _lig4Losses Player's losses in lig4
      */
-    Player(const std::string& _nick, std::string _name, char symbol = 0, uint _reversiWins = 0, uint _reversiLosses = 0,
-     uint _lig4Wins = 0, uint _lig4Losses = 0);
+    Player(const std::string& _nick, std::string _name, char symbol = 0, uint32_t _reversiWins = 0, uint32_t _reversiLosses = 0,
+     uint32_t _lig4Wins = 0, uint32_t _lig4Losses = 0);
 
     /**
      * Get the player's nickname
@@ -90,7 +91,7 @@ public:
      *
      * @return The player's wins stats
      */
-    uint getWins(char game) const;
+    uint32_t getWins(char game) const;
 
     /**
      * Get the player's losses of a game
@@ -99,7 +100,7 @@ public:
      *
      * @return The player's losses stats
      */
-    uint getLosses(char game) const;
+    uint32_t getLosses(char game) const;
 
     /**
      * Add a win to the player

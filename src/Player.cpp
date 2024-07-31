@@ -7,7 +7,7 @@
 #include <cctype>
 
 Player::Player(const std::string& _nick, std::string _name, const char symbol,
-    const uint _reversiWins, const uint _reversiLosses, const uint _lig4Wins, const uint _lig4Losses
+    const uint32_t _reversiWins, const uint32_t _reversiLosses, const uint32_t _lig4Wins, const uint32_t _lig4Losses
     ): nick(_nick), name(std::move(_name)), reversiWins(_reversiWins), reversiLosses(_reversiLosses), lig4Wins(_lig4Wins), lig4Losses(_lig4Losses) {
     // If the symbol is not valid or hasnt't been choosen
     if (symbol < firstValidSymbol || symbol > lastValidSymbol)
@@ -33,7 +33,7 @@ void Player::setSymbol(const char symbol) {
     this->symbol = symbol;
 }
 
-uint Player::getWins(const char game) const {
+uint32_t Player::getWins(const char game) const {
     if (game == 'L')
         return this->lig4Wins;
 
@@ -43,7 +43,7 @@ uint Player::getWins(const char game) const {
     return 0;
 }
 
-uint Player::getLosses(const char game) const {
+uint32_t Player::getLosses(const char game) const {
     if (game == 'L')
         return this->lig4Losses;
 

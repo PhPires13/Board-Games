@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <cstdint>
 
 #include "BoardGame.hpp"
 #include "Player.hpp"
@@ -36,7 +37,7 @@ void Manager::createPlayer(std::string& arguments) const {
     char symbol = 0;
 
     // Check if the arguments contains a symbol at the end
-    const uint lastSpace = arguments.find_last_of(' ');
+    const uint32_t lastSpace = arguments.find_last_of(' ');
     if ((lastSpace != std::string::npos) && (lastSpace + 1 == arguments.size() - 1)) {
         symbol = arguments[lastSpace + 1];
         arguments = arguments.substr(0, lastSpace); // Remove the symbol from the arguments
