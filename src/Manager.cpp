@@ -147,9 +147,9 @@ void Manager::menu() const {
         std::getline(ss, arguments);
 
         // Remove non-alphanumeric characters from the end of the arguments
-        arguments.erase(std::remove_if(arguments.begin(), arguments.end(), [](char c) {
-            return !std::isalnum(c);
-        }), arguments.end());
+        arguments.erase(std::find_if(arguments.rbegin(), arguments.rend(), [](char c) {
+            return std::isalnum(c);
+        }).base(), arguments.end());
 
         // TODO: pass databasePath argument
         if (command == "CJ")

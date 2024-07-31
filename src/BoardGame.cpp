@@ -28,6 +28,17 @@ std::vector<int> BoardGame::readMove() {
 
     std::string line;
     std::getline(std::cin, line);
+
+    // Remove non-alphanumeric characters from the end of the line
+    line.erase(std::find_if(line.rbegin(), line.rend(), [](char c) {
+        return std::isalnum(c);
+    }).base(), line.end());
+
+    // Remove non-alphanumeric characters from the begining of the line
+    line.erase(line.begin(), std::find_if(line.begin(), line.end(), [](char c) {
+        return std::isalnum(c);
+    }));
+
     std::stringstream lineStream(line);
 
     int value;
