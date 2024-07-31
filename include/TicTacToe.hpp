@@ -1,5 +1,5 @@
 //
-// Created by Paulo Henrique Pires  on 30/07/24.
+// Created by Pedro Henrique Pires  on 30/07/24.
 //
 
 #ifndef TICTACTOE_HPP

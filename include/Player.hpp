@@ -41,6 +41,9 @@ class Player {
     uint32_t lig4Wins;
     uint32_t lig4Losses;
 
+    uint32_t tttWins;
+    uint32_t tttLosses;
+
 public:
     /**
      * Create a new player instance
@@ -52,9 +55,11 @@ public:
      * @param _reversiLosses Player's losses in reversi
      * @param _lig4Wins Player's wins in lig4
      * @param _lig4Losses Player's losses in lig4
+     * @param _tttWins Player's wins in ttt
+     * @param _tttLosses Player's losses in ttt
      */
     Player(const std::string& _nick, std::string _name, char symbol = 0, uint32_t _reversiWins = 0, uint32_t _reversiLosses = 0,
-     uint32_t _lig4Wins = 0, uint32_t _lig4Losses = 0);
+     uint32_t _lig4Wins = 0, uint32_t _lig4Losses = 0, uint32_t _tttWins = 0, uint32_t _tttLosses = 0);
 
     /**
      * Get the player's nickname
@@ -107,14 +112,14 @@ public:
      *
      * @param game The game to add the win
      */
-    void addWin(char game);
+    void addWin(char game); // TODO: validar de remover
 
     /**
      * Add a loss to the player
      *
      * @param game The game to add the loss
      */
-    void addLoss(char game);
+    void addLoss(char game); // TODO: validar de remover
 
     /**
      * Create a new player in the database

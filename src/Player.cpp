@@ -6,9 +6,11 @@
 
 #include <cctype>
 
-Player::Player(const std::string& _nick, std::string _name, const char symbol,
-    const uint32_t _reversiWins, const uint32_t _reversiLosses, const uint32_t _lig4Wins, const uint32_t _lig4Losses
-    ): nick(_nick), name(std::move(_name)), reversiWins(_reversiWins), reversiLosses(_reversiLosses), lig4Wins(_lig4Wins), lig4Losses(_lig4Losses) {
+Player::Player(const std::string& _nick, std::string _name, const char symbol, const uint32_t _reversiWins, const uint32_t _reversiLosses,
+    const uint32_t _lig4Wins, const uint32_t _lig4Losses, const uint32_t _tttWins, const uint32_t _tttLosses
+    ): nick(_nick), name(std::move(_name)), reversiWins(_reversiWins), reversiLosses(_reversiLosses),
+        lig4Wins(_lig4Wins), lig4Losses(_lig4Losses), tttWins(_tttWins), tttLosses(_tttLosses) {
+
     // If the symbol is not valid or hasnt't been choosen
     if (symbol < firstValidSymbol || symbol > lastValidSymbol)
         // the symbol will be the first letter of the nickname
@@ -40,6 +42,9 @@ uint32_t Player::getWins(const char game) const {
     if (game == 'R')
         return this->reversiWins;
 
+    if (game == 'V')
+        return this->tttWins;
+
     return 0;
 }
 
@@ -50,6 +55,9 @@ uint32_t Player::getLosses(const char game) const {
     if (game == 'R')
         return this->reversiLosses;
 
+    if (game == 'V')
+        return this->tttLosses;
+
     return 0;
 }
 
@@ -58,6 +66,8 @@ void Player::addWin(const char game) {
         this->lig4Wins++;
     else if (game == 'R')
         this->reversiWins++;
+    else if (game == 'V')
+        this->tttWins++;
 }
 
 void Player::addLoss(const char game) {
@@ -65,6 +75,8 @@ void Player::addLoss(const char game) {
         this->lig4Losses++;
     else if (game == 'R')
         this->reversiLosses++;
+    else if (game == 'V')
+        this->tttLosses++;
 }
 
 CreationStatus Player::createPlayer(const std::string& nick, const std::string& name, const char symbol) {
