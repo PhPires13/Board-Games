@@ -15,4 +15,6 @@ add_executable(Board_Games src/main.cpp
         include/Manager.hpp
         src/Manager.cpp
         include/TicTacToe.hpp
-        src/TicTacToe.cpp)
+        src/TicTacToe.cpp
+        include/utils.hpp
+)

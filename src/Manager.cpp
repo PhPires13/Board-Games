@@ -12,6 +12,7 @@
 #include "BoardGame.hpp"
 #include "Player.hpp"
 #include "TicTacToe.hpp"
+#include "Utils.hpp"
 
 Manager::Manager(const std::string& _databasePath): databasePath(_databasePath) {
 
@@ -147,17 +148,7 @@ void Manager::menu() const {
         // Read command line
         std::string commandLine;
         std::getline(std::cin, commandLine);
-
-        // Remove non-alphanumeric characters from the begining of the line
-        commandLine.erase(commandLine.begin(), std::find_if(commandLine.begin(), commandLine.end(), [](char c) {
-            return std::isalnum(c);
-        }));
-
-        // Remove non-alphanumeric characters from the end of the commandLine
-        commandLine.erase(std::find_if(commandLine.rbegin(), commandLine.rend(), [](char c) {
-            return std::isalnum(c);
-        }).base(), commandLine.end());
-
+        commandLine = Utils::removeNonAlphaNum(commandLine);
         std::stringstream ss(commandLine);
 
         std::string command;

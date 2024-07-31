@@ -8,8 +8,10 @@
 #include <iostream>
 #include <sstream>
 
+#include "Utils.hpp"
+
 BoardGame::BoardGame(Player& _player1, Player& _player2, const int boardHeight, const int boardWidth
-    ): player1(_player1), player2(_player2), board(boardHeight, boardWidth) {
+): player1(_player1), player2(_player2), board(boardHeight, boardWidth) {
 
     // Check if the players have the same symbol
     if (player1.getSymbol() == player2.getSymbol()) {
@@ -29,17 +31,7 @@ std::vector<int> BoardGame::readMove() {
 
     std::string line;
     std::getline(std::cin, line);
-
-    // Remove non-alphanumeric characters from the begining of the line
-    line.erase(line.begin(), std::find_if(line.begin(), line.end(), [](char c) {
-        return std::isalnum(c);
-    }));
-
-    // Remove non-alphanumeric characters from the end of the line
-    line.erase(std::find_if(line.rbegin(), line.rend(), [](char c) {
-        return std::isalnum(c);
-    }).base(), line.end());
-
+    line = Utils::removeNonAlphaNum(line);
     std::stringstream lineStream(line);
 
     int value;
