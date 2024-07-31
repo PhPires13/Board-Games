@@ -11,6 +11,7 @@
 
 #include "BoardGame.hpp"
 #include "Player.hpp"
+#include "TicTacToe.hpp"
 
 Manager::Manager(const std::string& _databasePath): databasePath(_databasePath) {
 
@@ -20,14 +21,15 @@ void Manager::printMenu() {
     std::cout << "Obs.:" << std::endl;
     std::cout << "?: parametros opcionais" << std::endl;
     std::cout << "R: reversi, tabuleiro: quadrado, min 6x6 \t";
-    std::cout << "L: lig4, tabuleiro: min 4x4";
+    std::cout << "L: liga4, tabuleiro: min 4x4\t";
+    std::cout << "V: velha, tabuleiro: 3x3";
     std::cout << std::endl << std::endl;
 
     std::cout << "------------------------------------ MENU ------------------------------------"  << std::endl;
     std::cout << "CJ: Cadastrar Jogador (<Apelido> <Nome> <? Simbolo>)" << std::endl;
     std::cout << "RJ: Remover Jogador (<Apelido>)" << std::endl;
     std::cout << "LJ: Listar Jogadores (<Ordem: [A|N]>)" << std::endl;
-    std::cout << "EP: Executar Partida (<Jogo: (R|L)> <Apelido Jogador 1> <Apelido Jogador 2> <? Altura Tabuleiro> <? Largura Tabuleiro>)" << std::endl;
+    std::cout << "EP: Executar Partida (<Jogo: (R|L|V)> <Apelido Jogador 1> <Apelido Jogador 2> <? Altura Tabuleiro> <? Largura Tabuleiro>)" << std::endl;
     std::cout << "FS: Finalizar Sistema" << std::endl;
     std::cout << std::endl;
     std::cout << "> " << std::endl;
@@ -89,11 +91,17 @@ void Manager::listPlayers(const std::string &arguments) const {
 }
 
 BoardGame* Manager::createMatch(char game, const Player& player1, const Player& player2, const std::string& extraArguments) const {
+    BoardGame* boardGame = nullptr;
+
     if (game == 'R') {
         // TODO: adicionar criacao do reversi
     } else if (game == 'L') {
         // TODO: Adicionar criacao do lig4
+    } else if (game == 'V') {
+        boardGame = new TicTacToe(const_cast<Player&>(player1), const_cast<Player&>(player2));
     }
+
+    return boardGame;
 }
 
 
@@ -139,17 +147,23 @@ void Manager::menu() const {
         // Read command line
         std::string commandLine;
         std::getline(std::cin, commandLine);
+
+        // Remove non-alphanumeric characters from the begining of the line
+        commandLine.erase(commandLine.begin(), std::find_if(commandLine.begin(), commandLine.end(), [](char c) {
+            return std::isalnum(c);
+        }));
+
+        // Remove non-alphanumeric characters from the end of the commandLine
+        commandLine.erase(std::find_if(commandLine.rbegin(), commandLine.rend(), [](char c) {
+            return std::isalnum(c);
+        }).base(), commandLine.end());
+
         std::stringstream ss(commandLine);
 
         std::string command;
         std::string arguments;
         ss >> command;
         std::getline(ss, arguments);
-
-        // Remove non-alphanumeric characters from the end of the arguments
-        arguments.erase(std::find_if(arguments.rbegin(), arguments.rend(), [](char c) {
-            return std::isalnum(c);
-        }).base(), arguments.end());
 
         // TODO: pass databasePath argument
         if (command == "CJ")

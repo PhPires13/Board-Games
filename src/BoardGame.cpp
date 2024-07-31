@@ -30,15 +30,15 @@ std::vector<int> BoardGame::readMove() {
     std::string line;
     std::getline(std::cin, line);
 
-    // Remove non-alphanumeric characters from the end of the line
-    line.erase(std::find_if(line.rbegin(), line.rend(), [](char c) {
-        return std::isalnum(c);
-    }).base(), line.end());
-
     // Remove non-alphanumeric characters from the begining of the line
     line.erase(line.begin(), std::find_if(line.begin(), line.end(), [](char c) {
         return std::isalnum(c);
     }));
+
+    // Remove non-alphanumeric characters from the end of the line
+    line.erase(std::find_if(line.rbegin(), line.rend(), [](char c) {
+        return std::isalnum(c);
+    }).base(), line.end());
 
     std::stringstream lineStream(line);
 
@@ -51,13 +51,13 @@ std::vector<int> BoardGame::readMove() {
 }
 
 MoveStatus BoardGame::isMoveValid(const std::vector<int>& move) const {
+    // Move input size
     if (move.empty() || (move.size() > 2)) return MoveStatus::INCORRECT_FORMAT;
 
+    // If move is inside board
     if (move.size() == 1) {
         if ((move[0] < 0) || (move[0] >= this->board.getWidth())) return MoveStatus::INVALID_MOVE; // Verifica coluna
-    }
-
-    if (move.size() == 2) {
+    } else if (move.size() == 2) {
         if ((move[0] < 0) || (move[0] >= this->board.getHeight())) return MoveStatus::INVALID_MOVE; // Verifica linha
         if ((move[1] < 0) || (move[1] >= this->board.getHeight())) return MoveStatus::INVALID_MOVE; // Verifica coluna
     }

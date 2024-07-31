@@ -4,12 +4,13 @@
 
 #include "BoardGame.hpp"
 #include "Player.hpp"
+#include "TicTacToe.hpp"
 
 int main(int argc, char* argv[]) {
     Player player1 = Player("Ped", "Pedro");
     Player player2 = Player("Joa", "João");
 
-    BoardGame boardGame = BoardGame(player1, player2);
+    TicTacToe boardGame = TicTacToe(player1, player2);
 
     boardGame.playGame();
 
