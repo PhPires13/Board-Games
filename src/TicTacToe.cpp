@@ -8,13 +8,16 @@ TicTacToe::TicTacToe(Player &_player1, Player &_player2
     ): BoardGame(_player1, _player2, TicTacToe::defaultBoardHeight, TicTacToe::defaultBoardHeight) {}
 
 MoveStatus TicTacToe::isMoveValid(const std::vector<int> &move) const {
+    const MoveStatus parentValidation = BoardGame::isMoveValid(move);
+    if (parentValidation != MoveStatus::VALID_MOVE) return parentValidation;
+
     // Move input size
     if (move.size() != 2) return MoveStatus::INCORRECT_FORMAT;
 
     // Place is empty
     if (this->board.getSymbol(move[0], move[1]) != ' ') return MoveStatus::INVALID_MOVE;
 
-    return BoardGame::isMoveValid(move);
+    return MoveStatus::VALID_MOVE;
 }
 
 GameState TicTacToe::getGameState() const {

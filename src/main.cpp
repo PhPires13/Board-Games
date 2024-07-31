@@ -10,9 +10,10 @@ int main(int argc, char* argv[]) {
     Player player1 = Player("Ped", "Pedro");
     Player player2 = Player("Joa", "João");
 
-    TicTacToe boardGame = TicTacToe(player1, player2);
+    // Needs to be a pointer or the right class
+    BoardGame* boardGame = new TicTacToe(player1, player2);
 
-    boardGame.playGame();
+    boardGame->playGame();
 
     return 0;
 }
