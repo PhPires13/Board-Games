@@ -10,12 +10,6 @@
 #include "Board.hpp"
 #include "Player.hpp"
 
-enum MoveStatus {
-    INCORRECT_FORMAT = -1,
-    INVALID_MOVE = 0,
-    VALID_MOVE = 1,
-};
-
 enum GameState {
     NOT_OVER = 0,
     PLAYER1_WINS = 1,
@@ -64,13 +58,13 @@ public:
     static std::vector<int> readMove();
 
     /**
-     * Check if the move is valid
+     * Validate if move is valid by throwing exceptions if not
      *
      * @param move The move to be checked
      *
-     * @return MovieStatus enum
+     * @throws incorrect_format, invalid_move
      */
-    virtual MoveStatus isMoveValid(const std::vector<int>& move) const;
+    virtual void validateMove(const std::vector<int>& move) const;
 
     /**
      * Execute move on the board

@@ -7,6 +7,7 @@
 #include <iostream>
 #include <sstream>
 
+#include "exceptions.hpp"
 #include "Utils.hpp"
 
 BoardGame::BoardGame(Player& _player1, Player& _player2, const int boardHeight, const int boardWidth
@@ -41,19 +42,17 @@ std::vector<int> BoardGame::readMove() {
     return move;
 }
 
-MoveStatus BoardGame::isMoveValid(const std::vector<int>& move) const {
+void BoardGame::validateMove(const std::vector<int>& move) const {
     // Move input size
-    if (move.empty() || (move.size() > 2)) return MoveStatus::INCORRECT_FORMAT;
+    if (move.empty() || (move.size() > 2)) throw incorrect_format();
 
     // If move is inside board
     if (move.size() == 1) {
-        if ((move[0] < 0) || (move[0] >= this->board.getWidth())) return MoveStatus::INVALID_MOVE; // Verifica coluna
+        if ((move[0] < 0) || (move[0] >= this->board.getWidth())) throw invalid_move(); // Verifica coluna
     } else if (move.size() == 2) {
-        if ((move[0] < 0) || (move[0] >= this->board.getHeight())) return MoveStatus::INVALID_MOVE; // Verifica linha
-        if ((move[1] < 0) || (move[1] >= this->board.getHeight())) return MoveStatus::INVALID_MOVE; // Verifica coluna
+        if ((move[0] < 0) || (move[0] >= this->board.getHeight())) throw invalid_move(); // Verifica linha
+        if ((move[1] < 0) || (move[1] >= this->board.getHeight())) throw invalid_move(); // Verifica coluna
     }
-
-    return MoveStatus::VALID_MOVE;
 }
 
 void BoardGame::makeMove(const std::vector<int>& move, const char symbol) {
@@ -105,10 +104,10 @@ GameState BoardGame::playGame() {
             std::cout << "Turno de jogador " << turnPlayer.getName() << ": ";
             std::vector<int> move = BoardGame::readMove();
 
-            const MoveStatus moveValidation = this->isMoveValid(move);
-            if (moveValidation != MoveStatus::VALID_MOVE) {
-                if (moveValidation == MoveStatus::INVALID_MOVE) std::cout << "ERRO: jogada inválida" << std::endl;
-                else if (moveValidation == MoveStatus::INCORRECT_FORMAT) std::cout << "ERRO: formato incorreto" << std::endl;
+            try {
+                this->validateMove(move);
+            } catch (const std::exception& e) {
+                std::cout << e.what() << std::endl;
                 continue;
             }
 

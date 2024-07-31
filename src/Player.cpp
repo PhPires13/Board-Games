@@ -79,9 +79,8 @@ void Player::addLoss(const char game) {
         this->tttLosses++;
 }
 
-CreationStatus Player::createPlayer(const std::string& nick, const std::string& name, const char symbol) {
+void Player::createPlayer(const std::string& nick, const std::string& name, const char symbol) {
     // TODO: Implementar
-    return CreationStatus::CREATED;
 }
 
 Player* Player::loadPlayer(const std::string& nick) {
@@ -89,15 +88,13 @@ Player* Player::loadPlayer(const std::string& nick) {
     return nullptr;
 }
 
-int Player::updatePlayer(const std::string& nick, const char game, const bool toAddWin, const bool toAddLoss,
+void Player::updatePlayer(const std::string& nick, const char game, const bool toAddWin, const bool toAddLoss,
     const std::string& name, const char symbol) {
     // TODO: Implementar
-    return 0;
 }
 
-DeletionStatus Player::deletePlayer(const std::string& nick) {
+void Player::deletePlayer(const std::string& nick) {
     // TODO: Implementar
-    return DeletionStatus::DELETED;
 }
 
 std::list<Player> Player::getAllPlayers() {

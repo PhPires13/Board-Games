@@ -9,18 +9,6 @@
 #include <string>
 #include <cstdint>
 
-enum CreationStatus {
-    CREATED,
-    INCORRECT_DATA,
-    DUPLICATED_PLAYER
-};
-
-enum DeletionStatus {
-    DELETED,
-    PLAYER_NOT_FOUND,
-    DELETION_ERROR
-};
-
 /**
  * Class that represents the player, it is also responsible for allowing the interaction with the database
  */
@@ -128,9 +116,9 @@ public:
      * @param name The player's name
      * @param symbol The player's symbol
      *
-     * @return CreationStatus enum
+     * @throws incorrect_data, duplicated_player
      */
-    static CreationStatus createPlayer(const std::string& nick, const std::string& name, char symbol = 0);
+    static void createPlayer(const std::string& nick, const std::string& name, char symbol = 0);
 
     /**
      * Load a player from the database
@@ -150,17 +138,19 @@ public:
      * @param toAddLoss If a loss should be added
      * @param name (optional) The player's name to be changed
      * @param symbol (optional) The player's symbol to be changed
+     *
+     * @throws update_error
      */
-    static int updatePlayer(const std::string& nick, char game, bool toAddWin, bool toAddLoss, const std::string& name = "", char symbol = 0);
+    static void updatePlayer(const std::string& nick, char game, bool toAddWin, bool toAddLoss, const std::string& name = "", char symbol = 0);
 
     /**
      * Delete a player from the database
      *
      * @param nick The player's nickname
      *
-     * @return DeletionStatus enum
+     * @throws player_not_found, deletion_error
      */
-    static DeletionStatus deletePlayer(const std::string& nick);
+    static void deletePlayer(const std::string& nick);
 
     /**
      * Load all players from the database

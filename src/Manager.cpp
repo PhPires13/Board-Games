@@ -9,6 +9,7 @@
 #include <cstdint>
 
 #include "BoardGame.hpp"
+#include "exceptions.hpp"
 #include "Player.hpp"
 #include "TicTacToe.hpp"
 #include "Utils.hpp"
@@ -52,15 +53,9 @@ void Manager::createPlayer(std::string& arguments) const {
     std::getline(ss, name);
 
     // Create the player
-    const CreationStatus creationStatus = Player::createPlayer(nick, name, symbol);
+    Player::createPlayer(nick, name, symbol);
 
-    // Check the creation status
-    if (creationStatus == CreationStatus::CREATED)
-        std::cout << "Jogador " << nick << " cadastrado com sucesso" << std::endl;
-    else if (creationStatus == CreationStatus::INCORRECT_DATA)
-        std::cout << "ERRO: dados incorretos" << std::endl;
-    else if (creationStatus == CreationStatus::DUPLICATED_PLAYER)
-        std::cout << "ERRO: jogador repetido" << std::endl;
+    std::cout << "Jogador " << nick << " cadastrado com sucesso" << std::endl;
 }
 
 void Manager::deletePlayer(const std::string& arguments) const {
@@ -68,14 +63,10 @@ void Manager::deletePlayer(const std::string& arguments) const {
     std::string nick;
     ss >> nick;
 
-    DeletionStatus deletionStatus = Player::deletePlayer(nick);
+    // Delete the player
+    Player::deletePlayer(nick);
 
-    if (deletionStatus == DeletionStatus::DELETED)
-        std::cout << "Jogador " << nick << " removido com sucesso" << std::endl;
-    else if (deletionStatus == DeletionStatus::PLAYER_NOT_FOUND)
-        std::cout << "ERRO: jogador inexistente" << std::endl;
-    else if (deletionStatus == DeletionStatus::DELETION_ERROR)
-        std::cout << "ERRO: erro ao remover jogador" << std::endl;
+    std::cout << "Jogador " << nick << " removido com sucesso" << std::endl;
 }
 
 void Manager::listPlayers(const std::string &arguments) const {
@@ -93,12 +84,26 @@ void Manager::listPlayers(const std::string &arguments) const {
 BoardGame* Manager::createMatch(char game, const Player& player1, const Player& player2, const std::string& extraArguments) const {
     BoardGame* boardGame = nullptr;
 
+    // Get the custom board size if sent
+    uint32_t boardHeight=0, boardWidth=0;
+    if (!extraArguments.empty()) {
+        std::stringstream ss(extraArguments);
+        try {
+            ss >> boardHeight >> boardWidth;
+        } catch (std::exception& e) {
+            throw incorrect_data();
+        }
+    }
+
+    // Create the game instance
     if (game == 'R') {
         // TODO: adicionar criacao do reversi
     } else if (game == 'L') {
         // TODO: Adicionar criacao do lig4
     } else if (game == 'V') {
         boardGame = new TicTacToe(const_cast<Player&>(player1), const_cast<Player&>(player2));
+    } else {
+        boardGame = new BoardGame(const_cast<Player&>(player1), const_cast<Player&>(player2), boardHeight, boardWidth);
     }
 
     return boardGame;
@@ -112,16 +117,14 @@ void Manager::playMatch(const std::string &arguments) const {
     try {
         ss >> game >> nick1 >> nick2;
     } catch (std::exception& e) {
-        std::cout << "ERRO: dados incorretos" << std::endl;
-        return;
+        throw incorrect_data();
     }
 
     // Recover players
     Player* player1 = Player::loadPlayer(nick1);
     Player* player2 = Player::loadPlayer(nick2);
     if (player1 == nullptr || player2 == nullptr) {
-        std::cout << "ERRO: jogador inexistente" << std::endl;
-        return;
+        throw player_not_found();
     }
 
     // Create a game instance of the specified type
@@ -156,17 +159,21 @@ void Manager::menu() const {
         std::getline(ss, arguments);
 
         // TODO: pass databasePath argument
-        if (command == "CJ")
-            createPlayer(arguments);
-        else if (command == "RJ")
-            deletePlayer(arguments);
-        else if (command == "LJ")
-            listPlayers(arguments);
-        else if (command == "EP")
-            playMatch(arguments);
-        else if (command == "FS")
-            break;
-        else
-            std::cout << "ERRO: comando inválido" << std::endl;
+        try {
+            if (command == "CJ")
+                createPlayer(arguments);
+            else if (command == "RJ")
+                deletePlayer(arguments);
+            else if (command == "LJ")
+                listPlayers(arguments);
+            else if (command == "EP")
+                playMatch(arguments);
+            else if (command == "FS")
+                break;
+            else
+                std::cout << "ERRO: comando inválido" << std::endl;
+        } catch (std::exception &e) {
+            std::cout << e.what() << std::endl;
+        }
     }
 }

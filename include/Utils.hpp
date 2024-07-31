@@ -8,7 +8,7 @@
 #include <algorithm>
 #include <string>
 
-// TODO: validar criacao cpp
+// TODO: validar criacao .cpp
 
 class Utils {
 public:
