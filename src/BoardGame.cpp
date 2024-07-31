@@ -78,7 +78,7 @@ GameState BoardGame::playGame() {
     while (true) {
         turn++;
 
-        #ifdef WINDOWS
+        #ifdef _WIN32
         system("cls");
         #else
         system("clear");
