@@ -103,12 +103,11 @@ BoardGame* Manager::createMatch(char game, const Player& player1, const Player& 
     } else if (game == 'V') {
         boardGame = new TicTacToe(const_cast<Player&>(player1), const_cast<Player&>(player2));
     } else {
-        boardGame = new BoardGame(const_cast<Player&>(player1), const_cast<Player&>(player2), boardHeight, boardWidth);
+        throw game_not_found();
     }
 
     return boardGame;
 }
-
 
 void Manager::playMatch(const std::string &arguments) const {
     std::stringstream ss(arguments);
@@ -145,21 +144,22 @@ void Manager::playMatch(const std::string &arguments) const {
 
 void Manager::menu() const {
     while (true) {
-        Manager::printMenu();
-
-        // Read command line
-        std::string commandLine;
-        std::getline(std::cin, commandLine);
-        commandLine = Utils::removeNonAlphaNum(commandLine);
-        std::stringstream ss(commandLine);
-
-        std::string command;
-        std::string arguments;
-        ss >> command;
-        std::getline(ss, arguments);
-
-        // TODO: pass databasePath argument
         try {
+            Manager::printMenu();
+
+            // Read command line
+            std::string commandLine;
+            std::getline(std::cin, commandLine);
+            commandLine = Utils::removeNonAlphaNum(commandLine);
+            if (commandLine.size() > Manager::maxCommandSize) throw size_exceeded();
+            std::stringstream ss(commandLine);
+
+            std::string command;
+            std::string arguments;
+            ss >> command;
+            std::getline(ss, arguments);
+
+            // TODO: pass databasePath argument
             if (command == "CJ")
                 createPlayer(arguments);
             else if (command == "RJ")
@@ -171,7 +171,7 @@ void Manager::menu() const {
             else if (command == "FS")
                 break;
             else
-                std::cout << "ERRO: comando inválido" << std::endl;
+                throw invalid_command();
         } catch (std::exception &e) {
             std::cout << e.what() << std::endl;
         }

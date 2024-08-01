@@ -12,6 +12,8 @@
 class BoardGame;
 
 class Manager {
+    static constexpr uint32_t maxCommandSize = 100;
+
     std::string databasePath;
 
 public:
