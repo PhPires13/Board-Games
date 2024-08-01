@@ -13,6 +13,7 @@
  * Class that represents the player, it is also responsible for allowing the interaction with the database
  */
 class Player {
+    static std::string filePath;
 
     static constexpr int firstValidSymbol = 33;
     static constexpr char lastValidSymbol = 126;
@@ -110,6 +111,13 @@ public:
     void addLoss(char game); // TODO: validar de remover
 
     /**
+     * Set a default file path to persist players
+     *
+     * @param filePath to be set
+     */
+    static void setFilePath(const std::string& filePath);
+
+    /**
      * Create a new player in the database
      *
      * @param nick The player's nickname
@@ -139,7 +147,7 @@ public:
      * @param name (optional) The player's name to be changed
      * @param symbol (optional) The player's symbol to be changed
      *
-     * @throws update_error
+     * @throws file_error
      */
     static void updatePlayer(const std::string& nick, char game, bool toAddWin, bool toAddLoss, const std::string& name = "", char symbol = 0);
 
@@ -148,7 +156,7 @@ public:
      *
      * @param nick The player's nickname
      *
-     * @throws player_not_found, deletion_error
+     * @throws player_not_found, file_error
      */
     static void deletePlayer(const std::string& nick);
 

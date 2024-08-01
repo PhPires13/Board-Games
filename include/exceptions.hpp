@@ -8,7 +8,7 @@
 #include <exception>
 #include <string>
 
-//TODO: validar necessidade de .cpp
+//TODO: Criar cpp
 
 class invalid_command final: public std::exception {
 public:
@@ -38,10 +38,10 @@ public:
     }
 };
 
-class deletion_error final: public std::exception {
+class file_error final: public std::exception {
 public:
     const char* what () const override {
-        return "ERRO: erro ao remover jogador";
+        return "ERRO: erro lidar com arquivo";
     }
 };
 
@@ -49,13 +49,6 @@ class duplicated_player final: public std::exception {
 public:
     const char* what () const override {
         return "ERRO: jogador repetido";
-    }
-};
-
-class update_error final: public std::exception {
-public:
-    const char* what () const override {
-        return "ERRO: erro ao atualizar dados do jogador";
     }
 };
 

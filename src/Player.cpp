@@ -5,11 +5,15 @@
 #include "Player.hpp"
 
 #include <cctype>
+#include <fstream>
+#include <ios>
+
+#include "exceptions.hpp"
 
 Player::Player(const std::string& _nick, std::string _name, const char symbol, const uint32_t _reversiWins, const uint32_t _reversiLosses,
-    const uint32_t _lig4Wins, const uint32_t _lig4Losses, const uint32_t _tttWins, const uint32_t _tttLosses
-    ): nick(_nick), name(std::move(_name)), reversiWins(_reversiWins), reversiLosses(_reversiLosses),
-        lig4Wins(_lig4Wins), lig4Losses(_lig4Losses), tttWins(_tttWins), tttLosses(_tttLosses) {
+               const uint32_t _lig4Wins, const uint32_t _lig4Losses, const uint32_t _tttWins, const uint32_t _tttLosses
+): nick(_nick), name(std::move(_name)), reversiWins(_reversiWins), reversiLosses(_reversiLosses),
+   lig4Wins(_lig4Wins), lig4Losses(_lig4Losses), tttWins(_tttWins), tttLosses(_tttLosses) {
 
     // If the symbol is not valid or hasnt't been choosen
     if (symbol < firstValidSymbol || symbol > lastValidSymbol)
@@ -79,8 +83,19 @@ void Player::addLoss(const char game) {
         this->tttLosses++;
 }
 
+void Player::setFilePath(const std::string& filePath) {
+    Player::filePath = filePath;
+}
+
 void Player::createPlayer(const std::string& nick, const std::string& name, const char symbol) {
-    // TODO: Implementar
+    Player newPlayer = Player(nick, name, symbol);
+
+    std::ofstream file(Player::filePath, std::ios::binary | std::ios::app);
+    if (!file) throw file_error();
+
+    file.write(reinterpret_cast<const char*>(&newPlayer), sizeof(Player));
+
+    file.close();
 }
 
 Player* Player::loadPlayer(const std::string& nick) {

@@ -7,6 +7,8 @@
 #include <iostream>
 
 Board::Board(const int _height, const int _width): height(_height), width(_width) {
+    // TODO: validar proporcoes invalidas
+
     // Initializa o tabuleiro vazio
     this->board = std::vector<std::vector<char>>(
         this->height, std::vector<char>(this->width, ' ')
