@@ -1,23 +1,32 @@
-//
-// Created by Pedro Henrique Pires  on 30/07/24.
-//
-
 #ifndef REVERSI_HPP
 #define REVERSI_HPP
 
 #include "BoardGame.hpp"
+#include "Player.hpp"
+#include "exceptions.hpp"
+#include <vector>
 
-class Reversi final: public BoardGame {
-    static constexpr int defaultBoardHeight = 3;
-    static constexpr int defaultBoardWidth = 3;
-
+class Reversi : public BoardGame {
 public:
-    Reversi(Player& _player1, Player& _player2);
+    Reversi(Player &_player1, Player &_player2);
 
     void validateMove(const std::vector<int> &move) const override;
-    // Necessário para mudar o movimento
-    void makeMove(const std::vector<int> &move, char symbol) override;
+    void makeMove(const std::vector<int> &move,char symbol) override;
     GameState getGameState() const override;
+
+private:
+    void flipPieces(const std::vector<int>& move, char playerSymbol);
+    bool isValidDirection(int row, int col, int dRow, int dCol, char playerSymbol) const;
+    void flipInDirection(int row, int col, int dRow, int dCol, char playerSymbol);
+    bool isAnyDirectionValid(int row, int col, char playerSymbol) const;
+    bool isWithinBounds(int row, int col) const;
+    bool hasValidMoves(char playerSymbol) const;
+    Player& getCurrentPlayer() const;
+    void switchPlayer();
+
+    Player &player1;
+    Player &player2;
+    int turn;
 };
 
 #endif
