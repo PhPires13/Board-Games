@@ -14,8 +14,8 @@
 #include "TicTacToe.hpp"
 #include "Utils.hpp"
 
-Manager::Manager(const std::string& _databasePath): databasePath(_databasePath) {
-
+Manager::Manager(const std::string& filePath) {
+    Player::setFilePath(filePath);
 }
 
 void Manager::printMenu() {
@@ -36,7 +36,7 @@ void Manager::printMenu() {
     std::cout << "> " << std::endl;
 }
 
-void Manager::createPlayer(std::string& arguments) const {
+void Manager::createPlayer(std::string& arguments) {
     std::string nick, name;
     char symbol = 0;
 
@@ -58,7 +58,7 @@ void Manager::createPlayer(std::string& arguments) const {
     std::cout << "Jogador " << nick << " cadastrado com sucesso" << std::endl;
 }
 
-void Manager::deletePlayer(const std::string& arguments) const {
+void Manager::deletePlayer(const std::string& arguments) {
     std::stringstream ss(arguments);
     std::string nick;
     ss >> nick;
@@ -69,19 +69,24 @@ void Manager::deletePlayer(const std::string& arguments) const {
     std::cout << "Jogador " << nick << " removido com sucesso" << std::endl;
 }
 
-void Manager::listPlayers(const std::string &arguments) const {
+void Manager::listPlayers(const std::string &arguments) {
     std::stringstream ss(arguments);
     char order;
     ss >> order;
 
     // TODO: implement order
 
-    std::list<Player> players = Player::getAllPlayers();
+    const std::list<Player> players = Player::getAllPlayers();
 
-    // TOOD: Print players with stats
+    for (const Player& player: players) {
+        std::cout << player.getNick() << " " << player.getName() << std::endl;
+        std::cout << "REVERSI - " << "V: " << player.getWins(Game::REVERSI) << " D: " << player.getLosses(Game::REVERSI) << std::endl;
+        std::cout << "LIG4 - " << "V: " << player.getWins(Game::LIG4) << " D: " << player.getLosses(Game::LIG4) << std::endl;
+        std::cout << "VELHA - " << "V: " << player.getWins(Game::TTT) << " D: " << player.getLosses(Game::TTT) << std::endl;
+    }
 }
 
-BoardGame* Manager::createMatch(char game, const Player& player1, const Player& player2, const std::string& extraArguments) const {
+BoardGame* Manager::createMatch(char game, const Player& player1, const Player& player2, const std::string& extraArguments) {
     BoardGame* boardGame = nullptr;
 
     // Get the custom board size if sent
@@ -96,11 +101,11 @@ BoardGame* Manager::createMatch(char game, const Player& player1, const Player& 
     }
 
     // Create the game instance
-    if (game == 'R') {
+    if (game == Game::REVERSI) {
         // TODO: adicionar criacao do reversi
-    } else if (game == 'L') {
+    } else if (game == Game::LIG4) {
         // TODO: Adicionar criacao do lig4
-    } else if (game == 'V') {
+    } else if (game == Game::TTT) {
         boardGame = new TicTacToe(const_cast<Player&>(player1), const_cast<Player&>(player2));
     } else {
         throw game_not_found();
@@ -109,7 +114,7 @@ BoardGame* Manager::createMatch(char game, const Player& player1, const Player& 
     return boardGame;
 }
 
-void Manager::playMatch(const std::string &arguments) const {
+void Manager::playMatch(const std::string &arguments) {
     std::stringstream ss(arguments);
     char game;
     std::string nick1, nick2;
@@ -120,29 +125,26 @@ void Manager::playMatch(const std::string &arguments) const {
     }
 
     // Recover players
-    Player* player1 = Player::loadPlayer(nick1);
-    Player* player2 = Player::loadPlayer(nick2);
-    if (player1 == nullptr || player2 == nullptr) {
-        throw player_not_found();
-    }
+    Player player1 = Player::loadPlayer(nick1);
+    Player player2 = Player::loadPlayer(nick2);
 
     // Create a game instance of the specified type
     std::string extraArguments;
     std::getline(ss, extraArguments);
-    BoardGame* boardGame = createMatch(game, *player1, *player2, extraArguments);
+    BoardGame* boardGame = createMatch(game, player1, player2, extraArguments);
 
     // Play the match
-    GameState gameState = boardGame->playGame();
+    const GameState gameState = boardGame->playGame();
 
     // Update players stats
-    bool player1Won = gameState == GameState::PLAYER1_WINS;
-    bool player2Won = gameState == GameState::PLAYER2_WINS;
+    const bool player1Won = gameState == GameState::PLAYER1_WINS;
+    const bool player2Won = gameState == GameState::PLAYER2_WINS;
 
-    Player::updatePlayer(player1->getNick(), game, player1Won, player2Won);
-    Player::updatePlayer(player2->getNick(), game, player2Won, player1Won);
+    Player::updatePlayerStats(player1.getNick(), game, player1Won, player2Won);
+    Player::updatePlayerStats(player2.getNick(), game, player2Won, player1Won);
 }
 
-void Manager::menu() const {
+void Manager::menu() {
     while (true) {
         try {
             Manager::printMenu();

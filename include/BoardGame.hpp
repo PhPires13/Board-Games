@@ -62,7 +62,8 @@ public:
      *
      * @param move The move to be checked
      *
-     * @throws incorrect_format, invalid_move
+     * @throws incorrect_format
+     * @throws invalid_move
      */
     virtual void validateMove(const std::vector<int>& move) const;
 

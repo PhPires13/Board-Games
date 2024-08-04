@@ -7,8 +7,10 @@
 #include <cctype>
 #include <fstream>
 #include <ios>
+#include <memory>
 
 #include "exceptions.hpp"
+#include "Manager.hpp"
 
 Player::Player(const std::string& _nick, std::string _name, const char symbol, const uint32_t _reversiWins, const uint32_t _reversiLosses,
                const uint32_t _lig4Wins, const uint32_t _lig4Losses, const uint32_t _tttWins, const uint32_t _tttLosses
@@ -40,47 +42,47 @@ void Player::setSymbol(const char symbol) {
 }
 
 uint32_t Player::getWins(const char game) const {
-    if (game == 'L')
-        return this->lig4Wins;
+    uint32_t wins = 0 ;
 
-    if (game == 'R')
-        return this->reversiWins;
+    if (game == Game::REVERSI)
+        wins = this->reversiWins;
+    else if (game == Game::LIG4)
+        wins = this->lig4Wins;
+    else if (game == Game::TTT)
+        wins = this->tttWins;
 
-    if (game == 'V')
-        return this->tttWins;
-
-    return 0;
+    return wins;
 }
 
 uint32_t Player::getLosses(const char game) const {
-    if (game == 'L')
-        return this->lig4Losses;
+    uint32_t losses = 0;
 
-    if (game == 'R')
-        return this->reversiLosses;
+    if (game == Game::LIG4)
+        losses = this->lig4Losses;
+    else if (game == Game::REVERSI)
+        losses = this->reversiLosses;
+    else if (game == Game::TTT)
+        losses = this->tttLosses;
 
-    if (game == 'V')
-        return this->tttLosses;
-
-    return 0;
+    return losses;
 }
 
-void Player::addWin(const char game) {
-    if (game == 'L')
-        this->lig4Wins++;
-    else if (game == 'R')
-        this->reversiWins++;
-    else if (game == 'V')
-        this->tttWins++;
-}
-
-void Player::addLoss(const char game) {
-    if (game == 'L')
-        this->lig4Losses++;
-    else if (game == 'R')
-        this->reversiLosses++;
-    else if (game == 'V')
-        this->tttLosses++;
+void Player::addStats(const char game, const bool toAddWin, const bool toAddLoss) {
+    if (toAddWin) {
+        if (game == Game::LIG4)
+            this->lig4Wins++;
+        else if (game == Game::REVERSI)
+            this->reversiWins++;
+        else if (game == Game::TTT)
+            this->tttWins++;
+    } else if (toAddLoss) {
+        if (game == Game::LIG4)
+            this->lig4Losses++;
+        else if (game == Game::REVERSI)
+            this->reversiLosses++;
+        else if (game == Game::TTT)
+            this->tttLosses++;
+    }
 }
 
 void Player::setFilePath(const std::string& filePath) {
@@ -88,7 +90,19 @@ void Player::setFilePath(const std::string& filePath) {
 }
 
 void Player::createPlayer(const std::string& nick, const std::string& name, const char symbol) {
-    Player newPlayer = Player(nick, name, symbol);
+    // Check if player is not duplicated
+    bool duplicated = true;
+    try {
+        Player::loadPlayer(nick);
+    } catch (player_not_found&) {
+        // If the player is not found, it is not duplicated
+        duplicated = false;
+    }
+
+    if (duplicated) throw duplicated_player();
+
+    // Create the player
+    const Player newPlayer(nick, name, symbol);
 
     std::ofstream file(Player::filePath, std::ios::binary | std::ios::app);
     if (!file) throw file_error();
@@ -98,21 +112,121 @@ void Player::createPlayer(const std::string& nick, const std::string& name, cons
     file.close();
 }
 
-Player* Player::loadPlayer(const std::string& nick) {
-    // TODO: Implementar
-    return nullptr;
+Player Player::loadPlayer(const std::string& nick) {
+    std::ifstream file(Player::filePath, std::ios::binary);
+    if (!file) throw file_error();
+
+    std::unique_ptr<Player> iterPlayer;
+    bool found = false;
+    while (file.read(reinterpret_cast<char*>(&iterPlayer), sizeof(Player))) {
+        if (iterPlayer->getNick() == nick) {
+            found = true;
+            break;
+        }
+    }
+
+    file.close();
+
+    if (!found) throw player_not_found();
+
+    return *iterPlayer;
 }
 
-void Player::updatePlayer(const std::string& nick, const char game, const bool toAddWin, const bool toAddLoss,
-    const std::string& name, const char symbol) {
-    // TODO: Implementar
+void Player::updatePlayerStats(const std::string& nick, const char game, const bool toAddWin, const bool toAddLoss) {
+    const std::string tempFilePath = "temp.bin";
+
+    // Get all players with the edition
+    std::list<Player> players;
+
+    std::ifstream oldFile(Player::filePath, std::ios::binary);
+    if (!oldFile) throw file_error();
+
+    std::unique_ptr<Player> iterPlayer;
+    bool found = false;
+    while (oldFile.read(reinterpret_cast<char*>(&iterPlayer), sizeof(Player))) {
+        if (iterPlayer->getNick() == nick) {
+            found = true;
+            iterPlayer->addStats(game, toAddWin, toAddLoss);
+        }
+
+        players.push_back(*iterPlayer);
+    }
+
+    oldFile.close();
+
+    if (!found) throw player_not_found();
+
+    // Pass all the players with edition to the new file
+    std::ofstream newFile(tempFilePath, std::ios::binary);
+    if (!newFile) throw file_error();
+
+    for (const Player &player : players) {
+        newFile.write(reinterpret_cast<const char*>(&player), sizeof(Player));
+    }
+
+    newFile.close();
+
+    // Exchange the files
+    if (std::remove(Player::filePath.c_str())) throw file_error();
+
+    if (std::rename(tempFilePath.c_str(), Player::filePath.c_str())) throw file_error();
 }
+
+void Player::updatePlayerInfo(const std::string& nick, const std::string& name, const char symbol) {
+    // TODO: validar juntamente com player sem simbolo padrao
+}
+
 
 void Player::deletePlayer(const std::string& nick) {
-    // TODO: Implementar
+    const std::string tempFilePath = "temp.bin";
+
+    // Get all the remaining players
+    std::list<Player> remainingPlayers;
+
+    std::ifstream oldFile(Player::filePath, std::ios::binary);
+    if (!oldFile) throw file_error();
+
+    std::unique_ptr<Player> iterPlayer;
+    bool found = false;
+    while (oldFile.read(reinterpret_cast<char*>(&iterPlayer), sizeof(Player))) {
+        if (iterPlayer->getNick() != nick)
+            remainingPlayers.push_back(*iterPlayer);
+        else
+            found = true;
+    }
+
+    oldFile.close();
+
+    if (!found) throw player_not_found();
+
+    // Pass the remaining players to the new file
+    std::ofstream newFile(tempFilePath, std::ios::binary);
+    if (!newFile) throw file_error();
+
+    for (const Player &remainingPlayer : remainingPlayers) {
+        newFile.write(reinterpret_cast<const char*>(&remainingPlayer), sizeof(Player));
+    }
+
+    newFile.close();
+
+    // Exchange the files
+    if (std::remove(Player::filePath.c_str())) throw file_error();
+
+    if (std::rename(tempFilePath.c_str(), Player::filePath.c_str())) throw file_error();
 }
 
 std::list<Player> Player::getAllPlayers() {
-    // TODO: Implementar
-    return std::list<Player>();
+    std::list<Player> players;
+
+    std::ifstream file(Player::filePath, std::ios::binary);
+    if (!file) throw file_error();
+
+    std::unique_ptr<Player> iterPlayer;
+    while (file.read(reinterpret_cast<char*>(&iterPlayer), sizeof(Player))) {
+        players.push_back(*iterPlayer);
+    }
+
+    file.close();
+
+    return players;
 }

@@ -7,31 +7,31 @@
 
 #include <string>
 
+#include "BoardGame.hpp"
 #include "Player.hpp"
 
-class BoardGame;
+enum Game {
+    REVERSI = 'R',
+    LIG4 = 'L',
+    TTT = 'V'
+};
 
 class Manager {
     static constexpr uint32_t maxCommandSize = 100;
 
-    std::string databasePath;
-
-public:
-    Manager(const std::string& _databasePath);
-
     static void printMenu();
 
-    void createPlayer(std::string& arguments) const;
+    static void createPlayer(std::string& arguments);
 
-    void deletePlayer(const std::string& arguments) const;
+    static void deletePlayer(const std::string& arguments);
 
-    void listPlayers(const std::string& arguments) const;
+    static void listPlayers(const std::string& arguments);
 
-    BoardGame* createMatch(char game, const Player& player1, const Player& player2, const std::string& extraArguments) const;
+    static BoardGame* createMatch(char game, const Player& player1, const Player& player2, const std::string& extraArguments);
 
-    void playMatch(const std::string& arguments) const;
+    static void playMatch(const std::string& arguments);
 
-    void menu() const;
+    static void menu();
 };
 
 #endif //MANAGER_HPP

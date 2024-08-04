@@ -100,15 +100,10 @@ public:
      * Add a win to the player
      *
      * @param game The game to add the win
+     * @param toAddWin If a win should be added
+     * @param toAddLoss If a loss should be added
      */
-    void addWin(char game); // TODO: validar de remover
-
-    /**
-     * Add a loss to the player
-     *
-     * @param game The game to add the loss
-     */
-    void addLoss(char game); // TODO: validar de remover
+    void addStats(char game, bool toAddWin, bool toAddLoss);
 
     /**
      * Set a default file path to persist players
@@ -124,7 +119,8 @@ public:
      * @param name The player's name
      * @param symbol The player's symbol
      *
-     * @throws incorrect_data, duplicated_player
+     * @throws duplicated_player
+     * @throws file_error
      */
     static void createPlayer(const std::string& nick, const std::string& name, char symbol = 0);
 
@@ -134,29 +130,42 @@ public:
      * @param nick The player's nickname
      *
      * @return The player loaded
+     *
+     * @throws player_not_found
+     * @throws file_error
      */
-    static Player* loadPlayer(const std::string& nick);
+    static Player loadPlayer(const std::string& nick);
 
     /**
-     * Update a player in the database
+     * Update a player stats in the database
      *
      * @param nick The player's nickname
      * @param game The game stat to be updated
      * @param toAddWin If a win should be added
      * @param toAddLoss If a loss should be added
+     *
+     * @throws player_not_found
+     * @throws file_error
+     */
+    static void updatePlayerStats(const std::string& nick, char game, bool toAddWin, bool toAddLoss);
+
+    /**
+     * Update a player info in the database
+     *
      * @param name (optional) The player's name to be changed
      * @param symbol (optional) The player's symbol to be changed
      *
      * @throws file_error
      */
-    static void updatePlayer(const std::string& nick, char game, bool toAddWin, bool toAddLoss, const std::string& name = "", char symbol = 0);
+    static void updatePlayerInfo(const std::string& nick, const std::string& name = "", char symbol = 0);
 
     /**
      * Delete a player from the database
      *
      * @param nick The player's nickname
      *
-     * @throws player_not_found, file_error
+     * @throws player_not_found
+     * @throws file_error
      */
     static void deletePlayer(const std::string& nick);
 
@@ -164,6 +173,8 @@ public:
      * Load all players from the database
      *
      * @return A list with all players
+     *
+     * @throws file_error
      */
     static std::list<Player> getAllPlayers();
 };
