@@ -61,6 +61,8 @@ void Manager::createPlayer(const std::string& arguments) {
         throw incorrect_format();
     }
 
+    if (nick.empty() || name.empty()) throw incorrect_format();
+
     // Create the player
     Player::createPlayer(nick, name, symbol);
 
@@ -175,6 +177,8 @@ void Manager::menu() {
             ss >> command;
             std::getline(ss, arguments);
 
+            std::cout << std::endl;
+
             if (command == "CJ")
                 createPlayer(arguments);
             else if (command == "RJ")
@@ -191,7 +195,7 @@ void Manager::menu() {
             std::cout << e.what() << std::endl;
         }
 
-        std::cout << std::endl<< "<pressione enter>";
+        std::cout << std::endl<< "Pressione: <ENTER>";
         const char pause = getchar();
         Utils::clearTerminal();
     }

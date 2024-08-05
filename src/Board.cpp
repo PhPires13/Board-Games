@@ -6,10 +6,12 @@
 
 #include <iostream>
 
+#include "exceptions.hpp"
+
 const char Board::emptyCell = ' ';
 
 Board::Board(const uint32_t _height, const uint32_t _width): height(_height), width(_width) {
-    // TODO: validar proporcoes invalidas
+    if (_height == 0 || _width == 0) throw incorrect_data();
 
     // Initializa o tabuleiro vazio
     this->board = std::vector<std::vector<char>>(

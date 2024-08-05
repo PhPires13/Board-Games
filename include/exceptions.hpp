@@ -6,71 +6,50 @@
 #define EXCEPTIONS_HPP
 
 #include <exception>
-#include <string>
-
-//TODO: Criar cpp
 
 class invalid_command final: public std::exception {
 public:
-    const char* what() const noexcept override {
-        return "ERRO: comando invalido";
-    }
+    const char* what() const noexcept override ;
 };
 
 class game_not_found final: public std::exception {
 public:
-    const char* what() const noexcept override {
-        return "ERRO: jogo inexistente";
-    }
+    const char* what() const noexcept override;
 };
 
 class incorrect_data final: public std::exception {
 public:
-    const char* what() const noexcept override {
-        return "ERRO: dados incorretos";
-    }
+    const char* what() const noexcept override;
 };
 
 class player_not_found final: public std::exception {
 public:
-    const char* what() const noexcept override {
-        return "ERRO: jogador inexistente";
-    }
+    const char* what() const noexcept override;
 };
 
 class file_error final: public std::exception {
 public:
-    const char* what() const noexcept override {
-        return "ERRO: erro lidar com arquivo";
-    }
+    const char* what() const noexcept override;
 };
 
 class duplicated_player final: public std::exception {
 public:
-    const char* what() const noexcept override {
-        return "ERRO: jogador repetido";
-    }
+    const char* what() const noexcept override;
 };
 
 class incorrect_format final: public std::exception {
 public:
-    const char* what() const noexcept override {
-        return "ERRO: formato incorreto";
-    }
+    const char* what() const noexcept override;
 };
 
 class invalid_move final: public std::exception {
 public:
-    const char* what() const noexcept override {
-        return "ERRO: jogada invalida";
-    }
+    const char* what() const noexcept override;
 };
 
 class size_exceeded final: public std::exception {
 public:
-    const char* what() const noexcept override {
-        return "ERRO: comando excedeu o limite de tamanho";
-    }
+    const char* what() const noexcept override;
 };
 
 #endif //EXCEPTIONS_HPP

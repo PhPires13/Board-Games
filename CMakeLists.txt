@@ -17,7 +17,9 @@ add_executable(Board_Games src/main.cpp
         include/TicTacToe.hpp
         src/TicTacToe.cpp
         include/Utils.hpp
+        src/Utils.cpp
         include/exceptions.hpp
+        src/exceptions.cpp
         include/Reversi.hpp
         src/Reversi.cpp
 )
