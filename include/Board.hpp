@@ -13,13 +13,13 @@ class Board final {
     std::vector<std::vector<char>> board;
 
     // ANSI escape codes for coloring
-    const std::string indexColor = "\033[34m";
-    const std::string piecesColor = "\033[37m";
-    const std::string boardColor = "\033[31m";
+    const std::string indexColor;
+    const std::string piecesColor;
+    const std::string boardColor;
 
     // ANSI escape codes for background colors
-    const std::string evenBg = "\x1b[47m";
-    const std::string oddBg = "\033[40m";
+    const std::string evenBg;
+    const std::string oddBg;
 
 public:
     static const char emptyCell;
@@ -33,9 +33,8 @@ public:
      * @param evenBg background color for the even cells
      * @param oddBg background color for the odd cells
      */
-    Board(uint32_t _height, uint32_t _width, const std::string& indexColor = "",
-        const std::string& piecesColor = "", const std::string& boardColor = "",
-        const std::string& evenBg = "", const std::string& oddBg = "");
+    Board(uint32_t _height, uint32_t _width, std::string indexColor = "", std::string piecesColor = "",
+     std::string boardColor = "", std::string evenBg = "", std::string oddBg = "");
 
     /**
      *

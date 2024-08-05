@@ -18,7 +18,8 @@ const char BoardGame::defaultSymbol1 = 'X';
 const char BoardGame::defaultSymbol2 = 'O';
 
 BoardGame::BoardGame(Player _player1, Player _player2, const uint32_t boardHeight, const uint32_t boardWidth,
-                     const std::string& indexColor, const std::string& piecesColor, const std::string& boardColor, const std::string& evenBg, const std::string& oddBg
+    const std::string& indexColor, const std::string& piecesColor, const std::string& boardColor,
+    const std::string& evenBg, const std::string& oddBg
 ): player1(std::move(_player1)), player2(std::move(_player2)), board(boardHeight, boardWidth, indexColor, piecesColor, boardColor, evenBg, oddBg), turn(0) {
     // If player has no symbol
     if (player1.getSymbol() == 0) player1.setSymbol(BoardGame::defaultSymbol1);

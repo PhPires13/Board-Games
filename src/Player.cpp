@@ -8,6 +8,7 @@
 #include <fstream>
 #include <ios>
 #include <memory>
+#include <utility>
 
 #include "exceptions.hpp"
 #include "Manager.hpp"
@@ -17,10 +18,8 @@ const std::string Player::filePath = "players.bin";
 const uint32_t Player::firstValidSymbol = 33;
 const char Player::lastValidSymbol = 126;
 
-Player::Player(const std::string& _nick, std::string _name, const char symbol, const uint32_t _reversiWins, const uint32_t _reversiLosses,
-               const uint32_t _lig4Wins, const uint32_t _lig4Losses, const uint32_t _tttWins, const uint32_t _tttLosses
-): nick(_nick), name(std::move(_name)), reversiWins(_reversiWins), reversiLosses(_reversiLosses),
-   lig4Wins(_lig4Wins), lig4Losses(_lig4Losses), tttWins(_tttWins), tttLosses(_tttLosses) {
+Player::Player(std::string _nick, std::string _name, const char symbol
+    ): nick(std::move(_nick)), name(std::move(_name)), reversiWins(0), reversiLosses(0), lig4Wins(0), lig4Losses(0), tttWins(0), tttLosses(0) {
 
     // If the symbol is not valid and has been choosen
     if ((symbol < firstValidSymbol || symbol > lastValidSymbol) && symbol != 0)

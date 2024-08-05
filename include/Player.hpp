@@ -40,15 +40,8 @@ public:
      * @param _nick Player's nickname
      * @param _name Player's name
      * @param symbol Player's symbol
-     * @param _reversiWins Player's wins in reversi
-     * @param _reversiLosses Player's losses in reversi
-     * @param _lig4Wins Player's wins in lig4
-     * @param _lig4Losses Player's losses in lig4
-     * @param _tttWins Player's wins in ttt
-     * @param _tttLosses Player's losses in ttt
      */
-    Player(const std::string& _nick, std::string _name, char symbol = 0, uint32_t _reversiWins = 0, uint32_t _reversiLosses = 0,
-     uint32_t _lig4Wins = 0, uint32_t _lig4Losses = 0, uint32_t _tttWins = 0, uint32_t _tttLosses = 0);
+    Player(std::string _nick, std::string _name, char symbol = 0);
 
     /**
      * Get the player's nickname

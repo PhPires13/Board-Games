@@ -5,14 +5,16 @@
 #include "Board.hpp"
 
 #include <iostream>
+#include <utility>
 
 #include "exceptions.hpp"
 
 const char Board::emptyCell = ' ';
 
-Board::Board(const uint32_t _height, const uint32_t _width, const std::string& indexColor,
-    const std::string& piecesColor, const std::string& boardColor, const std::string& evenBg, const std::string& oddBg
-    ): height(_height), width(_width), indexColor(indexColor), piecesColor(piecesColor), boardColor(boardColor), evenBg(evenBg), oddBg(oddBg) {
+Board::Board(const uint32_t _height, const uint32_t _width, std::string indexColor, std::string piecesColor,
+    std::string boardColor, std::string evenBg, std::string oddBg
+    ): height(_height), width(_width), indexColor(std::move(indexColor)), piecesColor(std::move(piecesColor)),
+       boardColor(std::move(boardColor)), evenBg(std::move(evenBg)), oddBg(std::move(oddBg)) {
     if (_height == 0 || _width == 0) throw incorrect_data();
 
     // Initializa o tabuleiro vazio

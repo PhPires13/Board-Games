@@ -20,7 +20,7 @@ private:
      * @param boardHeight
      * @return true if it is a valid height
      */
-    virtual bool isAValidHeight(uint32_t boardHeight);
+    bool isAValidHeight(uint32_t boardHeight) override;
 
     /**
      * Check if it is a valid height for the game board
@@ -28,7 +28,7 @@ private:
      * @param boardWidth
      * @return true if it is a valid height
      */
-    virtual bool isAValidWidth(uint32_t boardWidth);
+    bool isAValidWidth(uint32_t boardWidth) override;
 
     void validateMove(const std::vector<int> &move) const override;
 
