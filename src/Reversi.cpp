@@ -6,7 +6,8 @@ const uint32_t Reversi::defaultBoardSize = 8;
 
 Reversi::Reversi(Player &_player1, Player &_player2, uint32_t boardSize)
     : BoardGame(_player1, _player2, (Reversi::isAValidHeight(boardSize) ? boardSize : Reversi::defaultBoardSize),
-        (Reversi::isAValidWidth(boardSize) ? boardSize : Reversi::defaultBoardSize)) {
+        (Reversi::isAValidWidth(boardSize) ? boardSize : Reversi::defaultBoardSize),
+        "\033[38;2;255;255;0m", "\033[38;2;255;255;255m", "\033[30m", "\033[48;2;0;150;23m", "\033[48;2;0;100;15m") {
     if (!Reversi::isAValidHeight(boardSize))
         boardSize = Reversi::defaultBoardSize;
 

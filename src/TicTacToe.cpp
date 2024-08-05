@@ -10,7 +10,8 @@ const uint32_t TicTacToe::defaultBoardHeight = 3;
 const uint32_t TicTacToe::defaultBoardWidth = 3;
 
 TicTacToe::TicTacToe(Player &_player1, Player &_player2
-): BoardGame(_player1, _player2, TicTacToe::defaultBoardHeight, TicTacToe::defaultBoardHeight) {}
+): BoardGame(_player1, _player2, TicTacToe::defaultBoardHeight, TicTacToe::defaultBoardHeight,
+    "\033[38;2;180;180;180m", "\033[38;2;240;240;240m", "\033[38;2;128;128;128m", "\033[48;2;153;101;21m", "\033[48;2;101;67;33m") {}
 
 void TicTacToe::validateMove(const std::vector<int> &move) const {
     BoardGame::validateMove(move);

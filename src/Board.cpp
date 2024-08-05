@@ -10,7 +10,9 @@
 
 const char Board::emptyCell = ' ';
 
-Board::Board(const uint32_t _height, const uint32_t _width): height(_height), width(_width) {
+Board::Board(const uint32_t _height, const uint32_t _width, const std::string& indexColor,
+    const std::string& piecesColor, const std::string& boardColor, const std::string& evenBg, const std::string& oddBg
+    ): height(_height), width(_width), indexColor(indexColor), piecesColor(piecesColor), boardColor(boardColor), evenBg(evenBg), oddBg(oddBg) {
     if (_height == 0 || _width == 0) throw incorrect_data();
 
     // Initializa o tabuleiro vazio
@@ -28,10 +30,12 @@ uint32_t Board::getHeight() const {
 }
 
 void Board::print() const {
+    const std::string RESET = "\033[0m";
+
     // Print column indexes above the lines
     std::cout << "   ";
     for (int column = 0; column < this->width; column++) {
-        std::cout << "  " << column << "  ";
+        std::cout << this->indexColor << "  " << column << "  " << RESET;
         if (column < this->width - 1) std::cout << ' ';
     }
     std::cout << std::endl;
@@ -39,19 +43,21 @@ void Board::print() const {
     // Print upper border
     std::cout << "   ";
     for (int column = 0; column < this->width; column++) { // Each column
-        std::cout << "=====";
-        if (column < this->width - 1) std::cout << '=';
+        std::cout << this->boardColor << "=====" << RESET;
+        if (column < this->width - 1) std::cout << this->boardColor << '=' << RESET;
     }
     std::cout << std::endl;
 
     for (int line = 0; line < this->height; line++) { // Each line
         // Print the line index
-        std::cout << line << "  ";
+        std::cout << this->indexColor << line << "  " << RESET;
 
         // Print the line content
         for (int column = 0; column < this->width; column++) { // Each column
-            std::cout << "  " << this->board[line][column] << "  ";
-            if (column < this->width - 1) std::cout << '|';
+            // Alternate background colors
+            std::string bgColor = (line + column) % 2 == 0 ? this->evenBg : this->oddBg;
+            std::cout << bgColor << this->piecesColor << "  " << this->board[line][column] << "  " << RESET;
+            if (column < this->width - 1) std::cout << this->boardColor << '|' << RESET;
         }
         std::cout << std::endl;
 
@@ -59,8 +65,8 @@ void Board::print() const {
         if (line < this->height - 1) { // Not the last line
             std::cout << "   ";
             for (int column = 0; column < this->width; column++) { //
-                std::cout << "-----";
-                if (column < this->width - 1) std::cout << '+'; // Intersections
+                std::cout << this->boardColor << "-----" << RESET;
+                if (column < this->width - 1) std::cout << this->boardColor << '+' << RESET; // Intersections
             }
             std::cout << std::endl;
         }
@@ -69,8 +75,8 @@ void Board::print() const {
     // Print the lower border
     std::cout << "   ";
     for (int column = 0; column < this->width; column++) { // Each column
-        std::cout << "=====";
-        if (column < this->width - 1) std::cout << '=';
+        std::cout << boardColor << "=====" << RESET;
+        if (column < this->width - 1) std::cout << boardColor << '=' << RESET;
     }
     std::cout << std::endl;
 }

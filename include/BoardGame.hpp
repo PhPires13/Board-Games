@@ -45,7 +45,9 @@ public:
      * @param boardWidth Width of the board
      */
     BoardGame(Player& _player1, Player& _player2, uint32_t boardHeight = BoardGame::defaultBoardHeight,
-        uint32_t boardWidth = BoardGame::defaultBoardWidth);
+        uint32_t boardWidth = BoardGame::defaultBoardWidth, const std::string& indexColor = "\033[34m",
+        const std::string& piecesColor = "\033[37m", const std::string& boardColor = "\033[31m",
+        const std::string& evenBg = "\033[47m", const std::string& oddBg = "\033[40m");
 
 protected:
     /**
