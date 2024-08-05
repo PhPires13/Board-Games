@@ -14,6 +14,7 @@ class TicTacToe final: public BoardGame {
 public:
     TicTacToe(Player& _player1, Player& _player2);
 
+private:
     void validateMove(const std::vector<int> &move) const override;
 
     GameState getGameState() const override;

@@ -47,6 +47,7 @@ public:
     BoardGame(Player& _player1, Player& _player2, uint32_t boardHeight = BoardGame::defaultBoardHeight,
         uint32_t boardWidth = BoardGame::defaultBoardWidth);
 
+protected:
     /**
      * Check if it is a valid height for the game board
      *
@@ -105,6 +106,7 @@ public:
      */
     Player& whoseTurn() const;
 
+public:
     /**
      * Play the game
      *
