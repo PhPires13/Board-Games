@@ -24,6 +24,7 @@ void Manager::printMenu() {
     const std::string descriptionColor = "\033[0;36m"; // Cyan
     const std::string paramColor = "\033[0;33m"; // Yellow
     const std::string optionalParamColor = "\033[0;35m"; // Magenta
+    const std::string optionsColor = "\033[0;31m"; // Red
     const std::string exampleColor = "\033[1;31m"; // Bold red
     const std::string noteColor = "\033[1;33m"; // Bold yellow
     const std::string reset = "\033[0m"; // Reset color
@@ -38,8 +39,8 @@ void Manager::printMenu() {
     std::cout << titleColor << "------------------------------------ MENU ------------------------------------" << reset << std::endl;
     std::cout << optionColor << "CJ: " << reset << descriptionColor << "Cadastrar Jogador (" << paramColor << "<Apelido> <Nome>" << optionalParamColor << " <? Simbolo>" << descriptionColor << ")" << reset << std::endl;
     std::cout << optionColor << "RJ: " << reset << descriptionColor << "Remover Jogador (" << paramColor << "<Apelido>" << descriptionColor << ")" << reset << std::endl;
-    std::cout << optionColor << "LJ: " << reset << descriptionColor << "Listar Jogadores (" << optionalParamColor << "<? Ordem: [" << paramColor << "A" << optionalParamColor << "|" << paramColor << "N" << optionalParamColor << "]>" << descriptionColor << ")" << reset << std::endl;
-    std::cout << optionColor << "EP: " << reset << descriptionColor << "Executar Partida (" << paramColor << "<Jogo: (" << optionalParamColor << "R" << paramColor << "|" << optionalParamColor << "L" << paramColor << "|" << optionalParamColor << "V" << paramColor << ")> <Apelido Jogador 1> <Apelido Jogador 2>" << optionalParamColor << " <? Altura Tabuleiro> <? Largura Tabuleiro>" << descriptionColor << ")" << reset << std::endl;
+    std::cout << optionColor << "LJ: " << reset << descriptionColor << "Listar Jogadores (" << optionalParamColor << "<? Ordem: " << optionsColor << "[A|N]" << optionalParamColor << ">" << descriptionColor << ")" << reset << std::endl;
+    std::cout << optionColor << "EP: " << reset << descriptionColor << "Executar Partida (" << paramColor << "<Jogo: " << optionsColor << "(R|L|V)" << paramColor << "> <Apelido Jogador 1> <Apelido Jogador 2>" << optionalParamColor << " <? Altura Tabuleiro> <? Largura Tabuleiro>" << descriptionColor << ")" << reset << std::endl;
     std::cout << optionColor << "FS: " << reset << descriptionColor << "Finalizar Sistema" << reset << std::endl;
     std::cout << std::endl;
     std::cout << "> ";
