@@ -11,7 +11,7 @@ class Reversi final: public BoardGame {
     static const uint32_t defaultBoardSize;
 
 public:
-    Reversi(Player &_player1, Player &_player2, uint32_t boardSize = Reversi::defaultBoardSize);
+    Reversi(Player _player1, Player _player2, uint32_t boardSize = Reversi::defaultBoardSize);
 
 private:
     /**

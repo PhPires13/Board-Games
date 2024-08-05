@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <utility>
 
 #include "exceptions.hpp"
 #include "Utils.hpp"
@@ -16,9 +17,9 @@ const uint32_t BoardGame::defaultBoardWidth = 4;
 const char BoardGame::defaultSymbol1 = 'X';
 const char BoardGame::defaultSymbol2 = 'O';
 
-BoardGame::BoardGame(Player& _player1, Player& _player2, const uint32_t boardHeight, const uint32_t boardWidth,
-    const std::string& indexColor, const std::string& piecesColor, const std::string& boardColor, const std::string& evenBg, const std::string& oddBg
-): player1(_player1), player2(_player2), board(boardHeight, boardWidth, indexColor, piecesColor, boardColor, evenBg, oddBg), turn(0) {
+BoardGame::BoardGame(Player _player1, Player _player2, const uint32_t boardHeight, const uint32_t boardWidth,
+                     const std::string& indexColor, const std::string& piecesColor, const std::string& boardColor, const std::string& evenBg, const std::string& oddBg
+): player1(std::move(_player1)), player2(std::move(_player2)), board(boardHeight, boardWidth, indexColor, piecesColor, boardColor, evenBg, oddBg), turn(0) {
     // If player has no symbol
     if (player1.getSymbol() == 0) player1.setSymbol(BoardGame::defaultSymbol1);
     if (player2.getSymbol() == 0) player2.setSymbol(BoardGame::defaultSymbol2);
@@ -88,7 +89,7 @@ GameState BoardGame::getGameState() const {
     return GameState::TIE; // Tie
 }
 
-Player& BoardGame::whoseTurn() const {
+Player BoardGame::whoseTurn() const {
     return (this->turn%2 != 0 ? this->player1 : this->player2);
 }
 
@@ -111,7 +112,7 @@ GameState BoardGame::playGame() {
         }
 
         // Make the move
-        Player& turnPlayer = this->whoseTurn();
+        Player turnPlayer = this->whoseTurn();
         while (true) { // While it is valid
             std::cout << "Turno de jogador " << turnPlayer.getNick() << ": ";
             std::vector<int> move = BoardGame::readMove();

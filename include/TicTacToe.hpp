@@ -12,7 +12,7 @@ class TicTacToe final: public BoardGame {
     static const uint32_t defaultBoardWidth;
 
 public:
-    TicTacToe(Player& _player1, Player& _player2);
+    TicTacToe(Player _player1, Player _player2);
 
 private:
     void validateMove(const std::vector<int> &move) const override;
