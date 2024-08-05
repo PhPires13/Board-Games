@@ -83,7 +83,7 @@ GameState BoardGame::getGameState() const {
     // Check if board is full
     for (int i = 0; i < this->board.getHeight(); i++) {
         for (int j = 0; j < this->board.getWidth(); j++) {
-            if (this->board.getSymbol(i, j) == ' ') return GameState::NOT_OVER; // Game is not over
+            if (this->board.getSymbol(i, j) == Board::emptyCell) return GameState::NOT_OVER; // Game is not over
         }
     }
 

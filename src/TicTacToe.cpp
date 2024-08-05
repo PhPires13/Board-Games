@@ -20,7 +20,7 @@ void TicTacToe::validateMove(const std::vector<int> &move) const {
     if (move.size() != 2) throw incorrect_format();
 
     // Place is empty
-    if (this->board.getSymbol(move[0], move[1]) != ' ') throw invalid_move();
+    if (this->board.getSymbol(move[0], move[1]) != Board::emptyCell) throw invalid_move();
 }
 
 GameState TicTacToe::getGameState() const {
@@ -28,7 +28,7 @@ GameState TicTacToe::getGameState() const {
     for (int i = 0; i < this->board.getHeight(); i++) {
         if ((this->board.getSymbol(i, 0) == this->board.getSymbol(i, 1)) &&
             (this->board.getSymbol(i, 1) == this->board.getSymbol(i, 2)) &&
-            (this->board.getSymbol(i, 0) != ' ')) {
+            (this->board.getSymbol(i, 0) != Board::emptyCell)) {
             return (this->board.getSymbol(i, 0) == player1.getSymbol() ? GameState::PLAYER1_WINS : GameState::PLAYER2_WINS);
         }
     }
@@ -37,7 +37,7 @@ GameState TicTacToe::getGameState() const {
     for (int i = 0; i < this->board.getWidth(); i++) {
         if ((this->board.getSymbol(0, i) == this->board.getSymbol(1, i)) &&
             (this->board.getSymbol(1, i) == this->board.getSymbol(2, i)) &&
-            (this->board.getSymbol(0, i) != ' ')) {
+            (this->board.getSymbol(0, i) != Board::emptyCell)) {
             return (this->board.getSymbol(0, i) == player1.getSymbol() ? GameState::PLAYER1_WINS : GameState::PLAYER2_WINS);
         }
     }
@@ -45,14 +45,14 @@ GameState TicTacToe::getGameState() const {
     // Check main diagonal
     if ((this->board.getSymbol(0, 0) == this->board.getSymbol(1, 1)) &&
         (this->board.getSymbol(1, 1) == this->board.getSymbol(2, 2)) &&
-        (this->board.getSymbol(0, 0) != ' ')) {
+        (this->board.getSymbol(0, 0) != Board::emptyCell)) {
         return (this->board.getSymbol(0, 0) == player1.getSymbol() ? GameState::PLAYER1_WINS : GameState::PLAYER2_WINS);
     }
 
     // Check secondary diagonal
     if ((this->board.getSymbol(0, 2) == this->board.getSymbol(1, 1)) &&
         (this->board.getSymbol(1, 1) == this->board.getSymbol(2, 0)) &&
-        (this->board.getSymbol(0, 2) != ' ')) {
+        (this->board.getSymbol(0, 2) != Board::emptyCell)) {
         return (this->board.getSymbol(0, 2) == player1.getSymbol() ? GameState::PLAYER1_WINS : GameState::PLAYER2_WINS);
     }
 
