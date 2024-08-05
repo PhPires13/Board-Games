@@ -163,6 +163,20 @@ public:
      * @throws file_error
      */
     static std::list<Player> getAllPlayers();
+
+    /**
+     * Compare two players by nick
+     *
+     * @return true if the first player is less than the second one
+     */
+    static bool compareByNick(const Player& player1, const Player& player2);
+
+    /**
+     * Compare two players by name
+     *
+     * @return true if the first player is less than the second one
+     */
+    static bool compareByName(const Player& player1, const Player& player2);
 };
 
 #endif //PLAYER_HPP

@@ -232,3 +232,11 @@ std::list<Player> Player::getAllPlayers() {
 
     return players;
 }
+
+bool Player::compareByNick(const Player& player1, const Player& player2) {
+    return player1.getNick() < player2.getNick();
+}
+
+bool Player::compareByName(const Player& player1, const Player& player2) {
+    return player1.getName() < player2.getName();
+}

@@ -38,12 +38,13 @@ void Manager::printMenu() {
     std::cout << titleColor << "------------------------------------ MENU ------------------------------------" << reset << std::endl;
     std::cout << optionColor << "CJ: " << reset << descriptionColor << "Cadastrar Jogador (" << paramColor << "<Apelido> <Nome>" << optionalParamColor << " <? Simbolo>" << descriptionColor << ")" << reset << std::endl;
     std::cout << optionColor << "RJ: " << reset << descriptionColor << "Remover Jogador (" << paramColor << "<Apelido>" << descriptionColor << ")" << reset << std::endl;
-    std::cout << optionColor << "LJ: " << reset << descriptionColor << "Listar Jogadores (" << paramColor << "<Ordem: [" << optionalParamColor << "A" << paramColor << "|" << optionalParamColor << "N" << paramColor << "]>" << descriptionColor << ")" << reset << std::endl;
+    std::cout << optionColor << "LJ: " << reset << descriptionColor << "Listar Jogadores (" << optionalParamColor << "<? Ordem: [" << paramColor << "A" << optionalParamColor << "|" << paramColor << "N" << optionalParamColor << "]>" << descriptionColor << ")" << reset << std::endl;
     std::cout << optionColor << "EP: " << reset << descriptionColor << "Executar Partida (" << paramColor << "<Jogo: (" << optionalParamColor << "R" << paramColor << "|" << optionalParamColor << "L" << paramColor << "|" << optionalParamColor << "V" << paramColor << ")> <Apelido Jogador 1> <Apelido Jogador 2>" << optionalParamColor << " <? Altura Tabuleiro> <? Largura Tabuleiro>" << descriptionColor << ")" << reset << std::endl;
     std::cout << optionColor << "FS: " << reset << descriptionColor << "Finalizar Sistema" << reset << std::endl;
     std::cout << std::endl;
     std::cout << "> ";
 }
+
 
 
 void Manager::createPlayer(const std::string& arguments) {
@@ -105,11 +106,17 @@ void Manager::listPlayers(const std::string &arguments) {
     char order;
     ss >> order;
 
-    // TODO: implement order
-
     const std::list<Player> players = Player::getAllPlayers();
+    std::vector<Player> playersVector(players.begin(), players.end());
 
-    for (const Player& player: players) {
+    if (order == 'A') {
+        std::sort(playersVector.begin(), playersVector.end(), Player::compareByNick);
+    } else if (order == 'N') {
+        std::sort(playersVector.begin(), playersVector.end(), Player::compareByName);
+    }
+    // Caso o parametro de ordenacao seja invalido, nao ordena intencionalmente
+
+    for (const Player& player: playersVector) {
         std::cout << nickColor << player.getNick() << reset << " "
                   << nameColor << player.getName() << reset << " "
                   << symbolColor << player.getSymbol() << reset << std::endl;
