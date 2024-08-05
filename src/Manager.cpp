@@ -11,17 +11,14 @@
 #include "BoardGame.hpp"
 #include "exceptions.hpp"
 #include "Player.hpp"
+#include "Reversi.hpp"
 #include "TicTacToe.hpp"
 #include "Utils.hpp"
-
-Manager::Manager(const std::string& filePath) {
-    Player::setFilePath(filePath);
-}
 
 void Manager::printMenu() {
     std::cout << "Obs.:" << std::endl;
     std::cout << "?: parametros opcionais" << std::endl;
-    std::cout << "R: reversi, tabuleiro: quadrado, min 6x6 \t";
+    std::cout << "R: reversi, tabuleiro: quadrado, par, min 4x4 \t";
     std::cout << "L: liga4, tabuleiro: min 4x4\t";
     std::cout << "V: velha, tabuleiro: 3x3";
     std::cout << std::endl << std::endl;
@@ -102,7 +99,7 @@ BoardGame* Manager::createMatch(char game, const Player& player1, const Player& 
 
     // Create the game instance
     if (game == Game::REVERSI) {
-        // TODO: adicionar criacao do reversi
+        boardGame = new Reversi(const_cast<Player&>(player1), const_cast<Player&>(player2), boardHeight);
     } else if (game == Game::LIG4) {
         // TODO: Adicionar criacao do lig4
     } else if (game == Game::TTT) {

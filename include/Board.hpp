@@ -8,29 +8,31 @@
 #include <vector>
 
 class Board final {
-    int height;
-    int width;
+    uint32_t height;
+    uint32_t width;
     std::vector<std::vector<char>> board;
 
 public:
+    static constexpr char emptyCell = ' ';
+
     /**
      *
      * @param _height board height
      * @param _width board width
      */
-    Board(int _height, int _width);
+    Board(uint32_t _height, uint32_t _width);
 
     /**
      *
      * @return board width
      */
-    int getWidth() const;
+    uint32_t getWidth() const;
 
     /**
      *
      * @return board height
      */
-    int getHeight() const;
+    uint32_t getHeight() const;
 
     /**
      * Print the current board state

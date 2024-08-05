@@ -33,6 +33,8 @@ protected:
 
     Board board;
 
+    uint32_t turn;
+
 public:
     /**
      * Create a BoardGame instance
@@ -42,8 +44,8 @@ public:
      * @param boardHeight Height of the board
      * @param boardWidth Width of the board
      */
-    BoardGame(Player& _player1, Player& _player2, int boardHeight = BoardGame::defaultBoardHeight,
-        int boardWidth = BoardGame::defaultBoardWidth);
+    BoardGame(Player& _player1, Player& _player2, uint32_t boardHeight = BoardGame::defaultBoardHeight,
+        uint32_t boardWidth = BoardGame::defaultBoardWidth);
 
     /**
      * Print the current board state
@@ -84,10 +86,8 @@ public:
 
     /**
      * Check whose turn is it
-     *
-     * @param turn The current turn number
      */
-    Player& whoseTurn(int turn) const;
+    Player& whoseTurn() const;
 
     /**
      * Play the game

@@ -10,8 +10,8 @@
 #include "exceptions.hpp"
 #include "Utils.hpp"
 
-BoardGame::BoardGame(Player& _player1, Player& _player2, const int boardHeight, const int boardWidth
-): player1(_player1), player2(_player2), board(boardHeight, boardWidth) {
+BoardGame::BoardGame(Player& _player1, Player& _player2, const uint32_t boardHeight, const uint32_t boardWidth
+): player1(_player1), player2(_player2), board(boardHeight, boardWidth), turn(0) {
 
     // Check if the players have the same symbol
     if (player1.getSymbol() == player2.getSymbol()) {
@@ -70,13 +70,11 @@ GameState BoardGame::getGameState() const {
     return GameState::TIE; // Tie
 }
 
-Player& BoardGame::whoseTurn(const int turn) const {
-    return (turn%2 != 0 ? this->player1 : this->player2);
+Player& BoardGame::whoseTurn() const {
+    return (this->turn%2 != 0 ? this->player1 : this->player2);
 }
 
 GameState BoardGame::playGame() {
-    int turn = 0;
-
     while (true) {
         turn++;
 
@@ -99,7 +97,7 @@ GameState BoardGame::playGame() {
         }
 
         // Make the move
-        Player& turnPlayer = this->whoseTurn(turn);
+        Player& turnPlayer = this->whoseTurn();
         while (true) { // While it is valid
             std::cout << "Turno de jogador " << turnPlayer.getName() << ": ";
             std::vector<int> move = BoardGame::readMove();

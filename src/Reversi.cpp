@@ -1,12 +1,12 @@
 #include "Reversi.hpp"
 #include <iostream>
 
-const int BOARD_SIZE = 3;  // Corrigido para 8x8
-const char EMPTY_CELL = ' ';
+Reversi::Reversi(Player &_player1, Player &_player2, const uint32_t boardSize)
+    : BoardGame(_player1, _player2, boardSize, boardSize) {
+    if (boardSize < Reversi::minimumBoardSize || boardSize % 2 != 0)
+        throw incorrect_data();
 
-Reversi::Reversi(Player &_player1, Player &_player2)
-    : BoardGame(_player1, _player2, BOARD_SIZE, BOARD_SIZE), player1(_player1), player2(_player2), turn(0) {
-    int mid = BOARD_SIZE / 2;
+    const int mid = boardSize / 2;
 
     // Inicializa o tabuleiro com as peças iniciais no meio
     this->board.placeSymbol({mid - 1, mid - 1}, player1.getSymbol());
@@ -19,36 +19,35 @@ void Reversi::validateMove(const std::vector<int> &move) const {
     BoardGame::validateMove(move);
 
     if (move.size() != 2) throw incorrect_format();
-    int row = move[0];
-    int col = move[1];
+
+    const int row = move[0];
+    const int col = move[1];
+
     //Já existe peça
-    if (this->board.getSymbol(row, col) != EMPTY_CELL) throw invalid_move();
+    if (this->board.getSymbol(row, col) != Board::emptyCell) throw invalid_move();
+
     //Pegando o simbolo do jogador atual
-    char currentPlayerSymbol = getCurrentPlayer().getSymbol();
+    const char currentPlayerSymbol = this->whoseTurn().getSymbol();
     //Verifica se a jogada é valida
     if (!isAnyDirectionValid(row, col, currentPlayerSymbol)) {
         throw invalid_move();
     }
 }
 
-// Fazer movimento e virar peças necessárias
-void Reversi::makeMove(const std::vector<int> &move, char Symbol) {
-    //Validando movimento
-    validateMove(move);
-    char currentPlayerSymbol = getCurrentPlayer().getSymbol();
-    this->board.placeSymbol(move, currentPlayerSymbol);
-    flipPieces(move, currentPlayerSymbol);
-    this->switchPlayer();
+void Reversi::makeMove(const std::vector<int> &move, const char symbol) {
+    BoardGame::makeMove(move, symbol);
+    flipPieces(move, symbol);
 }
 
 GameState Reversi::getGameState() const {
     // Verifica se há movimentos válidos para qualquer jogador
-    if ((!hasValidMoves(player1.getSymbol()) && getCurrentPlayer().getSymbol() == player1.getSymbol()) || (!hasValidMoves(player2.getSymbol()) && getCurrentPlayer().getSymbol() == player2.getSymbol())) {
+    if ((!hasValidMoves(player1.getSymbol()) && this->whoseTurn().getSymbol() == player1.getSymbol()) ||
+        (!hasValidMoves(player2.getSymbol()) && this->whoseTurn().getSymbol() == player2.getSymbol())) {
         // Contar peças para determinar o vencedor
         int player1Count = 0;
         int player2Count = 0;
-        for (int row = 0; row < BOARD_SIZE; ++row) {
-            for (int col = 0; col < BOARD_SIZE; ++col) {
+        for (int row = 0; row < this->board.getHeight(); ++row) {
+            for (int col = 0; col < this->board.getWidth(); ++col) {
                 if (this->board.getSymbol(row, col) == player1.getSymbol()) {
                     ++player1Count;
                 } else if (this->board.getSymbol(row, col) == player2.getSymbol()) {
@@ -57,26 +56,19 @@ GameState Reversi::getGameState() const {
             }
         }
 
-        std::cout << "Game Over! ";
-        if (player1Count > player2Count) {
-            std::cout << "Player 1 wins!\n";
-        return GameState::PLAYER1_WINS;
-        } else if (player2Count > player1Count) {
-            std::cout << "Player 2 wins!\n";
-        return GameState::PLAYER2_WINS;
-        } else {
-            std::cout << "It's a tie!\n";
-        return GameState::TIE;
-        }
+        if (player1Count > player2Count) return GameState::PLAYER1_WINS;
 
+        if (player2Count > player1Count) return GameState::PLAYER2_WINS;
+
+        return GameState::TIE;
     }
 
     return GameState::NOT_OVER;
 }
 
-void Reversi::flipPieces(const std::vector<int>& move, char playerSymbol) {
-    int row = move[0];
-    int col = move[1];
+void Reversi::flipPieces(const std::vector<int>& move, const char playerSymbol) {
+    const int row = move[0];
+    const int col = move[1];
     for (int directionRow = -1; directionRow <= 1; ++directionRow) {
         for (int directionCol = -1; directionCol <= 1; ++directionCol) {
             if (directionRow != 0 || directionCol != 0) {
@@ -88,10 +80,10 @@ void Reversi::flipPieces(const std::vector<int>& move, char playerSymbol) {
     }
 }
 
-bool Reversi::isValidDirection(int row, int col, int directionRow, int directionCol, char playerSymbol) const {
+bool Reversi::isValidDirection(const int row, const int col, const int directionRow, const int directionCol, const char playerSymbol) const {
     int r = row + directionRow;
     int c = col + directionCol;
-    char opponentSymbol = (playerSymbol == player1.getSymbol()) ? player2.getSymbol() : player1.getSymbol();
+    const char opponentSymbol = (playerSymbol == player1.getSymbol()) ? player2.getSymbol() : player1.getSymbol();
 
     if (!isWithinBounds(r, c) || this->board.getSymbol(r, c) != opponentSymbol) {
         return false;
@@ -101,7 +93,7 @@ bool Reversi::isValidDirection(int row, int col, int directionRow, int direction
     c += directionCol;
 
     while (isWithinBounds(r, c)) {
-        if (this->board.getSymbol(r, c) == EMPTY_CELL) {
+        if (this->board.getSymbol(r, c) == Board::emptyCell) {
             return false;
         }
         if (this->board.getSymbol(r, c) == playerSymbol) {
@@ -114,7 +106,7 @@ bool Reversi::isValidDirection(int row, int col, int directionRow, int direction
     return false;
 }
 
-void Reversi::flipInDirection(int row, int col, int directionRow, int directionCol, char playerSymbol) {
+void Reversi::flipInDirection(const int row, const int col, const int directionRow, const int directionCol, const char playerSymbol) {
     int r = row + directionRow;
     int c = col + directionCol;
     while (this->board.getSymbol(r, c) != playerSymbol) {
@@ -124,7 +116,7 @@ void Reversi::flipInDirection(int row, int col, int directionRow, int directionC
     }
 }
 
-bool Reversi::isAnyDirectionValid(int row, int col, char playerSymbol) const {
+bool Reversi::isAnyDirectionValid(const int row, const int col, const char playerSymbol) const {
     for (int directionRow = -1; directionRow <= 1; directionRow++) {
         for (int directionCol = -1; directionCol <= 1; directionCol++) {
             if (directionRow != 0 || directionCol != 0) {  // Ignora a direção (0, 0), que não é válida
@@ -137,25 +129,17 @@ bool Reversi::isAnyDirectionValid(int row, int col, char playerSymbol) const {
     return false;
 }
 
-bool Reversi::isWithinBounds(int row, int col) const {
-    return row >= 0 && row < BOARD_SIZE && col >= 0 && col < BOARD_SIZE;
+bool Reversi::isWithinBounds(const int row, const int col) const {
+    return row >= 0 && row < this->board.getHeight() && col >= 0 && col < this->board.getWidth();
 }
 
-bool Reversi::hasValidMoves(char playerSymbol) const {
-    for (int row = 0; row < BOARD_SIZE; ++row) {
-        for (int col = 0; col < BOARD_SIZE; ++col) {
-            if (this->board.getSymbol(row, col) == EMPTY_CELL && isAnyDirectionValid(row, col, playerSymbol)) {
+bool Reversi::hasValidMoves(const char playerSymbol) const {
+    for (int row = 0; row < this->board.getHeight(); ++row) {
+        for (int col = 0; col < this->board.getWidth(); ++col) {
+            if (this->board.getSymbol(row, col) == Board::emptyCell && isAnyDirectionValid(row, col, playerSymbol)) {
                 return true;
             }
         }
     }
     return false;
-}
-
-Player& Reversi::getCurrentPlayer() const {
-    return (turn % 2 == 0) ? player1 : player2;
-}
-
-void Reversi::switchPlayer() {
-    turn++;
 }

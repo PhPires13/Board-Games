@@ -6,20 +6,20 @@
 
 #include <iostream>
 
-Board::Board(const int _height, const int _width): height(_height), width(_width) {
+Board::Board(const uint32_t _height, const uint32_t _width): height(_height), width(_width) {
     // TODO: validar proporcoes invalidas
 
     // Initializa o tabuleiro vazio
     this->board = std::vector<std::vector<char>>(
-        this->height, std::vector<char>(this->width, ' ')
+        this->height, std::vector<char>(this->width, Board::emptyCell)
         );
 }
 
-int Board::getWidth() const {
+uint32_t Board::getWidth() const {
     return this->width;
 }
 
-int Board::getHeight() const {
+uint32_t Board::getHeight() const {
     return this->height;
 }
 
@@ -81,7 +81,7 @@ void Board::placeSymbol(const std::vector<int>& move, const char symbol) {
     else {
         // Place the piece in the first empty space of the column
         for (int i = this->height - 1; i >= 0; i--) {
-            if (this->board[i][move[0]] == ' ') {
+            if (this->board[i][move[0]] == Board::emptyCell) {
                 this->board[i][move[0]] = symbol;
                 break;
             }

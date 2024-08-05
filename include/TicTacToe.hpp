@@ -16,8 +16,6 @@ public:
 
     void validateMove(const std::vector<int> &move) const override;
 
-    // TODO: remover nota, makeMove() não foi necessário, também não será para o Lig4, mas para o Reversi será para virrar demias peças
-
     GameState getGameState() const override;
 };
 
