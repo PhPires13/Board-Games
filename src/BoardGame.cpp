@@ -30,6 +30,14 @@ BoardGame::BoardGame(Player& _player1, Player& _player2, const uint32_t boardHei
     }
 }
 
+bool BoardGame::isAValidHeight(const uint32_t boardHeight) {
+    return boardHeight > 0;
+}
+
+bool BoardGame::isAValidWidth(const uint32_t boardWidth) {
+    return BoardGame::isAValidHeight(boardWidth);
+}
+
 void BoardGame::printBoard() const {
     this->board.print();
 }
@@ -43,7 +51,7 @@ std::vector<int> BoardGame::readMove() {
     line = Utils::cleanString(line);
     std::stringstream lineStream(line);
 
-    int value; // TODO: change to uint32_t
+    uint32_t value; // TODO: change to uint32_t
     while (lineStream >> value) {
         move.push_back(value);
     }

@@ -48,6 +48,22 @@ public:
         uint32_t boardWidth = BoardGame::defaultBoardWidth);
 
     /**
+     * Check if it is a valid height for the game board
+     *
+     * @param boardHeight
+     * @return true if it is a valid height
+     */
+    virtual bool isAValidHeight(uint32_t boardHeight);
+
+    /**
+     * Check if it is a valid height for the game board
+     *
+     * @param boardWidth
+     * @return true if it is a valid height
+     */
+    virtual bool isAValidWidth(uint32_t boardWidth);
+
+    /**
      * Print the current board state
      */
     void printBoard() const;

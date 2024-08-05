@@ -13,6 +13,22 @@ class Reversi final: public BoardGame {
 public:
     Reversi(Player &_player1, Player &_player2, uint32_t boardSize = Reversi::defaultBoardSize);
 
+    /**
+     * Check if it is a valid height for the game board
+     *
+     * @param boardHeight
+     * @return true if it is a valid height
+     */
+    virtual bool isAValidHeight(uint32_t boardHeight);
+
+    /**
+     * Check if it is a valid height for the game board
+     *
+     * @param boardWidth
+     * @return true if it is a valid height
+     */
+    virtual bool isAValidWidth(uint32_t boardWidth);
+
     void validateMove(const std::vector<int> &move) const override;
 
     /**

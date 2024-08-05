@@ -4,10 +4,11 @@
 const uint32_t Reversi::minimumBoardSize = 4;
 const uint32_t Reversi::defaultBoardSize = 8;
 
-Reversi::Reversi(Player &_player1, Player &_player2, const uint32_t boardSize)
-    : BoardGame(_player1, _player2, boardSize, boardSize) {
-    if (boardSize < Reversi::minimumBoardSize || boardSize % 2 != 0)
-        throw incorrect_data();
+Reversi::Reversi(Player &_player1, Player &_player2, uint32_t boardSize)
+    : BoardGame(_player1, _player2, (Reversi::isAValidHeight(boardSize) ? boardSize : Reversi::defaultBoardSize),
+        (Reversi::isAValidWidth(boardSize) ? boardSize : Reversi::defaultBoardSize)) {
+    if (!Reversi::isAValidHeight(boardSize))
+        boardSize = Reversi::defaultBoardSize;
 
     const int mid = boardSize / 2;
 
@@ -16,6 +17,14 @@ Reversi::Reversi(Player &_player1, Player &_player2, const uint32_t boardSize)
     this->board.placeSymbol({mid - 1, mid}, player2.getSymbol());
     this->board.placeSymbol({mid, mid - 1}, player2.getSymbol());
     this->board.placeSymbol({mid, mid}, player1.getSymbol());
+}
+
+bool Reversi::isAValidHeight(const uint32_t boardHeight) {
+    return boardHeight >= Reversi::minimumBoardSize && boardHeight % 2 == 0;
+}
+
+bool Reversi::isAValidWidth(const uint32_t boardWidth) {
+    return Reversi::isAValidHeight(boardWidth);
 }
 
 void Reversi::validateMove(const std::vector<int> &move) const {
