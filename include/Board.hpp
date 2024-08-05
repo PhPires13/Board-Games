@@ -5,6 +5,8 @@
 #ifndef BOARD_HPP
 #define BOARD_HPP
 
+#include <cstdint>
+#include <string>
 #include <vector>
 
 class Board final {
