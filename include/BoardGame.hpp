@@ -22,11 +22,11 @@ enum GameState {
  */
 class BoardGame {
 protected:
-    static constexpr int defaultBoardHeight = 4;
-    static constexpr int defaultBoardWidth = 4;
+    static const uint32_t defaultBoardHeight;
+    static const uint32_t defaultBoardWidth;
 
-    static constexpr char defaultSymbol1 = 'X';
-    static constexpr char defaultSymbol2 = 'O';
+    static const char defaultSymbol1;
+    static const char defaultSymbol2;
 
     Player& player1;
     Player& player2;

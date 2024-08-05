@@ -15,6 +15,8 @@
 #include "TicTacToe.hpp"
 #include "Utils.hpp"
 
+const uint32_t Manager::maxCommandSize = 100;
+
 void Manager::printMenu() {
     std::cout << "Obs.:" << std::endl;
     std::cout << "?: parametros opcionais" << std::endl;

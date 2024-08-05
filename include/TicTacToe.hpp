@@ -8,8 +8,8 @@
 #include "BoardGame.hpp"
 
 class TicTacToe final: public BoardGame {
-    static constexpr int defaultBoardHeight = 3;
-    static constexpr int defaultBoardWidth = 3;
+    static const uint32_t defaultBoardHeight;
+    static const uint32_t defaultBoardWidth;
 
 public:
     TicTacToe(Player& _player1, Player& _player2);

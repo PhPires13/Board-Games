@@ -6,6 +6,9 @@
 
 #include "exceptions.hpp"
 
+const uint32_t TicTacToe::defaultBoardHeight = 3;
+const uint32_t TicTacToe::defaultBoardWidth = 3;
+
 TicTacToe::TicTacToe(Player &_player1, Player &_player2
 ): BoardGame(_player1, _player2, TicTacToe::defaultBoardHeight, TicTacToe::defaultBoardHeight) {}
 

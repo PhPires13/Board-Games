@@ -12,6 +12,11 @@
 #include "exceptions.hpp"
 #include "Manager.hpp"
 
+const std::string Player::filePath = "players.bin";
+
+const uint32_t Player::firstValidSymbol = 33;
+const char Player::lastValidSymbol = 126;
+
 Player::Player(const std::string& _nick, std::string _name, const char symbol, const uint32_t _reversiWins, const uint32_t _reversiLosses,
                const uint32_t _lig4Wins, const uint32_t _lig4Losses, const uint32_t _tttWins, const uint32_t _tttLosses
 ): nick(_nick), name(std::move(_name)), reversiWins(_reversiWins), reversiLosses(_reversiLosses),
@@ -83,10 +88,6 @@ void Player::addStats(const char game, const bool toAddWin, const bool toAddLoss
         else if (game == Game::TTT)
             this->tttLosses++;
     }
-}
-
-void Player::setFilePath(const std::string& filePath) {
-    Player::filePath = filePath;
 }
 
 void Player::createPlayer(const std::string& nick, const std::string& name, const char symbol) {

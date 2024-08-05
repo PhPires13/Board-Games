@@ -13,7 +13,7 @@ class Board final {
     std::vector<std::vector<char>> board;
 
 public:
-    static constexpr char emptyCell = ' ';
+    static const char emptyCell;
 
     /**
      *

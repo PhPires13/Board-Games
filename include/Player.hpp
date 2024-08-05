@@ -13,10 +13,10 @@
  * Class that represents the player, it is also responsible for allowing the interaction with the database
  */
 class Player {
-    static std::string filePath;
+    static const std::string filePath;
 
-    static constexpr int firstValidSymbol = 33;
-    static constexpr char lastValidSymbol = 126;
+    static const uint32_t firstValidSymbol;
+    static const char lastValidSymbol;
 
 
     std::string nick;
@@ -104,13 +104,6 @@ public:
      * @param toAddLoss If a loss should be added
      */
     void addStats(char game, bool toAddWin, bool toAddLoss);
-
-    /**
-     * Set a default file path to persist players
-     *
-     * @param filePath to be set
-     */
-    static void setFilePath(const std::string& filePath);
 
     /**
      * Create a new player in the database

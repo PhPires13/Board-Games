@@ -7,8 +7,8 @@
 #include <vector>
 
 class Reversi final: public BoardGame {
-    static constexpr uint32_t minimumBoardSize = 4;
-    static constexpr uint32_t defaultBoardSize = 8;
+    static const uint32_t minimumBoardSize;
+    static const uint32_t defaultBoardSize;
 
 public:
     Reversi(Player &_player1, Player &_player2, uint32_t boardSize = Reversi::defaultBoardSize);

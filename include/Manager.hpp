@@ -17,7 +17,7 @@ enum Game {
 };
 
 class Manager {
-    static constexpr uint32_t maxCommandSize = 100;
+    static const uint32_t maxCommandSize;
 
     static void printMenu();
 

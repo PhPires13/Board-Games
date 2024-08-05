@@ -6,6 +6,8 @@
 
 #include <iostream>
 
+const char Board::emptyCell = ' ';
+
 Board::Board(const uint32_t _height, const uint32_t _width): height(_height), width(_width) {
     // TODO: validar proporcoes invalidas
 

@@ -1,6 +1,9 @@
 #include "Reversi.hpp"
 #include <iostream>
 
+const uint32_t Reversi::minimumBoardSize = 4;
+const uint32_t Reversi::defaultBoardSize = 8;
+
 Reversi::Reversi(Player &_player1, Player &_player2, const uint32_t boardSize)
     : BoardGame(_player1, _player2, boardSize, boardSize) {
     if (boardSize < Reversi::minimumBoardSize || boardSize % 2 != 0)

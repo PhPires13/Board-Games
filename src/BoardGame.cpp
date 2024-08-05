@@ -10,6 +10,12 @@
 #include "exceptions.hpp"
 #include "Utils.hpp"
 
+const uint32_t BoardGame::defaultBoardHeight = 4;
+const uint32_t BoardGame::defaultBoardWidth = 4;
+
+const char BoardGame::defaultSymbol1 = 'X';
+const char BoardGame::defaultSymbol2 = 'O';
+
 BoardGame::BoardGame(Player& _player1, Player& _player2, const uint32_t boardHeight, const uint32_t boardWidth
 ): player1(_player1), player2(_player2), board(boardHeight, boardWidth), turn(0) {
 
