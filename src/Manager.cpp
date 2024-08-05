@@ -88,7 +88,7 @@ void Manager::listPlayers(const std::string &arguments) {
     const std::list<Player> players = Player::getAllPlayers();
 
     for (const Player& player: players) {
-        std::cout << player.getNick() << " " << player.getName() << std::endl;
+        std::cout << player.getNick() << " " << player.getName() << " " << player.getSymbol() << std::endl;
         std::cout << "REVERSI - " << "V: " << player.getWins(Game::REVERSI) << " D: " << player.getLosses(Game::REVERSI) << std::endl;
         std::cout << "LIG4 - " << "V: " << player.getWins(Game::LIG4) << " D: " << player.getLosses(Game::LIG4) << std::endl;
         std::cout << "VELHA - " << "V: " << player.getWins(Game::TTT) << " D: " << player.getLosses(Game::TTT) << std::endl;
@@ -175,7 +175,6 @@ void Manager::menu() {
             ss >> command;
             std::getline(ss, arguments);
 
-            // TODO: pass databasePath argument
             if (command == "CJ")
                 createPlayer(arguments);
             else if (command == "RJ")
@@ -192,6 +191,8 @@ void Manager::menu() {
             std::cout << e.what() << std::endl;
         }
 
-        std::cout << std::endl;
+        std::cout << std::endl<< "<pressione enter>";
+        const char pause = getchar();
+        Utils::clearTerminal();
     }
 }

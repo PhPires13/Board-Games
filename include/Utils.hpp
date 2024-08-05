@@ -40,6 +40,14 @@ public:
 
         return output;
     }
+
+    static void clearTerminal() {
+        #ifdef _WIN32
+        system("cls");
+        #else
+        system("clear");
+        #endif
+    }
 };
 
 #endif //UTILS_HPP

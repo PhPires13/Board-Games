@@ -18,6 +18,9 @@ const char BoardGame::defaultSymbol2 = 'O';
 
 BoardGame::BoardGame(Player& _player1, Player& _player2, const uint32_t boardHeight, const uint32_t boardWidth
 ): player1(_player1), player2(_player2), board(boardHeight, boardWidth), turn(0) {
+    // If player has no symbol
+    if (player1.getSymbol() == 0) player1.setSymbol(BoardGame::defaultSymbol1);
+    if (player2.getSymbol() == 0) player2.setSymbol(BoardGame::defaultSymbol2);
 
     // Check if the players have the same symbol
     if (player1.getSymbol() == player2.getSymbol()) {
@@ -84,11 +87,7 @@ GameState BoardGame::playGame() {
     while (true) {
         turn++;
 
-        #ifdef _WIN32
-        system("cls");
-        #else
-        system("clear");
-        #endif
+        Utils::clearTerminal();
 
         this->printBoard();
 

@@ -22,12 +22,11 @@ Player::Player(const std::string& _nick, std::string _name, const char symbol, c
 ): nick(_nick), name(std::move(_name)), reversiWins(_reversiWins), reversiLosses(_reversiLosses),
    lig4Wins(_lig4Wins), lig4Losses(_lig4Losses), tttWins(_tttWins), tttLosses(_tttLosses) {
 
-    // If the symbol is not valid or hasnt't been choosen
-    if (symbol < firstValidSymbol || symbol > lastValidSymbol)
-        // the symbol will be the first letter of the nickname
-        this->symbol = static_cast<char>(std::toupper(_nick[0]));
-    else
-        this->symbol = symbol;
+    // If the symbol is not valid and has been choosen
+    if ((symbol < firstValidSymbol || symbol > lastValidSymbol) && symbol != 0)
+        throw incorrect_data();
+
+    this->symbol = symbol;
 }
 
 std::string Player::getNick() const {
