@@ -37,10 +37,10 @@ std::vector<int> BoardGame::readMove() {
 
     std::string line;
     std::getline(std::cin, line);
-    line = Utils::removeNonAlphaNum(line);
+    line = Utils::cleanString(line);
     std::stringstream lineStream(line);
 
-    int value;
+    int value; // TODO: change to uint32_t
     while (lineStream >> value) {
         move.push_back(value);
     }
@@ -105,7 +105,7 @@ GameState BoardGame::playGame() {
         // Make the move
         Player& turnPlayer = this->whoseTurn();
         while (true) { // While it is valid
-            std::cout << "Turno de jogador " << turnPlayer.getName() << ": ";
+            std::cout << "Turno de jogador " << turnPlayer.getNick() << ": ";
             std::vector<int> move = BoardGame::readMove();
 
             try {

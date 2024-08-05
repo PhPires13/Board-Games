@@ -91,16 +91,19 @@ void Player::addStats(const char game, const bool toAddWin, const bool toAddLoss
 }
 
 void Player::createPlayer(const std::string& nick, const std::string& name, const char symbol) {
-    // Check if player is not duplicated
-    bool duplicated = true;
-    try {
-        Player::loadPlayer(nick);
-    } catch (player_not_found&) {
-        // If the player is not found, it is not duplicated
-        duplicated = false;
-    }
+    std::ifstream checkFile(Player::filePath, std::ios::binary);
+    if (checkFile.good()) {
+        // Check if player is not duplicated
+        bool duplicated = true;
+        try {
+            Player::loadPlayer(nick);
+        } catch (player_not_found&) {
+            // If the player is not found, it is not duplicated
+            duplicated = false;
+        }
 
-    if (duplicated) throw duplicated_player();
+        if (duplicated) throw duplicated_player();
+    }
 
     // Create the player
     const Player newPlayer(nick, name, symbol);
@@ -117,10 +120,10 @@ Player Player::loadPlayer(const std::string& nick) {
     std::ifstream file(Player::filePath, std::ios::binary);
     if (!file) throw file_error();
 
-    std::unique_ptr<Player> iterPlayer;
+    Player iterPlayer("", "");
     bool found = false;
     while (file.read(reinterpret_cast<char*>(&iterPlayer), sizeof(Player))) {
-        if (iterPlayer->getNick() == nick) {
+        if (iterPlayer.getNick() == nick) {
             found = true;
             break;
         }
@@ -130,7 +133,7 @@ Player Player::loadPlayer(const std::string& nick) {
 
     if (!found) throw player_not_found();
 
-    return *iterPlayer;
+    return iterPlayer;
 }
 
 void Player::updatePlayerStats(const std::string& nick, const char game, const bool toAddWin, const bool toAddLoss) {
@@ -142,15 +145,15 @@ void Player::updatePlayerStats(const std::string& nick, const char game, const b
     std::ifstream oldFile(Player::filePath, std::ios::binary);
     if (!oldFile) throw file_error();
 
-    std::unique_ptr<Player> iterPlayer;
+    Player iterPlayer("", "");
     bool found = false;
     while (oldFile.read(reinterpret_cast<char*>(&iterPlayer), sizeof(Player))) {
-        if (iterPlayer->getNick() == nick) {
+        if (iterPlayer.getNick() == nick) {
             found = true;
-            iterPlayer->addStats(game, toAddWin, toAddLoss);
+            iterPlayer.addStats(game, toAddWin, toAddLoss);
         }
 
-        players.push_back(*iterPlayer);
+        players.push_back(iterPlayer);
     }
 
     oldFile.close();
@@ -187,11 +190,11 @@ void Player::deletePlayer(const std::string& nick) {
     std::ifstream oldFile(Player::filePath, std::ios::binary);
     if (!oldFile) throw file_error();
 
-    std::unique_ptr<Player> iterPlayer;
+    Player iterPlayer("", "");
     bool found = false;
     while (oldFile.read(reinterpret_cast<char*>(&iterPlayer), sizeof(Player))) {
-        if (iterPlayer->getNick() != nick)
-            remainingPlayers.push_back(*iterPlayer);
+        if (iterPlayer.getNick() != nick)
+            remainingPlayers.push_back(iterPlayer);
         else
             found = true;
     }
@@ -222,9 +225,9 @@ std::list<Player> Player::getAllPlayers() {
     std::ifstream file(Player::filePath, std::ios::binary);
     if (!file) throw file_error();
 
-    std::unique_ptr<Player> iterPlayer;
+    Player iterPlayer("", "");
     while (file.read(reinterpret_cast<char*>(&iterPlayer), sizeof(Player))) {
-        players.push_back(*iterPlayer);
+        players.push_back(iterPlayer);
     }
 
     file.close();

@@ -12,18 +12,33 @@
 
 class Utils {
 public:
-    static std::string removeNonAlphaNum(std::string line) {
-        // Remove non-alphanumeric characters from the begining of the line
-        line.erase(line.begin(), std::find_if(line.begin(), line.end(), [](char c) {
-            return std::isalnum(c);
-        }));
+    static std::string cleanString(const std::string& input) {
+        std::string output;
+        bool inWhitespace = false;
 
-        // Remove non-alphanumeric characters from the end of the line
-        line.erase(std::find_if(line.rbegin(), line.rend(), [](char c) {
-            return std::isalnum(c);
-        }).base(), line.end());
+        for (const char ch : input) {
+            if (std::isspace(ch)) {
+                if (!inWhitespace) {
+                    output += ' '; // Replace any whitespace character with a single space
+                    inWhitespace = true;
+                }
+            } else {
+                output += ch;
+                inWhitespace = false;
+            }
+        }
 
-        return line;
+        // Remove trailing space if there is any
+        if (!output.empty() && output.back() == ' ') {
+            output.pop_back();
+        }
+
+        // Remove leading space if there is any
+        if (!output.empty() && output.front() == ' ') {
+            output.erase(output.begin());
+        }
+
+        return output;
     }
 };
 

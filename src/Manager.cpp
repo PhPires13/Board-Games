@@ -32,24 +32,34 @@ void Manager::printMenu() {
     std::cout << "EP: Executar Partida (<Jogo: (R|L|V)> <Apelido Jogador 1> <Apelido Jogador 2> <? Altura Tabuleiro> <? Largura Tabuleiro>)" << std::endl;
     std::cout << "FS: Finalizar Sistema" << std::endl;
     std::cout << std::endl;
-    std::cout << "> " << std::endl;
+    std::cout << "> ";
 }
 
-void Manager::createPlayer(std::string& arguments) {
+void Manager::createPlayer(const std::string& arguments) {
     std::string nick, name;
     char symbol = 0;
 
-    // Check if the arguments contains a symbol at the end
-    const uint32_t lastSpace = arguments.find_last_of(' ');
-    if ((lastSpace != std::string::npos) && (lastSpace + 1 == arguments.size() - 1)) {
-        symbol = arguments[lastSpace + 1];
-        arguments = arguments.substr(0, lastSpace); // Remove the symbol from the arguments
-    }
+    // Split the arguments into substrings by space
+    std::istringstream iss(arguments);
+    std::vector<std::string> tokens{std::istream_iterator<std::string>{iss}, std::istream_iterator<std::string>{}};
 
-    // Read the rest of the arguments
-    std::stringstream ss(arguments);
-    ss >> nick;
-    std::getline(ss, name);
+    try {
+        // Get the symbol if it exists
+        if (tokens.back().size() == 1) {
+            symbol = tokens.back()[0];
+            tokens.pop_back();
+        }
+
+        for (uint32_t i =0; i < tokens.size(); i++) {
+            if (i == 0) nick = tokens[i];
+            else {
+                if (i != 1) name += " ";
+                name += tokens[i];
+            }
+        }
+    } catch (std::exception& e) {
+        throw incorrect_format();
+    }
 
     // Create the player
     Player::createPlayer(nick, name, symbol);
@@ -82,6 +92,7 @@ void Manager::listPlayers(const std::string &arguments) {
         std::cout << "REVERSI - " << "V: " << player.getWins(Game::REVERSI) << " D: " << player.getLosses(Game::REVERSI) << std::endl;
         std::cout << "LIG4 - " << "V: " << player.getWins(Game::LIG4) << " D: " << player.getLosses(Game::LIG4) << std::endl;
         std::cout << "VELHA - " << "V: " << player.getWins(Game::TTT) << " D: " << player.getLosses(Game::TTT) << std::endl;
+        std::cout << std::endl;
     }
 }
 
@@ -123,6 +134,10 @@ void Manager::playMatch(const std::string &arguments) {
         throw incorrect_data();
     }
 
+    if (game == '\0' || nick1.empty() || nick2.empty()) throw incorrect_format();
+
+    if (nick1 == nick2) throw duplicated_player();
+
     // Recover players
     Player player1 = Player::loadPlayer(nick1);
     Player player2 = Player::loadPlayer(nick2);
@@ -151,7 +166,7 @@ void Manager::menu() {
             // Read command line
             std::string commandLine;
             std::getline(std::cin, commandLine);
-            commandLine = Utils::removeNonAlphaNum(commandLine);
+            commandLine = Utils::cleanString(commandLine);
             if (commandLine.size() > Manager::maxCommandSize) throw size_exceeded();
             std::stringstream ss(commandLine);
 
@@ -176,5 +191,7 @@ void Manager::menu() {
         } catch (std::exception &e) {
             std::cout << e.what() << std::endl;
         }
+
+        std::cout << std::endl;
     }
 }

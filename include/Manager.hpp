@@ -21,7 +21,7 @@ class Manager {
 
     static void printMenu();
 
-    static void createPlayer(std::string& arguments);
+    static void createPlayer(const std::string& arguments);
 
     static void deletePlayer(const std::string& arguments);
 
@@ -31,6 +31,7 @@ class Manager {
 
     static void playMatch(const std::string& arguments);
 
+public:
     static void menu();
 };
 
