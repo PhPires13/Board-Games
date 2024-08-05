@@ -31,6 +31,7 @@ uint32_t Board::getHeight() const {
 
 void Board::print() const {
     const std::string RESET = "\033[0m";
+    const std::string BOLD = "\033[1m";
 
     // Print column indexes above the lines
     std::cout << "   ";
@@ -56,7 +57,7 @@ void Board::print() const {
         for (int column = 0; column < this->width; column++) { // Each column
             // Alternate background colors
             std::string bgColor = (line + column) % 2 == 0 ? this->evenBg : this->oddBg;
-            std::cout << bgColor << this->piecesColor << "  " << this->board[line][column] << "  " << RESET;
+            std::cout << bgColor << BOLD << this->piecesColor << "  " << this->board[line][column] << "  " << RESET;
             if (column < this->width - 1) std::cout << this->boardColor << '|' << RESET;
         }
         std::cout << std::endl;

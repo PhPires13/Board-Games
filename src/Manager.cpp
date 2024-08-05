@@ -18,22 +18,33 @@
 const uint32_t Manager::maxCommandSize = 100;
 
 void Manager::printMenu() {
-    std::cout << "Obs.:" << std::endl;
-    std::cout << "?: parametros opcionais" << std::endl;
-    std::cout << "R: reversi, tabuleiro: quadrado, par, min 4x4 \t";
-    std::cout << "L: liga4, tabuleiro: min 4x4\t";
-    std::cout << "V: velha, tabuleiro: 3x3";
+    // Define color codes
+    const std::string titleColor = "\033[1;34m"; // Bold blue
+    const std::string optionColor = "\033[1;32m"; // Bold green
+    const std::string descriptionColor = "\033[0;36m"; // Cyan
+    const std::string paramColor = "\033[0;33m"; // Yellow
+    const std::string optionalParamColor = "\033[0;35m"; // Magenta
+    const std::string exampleColor = "\033[1;31m"; // Bold red
+    const std::string noteColor = "\033[1;33m"; // Bold yellow
+    const std::string reset = "\033[0m"; // Reset color
+
+    std::cout << titleColor << "Obs.:" << reset << std::endl;
+    std::cout << noteColor << "?: parametros opcionais" << reset << std::endl;
+    std::cout << exampleColor << "R: reversi, tabuleiro: quadrado, par, min 4x4\t" << reset;
+    std::cout << exampleColor << "L: liga4, tabuleiro: min 4x4\t" << reset;
+    std::cout << exampleColor << "V: velha, tabuleiro: 3x3" << reset;
     std::cout << std::endl << std::endl;
 
-    std::cout << "------------------------------------ MENU ------------------------------------"  << std::endl;
-    std::cout << "CJ: Cadastrar Jogador (<Apelido> <Nome> <? Simbolo>)" << std::endl;
-    std::cout << "RJ: Remover Jogador (<Apelido>)" << std::endl;
-    std::cout << "LJ: Listar Jogadores (<Ordem: [A|N]>)" << std::endl;
-    std::cout << "EP: Executar Partida (<Jogo: (R|L|V)> <Apelido Jogador 1> <Apelido Jogador 2> <? Altura Tabuleiro> <? Largura Tabuleiro>)" << std::endl;
-    std::cout << "FS: Finalizar Sistema" << std::endl;
+    std::cout << titleColor << "------------------------------------ MENU ------------------------------------" << reset << std::endl;
+    std::cout << optionColor << "CJ: " << reset << descriptionColor << "Cadastrar Jogador (" << paramColor << "<Apelido> <Nome>" << optionalParamColor << " <? Simbolo>" << descriptionColor << ")" << reset << std::endl;
+    std::cout << optionColor << "RJ: " << reset << descriptionColor << "Remover Jogador (" << paramColor << "<Apelido>" << descriptionColor << ")" << reset << std::endl;
+    std::cout << optionColor << "LJ: " << reset << descriptionColor << "Listar Jogadores (" << paramColor << "<Ordem: [" << optionalParamColor << "A" << paramColor << "|" << optionalParamColor << "N" << paramColor << "]>" << descriptionColor << ")" << reset << std::endl;
+    std::cout << optionColor << "EP: " << reset << descriptionColor << "Executar Partida (" << paramColor << "<Jogo: (" << optionalParamColor << "R" << paramColor << "|" << optionalParamColor << "L" << paramColor << "|" << optionalParamColor << "V" << paramColor << ")> <Apelido Jogador 1> <Apelido Jogador 2>" << optionalParamColor << " <? Altura Tabuleiro> <? Largura Tabuleiro>" << descriptionColor << ")" << reset << std::endl;
+    std::cout << optionColor << "FS: " << reset << descriptionColor << "Finalizar Sistema" << reset << std::endl;
     std::cout << std::endl;
     std::cout << "> ";
 }
+
 
 void Manager::createPlayer(const std::string& arguments) {
     std::string nick, name;
@@ -81,6 +92,15 @@ void Manager::deletePlayer(const std::string& arguments) {
 }
 
 void Manager::listPlayers(const std::string &arguments) {
+    // Define color codes
+    const std::string nickColor = "\033[1;35m"; // Bold Magenta
+    const std::string nameColor = "\033[0;33m"; //  Yellow
+    const std::string symbolColor = "\033[1;34m"; // Bold blue
+    const std::string gameColor = "\033[0;36m"; // Cyan
+    const std::string winColor = "\033[0;32m"; // Green
+    const std::string lossColor = "\033[0;31m"; // Red
+    const std::string reset = "\033[0m"; // Reset color
+
     std::stringstream ss(arguments);
     char order;
     ss >> order;
@@ -90,10 +110,22 @@ void Manager::listPlayers(const std::string &arguments) {
     const std::list<Player> players = Player::getAllPlayers();
 
     for (const Player& player: players) {
-        std::cout << player.getNick() << " " << player.getName() << " " << player.getSymbol() << std::endl;
-        std::cout << "REVERSI - " << "V: " << player.getWins(Game::REVERSI) << " D: " << player.getLosses(Game::REVERSI) << std::endl;
-        std::cout << "LIG4 - " << "V: " << player.getWins(Game::LIG4) << " D: " << player.getLosses(Game::LIG4) << std::endl;
-        std::cout << "VELHA - " << "V: " << player.getWins(Game::TTT) << " D: " << player.getLosses(Game::TTT) << std::endl;
+        std::cout << nickColor << player.getNick() << reset << " "
+                  << nameColor << player.getName() << reset << " "
+                  << symbolColor << player.getSymbol() << reset << std::endl;
+
+        std::cout << gameColor << "REVERSI - " << reset
+                  << winColor << "V: " << player.getWins(Game::REVERSI) << reset << " "
+                  << lossColor << "D: " << player.getLosses(Game::REVERSI) << reset << std::endl;
+
+        std::cout << gameColor << "LIG4 - " << reset
+                  << winColor << "V: " << player.getWins(Game::LIG4) << reset << " "
+                  << lossColor << "D: " << player.getLosses(Game::LIG4) << reset << std::endl;
+
+        std::cout << gameColor << "VELHA - " << reset
+                  << winColor << "V: " << player.getWins(Game::TTT) << reset << " "
+                  << lossColor << "D: " << player.getLosses(Game::TTT) << reset << std::endl;
+
         std::cout << std::endl;
     }
 }
