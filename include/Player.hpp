@@ -177,6 +177,13 @@ public:
      * @return true if the first player is less than the second one
      */
     static bool compareByName(const Player& player1, const Player& player2);
+
+    /**
+     * Guarantee that the databse file exists
+     *
+     * @throws file_error
+     */
+    static void syncDatabase();
 };
 
 #endif //PLAYER_HPP

@@ -89,19 +89,16 @@ void Player::addStats(const char game, const bool toAddWin, const bool toAddLoss
 }
 
 void Player::createPlayer(const std::string& nick, const std::string& name, const char symbol) {
-    std::ifstream checkFile(Player::filePath, std::ios::binary);
-    if (checkFile.good()) {
-        // Check if player is not duplicated
-        bool duplicated = true;
-        try {
-            Player::loadPlayer(nick);
-        } catch (player_not_found&) {
-            // If the player is not found, it is not duplicated
-            duplicated = false;
-        }
-
-        if (duplicated) throw duplicated_player();
+    // Check if player is not duplicated
+    bool duplicated = true;
+    try {
+        Player::loadPlayer(nick);
+    } catch (const std::exception& e) {
+        // If the player is not found, it is not duplicated
+        duplicated = false;
     }
+
+    if (duplicated) throw duplicated_player();
 
     // Create the player
     const Player newPlayer(nick, name, symbol);
@@ -239,4 +236,10 @@ bool Player::compareByNick(const Player& player1, const Player& player2) {
 
 bool Player::compareByName(const Player& player1, const Player& player2) {
     return player1.getName() < player2.getName();
+}
+
+void Player::syncDatabase() {
+    std::ofstream file(Player::filePath, std::ios::binary | std::ios::app);
+    if (!file) throw file_error();
+    file.close();
 }

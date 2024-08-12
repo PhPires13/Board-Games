@@ -9,6 +9,8 @@
 #include "TicTacToe.hpp"
 
 int main(int argc, char* argv[]) {
+    Player::syncDatabase();
+
     Manager::menu();
 
     return 0;
