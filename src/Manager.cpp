@@ -108,6 +108,7 @@ void Manager::listPlayers(const std::string &arguments) {
     std::stringstream ss(arguments);
     char order;
     ss >> order;
+    order = std::toupper(order);
 
     const std::list<Player> players = Player::getAllPlayers();
     std::vector<Player> playersVector(players.begin(), players.end());
@@ -174,6 +175,7 @@ void Manager::playMatch(const std::string &arguments) {
     std::string nick1, nick2;
     try {
         ss >> game >> nick1 >> nick2;
+        game = std::toupper(game);
     } catch (std::exception& e) {
         throw incorrect_data();
     }
@@ -221,6 +223,7 @@ void Manager::menu() {
 
             std::cout << std::endl;
 
+            std::transform(command.begin(), command.end(), command.begin(), ::toupper);
             if (command == "CJ")
                 createPlayer(arguments);
             else if (command == "RJ")
