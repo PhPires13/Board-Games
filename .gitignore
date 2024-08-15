@@ -43,3 +43,6 @@ bin/[^.]*
 
 # VS Code
 .vscode
+
+# Database Files
+*.bin
