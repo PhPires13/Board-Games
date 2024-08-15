@@ -88,6 +88,46 @@ void Player::addStats(const char game, const bool toAddWin, const bool toAddLoss
     }
 }
 
+void Player::serialize(std::ofstream& outputFile) const {
+    const size_t nickSize = nick.size();
+    const size_t nameSize = name.size();
+
+    outputFile.write(reinterpret_cast<const char*>(&nickSize), sizeof(nickSize));
+    outputFile.write(nick.c_str(), nickSize);
+
+    outputFile.write(reinterpret_cast<const char*>(&nameSize), sizeof(nameSize));
+    outputFile.write(name.c_str(), nameSize);
+
+    outputFile.write(reinterpret_cast<const char*>(&symbol), sizeof(symbol));
+    outputFile.write(reinterpret_cast<const char*>(&reversiWins), sizeof(reversiWins));
+    outputFile.write(reinterpret_cast<const char*>(&reversiLosses), sizeof(reversiLosses));
+    outputFile.write(reinterpret_cast<const char*>(&lig4Wins), sizeof(lig4Wins));
+    outputFile.write(reinterpret_cast<const char*>(&lig4Losses), sizeof(lig4Losses));
+    outputFile.write(reinterpret_cast<const char*>(&tttWins), sizeof(tttWins));
+    outputFile.write(reinterpret_cast<const char*>(&tttLosses), sizeof(tttLosses));
+}
+
+void Player::deserialize(std::ifstream& inputFile) {
+    size_t nickSize;
+    size_t nameSize;
+
+    inputFile.read(reinterpret_cast<char*>(&nickSize), sizeof(nickSize));
+    nick.resize(nickSize);
+    inputFile.read(&nick[0], nickSize);
+
+    inputFile.read(reinterpret_cast<char*>(&nameSize), sizeof(nameSize));
+    name.resize(nameSize);
+    inputFile.read(&name[0], nameSize);
+
+    inputFile.read(reinterpret_cast<char*>(&symbol), sizeof(symbol));
+    inputFile.read(reinterpret_cast<char*>(&reversiWins), sizeof(reversiWins));
+    inputFile.read(reinterpret_cast<char*>(&reversiLosses), sizeof(reversiLosses));
+    inputFile.read(reinterpret_cast<char*>(&lig4Wins), sizeof(lig4Wins));
+    inputFile.read(reinterpret_cast<char*>(&lig4Losses), sizeof(lig4Losses));
+    inputFile.read(reinterpret_cast<char*>(&tttWins), sizeof(tttWins));
+    inputFile.read(reinterpret_cast<char*>(&tttLosses), sizeof(tttLosses));
+}
+
 void Player::createPlayer(const std::string& nick, const std::string& name, const char symbol) {
     // Check if player is not duplicated
     bool duplicated = true;
@@ -106,7 +146,7 @@ void Player::createPlayer(const std::string& nick, const std::string& name, cons
     std::ofstream file(Player::filePath, std::ios::binary | std::ios::app);
     if (!file) throw file_error();
 
-    file.write(reinterpret_cast<const char*>(&newPlayer), sizeof(Player));
+    newPlayer.serialize(file);
 
     file.close();
 }
@@ -117,7 +157,8 @@ Player Player::loadPlayer(const std::string& nick) {
 
     Player iterPlayer("", "");
     bool found = false;
-    while (file.read(reinterpret_cast<char*>(&iterPlayer), sizeof(Player))) {
+    while (file.peek() != EOF) {
+        iterPlayer.deserialize(file);
         if (iterPlayer.getNick() == nick) {
             found = true;
             break;
@@ -142,7 +183,8 @@ void Player::updatePlayerStats(const std::string& nick, const char game, const b
 
     Player iterPlayer("", "");
     bool found = false;
-    while (oldFile.read(reinterpret_cast<char*>(&iterPlayer), sizeof(Player))) {
+    while (oldFile.peek() != EOF) {
+        iterPlayer.deserialize(oldFile);
         if (iterPlayer.getNick() == nick) {
             found = true;
             iterPlayer.addStats(game, toAddWin, toAddLoss);
@@ -160,7 +202,7 @@ void Player::updatePlayerStats(const std::string& nick, const char game, const b
     if (!newFile) throw file_error();
 
     for (const Player &player : players) {
-        newFile.write(reinterpret_cast<const char*>(&player), sizeof(Player));
+        player.serialize(newFile);
     }
 
     newFile.close();
@@ -187,7 +229,8 @@ void Player::deletePlayer(const std::string& nick) {
 
     Player iterPlayer("", "");
     bool found = false;
-    while (oldFile.read(reinterpret_cast<char*>(&iterPlayer), sizeof(Player))) {
+    while (oldFile.peek() != EOF) {
+        iterPlayer.deserialize(oldFile);
         if (iterPlayer.getNick() != nick)
             remainingPlayers.push_back(iterPlayer);
         else
@@ -203,7 +246,7 @@ void Player::deletePlayer(const std::string& nick) {
     if (!newFile) throw file_error();
 
     for (const Player &remainingPlayer : remainingPlayers) {
-        newFile.write(reinterpret_cast<const char*>(&remainingPlayer), sizeof(Player));
+        remainingPlayer.serialize(newFile);
     }
 
     newFile.close();
@@ -221,7 +264,8 @@ std::list<Player> Player::getAllPlayers() {
     if (!file) throw file_error();
 
     Player iterPlayer("", "");
-    while (file.read(reinterpret_cast<char*>(&iterPlayer), sizeof(Player))) {
+    while (file.peek() != EOF) {
+        iterPlayer.deserialize(file);
         players.push_back(iterPlayer);
     }
 

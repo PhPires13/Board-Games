@@ -99,6 +99,18 @@ public:
     void addStats(char game, bool toAddWin, bool toAddLoss);
 
     /**
+     * Salva o player serializado no arquivo
+     * @param outputFile arquivo para salvar
+     */
+    void serialize(std::ofstream& outputFile) const;
+
+    /**
+     * Recupera o player serializado do arquivo
+     * @param inputFile arquivo para ler o player serializado
+     */
+    void deserialize(std::ifstream& inputFile);
+
+    /**
      * Create a new player in the database
      *
      * @param nick The player's nickname
