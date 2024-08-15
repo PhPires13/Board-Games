@@ -7,7 +7,7 @@
 #include <vector>
 
 const uint32_t LigFour::minimumBoardSize = 4;
-const uint32_t LigFour::defaultBoardSize = 7;
+const uint32_t LigFour::defaultBoardSize = 4;
 
 LigFour::LigFour(Player _player1, Player _player2, uint32_t boardSize
 ): BoardGame(std::move(_player1), std::move(_player2), (LigFour::isAValidHeight(boardSize) ? boardSize : LigFour::defaultBoardSize),
@@ -29,35 +29,40 @@ void LigFour::validateMove(const std::vector<int> &move) const {
     //Verify if the move is inside the board places
     BoardGame::validateMove(move);
 
+    //Move input size
+    if(move.size() != 1) throw incorrect_format();
+
     //Verifiy if the selected column is full
-    if(!this->board.getSymbol(0,move[0])==Board::emptyCell)
+    if(this->board.getSymbol(0,move[0])!=Board::emptyCell)
         throw invalid_move();
 }
 
 void LigFour::makeMove(const std::vector<int> &move, char symbol) {
     BoardGame::makeMove(move, symbol);
+    this->currentPosition=move;
+    this->currentSymbol=this->board.getSymbol(move[0],move[1]);
 }
 
-GameState LigFour::getGameState(const std::vector<int> &move) {
+GameState LigFour::getGameState() const {
     //Verify if there is four equal symbols in a row/column/diagonal
-    if(LigFour::checkDirection(move,this->board.getSymbol(move[0],move[1]),1,0) || //Horizontal
-    LigFour::checkDirection(move,this->board.getSymbol(move[0],move[1]),0,1) || //Vertical
-    LigFour::checkDirection(move,this->board.getSymbol(move[0],move[1]),1,1) || //Diagonal /'
-    LigFour::checkDirection(move,this->board.getSymbol(move[0],move[1]),1,-1)) //Diagonal \'
+    if(checkDirection(this->currentPosition,this->board.getSymbol(this->currentPosition[0],this->currentPosition[1]),this->currentSymbol,1,0) || //Horizontal
+    checkDirection(this->currentPosition,this->board.getSymbol(this->currentPosition[0],this->currentPosition[1]),this->currentSymbol,0,1) || //Vertical
+    checkDirection(this->currentPosition,this->board.getSymbol(this->currentPosition[0],this->currentPosition[1]),this->currentSymbol,1,1) || //Diagonal /'
+    checkDirection(this->currentPosition,this->board.getSymbol(this->currentPosition[0],this->currentPosition[1]),this->currentSymbol,1,-1)) //Diagonal \'
     {
-        if(this->board.getSymbol(move[0],move[1])==player1.getSymbol())
+        if(this->board.getSymbol(currentPosition[0],currentPosition[1])==player1.getSymbol())
             return GameState::PLAYER1_WINS;
         else return GameState::PLAYER2_WINS;
     }
 }
 
-bool LigFour::checkDirection(const std::vector<int> &move, char symbol, int dRow, int dCol) {
+bool checkDirection(const std::vector<int> &move, char symbol, char pSymbol, int dRow, int dCol) {
     int count = 0;
     int row = move[0];
     int col = move[1];
 
     // Check in the positive direction
-    while (this->board.getSymbol(row,col) == symbol) {
+    while (pSymbol == symbol) {
         count++;
         row += dRow;
         col += dCol;
@@ -67,7 +72,7 @@ bool LigFour::checkDirection(const std::vector<int> &move, char symbol, int dRow
     col = move[1];
 
     // Check in the negative direction
-    while (this->board.getSymbol(row,col) == symbol) {
+    while (pSymbol == symbol) {
         count++;
         row -= dRow;
         col -= dCol;

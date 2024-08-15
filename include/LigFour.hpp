@@ -13,8 +13,11 @@ class LigFour final: public BoardGame {
     static const uint32_t minimumBoardSize;
     static const uint32_t defaultBoardSize;
 
+
 public:
     LigFour(Player _player1, Player _player2, uint32_t boardSize = LigFour::defaultBoardSize);
+    std::vector<int> currentPosition;
+    char currentSymbol;
 
 private:
 
@@ -38,9 +41,11 @@ private:
 
     void makeMove(const std::vector<int> &move, char symbol) override;
 
-    GameState getGameState(const std::vector<int> &move);
+    GameState getGameState() const override;
 
-    bool checkDirection(const std::vector<int> &move, char symbol, int dRow, int dCol);
+    friend bool checkDirection(const std::vector<int> &move, char symbol, char pSymbol, int dRow, int dCol);
 };
+
+bool checkDirection(const std::vector<int> &move, char symbol, char pSymbol, int dRow, int dCol);
 
 #endif //LIGFOUR_HPP
