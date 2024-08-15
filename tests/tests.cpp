@@ -2,16 +2,20 @@
 // Created by Pedro Henrique Pires  on 04/07/24.
 //
 
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+
+#include "BoardGame.hpp"
 #include "doctest.h"
+#include "Player.hpp"
 
 TEST_CASE("Test BoardGame::validateMove()") {
-    Player player1 = Player("Nick1", "Name1");
-    Player player2 = Player("Nick2", "Name2");
+    Player player1("Nick1", "Name1");
+    Player player2("Nick2", "Name2");
 
-    BoardGame boardGame = BoardGame(player1, player2);
+    BoardGame boardGame(player1, player2);
 
 // TODO: change to check throws
-    CHECK(boardGame.isMoveValid({0, 0}) == MoveStatus::VALID_MOVE);
+    CHECK(boardGame.validateMove({0, 0}) == MoveStatus::VALID_MOVE);
     CHECK(boardGame.isMoveValid({-1, 0}) == MoveStatus::INVALID_MOVE);
     CHECK(boardGame.isMoveValid({0, -1}) == MoveStatus::INVALID_MOVE);
     CHECK(boardGame.isMoveValid({-1, -1}) == MoveStatus::INVALID_MOVE);

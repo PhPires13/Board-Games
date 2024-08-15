@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD 11)
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
+include_directories(${PROJECT_SOURCE_DIR}/third_party)
+
 add_executable(Board_Games src/main.cpp
         include/Board.hpp
         src/Board.cpp
@@ -22,4 +24,6 @@ add_executable(Board_Games src/main.cpp
         src/exceptions.cpp
         include/Reversi.hpp
         src/Reversi.cpp
+        third_party/doctest.h
+        tests/tests.cpp
 )
