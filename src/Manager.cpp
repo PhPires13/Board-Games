@@ -238,7 +238,7 @@ void Manager::menu() {
         }
 
         std::cout << std::endl<< "Pressione: <ENTER>";
-        const char pause = getchar();
+        getchar();
         Utils::clearTerminal();
     }
 }

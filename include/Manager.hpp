@@ -10,7 +10,7 @@
 #include "BoardGame.hpp"
 #include "Player.hpp"
 
-enum Game {
+enum Game { // TODO: validar se deve ficar aqui
     REVERSI = 'R',
     LIG4 = 'L',
     TTT = 'V'
