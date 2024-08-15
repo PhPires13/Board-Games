@@ -38,8 +38,9 @@ private:
 
     void makeMove(const std::vector<int> &move, char symbol) override;
 
-    GameState getGameState() const override;
+    GameState getGameState(const std::vector<int> &move);
 
+    bool checkDirection(const std::vector<int> &move, char symbol, int dRow, int dCol);
 };
 
 #endif //LIGFOUR_HPP
