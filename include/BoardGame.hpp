@@ -45,12 +45,12 @@ public:
      * @param boardWidth Width of the board
      * @param indexColor Color of the indexes
      * @param piecesColor Color of the pieces
-     * @param boardColor Color of the board
+     * @param borderColor Color of the board
      * @param evenBg Background color of the even cells
      * @param oddBg Background color of the odd cells
      */
     BoardGame(Player _player1, Player _player2, uint32_t boardHeight = BoardGame::defaultBoardHeight, uint32_t boardWidth = BoardGame::defaultBoardWidth,
-     const std::string& indexColor = "", const std::string& piecesColor = "", const std::string& boardColor = "",
+     const std::string& indexColor = "", const std::string& piecesColor = "", const std::string& borderColor = "",
      const std::string& evenBg = "", const std::string& oddBg = "");
 
 protected:
