@@ -80,7 +80,6 @@ bool ConnectFour::checkDirection(const std::vector<int> &move, char symbol, int 
             break;
         }
     }
-
     // Redefine positions
     row = move[0];
     col = move[1];
