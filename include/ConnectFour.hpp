@@ -13,7 +13,6 @@ class ConnectFour final: public BoardGame {
     static const uint32_t minimumBoardSize;
     static const uint32_t defaultBoardSize;
 
-
 public:
     ConnectFour(Player _player1, Player _player2, uint32_t boardSize = ConnectFour::defaultBoardSize);
 
@@ -39,7 +38,7 @@ private:
 
     GameState getGameState(const std::vector<int>& move) const override;
 
-    bool checkDirection(const std::vector<int> &move, char symbol, char pSymbol, int dRow, int dCol);
+    bool checkDirection(const std::vector<int> &move, char symbol, int dRow, int dCol) const;
 };
 
 #endif //CONNECTFOUR_HPP

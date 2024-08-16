@@ -40,47 +40,66 @@ void ConnectFour::validateMove(const std::vector<int> &move) const {
 GameState ConnectFour::getGameState(const std::vector<int>& move) const {
     if (!move.empty()) {
         char currentSymbol = Board::emptyCell;
-        for (int i = 0; i < this->board.getHeight(); i++) {
+        std::vector<int> currentPosition;
+        int i;
+        for (i = 0; i < this->board.getHeight(); i++) {
             currentSymbol = this->board.getSymbol(i, move[0]);
             if (currentSymbol != Board::emptyCell) break;
         }
+        currentPosition.push_back(i);
+        currentPosition.push_back(move[0]);
 
         //Verify if there is four equal symbols in a row/column/diagonal
-        // if(checkDirection(this->currentPosition,this->board.getSymbol(this->currentPosition[0],this->currentPosition[1]),this->currentSymbol,1,0) || //Horizontal
-        // checkDirection(this->currentPosition,this->board.getSymbol(this->currentPosition[0],this->currentPosition[1]),this->currentSymbol,0,1) || //Vertical
-        // checkDirection(this->currentPosition,this->board.getSymbol(this->currentPosition[0],this->currentPosition[1]),this->currentSymbol,1,1) || //Diagonal /'
-        // checkDirection(this->currentPosition,this->board.getSymbol(this->currentPosition[0],this->currentPosition[1]),this->currentSymbol,1,-1)) //Diagonal \'
-        // {
-        //     if(this->board.getSymbol(currentPosition[0],currentPosition[1])==player1.getSymbol())
-        //         return GameState::PLAYER1_WINS;
-        //     else return GameState::PLAYER2_WINS;
-        // }
+        if(checkDirection(currentPosition,currentSymbol,0,1) || //Horizontal
+        checkDirection(currentPosition,currentSymbol,1,0) || //Vertical
+        checkDirection(currentPosition,currentSymbol,1,1) || //Diagonal /
+        checkDirection(currentPosition,currentSymbol,1,-1)) //Diagonal \'
+        {
+            if(currentSymbol==player1.getSymbol())
+                return GameState::PLAYER1_WINS;
+            else return GameState::PLAYER2_WINS;
+            }
+        }
+        return BoardGame::getGameState(move);
     }
 
-    return BoardGame::getGameState(move);
-}
-
-bool checkDirection(const std::vector<int> &move, char symbol, char pSymbol, int dRow, int dCol) {
+bool ConnectFour::checkDirection(const std::vector<int> &move, char symbol, int dRow, int dCol) const{
     int count = 0;
     int row = move[0];
     int col = move[1];
 
     // Check in the positive direction
-    while (pSymbol == symbol) {
+    while (this->board.getSymbol(row,col) == symbol) {
         count++;
         row += dRow;
         col += dCol;
+        std::vector<int> dMove = {row,col};
+        try {
+            BoardGame::validateMove(dMove);
+        }catch (const invalid_move& e) {
+            break;
+        }
     }
 
+    // Redefine positions
     row = move[0];
     col = move[1];
 
     // Check in the negative direction
-    while (pSymbol == symbol) {
+    while (this->board.getSymbol(row,col) == symbol) {
         count++;
         row -= dRow;
         col -= dCol;
+        std::vector<int> dMove = {row,col};
+        try {
+            BoardGame::validateMove(dMove);
+        }catch (const invalid_move& e) {
+            break;
+        }
     }
+
+    //Excluding the duplicated counter
+    count--;
 
     return count >= 4;
 }
