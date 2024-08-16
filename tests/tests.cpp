@@ -2,11 +2,16 @@
 // Created by Pedro Henrique Pires  on 04/07/24.
 //
 
-#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#define private public
+#define protected public
 
 #include "BoardGame.hpp"
 #include "doctest.h"
+#include "exceptions.hpp"
 #include "Player.hpp"
+
+#undef private
+#undef protected
 
 TEST_CASE("Test BoardGame::validateMove()") {
     Player player1("Nick1", "Name1");
@@ -14,27 +19,29 @@ TEST_CASE("Test BoardGame::validateMove()") {
 
     BoardGame boardGame(player1, player2);
 
-// TODO: change to check throws
-    CHECK(boardGame.validateMove({0, 0}) == MoveStatus::VALID_MOVE);
-    CHECK(boardGame.isMoveValid({-1, 0}) == MoveStatus::INVALID_MOVE);
-    CHECK(boardGame.isMoveValid({0, -1}) == MoveStatus::INVALID_MOVE);
-    CHECK(boardGame.isMoveValid({-1, -1}) == MoveStatus::INVALID_MOVE);
+    CHECK_NOTHROW(boardGame.validateMove({0, 0}));
+    CHECK_THROWS_AS(boardGame.validateMove({-1, 0}), invalid_move);
+    CHECK_THROWS_AS(boardGame.validateMove({0, -1}), invalid_move);
+    CHECK_THROWS_AS(boardGame.validateMove({-1, -1}), invalid_move);
 
-    CHECK(boardGame.isMoveValid({0}) == MoveStatus::VALID_MOVE);
-    CHECK(boardGame.isMoveValid({-1}) == MoveStatus::INVALID_MOVE);
+    CHECK_NOTHROW(boardGame.validateMove({0}));
+    CHECK_THROWS_AS(boardGame.validateMove({-1}), invalid_move);
 
-    CHECK(boardGame.isMoveValid({}) == MoveStatus::INCORRECT_FORMAT);
-    CHECK(boardGame.isMoveValid({0, 0, 0}) == MoveStatus::INCORRECT_FORMAT);
+    CHECK_THROWS_AS(boardGame.validateMove({}), incorrect_format);
+    CHECK_THROWS_AS(boardGame.validateMove({0, 0, 0}), incorrect_format);
 }
 
-TEST_CASE("Test BoardGame::whoseTurn(int turn)") {
-    Player player1 = Player("Nick1", "Name1");
-    Player player2 = Player("Nick2", "Name2");
+TEST_CASE("Test BoardGame::whoseTurn()") {
+    Player player1("Nick1", "Name1", 'X');
+    Player player2("Nick2", "Name2", 'O');
 
-    BoardGame boardGame = BoardGame(player1, player2);
+    BoardGame boardGame(player1, player2);
 
-    CHECK(boardGame.whoseTurn(0) == player1);
-    CHECK(boardGame.whoseTurn(1) == player2);
-    CHECK(boardGame.whoseTurn(2) == player1);
-    CHECK(boardGame.whoseTurn(3) == player2);
+    CHECK(boardGame.whoseTurn().getSymbol() == player1.getSymbol());
+    boardGame.turn++;
+    CHECK(boardGame.whoseTurn().getSymbol() == player2.getSymbol());
+    boardGame.turn++;
+    CHECK(boardGame.whoseTurn().getSymbol() == player1.getSymbol());
+    boardGame.turn++;
+    CHECK(boardGame.whoseTurn().getSymbol() == player2.getSymbol());
 }

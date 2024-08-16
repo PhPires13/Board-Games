@@ -26,5 +26,26 @@ add_executable(Board_Games src/main.cpp
         src/Reversi.cpp
         include/ConnectFour.hpp
         src/ConnectFour.cpp
+)
+
+add_executable(Board_Games_Tests tests/tests.cpp
         third_party/doctest.h
+        include/Board.hpp
+        src/Board.cpp
+        include/Player.hpp
+        src/Player.cpp
+        include/BoardGame.hpp
+        src/BoardGame.cpp
+        include/Manager.hpp
+        src/Manager.cpp
+        include/TicTacToe.hpp
+        src/TicTacToe.cpp
+        include/Utils.hpp
+        src/Utils.cpp
+        include/exceptions.hpp
+        src/exceptions.cpp
+        include/Reversi.hpp
+        src/Reversi.cpp
+        include/ConnectFour.hpp
+        src/ConnectFour.cpp
 )
