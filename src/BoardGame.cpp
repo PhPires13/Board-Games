@@ -79,7 +79,7 @@ void BoardGame::makeMove(const std::vector<int>& move, const char symbol) {
     this->board.placeSymbol(move, symbol);
 }
 
-GameState BoardGame::getGameState() const {
+GameState BoardGame::getGameState(const std::vector<int>& move) const {
     // Check if board is full
     for (int i = 0; i < this->board.getHeight(); i++) {
         for (int j = 0; j < this->board.getWidth(); j++) {
@@ -95,6 +95,8 @@ Player BoardGame::whoseTurn() const {
 }
 
 GameState BoardGame::playGame() {
+    std::vector<int> move = {};
+
     while (true) {
         turn++;
 
@@ -103,7 +105,7 @@ GameState BoardGame::playGame() {
         this->printBoard();
 
         // Check game satate
-        const GameState gameState = this->getGameState();
+        const GameState gameState = this->getGameState(move);
         if (gameState != GameState::NOT_OVER) {
             if (gameState == GameState::TIE) std::cout << "O jogo empatou!" << std::endl;
             else if (gameState == GameState::PLAYER1_WINS) std::cout << player1.getNick() << " ganhou!" << std::endl;
@@ -116,7 +118,7 @@ GameState BoardGame::playGame() {
         Player turnPlayer = this->whoseTurn();
         while (true) { // While it is valid
             std::cout << "Turno de jogador " << turnPlayer.getNick() << ": ";
-            std::vector<int> move = BoardGame::readMove();
+            move = BoardGame::readMove();
 
             try {
                 this->validateMove(move);

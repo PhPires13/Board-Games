@@ -13,7 +13,7 @@ TicTacToe::TicTacToe(Player _player1, Player _player2
 ): BoardGame(std::move(_player1), std::move(_player2), TicTacToe::defaultBoardHeight, TicTacToe::defaultBoardHeight,
     "\033[38;2;180;180;180m", "\033[38;2;240;240;240m", "\033[38;2;128;128;128m", "\033[48;2;153;101;21m", "\033[48;2;101;67;33m") {}
 
-void TicTacToe::validateMove(const std::vector<int> &move) const {
+void TicTacToe::validateMove(const std::vector<int>& move) const {
     BoardGame::validateMove(move);
 
     // Move input size
@@ -23,7 +23,7 @@ void TicTacToe::validateMove(const std::vector<int> &move) const {
     if (this->board.getSymbol(move[0], move[1]) != Board::emptyCell) throw invalid_move();
 }
 
-GameState TicTacToe::getGameState() const {
+GameState TicTacToe::getGameState(const std::vector<int>& move) const { // TODO: use move to optimal check of winner
     // Check rows
     for (int i = 0; i < this->board.getHeight(); i++) {
         if ((this->board.getSymbol(i, 0) == this->board.getSymbol(i, 1)) &&
@@ -56,5 +56,5 @@ GameState TicTacToe::getGameState() const {
         return (this->board.getSymbol(0, 2) == player1.getSymbol() ? GameState::PLAYER1_WINS : GameState::PLAYER2_WINS);
     }
 
-    return BoardGame::getGameState();
+    return BoardGame::getGameState(move);
 }

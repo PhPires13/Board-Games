@@ -16,8 +16,6 @@ class ConnectFour final: public BoardGame {
 
 public:
     ConnectFour(Player _player1, Player _player2, uint32_t boardSize = ConnectFour::defaultBoardSize);
-    std::vector<int> currentPosition;
-    char currentSymbol;
 
 private:
 
@@ -39,13 +37,9 @@ private:
 
     void validateMove(const std::vector<int> &move)const override;
 
-    void makeMove(const std::vector<int> &move, char symbol) override;
+    GameState getGameState(const std::vector<int>& move) const override;
 
-    GameState getGameState() const override;
-
-    friend bool checkDirection(const std::vector<int> &move, char symbol, char pSymbol, int dRow, int dCol);
+    bool checkDirection(const std::vector<int> &move, char symbol, char pSymbol, int dRow, int dCol);
 };
-
-bool checkDirection(const std::vector<int> &move, char symbol, char pSymbol, int dRow, int dCol);
 
 #endif //CONNECTFOUR_HPP

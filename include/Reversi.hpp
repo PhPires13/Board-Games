@@ -40,7 +40,7 @@ private:
      */
     void makeMove(const std::vector<int> &move, char symbol) override;
 
-    GameState getGameState() const override;
+    GameState getGameState(const std::vector<int>& move) const override;
 
     void flipPieces(const std::vector<int>& move, char playerSymbol);
 

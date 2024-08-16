@@ -52,7 +52,7 @@ void Reversi::makeMove(const std::vector<int> &move, const char symbol) {
     flipPieces(move, symbol);
 }
 
-GameState Reversi::getGameState() const {
+GameState Reversi::getGameState(const std::vector<int>& move) const {
     // Verifica se há movimentos válidos para qualquer jogador
     if ((!hasValidMoves(player1.getSymbol()) && this->whoseTurn().getSymbol() == player1.getSymbol()) ||
         (!hasValidMoves(player2.getSymbol()) && this->whoseTurn().getSymbol() == player2.getSymbol())) {

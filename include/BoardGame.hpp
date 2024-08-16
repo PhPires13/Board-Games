@@ -103,9 +103,11 @@ protected:
     /**
      * Check if the game is over
      *
+     * @param move The last move made, can be used for optimal checks
+     *
      * @return GameState enum
      */
-    virtual GameState getGameState() const;
+    virtual GameState getGameState(const std::vector<int>& move) const;
 
     /**
      * Check whose turn is it

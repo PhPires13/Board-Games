@@ -37,23 +37,27 @@ void ConnectFour::validateMove(const std::vector<int> &move) const {
         throw invalid_move();
 }
 
-void ConnectFour::makeMove(const std::vector<int> &move, char symbol) {
-    BoardGame::makeMove(move, symbol);
-    this->currentPosition=move;
-    this->currentSymbol=this->board.getSymbol(move[0],move[1]);
-}
+GameState ConnectFour::getGameState(const std::vector<int>& move) const {
+    if (!move.empty()) {
+        char currentSymbol = Board::emptyCell;
+        for (int i = 0; i < this->board.getHeight(); i++) {
+            currentSymbol = this->board.getSymbol(i, move[0]);
+            if (currentSymbol != Board::emptyCell) break;
+        }
 
-GameState ConnectFour::getGameState() const {
-    //Verify if there is four equal symbols in a row/column/diagonal
-    if(checkDirection(this->currentPosition,this->board.getSymbol(this->currentPosition[0],this->currentPosition[1]),this->currentSymbol,1,0) || //Horizontal
-    checkDirection(this->currentPosition,this->board.getSymbol(this->currentPosition[0],this->currentPosition[1]),this->currentSymbol,0,1) || //Vertical
-    checkDirection(this->currentPosition,this->board.getSymbol(this->currentPosition[0],this->currentPosition[1]),this->currentSymbol,1,1) || //Diagonal /'
-    checkDirection(this->currentPosition,this->board.getSymbol(this->currentPosition[0],this->currentPosition[1]),this->currentSymbol,1,-1)) //Diagonal \'
-    {
-        if(this->board.getSymbol(currentPosition[0],currentPosition[1])==player1.getSymbol())
-            return GameState::PLAYER1_WINS;
-        else return GameState::PLAYER2_WINS;
+        //Verify if there is four equal symbols in a row/column/diagonal
+        // if(checkDirection(this->currentPosition,this->board.getSymbol(this->currentPosition[0],this->currentPosition[1]),this->currentSymbol,1,0) || //Horizontal
+        // checkDirection(this->currentPosition,this->board.getSymbol(this->currentPosition[0],this->currentPosition[1]),this->currentSymbol,0,1) || //Vertical
+        // checkDirection(this->currentPosition,this->board.getSymbol(this->currentPosition[0],this->currentPosition[1]),this->currentSymbol,1,1) || //Diagonal /'
+        // checkDirection(this->currentPosition,this->board.getSymbol(this->currentPosition[0],this->currentPosition[1]),this->currentSymbol,1,-1)) //Diagonal \'
+        // {
+        //     if(this->board.getSymbol(currentPosition[0],currentPosition[1])==player1.getSymbol())
+        //         return GameState::PLAYER1_WINS;
+        //     else return GameState::PLAYER2_WINS;
+        // }
     }
+
+    return BoardGame::getGameState(move);
 }
 
 bool checkDirection(const std::vector<int> &move, char symbol, char pSymbol, int dRow, int dCol) {
@@ -80,5 +84,3 @@ bool checkDirection(const std::vector<int> &move, char symbol, char pSymbol, int
 
     return count >= 4;
 }
-
-
