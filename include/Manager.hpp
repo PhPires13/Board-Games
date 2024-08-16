@@ -12,7 +12,7 @@
 
 enum Game { // TODO: validar se deve ficar aqui
     REVERSI = 'R',
-    LIG4 = 'L',
+    CONNECT_FOUR = 'L',
     TTT = 'V'
 };
 

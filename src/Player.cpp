@@ -19,7 +19,7 @@ const uint32_t Player::firstValidSymbol = 33;
 const char Player::lastValidSymbol = 126;
 
 Player::Player(std::string _nick, std::string _name, const char symbol
-    ): nick(std::move(_nick)), name(std::move(_name)), reversiWins(0), reversiLosses(0), lig4Wins(0), lig4Losses(0), tttWins(0), tttLosses(0) {
+    ): nick(std::move(_nick)), name(std::move(_name)), reversiWins(0), reversiLosses(0), connectFourWins(0), connectFourLosses(0), tttWins(0), tttLosses(0) {
 
     // If the symbol is not valid and has been choosen
     if ((symbol < firstValidSymbol || symbol > lastValidSymbol) && symbol != 0)
@@ -49,8 +49,8 @@ uint32_t Player::getWins(const char game) const {
 
     if (game == Game::REVERSI)
         wins = this->reversiWins;
-    else if (game == Game::LIG4)
-        wins = this->lig4Wins;
+    else if (game == Game::CONNECT_FOUR)
+        wins = this->connectFourWins;
     else if (game == Game::TTT)
         wins = this->tttWins;
 
@@ -60,8 +60,8 @@ uint32_t Player::getWins(const char game) const {
 uint32_t Player::getLosses(const char game) const {
     uint32_t losses = 0;
 
-    if (game == Game::LIG4)
-        losses = this->lig4Losses;
+    if (game == Game::CONNECT_FOUR)
+        losses = this->connectFourLosses;
     else if (game == Game::REVERSI)
         losses = this->reversiLosses;
     else if (game == Game::TTT)
@@ -72,15 +72,15 @@ uint32_t Player::getLosses(const char game) const {
 
 void Player::addStats(const char game, const bool toAddWin, const bool toAddLoss) {
     if (toAddWin) {
-        if (game == Game::LIG4)
-            this->lig4Wins++;
+        if (game == Game::CONNECT_FOUR)
+            this->connectFourWins++;
         else if (game == Game::REVERSI)
             this->reversiWins++;
         else if (game == Game::TTT)
             this->tttWins++;
     } else if (toAddLoss) {
-        if (game == Game::LIG4)
-            this->lig4Losses++;
+        if (game == Game::CONNECT_FOUR)
+            this->connectFourLosses++;
         else if (game == Game::REVERSI)
             this->reversiLosses++;
         else if (game == Game::TTT)
@@ -101,8 +101,8 @@ void Player::serialize(std::ofstream& outputFile) const {
     outputFile.write(reinterpret_cast<const char*>(&symbol), sizeof(symbol));
     outputFile.write(reinterpret_cast<const char*>(&reversiWins), sizeof(reversiWins));
     outputFile.write(reinterpret_cast<const char*>(&reversiLosses), sizeof(reversiLosses));
-    outputFile.write(reinterpret_cast<const char*>(&lig4Wins), sizeof(lig4Wins));
-    outputFile.write(reinterpret_cast<const char*>(&lig4Losses), sizeof(lig4Losses));
+    outputFile.write(reinterpret_cast<const char*>(&connectFourWins), sizeof(connectFourWins));
+    outputFile.write(reinterpret_cast<const char*>(&connectFourLosses), sizeof(connectFourLosses));
     outputFile.write(reinterpret_cast<const char*>(&tttWins), sizeof(tttWins));
     outputFile.write(reinterpret_cast<const char*>(&tttLosses), sizeof(tttLosses));
 }
@@ -122,8 +122,8 @@ void Player::deserialize(std::ifstream& inputFile) {
     inputFile.read(reinterpret_cast<char*>(&symbol), sizeof(symbol));
     inputFile.read(reinterpret_cast<char*>(&reversiWins), sizeof(reversiWins));
     inputFile.read(reinterpret_cast<char*>(&reversiLosses), sizeof(reversiLosses));
-    inputFile.read(reinterpret_cast<char*>(&lig4Wins), sizeof(lig4Wins));
-    inputFile.read(reinterpret_cast<char*>(&lig4Losses), sizeof(lig4Losses));
+    inputFile.read(reinterpret_cast<char*>(&connectFourWins), sizeof(connectFourWins));
+    inputFile.read(reinterpret_cast<char*>(&connectFourLosses), sizeof(connectFourLosses));
     inputFile.read(reinterpret_cast<char*>(&tttWins), sizeof(tttWins));
     inputFile.read(reinterpret_cast<char*>(&tttLosses), sizeof(tttLosses));
 }

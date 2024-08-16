@@ -9,9 +9,9 @@
 #include <sstream>
 #include <cstdint>
 #include <iterator>
-#include <LigFour.hpp>
 
 #include "BoardGame.hpp"
+#include "ConnectFour.hpp"
 #include "exceptions.hpp"
 #include "Player.hpp"
 #include "Reversi.hpp"
@@ -131,8 +131,8 @@ void Manager::listPlayers(const std::string &arguments) {
                   << lossColor << "D: " << player.getLosses(Game::REVERSI) << reset << std::endl;
 
         std::cout << gameColor << "LIG4 - " << reset
-                  << winColor << "V: " << player.getWins(Game::LIG4) << reset << " "
-                  << lossColor << "D: " << player.getLosses(Game::LIG4) << reset << std::endl;
+                  << winColor << "V: " << player.getWins(Game::CONNECT_FOUR) << reset << " "
+                  << lossColor << "D: " << player.getLosses(Game::CONNECT_FOUR) << reset << std::endl;
 
         std::cout << gameColor << "VELHA - " << reset
                   << winColor << "V: " << player.getWins(Game::TTT) << reset << " "
@@ -159,8 +159,8 @@ BoardGame* Manager::createMatch(char game, const Player& player1, const Player& 
     // Create the game instance
     if (game == Game::REVERSI) {
         boardGame = new Reversi(const_cast<Player&>(player1), const_cast<Player&>(player2), boardHeight);
-    } else if (game == Game::LIG4) {
-        boardGame = new LigFour(const_cast<Player&>(player1),const_cast<Player&>(player2), boardHeight);
+    } else if (game == Game::CONNECT_FOUR) {
+        boardGame = new ConnectFour(const_cast<Player&>(player1),const_cast<Player&>(player2), boardHeight);
     } else if (game == Game::TTT) {
         boardGame = new TicTacToe(const_cast<Player&>(player1), const_cast<Player&>(player2));
     } else {

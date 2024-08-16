@@ -27,8 +27,8 @@ class Player {
     uint32_t reversiWins;
     uint32_t reversiLosses;
 
-    uint32_t lig4Wins;
-    uint32_t lig4Losses;
+    uint32_t connectFourWins;
+    uint32_t connectFourLosses;
 
     uint32_t tttWins;
     uint32_t tttLosses;

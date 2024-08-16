@@ -24,5 +24,7 @@ add_executable(Board_Games src/main.cpp
         src/exceptions.cpp
         include/Reversi.hpp
         src/Reversi.cpp
+        include/ConnectFour.hpp
+        src/ConnectFour.cpp
         third_party/doctest.h
 )
