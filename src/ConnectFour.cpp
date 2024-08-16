@@ -27,7 +27,7 @@ bool ConnectFour::isAValidWidth(const uint32_t boardWidth) {
 }
 
 void ConnectFour::validateMove(const std::vector<int> &move) const {
-    //Verify if the move is inside the board places
+    //Verify if the move is inside the board dimensions
     BoardGame::validateMove(move);
 
     //Move input size
@@ -43,10 +43,12 @@ GameState ConnectFour::getGameState(const std::vector<int>& move) const {
         char currentSymbol = Board::emptyCell;
         std::vector<int> currentPosition;
         int i;
+        //Geting the player's symbol who made the last move
         for (i = 0; i < this->board.getHeight(); i++) {
             currentSymbol = this->board.getSymbol(i, move[0]);
             if (currentSymbol != Board::emptyCell) break;
         }
+        //Geting the symbol coordinates
         currentPosition.push_back(i);
         currentPosition.push_back(move[0]);
 
@@ -75,6 +77,7 @@ bool ConnectFour::checkDirection(const std::vector<int> &move, char symbol, int 
         row += dRow;
         col += dCol;
         std::vector<int> dMove = {row,col};
+        //Verifying if the next place on the direction is part of the board
         try {
             BoardGame::validateMove(dMove);
         }catch (const invalid_move& e) {
@@ -91,6 +94,7 @@ bool ConnectFour::checkDirection(const std::vector<int> &move, char symbol, int 
         row -= dRow;
         col -= dCol;
         std::vector<int> dMove = {row,col};
+        //Verifying if the next place on the direction is part of the board
         try {
             BoardGame::validateMove(dMove);
         }catch (const invalid_move& e) {
