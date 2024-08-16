@@ -12,9 +12,9 @@
 const char Board::emptyCell = ' ';
 
 Board::Board(const uint32_t _height, const uint32_t _width, std::string indexColor, std::string piecesColor,
-    std::string boardColor, std::string evenBg, std::string oddBg
+    std::string borderColor, std::string evenBg, std::string oddBg
     ): height(_height), width(_width), indexColor(std::move(indexColor)), piecesColor(std::move(piecesColor)),
-       boardColor(std::move(boardColor)), evenBg(std::move(evenBg)), oddBg(std::move(oddBg)) {
+       borderColor(std::move(borderColor)), evenBg(std::move(evenBg)), oddBg(std::move(oddBg)) {
     if (_height == 0 || _width == 0) throw incorrect_data();
 
     // Initializa o tabuleiro vazio
@@ -46,8 +46,8 @@ void Board::print() const {
     // Print upper border
     std::cout << "   ";
     for (int column = 0; column < this->width; column++) { // Each column
-        std::cout << this->boardColor << "=====" << RESET;
-        if (column < this->width - 1) std::cout << this->boardColor << '=' << RESET;
+        std::cout << this->borderColor << "=====" << RESET;
+        if (column < this->width - 1) std::cout << this->borderColor << '=' << RESET;
     }
     std::cout << std::endl;
 
@@ -60,7 +60,7 @@ void Board::print() const {
             // Alternate background colors
             std::string bgColor = (line + column) % 2 == 0 ? this->evenBg : this->oddBg;
             std::cout << bgColor << BOLD << this->piecesColor << "  " << this->board[line][column] << "  " << RESET;
-            if (column < this->width - 1) std::cout << this->boardColor << '|' << RESET;
+            if (column < this->width - 1) std::cout << this->borderColor << '|' << RESET;
         }
         std::cout << std::endl;
 
@@ -68,8 +68,8 @@ void Board::print() const {
         if (line < this->height - 1) { // Not the last line
             std::cout << "   ";
             for (int column = 0; column < this->width; column++) { //
-                std::cout << this->boardColor << "-----" << RESET;
-                if (column < this->width - 1) std::cout << this->boardColor << '+' << RESET; // Intersections
+                std::cout << this->borderColor << "-----" << RESET;
+                if (column < this->width - 1) std::cout << this->borderColor << '+' << RESET; // Intersections
             }
             std::cout << std::endl;
         }
@@ -78,8 +78,8 @@ void Board::print() const {
     // Print the lower border
     std::cout << "   ";
     for (int column = 0; column < this->width; column++) { // Each column
-        std::cout << boardColor << "=====" << RESET;
-        if (column < this->width - 1) std::cout << boardColor << '=' << RESET;
+        std::cout << borderColor << "=====" << RESET;
+        if (column < this->width - 1) std::cout << borderColor << '=' << RESET;
     }
     std::cout << std::endl;
 }

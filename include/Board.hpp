@@ -17,7 +17,7 @@ class Board final {
     // ANSI escape codes for coloring
     const std::string indexColor;
     const std::string piecesColor;
-    const std::string boardColor;
+    const std::string borderColor;
 
     // ANSI escape codes for background colors
     const std::string evenBg;
@@ -31,12 +31,12 @@ public:
      * @param _width board width
      * @param indexColor color for the indexes
      * @param piecesColor color for the pieces
-     * @param boardColor color for the board
+     * @param borderColor color for the board
      * @param evenBg background color for the even cells
      * @param oddBg background color for the odd cells
      */
     Board(uint32_t _height, uint32_t _width, std::string indexColor = "", std::string piecesColor = "",
-     std::string boardColor = "", std::string evenBg = "", std::string oddBg = "");
+     std::string borderColor = "", std::string evenBg = "", std::string oddBg = "");
 
     /**
      *

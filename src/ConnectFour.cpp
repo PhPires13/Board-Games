@@ -7,12 +7,12 @@
 #include <vector>
 
 const uint32_t ConnectFour::minimumBoardSize = 4;
-const uint32_t ConnectFour::defaultBoardSize = 4;
+const uint32_t ConnectFour::defaultBoardSize = 6; // TODO: diversify between height and width
 
 ConnectFour::ConnectFour(Player _player1, Player _player2, uint32_t boardSize
 ): BoardGame(std::move(_player1), std::move(_player2), (ConnectFour::isAValidHeight(boardSize) ? boardSize : ConnectFour::defaultBoardSize),
         (ConnectFour::isAValidWidth(boardSize) ? boardSize : ConnectFour::defaultBoardSize),
-        "\033[38;2;255;255;0m", "\033[38;2;255;255;255m", "\033[30m", "\033[48;2;0;150;23m", "\033[48;2;0;100;15m") {
+        "\033[38;5;11m", "\033[38;2;255;0;0m", "\033[38;2;0;159;235m", "\033[48;2;240;240;240m", "\033[48;2;240;240;240m") {
     if(!ConnectFour::isAValidHeight(boardSize))
         boardSize = ConnectFour::defaultBoardSize;
 }
