@@ -55,13 +55,13 @@ GameState ConnectFour::getGameState(const std::vector<int>& move) const {
         checkDirection(currentPosition,currentSymbol,1,1) || //Diagonal /
         checkDirection(currentPosition,currentSymbol,1,-1)) //Diagonal \'
         {
-            if(currentSymbol==player1.getSymbol())
-                return GameState::PLAYER1_WINS;
-            else return GameState::PLAYER2_WINS;
-            }
+            if(currentSymbol == player1.getSymbol()) return GameState::PLAYER1_WINS;
+
+            return GameState::PLAYER2_WINS;
         }
-        return BoardGame::getGameState(move);
     }
+        return BoardGame::getGameState(move);
+}
 
 bool ConnectFour::checkDirection(const std::vector<int> &move, char symbol, int dRow, int dCol) const{
     int count = 0;
