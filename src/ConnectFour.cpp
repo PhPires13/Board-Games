@@ -7,14 +7,15 @@
 #include <vector>
 
 const uint32_t ConnectFour::minimumBoardSize = 4;
-const uint32_t ConnectFour::defaultBoardSize = 6; // TODO: diversify between height and width
+const uint32_t ConnectFour::defaultBoardHeight = 6;
+const uint32_t ConnectFour::defaultBoardWidth = 7;
 
-ConnectFour::ConnectFour(Player _player1, Player _player2, uint32_t boardSize
-): BoardGame(std::move(_player1), std::move(_player2), (ConnectFour::isAValidHeight(boardSize) ? boardSize : ConnectFour::defaultBoardSize),
-        (ConnectFour::isAValidWidth(boardSize) ? boardSize : ConnectFour::defaultBoardSize),
-        "\033[38;5;11m", "\033[38;2;255;0;0m", "\033[38;2;0;159;235m", "\033[48;2;240;240;240m", "\033[48;2;240;240;240m") {
-    if(!ConnectFour::isAValidHeight(boardSize))
-        boardSize = ConnectFour::defaultBoardSize;
+ConnectFour::ConnectFour(Player _player1, Player _player2, uint32_t boardHeight, uint32_t boardWidth)
+: BoardGame(std::move(_player1), std::move(_player2),
+        (ConnectFour::isAValidHeight(boardHeight) ? boardHeight : ConnectFour::defaultBoardHeight),
+        (ConnectFour::isAValidWidth(boardWidth) ? boardWidth : ConnectFour::defaultBoardWidth),
+        "\033[38;5;11m", "\033[38;2;255;0;0m",
+        "\033[38;2;0;159;235m", "\033[48;2;240;240;240m", "\033[48;2;240;240;240m") {
 }
 
 bool ConnectFour::isAValidHeight(const uint32_t boardHeight) {

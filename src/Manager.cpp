@@ -160,7 +160,7 @@ BoardGame* Manager::createMatch(char game, const Player& player1, const Player& 
     if (game == Game::REVERSI) {
         boardGame = new Reversi(const_cast<Player&>(player1), const_cast<Player&>(player2), boardHeight);
     } else if (game == Game::CONNECT_FOUR) {
-        boardGame = new ConnectFour(const_cast<Player&>(player1),const_cast<Player&>(player2), boardHeight);
+        boardGame = new ConnectFour(const_cast<Player&>(player1),const_cast<Player&>(player2), boardHeight, boardWidth);
     } else if (game == Game::TTT) {
         boardGame = new TicTacToe(const_cast<Player&>(player1), const_cast<Player&>(player2));
     } else {

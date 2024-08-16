@@ -12,10 +12,11 @@
 
 class ConnectFour final: public BoardGame {
     static const uint32_t minimumBoardSize;
-    static const uint32_t defaultBoardSize;
+    static const uint32_t defaultBoardHeight;
+    static const uint32_t defaultBoardWidth;
 
 public:
-    ConnectFour(Player _player1, Player _player2, uint32_t boardSize = ConnectFour::defaultBoardSize);
+    ConnectFour(Player _player1, Player _player2, uint32_t boardHeight = ConnectFour::defaultBoardHeight, uint32_t boardWidth = ConnectFour::defaultBoardWidth);
 
 private:
 
