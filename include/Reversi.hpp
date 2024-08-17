@@ -7,6 +7,7 @@
 #include <vector>
 
 class Reversi final : public BoardGame {
+private:
     static const uint32_t minimumBoardSize;
     static const uint32_t defaultBoardSize;
 
@@ -27,7 +28,7 @@ private:
      * @param boardHeight Altura do tabuleiro
      * @return true se a altura é válida, false caso contrário
      */
-    bool isAValidHeight(uint32_t boardHeight) override;
+    bool isAValidHeight(uint32_t boardHeight) const override;
 
     /**
      * Verifica se a largura fornecida para o tabuleiro é válida.
@@ -35,7 +36,7 @@ private:
      * @param boardWidth Largura do tabuleiro
      * @return true se a largura é válida, false caso contrário
      */
-    bool isAValidWidth(uint32_t boardWidth) override;
+    bool isAValidWidth(uint32_t boardWidth) const override;
 
     /**
      * Valida o movimento dado, verificando se segue as regras do jogo Reversi.
@@ -44,7 +45,7 @@ private:
      * @throw incorrect_format se o movimento não tiver exatamente duas coordenadas
      * @throw invalid_move se o movimento for inválido
      */
-    void validateMove(const std::vector<int> &move) const override;
+    void validateMove(const std::vector<uint32_t> &move) const override;
 
     /**
      * Executa o movimento no tabuleiro e vira as peças necessárias.
@@ -52,9 +53,9 @@ private:
      * @param move Coordenadas do movimento
      * @param symbol Símbolo do jogador que está realizando o movimento
      */
-    void makeMove(const std::vector<int> &move, char symbol) override;
+    void makeMove(const std::vector<uint32_t> &move, char symbol) override;
 
-    GameState getGameState(const std::vector<int>& move) const override;
+    GameState getGameState(const std::vector<uint32_t>& move) const override;
 
     /**
      * Vira as peças do oponente de acordo com as regras do Reversi, após um movimento válido.
@@ -62,7 +63,7 @@ private:
      * @param move Coordenadas do movimento
      * @param playerSymbol Símbolo do jogador que fez o movimento
      */
-    void flipPieces(const std::vector<int>& move, char playerSymbol);
+    void flipPieces(const std::vector<uint32_t>& move, char playerSymbol);
 
     /**
      * Verifica se uma direção específica a partir de uma posição é válida para virar peças.

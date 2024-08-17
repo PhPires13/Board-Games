@@ -13,7 +13,7 @@ Reversi::Reversi(Player _player1, Player _player2, uint32_t boardSize)
     if (!Reversi::isAValidHeight(boardSize))
         boardSize = Reversi::defaultBoardSize;  // Se o tamanho do tabuleiro não for válido, usa o tamanho padrão.
 
-    const int mid = boardSize / 2;  // Calcula a posição central do tabuleiro.
+    const uint32_t mid = boardSize / 2;  // Calcula a posição central do tabuleiro.
 
     // Inicializa o tabuleiro com as peças iniciais no meio.
     this->board.placeSymbol({mid - 1, mid - 1}, player1.getSymbol());
@@ -22,7 +22,7 @@ Reversi::Reversi(Player _player1, Player _player2, uint32_t boardSize)
     this->board.placeSymbol({mid, mid}, player1.getSymbol());
 }
 
-bool Reversi::isAValidHeight(const uint32_t boardHeight) {
+bool Reversi::isAValidHeight(const uint32_t boardHeight) const {
     /**
      * Verifica se a altura do tabuleiro é válida.
      *
@@ -32,7 +32,7 @@ bool Reversi::isAValidHeight(const uint32_t boardHeight) {
     return boardHeight >= Reversi::minimumBoardSize && boardHeight % 2 == 0;
 }
 
-bool Reversi::isAValidWidth(const uint32_t boardWidth) {
+bool Reversi::isAValidWidth(const uint32_t boardWidth) const {
     /**
      * Verifica se a largura do tabuleiro é válida.
      *
@@ -42,7 +42,7 @@ bool Reversi::isAValidWidth(const uint32_t boardWidth) {
     return Reversi::isAValidHeight(boardWidth);
 }
 
-void Reversi::validateMove(const std::vector<int> &move) const {
+void Reversi::validateMove(const std::vector<uint32_t> &move) const {
     /**
      * Valida o movimento dado de acordo com as regras do jogo Reversi.
      *
@@ -69,7 +69,7 @@ void Reversi::validateMove(const std::vector<int> &move) const {
     }
 }
 
-void Reversi::makeMove(const std::vector<int> &move, const char symbol) {
+void Reversi::makeMove(const std::vector<uint32_t> &move, const char symbol) {
     /**
      * Executa o movimento no tabuleiro e vira as peças do oponente conforme necessário.
      *
@@ -80,7 +80,7 @@ void Reversi::makeMove(const std::vector<int> &move, const char symbol) {
     flipPieces(move, symbol);  // Vira as peças do oponente cercadas pelo símbolo atual.
 }
 
-GameState Reversi::getGameState(const std::vector<int>& move) const {
+GameState Reversi::getGameState(const std::vector<uint32_t>& move) const {
     // Verifica se há movimentos válidos para qualquer jogador
     if ((!hasValidMoves(player1.getSymbol()) && this->whoseTurn().getSymbol() == player1.getSymbol()) ||
         (!hasValidMoves(player2.getSymbol()) && this->whoseTurn().getSymbol() == player2.getSymbol())) {
@@ -107,7 +107,7 @@ GameState Reversi::getGameState(const std::vector<int>& move) const {
     return GameState::NOT_OVER;  // O jogo ainda não acabou.
 }
 
-void Reversi::flipPieces(const std::vector<int>& move, const char playerSymbol) {
+void Reversi::flipPieces(const std::vector<uint32_t>& move, const char playerSymbol) {
     /**
      * Vira as peças do oponente de acordo com as regras do Reversi, após um movimento válido.
      *
@@ -176,8 +176,8 @@ void Reversi::flipInDirection(const int row, const int col, const int directionR
      * @param directionCol Direção na coluna (-1, 0, 1)
      * @param playerSymbol Símbolo do jogador atual
      */
-    int r = row + directionRow;
-    int c = col + directionCol;
+    uint32_t r = row + directionRow;
+    uint32_t c = col + directionCol;
     while (this->board.getSymbol(r, c) != playerSymbol) {
         // Vira a peça na direção especificada até encontrar uma peça do jogador atual.
         this->board.placeSymbol({r, c}, playerSymbol);

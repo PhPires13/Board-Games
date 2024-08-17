@@ -17,6 +17,7 @@ enum Game { // TODO: validar se deve ficar aqui
 };
 
 class Manager {
+private:
     static const uint32_t maxCommandSize;
 
     static void printMenu();

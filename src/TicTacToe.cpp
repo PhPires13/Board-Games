@@ -6,14 +6,13 @@
 
 #include "exceptions.hpp"
 
-const uint32_t TicTacToe::defaultBoardHeight = 3;
-const uint32_t TicTacToe::defaultBoardWidth = 3;
+const uint32_t TicTacToe::defaultBoardSize = 3;
 
 TicTacToe::TicTacToe(Player _player1, Player _player2
-): BoardGame(std::move(_player1), std::move(_player2), TicTacToe::defaultBoardHeight, TicTacToe::defaultBoardHeight,
+): BoardGame(std::move(_player1), std::move(_player2), TicTacToe::defaultBoardSize, TicTacToe::defaultBoardSize,
     "\033[38;2;180;180;180m", "\033[38;2;240;240;240m", "\033[38;2;128;128;128m", "\033[48;2;153;101;21m", "\033[48;2;101;67;33m") {}
 
-void TicTacToe::validateMove(const std::vector<int>& move) const {
+void TicTacToe::validateMove(const std::vector<uint32_t>& move) const {
     BoardGame::validateMove(move);
 
     // Move input size
@@ -23,37 +22,39 @@ void TicTacToe::validateMove(const std::vector<int>& move) const {
     if (this->board.getSymbol(move[0], move[1]) != Board::emptyCell) throw invalid_move();
 }
 
-GameState TicTacToe::getGameState(const std::vector<int>& move) const { // TODO: use move to optimal check of winner
-    // Check rows
-    for (int i = 0; i < this->board.getHeight(); i++) {
-        if ((this->board.getSymbol(i, 0) == this->board.getSymbol(i, 1)) &&
-            (this->board.getSymbol(i, 1) == this->board.getSymbol(i, 2)) &&
-            (this->board.getSymbol(i, 0) != Board::emptyCell)) {
-            return (this->board.getSymbol(i, 0) == player1.getSymbol() ? GameState::PLAYER1_WINS : GameState::PLAYER2_WINS);
+GameState TicTacToe::getGameState(const std::vector<uint32_t>& move) const {
+    if (!move.empty()) {
+        // Check the row of the move
+        if ((this->board.getSymbol(move[0], 0) != Board::emptyCell) &&
+            (this->board.getSymbol(move[0], 0) == this->board.getSymbol(move[0], 1)) &&
+            (this->board.getSymbol(move[0], 1) == this->board.getSymbol(move[0], 2))) {
+            return (this->board.getSymbol(move[0], 0) == player1.getSymbol() ? GameState::PLAYER1_WINS : GameState::PLAYER2_WINS);
+            }
+
+        // Check the line of the move
+        if ((this->board.getSymbol(0, move[1]) != Board::emptyCell) &&
+            (this->board.getSymbol(0, move[1]) == this->board.getSymbol(1, move[1])) &&
+            (this->board.getSymbol(1, move[1]) == this->board.getSymbol(2, move[1]))) {
+            return (this->board.getSymbol(0, move[1]) == player1.getSymbol() ? GameState::PLAYER1_WINS : GameState::PLAYER2_WINS);
         }
-    }
 
-    // Check columns
-    for (int i = 0; i < this->board.getWidth(); i++) {
-        if ((this->board.getSymbol(0, i) == this->board.getSymbol(1, i)) &&
-            (this->board.getSymbol(1, i) == this->board.getSymbol(2, i)) &&
-            (this->board.getSymbol(0, i) != Board::emptyCell)) {
-            return (this->board.getSymbol(0, i) == player1.getSymbol() ? GameState::PLAYER1_WINS : GameState::PLAYER2_WINS);
+        // If move is in amin diagonal
+        if (move[0] == move[1]) {
+            if ((this->board.getSymbol(0, 0) != Board::emptyCell) &&
+                (this->board.getSymbol(0, 0) == this->board.getSymbol(1, 1)) &&
+                (this->board.getSymbol(1, 1) == this->board.getSymbol(2, 2))) {
+                return (this->board.getSymbol(0, 0) == player1.getSymbol() ? GameState::PLAYER1_WINS : GameState::PLAYER2_WINS);
+            }
         }
-    }
 
-    // Check main diagonal
-    if ((this->board.getSymbol(0, 0) == this->board.getSymbol(1, 1)) &&
-        (this->board.getSymbol(1, 1) == this->board.getSymbol(2, 2)) &&
-        (this->board.getSymbol(0, 0) != Board::emptyCell)) {
-        return (this->board.getSymbol(0, 0) == player1.getSymbol() ? GameState::PLAYER1_WINS : GameState::PLAYER2_WINS);
-    }
-
-    // Check secondary diagonal
-    if ((this->board.getSymbol(0, 2) == this->board.getSymbol(1, 1)) &&
-        (this->board.getSymbol(1, 1) == this->board.getSymbol(2, 0)) &&
-        (this->board.getSymbol(0, 2) != Board::emptyCell)) {
-        return (this->board.getSymbol(0, 2) == player1.getSymbol() ? GameState::PLAYER1_WINS : GameState::PLAYER2_WINS);
+        // If move is in secondary diagonal
+        if (move[0] + move[1] == TicTacToe::defaultBoardSize-1) {
+            if ((this->board.getSymbol(0, 2) != Board::emptyCell) &&
+                (this->board.getSymbol(0, 2) == this->board.getSymbol(1, 1)) &&
+                (this->board.getSymbol(1, 1) == this->board.getSymbol(2, 0))) {
+                return (this->board.getSymbol(0, 2) == player1.getSymbol() ? GameState::PLAYER1_WINS : GameState::PLAYER2_WINS);
+            }
+        }
     }
 
     return BoardGame::getGameState(move);

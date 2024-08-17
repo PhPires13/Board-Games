@@ -11,6 +11,7 @@
 #include <vector>
 
 class ConnectFour final: public BoardGame {
+private:
     static const uint32_t minimumBoardSize;
     static const uint32_t defaultBoardHeight;
     static const uint32_t defaultBoardWidth;
@@ -34,7 +35,7 @@ private:
      * @param boardHeight
      * @return true se é uma altura válida.
      */
-    bool isAValidHeight(uint32_t boardHeight) override;
+    bool isAValidHeight(uint32_t boardHeight) const override;
 
     /**
      * Verifica se a largura do tabuleiro é válida.
@@ -42,21 +43,21 @@ private:
      * @param boardWidth
      * @return true se é uma largura válida.
      */
-    bool isAValidWidth(uint32_t boardWidth) override;
+    bool isAValidWidth(uint32_t boardWidth) const override;
 
     /**
      *  Verifica se a coluna selecionada está cheia e executa o movimento da peça no tabuleiro.
      *
      * @param move Coordenadas da coluna.
      */
-    void validateMove(const std::vector<int> &move)const override;
+    void validateMove(const std::vector<uint32_t> &move)const override;
 
     /**
      * Analisa o status atual do jogo após cada jogada e verifica se há algum vencedor, de acordo com as regras do Lig4.
      *
      * @param move Coordenadas do movimento
      */
-    GameState getGameState(const std::vector<int>& move) const override;
+    GameState getGameState(const std::vector<uint32_t>& move) const override;
 
    /**
      * Verifica se há quatro peças seguidas de mesmo símbolo em uma determinda direção no tabuleiro após uma jogada
@@ -66,7 +67,7 @@ private:
      * @param dRow Sinalizador para analisar casas na direção vertical
      * @param dCol Sinalizadorpara analisar casas na direção horizontal
      */
-    bool checkDirection(const std::vector<int> &move, char symbol, int dRow, int dCol) const;
+    bool checkDirection(const std::vector<uint32_t> &move, char symbol, int dRow, int dCol) const;
 };
 
 #endif //CONNECTFOUR_HPP

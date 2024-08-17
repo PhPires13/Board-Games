@@ -13,11 +13,11 @@
  * Class that represents the player, it is also responsible for allowing the interaction with the database
  */
 class Player {
+private:
     static const std::string filePath;
 
     static const uint32_t firstValidSymbol;
-    static const char lastValidSymbol;
-
+    static const uint32_t lastValidSymbol;
 
     std::string nick;
     std::string name;

@@ -60,7 +60,7 @@ protected:
      * @param boardHeight
      * @return true if it is a valid height
      */
-    virtual bool isAValidHeight(uint32_t boardHeight);
+    virtual bool isAValidHeight(uint32_t boardHeight) const;
 
     /**
      * Check if it is a valid height for the game board
@@ -68,7 +68,7 @@ protected:
      * @param boardWidth
      * @return true if it is a valid height
      */
-    virtual bool isAValidWidth(uint32_t boardWidth);
+    virtual bool isAValidWidth(uint32_t boardWidth) const;
 
     /**
      * Print the current board state
@@ -80,7 +80,7 @@ protected:
      *
      * @return A vector with the move coordinates
      */
-    static std::vector<int> readMove();
+    static std::vector<uint32_t> readMove();
 
     /**
      * Validate if move is valid by throwing exceptions if not
@@ -90,7 +90,7 @@ protected:
      * @throws incorrect_format
      * @throws invalid_move
      */
-    virtual void validateMove(const std::vector<int>& move) const;
+    virtual void validateMove(const std::vector<uint32_t>& move) const;
 
     /**
      * Execute move on the board
@@ -98,7 +98,7 @@ protected:
      * @param move The move to be executed
      * @param symbol The symbol to be placed on the board
      */
-    virtual void makeMove(const std::vector<int>& move, char symbol);
+    virtual void makeMove(const std::vector<uint32_t>& move, char symbol);
 
     /**
      * Check if the game is over
@@ -107,7 +107,7 @@ protected:
      *
      * @return GameState enum
      */
-    virtual GameState getGameState(const std::vector<int>& move) const;
+    virtual GameState getGameState(const std::vector<uint32_t>& move) const;
 
     /**
      * Check whose turn is it

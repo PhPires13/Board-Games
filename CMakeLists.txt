@@ -48,4 +48,10 @@ add_executable(Board_Games_Tests tests/tests.cpp
         src/Reversi.cpp
         include/ConnectFour.hpp
         src/ConnectFour.cpp
+        tests/BoardTests.cpp
+        tests/BoardGameTests.cpp
+        tests/TicTacToeTests.cpp
+        tests/PlayerTests.cpp
+        tests/ManagerTests.cpp
+
 )

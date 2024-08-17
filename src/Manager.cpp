@@ -142,7 +142,7 @@ void Manager::listPlayers(const std::string &arguments) {
     }
 }
 
-BoardGame* Manager::createMatch(char game, const Player& player1, const Player& player2, const std::string& extraArguments) {
+BoardGame* Manager::createMatch(const char game, const Player& player1, const Player& player2, const std::string& extraArguments) {
     BoardGame* boardGame = nullptr;
 
     // Get the custom board size if sent
@@ -151,18 +151,18 @@ BoardGame* Manager::createMatch(char game, const Player& player1, const Player& 
         std::stringstream ss(extraArguments);
         try {
             ss >> boardHeight >> boardWidth;
-        } catch (std::exception& e) {
+        } catch (const std::exception& e) {
             throw incorrect_data();
         }
     }
 
     // Create the game instance
     if (game == Game::REVERSI) {
-        boardGame = new Reversi(const_cast<Player&>(player1), const_cast<Player&>(player2), boardHeight);
+        boardGame = new Reversi(player1, player2, boardHeight);
     } else if (game == Game::CONNECT_FOUR) {
-        boardGame = new ConnectFour(const_cast<Player&>(player1),const_cast<Player&>(player2), boardHeight, boardWidth);
+        boardGame = new ConnectFour(player1,player2, boardHeight, boardWidth);
     } else if (game == Game::TTT) {
-        boardGame = new TicTacToe(const_cast<Player&>(player1), const_cast<Player&>(player2));
+        boardGame = new TicTacToe(player1, player2);
     } else {
         throw game_not_found();
     }

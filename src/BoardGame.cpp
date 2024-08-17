@@ -33,11 +33,11 @@ BoardGame::BoardGame(Player _player1, Player _player2, const uint32_t boardHeigh
     }
 }
 
-bool BoardGame::isAValidHeight(const uint32_t boardHeight) {
+bool BoardGame::isAValidHeight(const uint32_t boardHeight) const {
     return boardHeight > 0;
 }
 
-bool BoardGame::isAValidWidth(const uint32_t boardWidth) {
+bool BoardGame::isAValidWidth(const uint32_t boardWidth) const {
     return BoardGame::isAValidHeight(boardWidth);
 }
 
@@ -45,16 +45,16 @@ void BoardGame::printBoard() const {
     this->board.print();
 }
 
-std::vector<int> BoardGame::readMove() {
+std::vector<uint32_t> BoardGame::readMove() {
     // Read all inputted numbers separated by spaces and add to the vector
-    std::vector<int> move;
+    std::vector<uint32_t> move;
 
     std::string line;
     std::getline(std::cin, line);
     line = Utils::cleanString(line);
     std::stringstream lineStream(line);
 
-    uint32_t value; // TODO: change to uint32_t
+    uint32_t value;
     while (lineStream >> value) {
         move.push_back(value);
     }
@@ -62,24 +62,24 @@ std::vector<int> BoardGame::readMove() {
     return move;
 }
 
-void BoardGame::validateMove(const std::vector<int>& move) const {
+void BoardGame::validateMove(const std::vector<uint32_t>& move) const {
     // Move input size
     if (move.empty() || (move.size() > 2)) throw incorrect_format();
 
     // If move is inside board
     if (move.size() == 1) {
-        if ((move[0] < 0) || (move[0] >= this->board.getWidth())) throw invalid_move(); // Verifica coluna
+        if (move[0] >= this->board.getWidth()) throw invalid_move(); // Verifica coluna
     } else if (move.size() == 2) {
-        if ((move[0] < 0) || (move[0] >= this->board.getHeight())) throw invalid_move(); // Verifica linha
-        if ((move[1] < 0) || (move[1] >= this->board.getHeight())) throw invalid_move(); // Verifica coluna
+        if (move[0] >= this->board.getHeight()) throw invalid_move(); // Verifica linha
+        if (move[1] >= this->board.getWidth()) throw invalid_move(); // Verifica coluna
     }
 }
 
-void BoardGame::makeMove(const std::vector<int>& move, const char symbol) {
+void BoardGame::makeMove(const std::vector<uint32_t>& move, const char symbol) {
     this->board.placeSymbol(move, symbol);
 }
 
-GameState BoardGame::getGameState(const std::vector<int>& move) const {
+GameState BoardGame::getGameState(const std::vector<uint32_t>& move) const {
     // Check if board is full
     for (int i = 0; i < this->board.getHeight(); i++) {
         for (int j = 0; j < this->board.getWidth(); j++) {
@@ -95,7 +95,7 @@ Player BoardGame::whoseTurn() const {
 }
 
 GameState BoardGame::playGame() {
-    std::vector<int> move = {};
+    std::vector<uint32_t> move = {};
 
     while (true) {
         turn++;

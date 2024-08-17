@@ -11,11 +11,14 @@
 
 const char Board::emptyCell = ' ';
 
+const uint32_t Board::maxBoardSize = 12;
+
 Board::Board(const uint32_t _height, const uint32_t _width, std::string indexColor, std::string piecesColor,
     std::string borderColor, std::string evenBg, std::string oddBg
     ): height(_height), width(_width), indexColor(std::move(indexColor)), piecesColor(std::move(piecesColor)),
        borderColor(std::move(borderColor)), evenBg(std::move(evenBg)), oddBg(std::move(oddBg)) {
-    if (_height == 0 || _width == 0) throw incorrect_data();
+    if (_height <= 0 || _width <= 0) throw incorrect_data();
+    if (_height > Board::maxBoardSize || _width > Board::maxBoardSize) throw incorrect_data();
 
     // Initializa o tabuleiro vazio
     this->board = std::vector<std::vector<char>>(
@@ -84,14 +87,17 @@ void Board::print() const {
     std::cout << std::endl;
 }
 
-char Board::getSymbol(const int line, const int column) const {
+char Board::getSymbol(const uint32_t line, const uint32_t column) const {
+    if (line >= this->height || column >= this->width) throw std::out_of_range("Out of range");
     return this->board[line][column];
 }
 
-void Board::placeSymbol(const std::vector<int>& move, const char symbol) {
-    if (move.size() == 2)
+void Board::placeSymbol(const std::vector<uint32_t>& move, const char symbol) {
+    if (move.size() == 2) {
+        if (move[0] >= this->height || move[1] >= this->width) throw std::out_of_range("Out of range");
         this->board[move[0]][move[1]] = symbol;
-    else {
+    } else {
+        if (move[0] >= this->width) throw std::out_of_range("Out of range");
         // Place the piece in the first empty space of the column
         for (int i = this->height - 1; i >= 0; i--) {
             if (this->board[i][move[0]] == Board::emptyCell) {

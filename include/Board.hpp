@@ -25,6 +25,7 @@ class Board final {
 
 public:
     static const char emptyCell;
+    static const uint32_t maxBoardSize;
 
     /**
      * @param _height board height
@@ -61,14 +62,14 @@ public:
      * @param column
      * @return the symbol at the given position
      */
-    char getSymbol(int line, int column) const;
+    char getSymbol(uint32_t line, uint32_t column) const;
 
     /**
      * Place symbol in the board, falling on the column or in the given coordinates
      * @param move vector with coordinates to place the symbol dim: 1-2
      * @param symbol symbol to be placed
      */
-    void placeSymbol(const std::vector<int>& move, char symbol);
+    void placeSymbol(const std::vector<uint32_t>& move, char symbol);
 };
 
 #endif //BOARD_HPP

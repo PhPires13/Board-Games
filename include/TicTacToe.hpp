@@ -8,16 +8,16 @@
 #include "BoardGame.hpp"
 
 class TicTacToe final: public BoardGame {
-    static const uint32_t defaultBoardHeight;
-    static const uint32_t defaultBoardWidth;
+private:
+    static const uint32_t defaultBoardSize;
 
 public:
     TicTacToe(Player _player1, Player _player2);
 
 private:
-    void validateMove(const std::vector<int>& move) const override;
+    void validateMove(const std::vector<uint32_t>& move) const override;
 
-    GameState getGameState(const std::vector<int>& move) const override;
+    GameState getGameState(const std::vector<uint32_t>& move) const override;
 };
 
 #endif //TICTACTOE_HPP

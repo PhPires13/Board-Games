@@ -16,16 +16,11 @@
 const std::string Player::filePath = "players.bin";
 
 const uint32_t Player::firstValidSymbol = 33;
-const char Player::lastValidSymbol = 126;
+const uint32_t Player::lastValidSymbol = 126;
 
 Player::Player(std::string _nick, std::string _name, const char symbol
     ): nick(std::move(_nick)), name(std::move(_name)), reversiWins(0), reversiLosses(0), connectFourWins(0), connectFourLosses(0), tttWins(0), tttLosses(0) {
-
-    // If the symbol is not valid and has been choosen
-    if ((symbol < firstValidSymbol || symbol > lastValidSymbol) && symbol != 0)
-        throw incorrect_data();
-
-    this->symbol = symbol;
+    this->setSymbol(symbol);
 }
 
 std::string Player::getNick() const {
@@ -41,6 +36,7 @@ char Player::getSymbol() const {
 }
 
 void Player::setSymbol(const char symbol) {
+    if ((symbol < firstValidSymbol || symbol > lastValidSymbol) && symbol != 0) throw incorrect_data();
     this->symbol = symbol;
 }
 
@@ -214,7 +210,7 @@ void Player::updatePlayerStats(const std::string& nick, const char game, const b
 }
 
 void Player::updatePlayerInfo(const std::string& nick, const std::string& name, const char symbol) {
-    // TODO: validar juntamente com player sem simbolo padrao
+    // TODO: remover se não der tempo
 }
 
 

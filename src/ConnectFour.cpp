@@ -10,7 +10,7 @@ const uint32_t ConnectFour::minimumBoardSize = 4;
 const uint32_t ConnectFour::defaultBoardHeight = 6;
 const uint32_t ConnectFour::defaultBoardWidth = 7;
 
-ConnectFour::ConnectFour(Player _player1, Player _player2, uint32_t boardHeight, uint32_t boardWidth)
+ConnectFour::ConnectFour(Player _player1, Player _player2, const uint32_t boardHeight, const uint32_t boardWidth)
 : BoardGame(std::move(_player1), std::move(_player2),
         (ConnectFour::isAValidHeight(boardHeight) ? boardHeight : ConnectFour::defaultBoardHeight),
         (ConnectFour::isAValidWidth(boardWidth) ? boardWidth : ConnectFour::defaultBoardWidth),
@@ -18,15 +18,15 @@ ConnectFour::ConnectFour(Player _player1, Player _player2, uint32_t boardHeight,
         "\033[38;2;0;159;235m", "\033[48;2;240;240;240m", "\033[48;2;240;240;240m") {
 }
 
-bool ConnectFour::isAValidHeight(const uint32_t boardHeight) {
+bool ConnectFour::isAValidHeight(const uint32_t boardHeight) const {
     return boardHeight >= ConnectFour::minimumBoardSize;
 }
 
-bool ConnectFour::isAValidWidth(const uint32_t boardWidth) {
+bool ConnectFour::isAValidWidth(const uint32_t boardWidth) const {
     return ConnectFour::isAValidHeight(boardWidth);
 }
 
-void ConnectFour::validateMove(const std::vector<int> &move) const {
+void ConnectFour::validateMove(const std::vector<uint32_t> &move) const {
     //Verify if the move is inside the board dimensions
     BoardGame::validateMove(move);
 
@@ -38,10 +38,10 @@ void ConnectFour::validateMove(const std::vector<int> &move) const {
         throw invalid_move();
 }
 
-GameState ConnectFour::getGameState(const std::vector<int>& move) const {
+GameState ConnectFour::getGameState(const std::vector<uint32_t>& move) const {
     if (!move.empty()) {
         char currentSymbol = Board::emptyCell;
-        std::vector<int> currentPosition;
+        std::vector<uint32_t> currentPosition;
         int i;
         //Geting the player's symbol who made the last move
         for (i = 0; i < this->board.getHeight(); i++) {
@@ -66,17 +66,17 @@ GameState ConnectFour::getGameState(const std::vector<int>& move) const {
         return BoardGame::getGameState(move);
 }
 
-bool ConnectFour::checkDirection(const std::vector<int> &move, char symbol, int dRow, int dCol) const{
+bool ConnectFour::checkDirection(const std::vector<uint32_t> &move, const char symbol, const int dRow, const int dCol) const {
     int count = 0;
-    int row = move[0];
-    int col = move[1];
+    uint32_t row = move[0];
+    uint32_t col = move[1];
 
     // Check in the positive direction
     while (this->board.getSymbol(row,col) == symbol) {
         count++;
         row += dRow;
         col += dCol;
-        std::vector<int> dMove = {row,col};
+        std::vector<uint32_t> dMove = {row,col};
         //Verifying if the next place on the direction is part of the board
         try {
             BoardGame::validateMove(dMove);
@@ -93,7 +93,7 @@ bool ConnectFour::checkDirection(const std::vector<int> &move, char symbol, int 
         count++;
         row -= dRow;
         col -= dCol;
-        std::vector<int> dMove = {row,col};
+        std::vector<uint32_t> dMove = {row,col};
         //Verifying if the next place on the direction is part of the board
         try {
             BoardGame::validateMove(dMove);
