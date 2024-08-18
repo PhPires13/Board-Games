@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['makemove_0',['makemove',['../classBoardGame.html#ace8625ebf31b8d5b2b7477f0ebc7e9a0',1,'BoardGame::makeMove()'],['../classReversi.html#a6ff01487a33a53b990b860eea97b5e14',1,'Reversi::makeMove()']]],
-  ['manager_1',['Manager',['../classManager.html',1,'']]]
+  ['lastvalidsymbol_0',['lastValidSymbol',['../classPlayer.html#a5a3836b1264dd70581e1558c32c77a2b',1,'Player']]],
+  ['listplayers_1',['listPlayers',['../classManager.html#a6c41295ecf1975e47623806a0416a2c9',1,'Manager']]],
+  ['loadplayer_2',['loadPlayer',['../classPlayer.html#ae950c7e93426454a231b5e85b164caa2',1,'Player']]]
 ];

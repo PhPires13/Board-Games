@@ -1,5 +1,9 @@
 \doxysection{Referência da Classe Reversi}
 \hypertarget{classReversi}{}\label{classReversi}\index{Reversi@{Reversi}}
+
+
+{\ttfamily \#include $<$Reversi.\+hpp$>$}
+
 Diagrama de hierarquia da classe Reversi\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,12 +13,12 @@ Diagrama de hierarquia da classe Reversi\+:\begin{figure}[H]
 \doxysubsubsection*{Membros Públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classReversi_a53b7ed598bb879c3356820f5ec897f3a}{Reversi}} (\mbox{\hyperlink{classPlayer}{Player}} \+\_\+player1, \mbox{\hyperlink{classPlayer}{Player}} \+\_\+player2, uint32\+\_\+t board\+Size=Reversi\+::default\+Board\+Size)
+\mbox{\hyperlink{classReversi_a53b7ed598bb879c3356820f5ec897f3a}{Reversi}} (\mbox{\hyperlink{classPlayer}{Player}} \+\_\+player1, \mbox{\hyperlink{classPlayer}{Player}} \+\_\+player2, uint32\+\_\+t board\+Size=\mbox{\hyperlink{classReversi_a838ef12443282a53e2c20aa14e9118be}{Reversi\+::default\+Board\+Size}})
 \end{DoxyCompactItemize}
 \doxysubsection*{Membros Públicos herdados de \mbox{\hyperlink{classBoardGame}{Board\+Game}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classBoardGame_a0d84f9fb30ea2420d7830b4e384db4d1}{Board\+Game}} (\mbox{\hyperlink{classPlayer}{Player}} \+\_\+player1, \mbox{\hyperlink{classPlayer}{Player}} \+\_\+player2, uint32\+\_\+t board\+Height=Board\+Game\+::default\+Board\+Height, uint32\+\_\+t board\+Width=Board\+Game\+::default\+Board\+Width, const std\+::string \&index\+Color="{}"{}, const std\+::string \&pieces\+Color="{}"{}, const std\+::string \&border\+Color="{}"{}, const std\+::string \&even\+Bg="{}"{}, const std\+::string \&odd\+Bg="{}"{})
+\mbox{\hyperlink{classBoardGame_a0d84f9fb30ea2420d7830b4e384db4d1}{Board\+Game}} (\mbox{\hyperlink{classPlayer}{Player}} \+\_\+player1, \mbox{\hyperlink{classPlayer}{Player}} \+\_\+player2, uint32\+\_\+t board\+Height=\mbox{\hyperlink{classBoardGame_aca61c3a52f024b05e8f38e452c8b4e29}{Board\+Game\+::default\+Board\+Height}}, uint32\+\_\+t board\+Width=\mbox{\hyperlink{classBoardGame_a44e4294a4c877b5fb5b43283ffc55843}{Board\+Game\+::default\+Board\+Width}}, const std\+::string \&index\+Color="{}"{}, const std\+::string \&pieces\+Color="{}"{}, const std\+::string \&border\+Color="{}"{}, const std\+::string \&even\+Bg="{}"{}, const std\+::string \&odd\+Bg="{}"{})
 \item 
 Game\+State \mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{play\+Game}} ()
 \end{DoxyCompactItemize}
@@ -46,11 +50,9 @@ bool \mbox{\hyperlink{classReversi_a0320d6014c5cba793f49069b7865fd7d}{has\+Valid
 \doxysubsubsection*{Atributos Privados Estáticos}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classReversi_aa5efab117441a759dd829780dcdab197}\label{classReversi_aa5efab117441a759dd829780dcdab197} 
-static const uint32\+\_\+t {\bfseries minimum\+Board\+Size} = 4
+static const uint32\+\_\+t \mbox{\hyperlink{classReversi_aa5efab117441a759dd829780dcdab197}{minimum\+Board\+Size}} = 4
 \item 
-\Hypertarget{classReversi_a838ef12443282a53e2c20aa14e9118be}\label{classReversi_a838ef12443282a53e2c20aa14e9118be} 
-static const uint32\+\_\+t {\bfseries default\+Board\+Size} = 8
+static const uint32\+\_\+t \mbox{\hyperlink{classReversi_a838ef12443282a53e2c20aa14e9118be}{default\+Board\+Size}} = 8
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Outros membros herdados}
 \doxysubsection*{Membros protegidos herdados de \mbox{\hyperlink{classBoardGame}{Board\+Game}}}
@@ -68,33 +70,36 @@ static std\+::vector$<$ uint32\+\_\+t $>$ \mbox{\hyperlink{classBoardGame_ab949e
 \doxysubsection*{Atributos Protegidos herdados de \mbox{\hyperlink{classBoardGame}{Board\+Game}}}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classPlayer}{Player}} {\bfseries player1}
+\mbox{\hyperlink{classPlayer}{Player}} \mbox{\hyperlink{classBoardGame_a3dbe986e81aebde93c1030704d8d2a26}{player1}}
 \item 
-\mbox{\hyperlink{classPlayer}{Player}} {\bfseries player2}
+\mbox{\hyperlink{classPlayer}{Player}} \mbox{\hyperlink{classBoardGame_a10fc21977a5f383bcc8decf1e3f715a5}{player2}}
 \item 
-\mbox{\hyperlink{classBoard}{Board}} {\bfseries board}
+\mbox{\hyperlink{classBoard}{Board}} \mbox{\hyperlink{classBoardGame_accfffd13a5f24592590c9a324cf7e8cd}{board}}
 \item 
-uint32\+\_\+t {\bfseries turn}
+uint32\+\_\+t \mbox{\hyperlink{classBoardGame_aeca0154244eb5f10db8b9b45cac24958}{turn}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Atributos Protegidos Estáticos herdados de \mbox{\hyperlink{classBoardGame}{Board\+Game}}}
 \begin{DoxyCompactItemize}
 \item 
-static const uint32\+\_\+t {\bfseries default\+Board\+Height} = 4
+static const uint32\+\_\+t \mbox{\hyperlink{classBoardGame_aca61c3a52f024b05e8f38e452c8b4e29}{default\+Board\+Height}} = 4
 \item 
-static const uint32\+\_\+t {\bfseries default\+Board\+Width} = 4
+static const uint32\+\_\+t \mbox{\hyperlink{classBoardGame_a44e4294a4c877b5fb5b43283ffc55843}{default\+Board\+Width}} = 4
 \item 
-static const char {\bfseries default\+Symbol1} = \textquotesingle{}X\textquotesingle{}
+static const char \mbox{\hyperlink{classBoardGame_a8bca6b3c24bf6f5aa3d2cd699385509f}{default\+Symbol1}} = \textquotesingle{}X\textquotesingle{}
 \item 
-static const char {\bfseries default\+Symbol2} = \textquotesingle{}O\textquotesingle{}
+static const char \mbox{\hyperlink{classBoardGame_a1f911ef285f2c528caf01d5ab34d9df2}{default\+Symbol2}} = \textquotesingle{}O\textquotesingle{}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Descrição detalhada}
+Classe que representa o jogo \doxylink{classReversi}{Reversi} 
 
 \doxysubsection{Construtores e Destrutores}
 \Hypertarget{classReversi_a53b7ed598bb879c3356820f5ec897f3a}\label{classReversi_a53b7ed598bb879c3356820f5ec897f3a} 
 \index{Reversi@{Reversi}!Reversi@{Reversi}}
 \index{Reversi@{Reversi}!Reversi@{Reversi}}
 \doxysubsubsection{\texorpdfstring{Reversi()}{Reversi()}}
-{\footnotesize\ttfamily Reversi\+::\+Reversi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}}}]{\+\_\+player1,  }\item[{\mbox{\hyperlink{classPlayer}{Player}}}]{\+\_\+player2,  }\item[{uint32\+\_\+t}]{board\+Size = {\ttfamily Reversi\+:\+:defaultBoardSize} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Reversi\+::\+Reversi (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}}}]{\+\_\+player1,  }\item[{\mbox{\hyperlink{classPlayer}{Player}}}]{\+\_\+player2,  }\item[{uint32\+\_\+t}]{board\+Size = {\ttfamily \mbox{\hyperlink{classReversi_a838ef12443282a53e2c20aa14e9118be}{Reversi\+::default\+Board\+Size}}} }\end{DoxyParamCaption})}
 
 Construtor da classe \doxylink{classReversi}{Reversi}. Inicializa o jogo com dois jogadores e um tamanho de tabuleiro.
 
@@ -176,15 +181,15 @@ Vira as peças do oponente de acordo com as regras do \doxylink{classReversi}{Re
 \doxysubsubsection{\texorpdfstring{getGameState()}{getGameState()}}
 {\footnotesize\ttfamily Game\+State Reversi\+::get\+Game\+State (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{move }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
 
-Check if the game is over
+Verifica o estado atual do jogo, verificando se ainda tem jogada válidas e quem tem mais peças.
 
 
 \begin{DoxyParams}{Parâmetros}
-{\em move} & The last move made, can be used for optimal checks\\
+{\em move} & 2D vector representing the last move\\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Retorna}
-Game\+State enum 
+O estado atual do jogo 
 \end{DoxyReturn}
 
 
@@ -394,9 +399,14 @@ Executa o movimento no tabuleiro e vira as peças necessárias.
 \begin{DoxyParams}{Parâmetros}
 {\em move} & Coordenadas do movimento \\
 \hline
-{\em symbol} & Símbolo do jogador que está realizando o movimento \\
+{\em symbol} & Símbolo do jogador que está realizando o movimento\\
 \hline
 \end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \doxylink{classinvalid__move}{invalid\+\_\+move}} & se o movimento estiver fora do tabuleiro \\
+\hline
+\end{DoxyExceptions}
 Executa o movimento no tabuleiro e vira as peças do oponente conforme necessário.
 
 
@@ -449,6 +459,21 @@ Valida o movimento dado de acordo com as regras do jogo \doxylink{classReversi}{
 Reimplementa \mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{Board\+Game}}.
 
 
+
+\doxysubsection{Atributos}
+\Hypertarget{classReversi_a838ef12443282a53e2c20aa14e9118be}\label{classReversi_a838ef12443282a53e2c20aa14e9118be} 
+\index{Reversi@{Reversi}!defaultBoardSize@{defaultBoardSize}}
+\index{defaultBoardSize@{defaultBoardSize}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{defaultBoardSize}{defaultBoardSize}}
+{\footnotesize\ttfamily const uint32\+\_\+t Reversi\+::default\+Board\+Size = 8\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Tamanho padrão do tabuleiro (height == width) \Hypertarget{classReversi_aa5efab117441a759dd829780dcdab197}\label{classReversi_aa5efab117441a759dd829780dcdab197} 
+\index{Reversi@{Reversi}!minimumBoardSize@{minimumBoardSize}}
+\index{minimumBoardSize@{minimumBoardSize}!Reversi@{Reversi}}
+\doxysubsubsection{\texorpdfstring{minimumBoardSize}{minimumBoardSize}}
+{\footnotesize\ttfamily const uint32\+\_\+t Reversi\+::minimum\+Board\+Size = 4\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Tamanho mínimo do tabuleiro (height == width) 
 
 A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
 \item 

@@ -1,13 +1,8 @@
 var searchData=
 [
-  ['game_5fnot_5ffound_0',['game_not_found',['../classgame__not__found.html',1,'']]],
-  ['getallplayers_1',['getAllPlayers',['../classPlayer.html#ac2cc0794b5a02b0d9325de133f4c9ed3',1,'Player']]],
-  ['getgamestate_2',['getgamestate',['../classBoardGame.html#aecc780aa669fa3287bf8988becb773b4',1,'BoardGame::getGameState()'],['../classConnectFour.html#a7d74751dda08358520d8e5eba9cbd879',1,'ConnectFour::getGameState()'],['../classReversi.html#ae021a028f7f8704156abe8f41bfa8d8e',1,'Reversi::getGameState()'],['../classTicTacToe.html#a7501ae96020a99310e94181f1d4bc2a0',1,'TicTacToe::getGameState()']]],
-  ['getheight_3',['getHeight',['../classBoard.html#af30a5a43871230a04d49dd87b99acc55',1,'Board']]],
-  ['getlosses_4',['getLosses',['../classPlayer.html#a6566537dd373e87d43385b2fe4de942e',1,'Player']]],
-  ['getname_5',['getName',['../classPlayer.html#a73e4ff2d70e62ca7e3be1d9b4ad9de85',1,'Player']]],
-  ['getnick_6',['getNick',['../classPlayer.html#aeb6f99400482a46e55c60f2ef6d2f764',1,'Player']]],
-  ['getsymbol_7',['getsymbol',['../classBoard.html#adcccff11170293326c090a8e0ca6b060',1,'Board::getSymbol()'],['../classPlayer.html#acafb522e729c2fe951550f09809e075c',1,'Player::getSymbol()']]],
-  ['getwidth_8',['getWidth',['../classBoard.html#a497b16cc0884b2210dd45766fc63b25f',1,'Board']]],
-  ['getwins_9',['getWins',['../classPlayer.html#a53339bac955beb333581f865546db107',1,'Player']]]
+  ['file_5ferror_0',['file_error',['../classfile__error.html',1,'']]],
+  ['filepath_1',['filePath',['../classPlayer.html#a9b7e2146125da66d32032b8467cbbb1c',1,'Player']]],
+  ['firstvalidsymbol_2',['firstValidSymbol',['../classPlayer.html#af65be825657caae667881028cf6f2de5',1,'Player']]],
+  ['flipindirection_3',['flipInDirection',['../classReversi.html#ab287714eda83ffd7e4db4a4d7d981072',1,'Reversi']]],
+  ['flippieces_4',['flipPieces',['../classReversi.html#ad9096a2babeb691a4cc4fbab862f9a26',1,'Reversi']]]
 ];

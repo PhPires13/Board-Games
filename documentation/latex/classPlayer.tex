@@ -7,7 +7,7 @@
 \doxysubsubsection*{Membros Públicos}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classPlayer_acc752e5c1ec278228dc15de19db92fc6}{Player}} (std\+::string \+\_\+nick, std\+::string \+\_\+name, char symbol=0)
+\mbox{\hyperlink{classPlayer_acc752e5c1ec278228dc15de19db92fc6}{Player}} (std\+::string \+\_\+nick, std\+::string \+\_\+name, char \mbox{\hyperlink{classPlayer_a01218f5efc53791ed75c77c99fedf0e2}{symbol}}=0)
 \item 
 std\+::string \mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{get\+Nick}} () const
 \item 
@@ -15,7 +15,7 @@ std\+::string \mbox{\hyperlink{classPlayer_a73e4ff2d70e62ca7e3be1d9b4ad9de85}{ge
 \item 
 char \mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{get\+Symbol}} () const
 \item 
-void \mbox{\hyperlink{classPlayer_a6cd993753014ccdc16e08aa404203958}{set\+Symbol}} (char symbol)
+void \mbox{\hyperlink{classPlayer_a6cd993753014ccdc16e08aa404203958}{set\+Symbol}} (char \mbox{\hyperlink{classPlayer_a01218f5efc53791ed75c77c99fedf0e2}{symbol}})
 \item 
 uint32\+\_\+t \mbox{\hyperlink{classPlayer_a53339bac955beb333581f865546db107}{get\+Wins}} (char game) const
 \item 
@@ -30,15 +30,15 @@ void \mbox{\hyperlink{classPlayer_a476cdc330565616e3bdc6a660c24a4b4}{deserialize
 \doxysubsubsection*{Membros públicos estáticos}
 \begin{DoxyCompactItemize}
 \item 
-static void \mbox{\hyperlink{classPlayer_a12f65a371cdda1f1a049752489445d48}{create\+Player}} (const std\+::string \&nick, const std\+::string \&name, char symbol=0)
+static void \mbox{\hyperlink{classPlayer_a12f65a371cdda1f1a049752489445d48}{create\+Player}} (const std\+::string \&\mbox{\hyperlink{classPlayer_aac4d26817345888cde02637183497507}{nick}}, const std\+::string \&\mbox{\hyperlink{classPlayer_af9c920fabaafdeb7961a645315b521ff}{name}}, char \mbox{\hyperlink{classPlayer_a01218f5efc53791ed75c77c99fedf0e2}{symbol}}=0)
 \item 
-static \mbox{\hyperlink{classPlayer}{Player}} \mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{load\+Player}} (const std\+::string \&nick)
+static \mbox{\hyperlink{classPlayer}{Player}} \mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{load\+Player}} (const std\+::string \&\mbox{\hyperlink{classPlayer_aac4d26817345888cde02637183497507}{nick}})
 \item 
-static void \mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{update\+Player\+Stats}} (const std\+::string \&nick, char game, bool to\+Add\+Win, bool to\+Add\+Loss)
+static void \mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{update\+Player\+Stats}} (const std\+::string \&\mbox{\hyperlink{classPlayer_aac4d26817345888cde02637183497507}{nick}}, char game, bool to\+Add\+Win, bool to\+Add\+Loss)
 \item 
-static void \mbox{\hyperlink{classPlayer_a5574664867e1d05cba067d4aaa1fac5c}{update\+Player\+Info}} (const std\+::string \&nick, const std\+::string \&name="{}"{}, char symbol=0)
+static void \mbox{\hyperlink{classPlayer_a5574664867e1d05cba067d4aaa1fac5c}{update\+Player\+Info}} (const std\+::string \&\mbox{\hyperlink{classPlayer_aac4d26817345888cde02637183497507}{nick}}, const std\+::string \&\mbox{\hyperlink{classPlayer_af9c920fabaafdeb7961a645315b521ff}{name}}="{}"{}, char \mbox{\hyperlink{classPlayer_a01218f5efc53791ed75c77c99fedf0e2}{symbol}}=0)
 \item 
-static void \mbox{\hyperlink{classPlayer_a431643a31f1dd19c95c22a6fdb0232a6}{delete\+Player}} (const std\+::string \&nick)
+static void \mbox{\hyperlink{classPlayer_a431643a31f1dd19c95c22a6fdb0232a6}{delete\+Player}} (const std\+::string \&\mbox{\hyperlink{classPlayer_aac4d26817345888cde02637183497507}{nick}})
 \item 
 static std\+::list$<$ \mbox{\hyperlink{classPlayer}{Player}} $>$ \mbox{\hyperlink{classPlayer_ac2cc0794b5a02b0d9325de133f4c9ed3}{get\+All\+Players}} ()
 \item 
@@ -51,44 +51,32 @@ static void \mbox{\hyperlink{classPlayer_a547c60608af80be40ce6fc657c938313}{sync
 \doxysubsubsection*{Atributos Privados}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classPlayer_aac4d26817345888cde02637183497507}\label{classPlayer_aac4d26817345888cde02637183497507} 
-std\+::string {\bfseries nick}
+std\+::string \mbox{\hyperlink{classPlayer_aac4d26817345888cde02637183497507}{nick}}
 \item 
-\Hypertarget{classPlayer_af9c920fabaafdeb7961a645315b521ff}\label{classPlayer_af9c920fabaafdeb7961a645315b521ff} 
-std\+::string {\bfseries name}
+std\+::string \mbox{\hyperlink{classPlayer_af9c920fabaafdeb7961a645315b521ff}{name}}
 \item 
-\Hypertarget{classPlayer_a01218f5efc53791ed75c77c99fedf0e2}\label{classPlayer_a01218f5efc53791ed75c77c99fedf0e2} 
-char {\bfseries symbol}
+char \mbox{\hyperlink{classPlayer_a01218f5efc53791ed75c77c99fedf0e2}{symbol}}
 \item 
-\Hypertarget{classPlayer_a2e08da24b414d3c688da46e47592faf5}\label{classPlayer_a2e08da24b414d3c688da46e47592faf5} 
-uint32\+\_\+t {\bfseries reversi\+Wins}
+uint32\+\_\+t \mbox{\hyperlink{classPlayer_a2e08da24b414d3c688da46e47592faf5}{reversi\+Wins}}
 \item 
-\Hypertarget{classPlayer_aaa29bdcffb21488407e46fbf521902ea}\label{classPlayer_aaa29bdcffb21488407e46fbf521902ea} 
-uint32\+\_\+t {\bfseries reversi\+Losses}
+uint32\+\_\+t \mbox{\hyperlink{classPlayer_aaa29bdcffb21488407e46fbf521902ea}{reversi\+Losses}}
 \item 
-\Hypertarget{classPlayer_a664e20f91ba4bdf775a1a9aa6607f85d}\label{classPlayer_a664e20f91ba4bdf775a1a9aa6607f85d} 
-uint32\+\_\+t {\bfseries connect\+Four\+Wins}
+uint32\+\_\+t \mbox{\hyperlink{classPlayer_a664e20f91ba4bdf775a1a9aa6607f85d}{connect\+Four\+Wins}}
 \item 
-\Hypertarget{classPlayer_a92b2370aec97aed74127649187277da6}\label{classPlayer_a92b2370aec97aed74127649187277da6} 
-uint32\+\_\+t {\bfseries connect\+Four\+Losses}
+uint32\+\_\+t \mbox{\hyperlink{classPlayer_a92b2370aec97aed74127649187277da6}{connect\+Four\+Losses}}
 \item 
-\Hypertarget{classPlayer_a6b6bebb772b53f558373e71f730ad96f}\label{classPlayer_a6b6bebb772b53f558373e71f730ad96f} 
-uint32\+\_\+t {\bfseries ttt\+Wins}
+uint32\+\_\+t \mbox{\hyperlink{classPlayer_a6b6bebb772b53f558373e71f730ad96f}{ttt\+Wins}}
 \item 
-\Hypertarget{classPlayer_a35068e4b798614f94850554cd3d67a4f}\label{classPlayer_a35068e4b798614f94850554cd3d67a4f} 
-uint32\+\_\+t {\bfseries ttt\+Losses}
+uint32\+\_\+t \mbox{\hyperlink{classPlayer_a35068e4b798614f94850554cd3d67a4f}{ttt\+Losses}}
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Atributos Privados Estáticos}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classPlayer_a9b7e2146125da66d32032b8467cbbb1c}\label{classPlayer_a9b7e2146125da66d32032b8467cbbb1c} 
-static const std\+::string {\bfseries file\+Path} = "{}players.\+bin"{}
+static const std\+::string \mbox{\hyperlink{classPlayer_a9b7e2146125da66d32032b8467cbbb1c}{file\+Path}} = "{}players.\+bin"{}
 \item 
-\Hypertarget{classPlayer_af65be825657caae667881028cf6f2de5}\label{classPlayer_af65be825657caae667881028cf6f2de5} 
-static const uint32\+\_\+t {\bfseries first\+Valid\+Symbol} = 33
+static const uint32\+\_\+t \mbox{\hyperlink{classPlayer_af65be825657caae667881028cf6f2de5}{first\+Valid\+Symbol}} = 33
 \item 
-\Hypertarget{classPlayer_a5a3836b1264dd70581e1558c32c77a2b}\label{classPlayer_a5a3836b1264dd70581e1558c32c77a2b} 
-static const uint32\+\_\+t {\bfseries last\+Valid\+Symbol} = 126
+static const uint32\+\_\+t \mbox{\hyperlink{classPlayer_a5a3836b1264dd70581e1558c32c77a2b}{last\+Valid\+Symbol}} = 126
 \end{DoxyCompactItemize}
 
 
@@ -174,9 +162,9 @@ Create a new player in the database
 \end{DoxyParams}
 
 \begin{DoxyExceptions}{Exceções}
-{\em \doxylink{classduplicated__player}{duplicated\+\_\+player}} & \\
+{\em \doxylink{classduplicated__player}{duplicated\+\_\+player}} & if the player already exists \\
 \hline
-{\em \doxylink{classfile__error}{file\+\_\+error}} & \\
+{\em \doxylink{classfile__error}{file\+\_\+error}} & if was not able to write to the file \\
 \hline
 \end{DoxyExceptions}
 \Hypertarget{classPlayer_a431643a31f1dd19c95c22a6fdb0232a6}\label{classPlayer_a431643a31f1dd19c95c22a6fdb0232a6} 
@@ -194,9 +182,9 @@ Delete a player from the database
 \end{DoxyParams}
 
 \begin{DoxyExceptions}{Exceções}
-{\em \doxylink{classplayer__not__found}{player\+\_\+not\+\_\+found}} & \\
+{\em \doxylink{classplayer__not__found}{player\+\_\+not\+\_\+found}} & if the player was not found \\
 \hline
-{\em \doxylink{classfile__error}{file\+\_\+error}} & \\
+{\em \doxylink{classfile__error}{file\+\_\+error}} & if was not able to remove from the file \\
 \hline
 \end{DoxyExceptions}
 \Hypertarget{classPlayer_a476cdc330565616e3bdc6a660c24a4b4}\label{classPlayer_a476cdc330565616e3bdc6a660c24a4b4} 
@@ -205,7 +193,9 @@ Delete a player from the database
 \doxysubsubsection{\texorpdfstring{deserialize()}{deserialize()}}
 {\footnotesize\ttfamily void Player\+::deserialize (\begin{DoxyParamCaption}\item[{std\+::ifstream \&}]{input\+File }\end{DoxyParamCaption})}
 
-Recupera o player serializado do arquivo 
+Recupera o player serializado do arquivo
+
+
 \begin{DoxyParams}{Parâmetros}
 {\em input\+File} & arquivo para ler o player serializado \\
 \hline
@@ -223,7 +213,7 @@ A list with all players
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceções}
-{\em \doxylink{classfile__error}{file\+\_\+error}} & \\
+{\em \doxylink{classfile__error}{file\+\_\+error}} & if was not able to read from the file \\
 \hline
 \end{DoxyExceptions}
 \Hypertarget{classPlayer_a6566537dd373e87d43385b2fe4de942e}\label{classPlayer_a6566537dd373e87d43385b2fe4de942e} 
@@ -309,9 +299,9 @@ The player loaded
 \end{DoxyReturn}
 
 \begin{DoxyExceptions}{Exceções}
-{\em \doxylink{classplayer__not__found}{player\+\_\+not\+\_\+found}} & \\
+{\em \doxylink{classplayer__not__found}{player\+\_\+not\+\_\+found}} & if the player was not found \\
 \hline
-{\em \doxylink{classfile__error}{file\+\_\+error}} & \\
+{\em \doxylink{classfile__error}{file\+\_\+error}} & if was not able to read from the file \\
 \hline
 \end{DoxyExceptions}
 \Hypertarget{classPlayer_a7b80a4d7bc5fe7522a45a6c8e3a99773}\label{classPlayer_a7b80a4d7bc5fe7522a45a6c8e3a99773} 
@@ -320,7 +310,9 @@ The player loaded
 \doxysubsubsection{\texorpdfstring{serialize()}{serialize()}}
 {\footnotesize\ttfamily void Player\+::serialize (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{output\+File }\end{DoxyParamCaption}) const}
 
-Salva o player serializado no arquivo 
+Salva o player serializado no arquivo
+
+
 \begin{DoxyParams}{Parâmetros}
 {\em output\+File} & arquivo para salvar \\
 \hline
@@ -348,7 +340,7 @@ Guarantee that the databse file exists
 
 
 \begin{DoxyExceptions}{Exceções}
-{\em \doxylink{classfile__error}{file\+\_\+error}} & \\
+{\em \doxylink{classfile__error}{file\+\_\+error}} & if was not able to open the file \\
 \hline
 \end{DoxyExceptions}
 \Hypertarget{classPlayer_a5574664867e1d05cba067d4aaa1fac5c}\label{classPlayer_a5574664867e1d05cba067d4aaa1fac5c} 
@@ -368,7 +360,9 @@ Update a player info in the database
 \end{DoxyParams}
 
 \begin{DoxyExceptions}{Exceções}
-{\em \doxylink{classfile__error}{file\+\_\+error}} & \\
+{\em \doxylink{classplayer__not__found}{player\+\_\+not\+\_\+found}} & if the player was not found \\
+\hline
+{\em \doxylink{classfile__error}{file\+\_\+error}} & if was not able to write to the file \\
 \hline
 \end{DoxyExceptions}
 \Hypertarget{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}\label{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9} 
@@ -392,12 +386,87 @@ Update a player stats in the database
 \end{DoxyParams}
 
 \begin{DoxyExceptions}{Exceções}
-{\em \doxylink{classplayer__not__found}{player\+\_\+not\+\_\+found}} & \\
+{\em \doxylink{classplayer__not__found}{player\+\_\+not\+\_\+found}} & if the player was not found \\
 \hline
-{\em \doxylink{classfile__error}{file\+\_\+error}} & \\
+{\em \doxylink{classfile__error}{file\+\_\+error}} & if was not able to write to the file \\
 \hline
 \end{DoxyExceptions}
 
+
+\doxysubsection{Atributos}
+\Hypertarget{classPlayer_a92b2370aec97aed74127649187277da6}\label{classPlayer_a92b2370aec97aed74127649187277da6} 
+\index{Player@{Player}!connectFourLosses@{connectFourLosses}}
+\index{connectFourLosses@{connectFourLosses}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{connectFourLosses}{connectFourLosses}}
+{\footnotesize\ttfamily uint32\+\_\+t Player\+::connect\+Four\+Losses\hspace{0.3cm}{\ttfamily [private]}}
+
+Losses in Connect Four \Hypertarget{classPlayer_a664e20f91ba4bdf775a1a9aa6607f85d}\label{classPlayer_a664e20f91ba4bdf775a1a9aa6607f85d} 
+\index{Player@{Player}!connectFourWins@{connectFourWins}}
+\index{connectFourWins@{connectFourWins}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{connectFourWins}{connectFourWins}}
+{\footnotesize\ttfamily uint32\+\_\+t Player\+::connect\+Four\+Wins\hspace{0.3cm}{\ttfamily [private]}}
+
+Wins in Connect Four \Hypertarget{classPlayer_a9b7e2146125da66d32032b8467cbbb1c}\label{classPlayer_a9b7e2146125da66d32032b8467cbbb1c} 
+\index{Player@{Player}!filePath@{filePath}}
+\index{filePath@{filePath}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{filePath}{filePath}}
+{\footnotesize\ttfamily const std\+::string Player\+::file\+Path = "{}players.\+bin"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Path to the database file \Hypertarget{classPlayer_af65be825657caae667881028cf6f2de5}\label{classPlayer_af65be825657caae667881028cf6f2de5} 
+\index{Player@{Player}!firstValidSymbol@{firstValidSymbol}}
+\index{firstValidSymbol@{firstValidSymbol}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{firstValidSymbol}{firstValidSymbol}}
+{\footnotesize\ttfamily const uint32\+\_\+t Player\+::first\+Valid\+Symbol = 33\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+First valid symbol \Hypertarget{classPlayer_a5a3836b1264dd70581e1558c32c77a2b}\label{classPlayer_a5a3836b1264dd70581e1558c32c77a2b} 
+\index{Player@{Player}!lastValidSymbol@{lastValidSymbol}}
+\index{lastValidSymbol@{lastValidSymbol}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{lastValidSymbol}{lastValidSymbol}}
+{\footnotesize\ttfamily const uint32\+\_\+t Player\+::last\+Valid\+Symbol = 126\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Last valid symbol \Hypertarget{classPlayer_af9c920fabaafdeb7961a645315b521ff}\label{classPlayer_af9c920fabaafdeb7961a645315b521ff} 
+\index{Player@{Player}!name@{name}}
+\index{name@{name}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily std\+::string Player\+::name\hspace{0.3cm}{\ttfamily [private]}}
+
+\doxylink{classPlayer}{Player}\textquotesingle{}s name \Hypertarget{classPlayer_aac4d26817345888cde02637183497507}\label{classPlayer_aac4d26817345888cde02637183497507} 
+\index{Player@{Player}!nick@{nick}}
+\index{nick@{nick}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{nick}{nick}}
+{\footnotesize\ttfamily std\+::string Player\+::nick\hspace{0.3cm}{\ttfamily [private]}}
+
+\doxylink{classPlayer}{Player}\textquotesingle{}s nickname \Hypertarget{classPlayer_aaa29bdcffb21488407e46fbf521902ea}\label{classPlayer_aaa29bdcffb21488407e46fbf521902ea} 
+\index{Player@{Player}!reversiLosses@{reversiLosses}}
+\index{reversiLosses@{reversiLosses}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{reversiLosses}{reversiLosses}}
+{\footnotesize\ttfamily uint32\+\_\+t Player\+::reversi\+Losses\hspace{0.3cm}{\ttfamily [private]}}
+
+Losses in \doxylink{classReversi}{Reversi} \Hypertarget{classPlayer_a2e08da24b414d3c688da46e47592faf5}\label{classPlayer_a2e08da24b414d3c688da46e47592faf5} 
+\index{Player@{Player}!reversiWins@{reversiWins}}
+\index{reversiWins@{reversiWins}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{reversiWins}{reversiWins}}
+{\footnotesize\ttfamily uint32\+\_\+t Player\+::reversi\+Wins\hspace{0.3cm}{\ttfamily [private]}}
+
+Wins in \doxylink{classReversi}{Reversi} \Hypertarget{classPlayer_a01218f5efc53791ed75c77c99fedf0e2}\label{classPlayer_a01218f5efc53791ed75c77c99fedf0e2} 
+\index{Player@{Player}!symbol@{symbol}}
+\index{symbol@{symbol}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{symbol}{symbol}}
+{\footnotesize\ttfamily char Player\+::symbol\hspace{0.3cm}{\ttfamily [private]}}
+
+\doxylink{classPlayer}{Player}\textquotesingle{}s symbol \Hypertarget{classPlayer_a35068e4b798614f94850554cd3d67a4f}\label{classPlayer_a35068e4b798614f94850554cd3d67a4f} 
+\index{Player@{Player}!tttLosses@{tttLosses}}
+\index{tttLosses@{tttLosses}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{tttLosses}{tttLosses}}
+{\footnotesize\ttfamily uint32\+\_\+t Player\+::ttt\+Losses\hspace{0.3cm}{\ttfamily [private]}}
+
+Losses in Tic Tac Toe \Hypertarget{classPlayer_a6b6bebb772b53f558373e71f730ad96f}\label{classPlayer_a6b6bebb772b53f558373e71f730ad96f} 
+\index{Player@{Player}!tttWins@{tttWins}}
+\index{tttWins@{tttWins}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{tttWins}{tttWins}}
+{\footnotesize\ttfamily uint32\+\_\+t Player\+::ttt\+Wins\hspace{0.3cm}{\ttfamily [private]}}
+
+Wins in Tic Tac Toe 
 
 A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
 \item 

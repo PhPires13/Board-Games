@@ -9,23 +9,26 @@
 #include <string>
 #include <vector>
 
+/**
+ * Class to simualte a board, to place pieces
+ */
 class Board final {
-    uint32_t height;
-    uint32_t width;
-    std::vector<std::vector<char>> board;
+    uint32_t height; /**< board height */
+    uint32_t width; /**< board width */
+    std::vector<std::vector<char>> board; /**< board matrix, to place chars as pieces */
 
     // ANSI escape codes for coloring
-    const std::string indexColor;
-    const std::string piecesColor;
-    const std::string borderColor;
+    const std::string indexColor; /**< color for the indexes */
+    const std::string piecesColor; /**< color for the pieces */
+    const std::string borderColor; /**< color for the border */
 
     // ANSI escape codes for background colors
-    const std::string evenBg;
-    const std::string oddBg;
+    const std::string evenBg; /**< background color for the even cells (i+j) */
+    const std::string oddBg; /**< background color for the odd cells (i+j) */
 
 public:
-    static const char emptyCell;
-    static const uint32_t maxBoardSize;
+    static const char emptyCell; /**< char for an empty cell */
+    static const uint32_t maxBoardSize; /**< max board size */
 
     /**
      * @param _height board height

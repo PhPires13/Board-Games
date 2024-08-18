@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['validatemove_0',['validatemove',['../classBoardGame.html#a5e5d7aa0e75dcc1964fbae0a97106422',1,'BoardGame::validateMove()'],['../classConnectFour.html#a23923563b9cdc2658a1397542ce5d6a8',1,'ConnectFour::validateMove()'],['../classReversi.html#a498106bdaa963752e31a1269ece47568',1,'Reversi::validateMove()'],['../classTicTacToe.html#a637a0986399c31e14a2241349486cbcf',1,'TicTacToe::validateMove()']]]
+  ['serialize_0',['serialize',['../classPlayer.html#a7b80a4d7bc5fe7522a45a6c8e3a99773',1,'Player']]],
+  ['setsymbol_1',['setSymbol',['../classPlayer.html#a6cd993753014ccdc16e08aa404203958',1,'Player']]],
+  ['size_5fexceeded_2',['size_exceeded',['../classsize__exceeded.html',1,'']]],
+  ['symbol_3',['symbol',['../classPlayer.html#a01218f5efc53791ed75c77c99fedf0e2',1,'Player']]],
+  ['syncdatabase_4',['syncDatabase',['../classPlayer.html#a547c60608af80be40ce6fc657c938313',1,'Player']]]
 ];

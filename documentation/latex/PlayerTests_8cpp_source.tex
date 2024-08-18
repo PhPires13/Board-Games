@@ -27,8 +27,8 @@
 \DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}},\ \textcolor{charliteral}{'X'}));}
 \DoxyCodeLine{00024\ }
 \DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ With\ invalid\ symbol}}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick3"{}},\ \textcolor{stringliteral}{"{}Name3"{}},\ Player::firstValidSymbol-\/1),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick3"{}},\ \textcolor{stringliteral}{"{}Name3"{}},\ Player::lastValidSymbol+1),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick3"{}},\ \textcolor{stringliteral}{"{}Name3"{}},\ \mbox{\hyperlink{classPlayer_af65be825657caae667881028cf6f2de5}{Player::firstValidSymbol}}-\/1),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick3"{}},\ \textcolor{stringliteral}{"{}Name3"{}},\ \mbox{\hyperlink{classPlayer_a5a3836b1264dd70581e1558c32c77a2b}{Player::lastValidSymbol}}+1),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
 \DoxyCodeLine{00028\ \ \ \ \ \}}
 \DoxyCodeLine{00029\ }
 \DoxyCodeLine{00030\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Getters/Setters\ Attributes"{}})\ \{}
@@ -43,8 +43,8 @@
 \DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ CHECK(player.getSymbol()\ ==\ symbol);}
 \DoxyCodeLine{00040\ }
 \DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Incorrect\ change\ symbol}}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(player.setSymbol(Player::firstValidSymbol-\/1),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(player.setSymbol(Player::lastValidSymbol+1),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(player.setSymbol(\mbox{\hyperlink{classPlayer_af65be825657caae667881028cf6f2de5}{Player::firstValidSymbol}}-\/1),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(player.setSymbol(\mbox{\hyperlink{classPlayer_a5a3836b1264dd70581e1558c32c77a2b}{Player::lastValidSymbol}}+1),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
 \DoxyCodeLine{00044\ }
 \DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Correct\ change\ symbol}}
 \DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(player.setSymbol(newSymbol));}
@@ -89,7 +89,7 @@
 \DoxyCodeLine{00085\ }
 \DoxyCodeLine{00086\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}File\ Functions"{}})\ \{}
 \DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sync\ file}}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(std::remove(Player::filePath.c\_str()));\ \textcolor{comment}{//\ Delete\ test\ file\ if\ exists}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(std::remove(\mbox{\hyperlink{classPlayer_a9b7e2146125da66d32032b8467cbbb1c}{Player::filePath}}.c\_str()));\ \textcolor{comment}{//\ Delete\ test\ file\ if\ exists}}
 \DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a547c60608af80be40ce6fc657c938313}{Player::syncDatabase}}());}
 \DoxyCodeLine{00090\ }
 \DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ player}}
@@ -145,7 +145,7 @@
 \DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_ac2cc0794b5a02b0d9325de133f4c9ed3}{Player::getAllPlayers}}());}
 \DoxyCodeLine{00142\ }
 \DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Delete\ test\ file}}
-\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(std::remove(Player::filePath.c\_str()));}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(std::remove(\mbox{\hyperlink{classPlayer_a9b7e2146125da66d32032b8467cbbb1c}{Player::filePath}}.c\_str()));}
 \DoxyCodeLine{00145\ \ \ \ \ \}}
 \DoxyCodeLine{00146\ }
 \DoxyCodeLine{00147\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Compare\ Players"{}})\ \{}

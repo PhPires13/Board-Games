@@ -14,32 +14,31 @@
 \DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}BoardGame.hpp"{}}}
 \DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}Player.hpp"{}}}
 \DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{keyword}{enum}\ Game\ \{\ \textcolor{comment}{//\ TODO:\ validar\ se\ deve\ ficar\ aqui}}
-\DoxyCodeLine{00014\ \ \ \ \ REVERSI\ =\ \textcolor{charliteral}{'R'},}
-\DoxyCodeLine{00015\ \ \ \ \ CONNECT\_FOUR\ =\ \textcolor{charliteral}{'L'},}
-\DoxyCodeLine{00016\ \ \ \ \ TTT\ =\ \textcolor{charliteral}{'V'}}
-\DoxyCodeLine{00017\ \};}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classManager}{Manager}}\ \{}
-\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ maxCommandSize;}
-\DoxyCodeLine{00022\ }
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ printMenu();}
-\DoxyCodeLine{00024\ }
-\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ createPlayer(\textcolor{keyword}{const}\ std::string\&\ arguments);}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ deletePlayer(\textcolor{keyword}{const}\ std::string\&\ arguments);}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ listPlayers(\textcolor{keyword}{const}\ std::string\&\ arguments);}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classBoardGame}{BoardGame}}*\ createMatch(\textcolor{keywordtype}{char}\ game,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\&\ player1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\&\ player2,\ \textcolor{keyword}{const}\ std::string\&\ extraArguments);}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ playMatch(\textcolor{keyword}{const}\ std::string\&\ arguments);}
-\DoxyCodeLine{00034\ }
-\DoxyCodeLine{00035\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ menu();}
-\DoxyCodeLine{00037\ \};}
-\DoxyCodeLine{00038\ }
-\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MANAGER\_HPP}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{enum}\ Game\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ REVERSI\ =\ \textcolor{charliteral}{'R'},}
+\DoxyCodeLine{00018\ \ \ \ \ CONNECT\_FOUR\ =\ \textcolor{charliteral}{'L'},}
+\DoxyCodeLine{00019\ \ \ \ \ TTT\ =\ \textcolor{charliteral}{'V'}}
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classManager}{Manager}}\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ \mbox{\hyperlink{classManager_a7e818729a1a7b49907c88d9b5074b4e2}{maxCommandSize}};\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classManager_aeb05baeb0075a8235c8ddea7b43e49ab}{printMenu}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classManager_aba37e0476aeccc0a8ccd3ac82e3a3ec5}{createPlayer}}(\textcolor{keyword}{const}\ std::string\&\ arguments);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classManager_aa7f33d8e27faebdcaf2d97d143c17c26}{deletePlayer}}(\textcolor{keyword}{const}\ std::string\&\ arguments);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classManager_a6c41295ecf1975e47623806a0416a2c9}{listPlayers}}(\textcolor{keyword}{const}\ std::string\&\ arguments);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classBoardGame}{BoardGame}}*\ \mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{createMatch}}(\textcolor{keywordtype}{char}\ game,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\&\ player1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\&\ player2,\ \textcolor{keyword}{const}\ std::string\&\ extraArguments);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classManager_a76e1b288f52fb550445bf7847596cbfc}{playMatch}}(\textcolor{keyword}{const}\ std::string\&\ arguments);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classManager_ab728cb2ad7342bffd0a71c9ca305a1a9}{menu}}();}
+\DoxyCodeLine{00095\ \};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MANAGER\_HPP}}
 
 \end{DoxyCode}

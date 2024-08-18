@@ -7,41 +7,40 @@
 \DoxyCodeLine{00003\ }
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}BoardGame.hpp"{}}}
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Player.hpp"{}}}
-\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}exceptions.hpp"{}}}
-\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <vector>}}
-\DoxyCodeLine{00008\ }
-\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classReversi}{Reversi}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ \{}
-\DoxyCodeLine{00010\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ minimumBoardSize;}
-\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ defaultBoardSize;}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{classReversi}{Reversi}}(\mbox{\hyperlink{classPlayer}{Player}}\ \_player1,\ \mbox{\hyperlink{classPlayer}{Player}}\ \_player2,\ uint32\_t\ boardSize\ =\ Reversi::defaultBoardSize);}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classReversi_a466d4e00c107fef195a722254c373cce}{isAValidHeight}}(uint32\_t\ boardHeight)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00032\ }
-\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classReversi_a4620c65ea9531ace27ef30f5c212d4b1}{isAValidWidth}}(uint32\_t\ boardWidth)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classReversi_a498106bdaa963752e31a1269ece47568}{validateMove}}(\textcolor{keyword}{const}\ std::vector<uint32\_t>\ \&move)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\textcolor{keyword}{const}\ std::vector<uint32\_t>\ \&move,\ \textcolor{keywordtype}{char}\ symbol)\ \textcolor{keyword}{override};}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \ \ GameState\ \mbox{\hyperlink{classReversi_ae021a028f7f8704156abe8f41bfa8d8e}{getGameState}}(\textcolor{keyword}{const}\ std::vector<uint32\_t>\&\ move)\ \textcolor{keyword}{const\ override};}
-\DoxyCodeLine{00059\ }
-\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classReversi_ad9096a2babeb691a4cc4fbab862f9a26}{flipPieces}}(\textcolor{keyword}{const}\ std::vector<uint32\_t>\&\ move,\ \textcolor{keywordtype}{char}\ playerSymbol);}
-\DoxyCodeLine{00067\ }
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classReversi_af316b36ba367e41839519c5b15cffe92}{isValidDirection}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keywordtype}{int}\ directionRow,\ \textcolor{keywordtype}{int}\ directionCol,\ \textcolor{keywordtype}{char}\ playerSymbol)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ TODO:\ validar\ de\ traduzir\ as\ descrições\ das\ funções}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classReversi}{Reversi}}\ final\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ \mbox{\hyperlink{classReversi_aa5efab117441a759dd829780dcdab197}{minimumBoardSize}};\ }
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ \mbox{\hyperlink{classReversi_a838ef12443282a53e2c20aa14e9118be}{defaultBoardSize}};\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classReversi}{Reversi}}(\mbox{\hyperlink{classPlayer}{Player}}\ \_player1,\ \mbox{\hyperlink{classPlayer}{Player}}\ \_player2,\ uint32\_t\ boardSize\ =\ \mbox{\hyperlink{classReversi_a838ef12443282a53e2c20aa14e9118be}{Reversi::defaultBoardSize}});}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classReversi_a466d4e00c107fef195a722254c373cce}{isAValidHeight}}(uint32\_t\ boardHeight)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classReversi_a4620c65ea9531ace27ef30f5c212d4b1}{isAValidWidth}}(uint32\_t\ boardWidth)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classReversi_a498106bdaa963752e31a1269ece47568}{validateMove}}(\textcolor{keyword}{const}\ std::vector<uint32\_t>\ \&move)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\textcolor{keyword}{const}\ std::vector<uint32\_t>\ \&move,\ \textcolor{keywordtype}{char}\ symbol)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00070\ \ \ \ \ GameState\ \mbox{\hyperlink{classReversi_ae021a028f7f8704156abe8f41bfa8d8e}{getGameState}}(\textcolor{keyword}{const}\ std::vector<uint32\_t>\&\ move)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classReversi_ad9096a2babeb691a4cc4fbab862f9a26}{flipPieces}}(\textcolor{keyword}{const}\ std::vector<uint32\_t>\&\ move,\ \textcolor{keywordtype}{char}\ playerSymbol);}
 \DoxyCodeLine{00079\ }
-\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classReversi_ab287714eda83ffd7e4db4a4d7d981072}{flipInDirection}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keywordtype}{int}\ directionRow,\ \textcolor{keywordtype}{int}\ directionCol,\ \textcolor{keywordtype}{char}\ playerSymbol);}
-\DoxyCodeLine{00090\ }
-\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classReversi_a408f41a7527c882e3d24357a85c9463c}{isAnyDirectionValid}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keywordtype}{char}\ playerSymbol)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00100\ }
-\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classReversi_a586beda484e3631c0c5182bf02a1a612}{isWithinBounds}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00109\ }
-\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classReversi_a0320d6014c5cba793f49069b7865fd7d}{hasValidMoves}}(\textcolor{keywordtype}{char}\ playerSymbol)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00117\ \};}
-\DoxyCodeLine{00118\ }
-\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classReversi_af316b36ba367e41839519c5b15cffe92}{isValidDirection}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keywordtype}{int}\ directionRow,\ \textcolor{keywordtype}{int}\ directionCol,\ \textcolor{keywordtype}{char}\ playerSymbol)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classReversi_ab287714eda83ffd7e4db4a4d7d981072}{flipInDirection}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keywordtype}{int}\ directionRow,\ \textcolor{keywordtype}{int}\ directionCol,\ \textcolor{keywordtype}{char}\ playerSymbol);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classReversi_a408f41a7527c882e3d24357a85c9463c}{isAnyDirectionValid}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col,\ \textcolor{keywordtype}{char}\ playerSymbol)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classReversi_a586beda484e3631c0c5182bf02a1a612}{isWithinBounds}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classReversi_a0320d6014c5cba793f49069b7865fd7d}{hasValidMoves}}(\textcolor{keywordtype}{char}\ playerSymbol)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00129\ \};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

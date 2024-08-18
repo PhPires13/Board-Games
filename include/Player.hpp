@@ -14,24 +14,24 @@
  */
 class Player {
 private:
-    static const std::string filePath;
+    static const std::string filePath; /**< Path to the database file */
 
-    static const uint32_t firstValidSymbol;
-    static const uint32_t lastValidSymbol;
+    static const uint32_t firstValidSymbol; /**< First valid symbol */
+    static const uint32_t lastValidSymbol; /**< Last valid symbol */
 
-    std::string nick;
-    std::string name;
+    std::string nick; /**< Player's nickname */
+    std::string name; /**< Player's name */
 
-    char symbol;
+    char symbol; /**< Player's symbol */
 
-    uint32_t reversiWins;
-    uint32_t reversiLosses;
+    uint32_t reversiWins; /**< Wins in Reversi */
+    uint32_t reversiLosses; /**< Losses in Reversi */
 
-    uint32_t connectFourWins;
-    uint32_t connectFourLosses;
+    uint32_t connectFourWins; /**< Wins in Connect Four */
+    uint32_t connectFourLosses; /**< Losses in Connect Four */
 
-    uint32_t tttWins;
-    uint32_t tttLosses;
+    uint32_t tttWins; /**< Wins in Tic Tac Toe */
+    uint32_t tttLosses; /**< Losses in Tic Tac Toe */
 
 public:
     /**
@@ -100,12 +100,14 @@ public:
 
     /**
      * Salva o player serializado no arquivo
+     *
      * @param outputFile arquivo para salvar
      */
     void serialize(std::ofstream& outputFile) const;
 
     /**
      * Recupera o player serializado do arquivo
+     *
      * @param inputFile arquivo para ler o player serializado
      */
     void deserialize(std::ifstream& inputFile);
@@ -117,8 +119,8 @@ public:
      * @param name The player's name
      * @param symbol The player's symbol
      *
-     * @throws duplicated_player
-     * @throws file_error
+     * @throws duplicated_player if the player already exists
+     * @throws file_error if was not able to write to the file
      */
     static void createPlayer(const std::string& nick, const std::string& name, char symbol = 0);
 
@@ -129,8 +131,8 @@ public:
      *
      * @return The player loaded
      *
-     * @throws player_not_found
-     * @throws file_error
+     * @throws player_not_found if the player was not found
+     * @throws file_error if was not able to read from the file
      */
     static Player loadPlayer(const std::string& nick);
 
@@ -142,8 +144,8 @@ public:
      * @param toAddWin If a win should be added
      * @param toAddLoss If a loss should be added
      *
-     * @throws player_not_found
-     * @throws file_error
+     * @throws player_not_found if the player was not found
+     * @throws file_error if was not able to write to the file
      */
     static void updatePlayerStats(const std::string& nick, char game, bool toAddWin, bool toAddLoss);
 
@@ -153,7 +155,8 @@ public:
      * @param name (optional) The player's name to be changed
      * @param symbol (optional) The player's symbol to be changed
      *
-     * @throws file_error
+     * @throws player_not_found if the player was not found
+     * @throws file_error if was not able to write to the file
      */
     static void updatePlayerInfo(const std::string& nick, const std::string& name = "", char symbol = 0);
 
@@ -162,8 +165,8 @@ public:
      *
      * @param nick The player's nickname
      *
-     * @throws player_not_found
-     * @throws file_error
+     * @throws player_not_found if the player was not found
+     * @throws file_error if was not able to remove from the file
      */
     static void deletePlayer(const std::string& nick);
 
@@ -172,7 +175,7 @@ public:
      *
      * @return A list with all players
      *
-     * @throws file_error
+     * @throws file_error if was not able to read from the file
      */
     static std::list<Player> getAllPlayers();
 
@@ -193,7 +196,7 @@ public:
     /**
      * Guarantee that the databse file exists
      *
-     * @throws file_error
+     * @throws file_error if was not able to open the file
      */
     static void syncDatabase();
 };

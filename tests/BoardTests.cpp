@@ -4,7 +4,6 @@
 
 #include "doctest.h"
 #include "exceptions.hpp"
-#include <stdexcept>
 
 #define private public
 #define protected public
@@ -72,17 +71,17 @@ TEST_SUITE("Board") {
         CHECK(board2.getSymbol(height-1, width-1) == symbol);
 
         // Get out of range
-        CHECK_THROWS_AS(board2.getSymbol(-1, 0), std::out_of_range);
-        CHECK_THROWS_AS(board2.getSymbol(0, -1), std::out_of_range);
-        CHECK_THROWS_AS(board2.getSymbol(-1, -1), std::out_of_range);
-        CHECK_THROWS_AS(board2.getSymbol(height, 0), std::out_of_range);
-        CHECK_THROWS_AS(board2.getSymbol(0, width), std::out_of_range);
-        CHECK_THROWS_AS(board2.getSymbol(height, width), std::out_of_range);
+        CHECK_THROWS_AS(board2.getSymbol(-1, 0), invalid_move);
+        CHECK_THROWS_AS(board2.getSymbol(0, -1), invalid_move);
+        CHECK_THROWS_AS(board2.getSymbol(-1, -1), invalid_move);
+        CHECK_THROWS_AS(board2.getSymbol(height, 0), invalid_move);
+        CHECK_THROWS_AS(board2.getSymbol(0, width), invalid_move);
+        CHECK_THROWS_AS(board2.getSymbol(height, width), invalid_move);
 
         // Place out of range
-        CHECK_THROWS_AS(board1.placeSymbol({width}, symbol), std::out_of_range);
-        CHECK_THROWS_AS(board2.placeSymbol({height, 0}, symbol), std::out_of_range);
-        CHECK_THROWS_AS(board2.placeSymbol({0, width}, symbol), std::out_of_range);
-        CHECK_THROWS_AS(board2.placeSymbol({height, width}, symbol), std::out_of_range);
+        CHECK_THROWS_AS(board1.placeSymbol({width}, symbol), invalid_move);
+        CHECK_THROWS_AS(board2.placeSymbol({height, 0}, symbol), invalid_move);
+        CHECK_THROWS_AS(board2.placeSymbol({0, width}, symbol), invalid_move);
+        CHECK_THROWS_AS(board2.placeSymbol({height, width}, symbol), invalid_move);
     }
 }

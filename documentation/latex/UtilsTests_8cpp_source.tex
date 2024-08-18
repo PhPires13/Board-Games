@@ -18,14 +18,14 @@
 \DoxyCodeLine{00014\ }
 \DoxyCodeLine{00015\ TEST\_SUITE(\textcolor{stringliteral}{"{}Utils"{}})\ \{}
 \DoxyCodeLine{00016\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Clear\ Terminal"{}})\ \{\ \textcolor{comment}{//\ Has\ to\ be\ the\ first\ test\ since\ it\ clears\ the\ terminal}}
-\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(Utils::clearTerminal());}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classUtils_a3c419fea02d0bd591c0f7f0d2391803a}{Utils::clearTerminal}}());}
 \DoxyCodeLine{00018\ \ \ \ \ \}}
 \DoxyCodeLine{00019\ }
 \DoxyCodeLine{00020\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Clean\ String"{}})\ \{}
 \DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ input\ =\ \textcolor{stringliteral}{"{}\ \ \(\backslash\)t\ Hello\ \(\backslash\)t\(\backslash\)t\(\backslash\)n\ \ \ World\ \(\backslash\)t\ -\/\ \(\backslash\)n\ \(\backslash\)t\ 0\ \ "{}};}
 \DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ expected\ =\ \textcolor{stringliteral}{"{}Hello\ World\ -\/\ 0"{}};}
 \DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ std::string\ returnValue;}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(returnValue\ =\ Utils::cleanString(input));}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(returnValue\ =\ \mbox{\hyperlink{classUtils_abfdc20f58a047441561728dd9933eaa8}{Utils::cleanString}}(input));}
 \DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ CHECK(returnValue\ ==\ expected);}
 \DoxyCodeLine{00026\ \ \ \ \ \}}
 \DoxyCodeLine{00027\ \}}

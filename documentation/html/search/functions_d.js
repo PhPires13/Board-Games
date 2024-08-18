@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['updateplayerinfo_0',['updatePlayerInfo',['../classPlayer.html#a5574664867e1d05cba067d4aaa1fac5c',1,'Player']]],
-  ['updateplayerstats_1',['updatePlayerStats',['../classPlayer.html#a29b1e59eb6040d19ce5ac384fd6471e9',1,'Player']]]
+  ['tictactoe_0',['TicTacToe',['../classTicTacToe.html#a1367ed4407bad52c2ad38e72ca81f165',1,'TicTacToe']]]
 ];

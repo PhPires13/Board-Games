@@ -75,16 +75,81 @@ $(function() {
   <div class="headertitle"><div class="title">Referência da Classe Utils</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="Utils_8hpp_source.html">Utils.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Membros públicos estáticos</h2></td></tr>
-<tr class="memitem:abfdc20f58a047441561728dd9933eaa8" id="r_abfdc20f58a047441561728dd9933eaa8"><td class="memItemLeft" align="right" valign="top"><a id="abfdc20f58a047441561728dd9933eaa8" name="abfdc20f58a047441561728dd9933eaa8"></a>
-static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>cleanString</b> (const std::string &amp;input)</td></tr>
+<tr class="memitem:abfdc20f58a047441561728dd9933eaa8" id="r_abfdc20f58a047441561728dd9933eaa8"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUtils.html#abfdc20f58a047441561728dd9933eaa8">cleanString</a> (const std::string &amp;input)</td></tr>
 <tr class="separator:abfdc20f58a047441561728dd9933eaa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3c419fea02d0bd591c0f7f0d2391803a" id="r_a3c419fea02d0bd591c0f7f0d2391803a"><td class="memItemLeft" align="right" valign="top"><a id="a3c419fea02d0bd591c0f7f0d2391803a" name="a3c419fea02d0bd591c0f7f0d2391803a"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>clearTerminal</b> ()</td></tr>
+<tr class="memitem:a3c419fea02d0bd591c0f7f0d2391803a" id="r_a3c419fea02d0bd591c0f7f0d2391803a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUtils.html#a3c419fea02d0bd591c0f7f0d2391803a">clearTerminal</a> ()</td></tr>
 <tr class="separator:a3c419fea02d0bd591c0f7f0d2391803a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Class with utility functions </p>
+</div><h2 class="groupheader">Documentação das funções</h2>
+<a id="abfdc20f58a047441561728dd9933eaa8" name="abfdc20f58a047441561728dd9933eaa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfdc20f58a047441561728dd9933eaa8">&#9670;&#160;</a></span>cleanString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Utils::cleanString </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>input</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Remove all the duplicated "invisible" characters from a string<br  />
+Also from the beginning and the end<br  />
+Leaving only one space between words</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>string to clean</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>cleaned string </dd></dl>
+
+</div>
+</div>
+<a id="a3c419fea02d0bd591c0f7f0d2391803a" name="a3c419fea02d0bd591c0f7f0d2391803a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c419fea02d0bd591c0f7f0d2391803a">&#9670;&#160;</a></span>clearTerminal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Utils::clearTerminal </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Clear the terminal screen, for windows and unix </p>
+
+</div>
+</div>
 <hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
 <li>include/<a class="el" href="Utils_8hpp_source.html">Utils.hpp</a></li>
 <li>src/<b>Utils.cpp</b></li>

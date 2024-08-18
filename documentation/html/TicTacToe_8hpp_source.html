@@ -90,27 +90,27 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;BoardGame.hpp&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classTicTacToe.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="classTicTacToe.html">TicTacToe</a> final: <span class="keyword">public</span> <a class="code hl_class" href="classBoardGame.html">BoardGame</a> {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">static</span> <span class="keyword">const</span> uint32_t defaultBoardSize;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_class" href="classTicTacToe.html">TicTacToe</a>(<a class="code hl_class" href="classPlayer.html">Player</a> _player1, <a class="code hl_class" href="classPlayer.html">Player</a> _player2);</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTicTacToe.html#a637a0986399c31e14a2241349486cbcf">validateMove</a>(<span class="keyword">const</span> std::vector&lt;uint32_t&gt;&amp; move) <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    GameState <a class="code hl_function" href="classTicTacToe.html#a7501ae96020a99310e94181f1d4bc2a0">getGameState</a>(<span class="keyword">const</span> std::vector&lt;uint32_t&gt;&amp; move) <span class="keyword">const override</span>;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>};</div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classTicTacToe.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="classTicTacToe.html">TicTacToe</a> final: <span class="keyword">public</span> <a class="code hl_class" href="classBoardGame.html">BoardGame</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classTicTacToe.html#afae89e11319b4adb915382362661463b">   15</a></span>    <span class="keyword">static</span> <span class="keyword">const</span> uint32_t <a class="code hl_variable" href="classTicTacToe.html#afae89e11319b4adb915382362661463b">defaultBoardSize</a>; </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_class" href="classTicTacToe.html">TicTacToe</a>(<a class="code hl_class" href="classPlayer.html">Player</a> _player1, <a class="code hl_class" href="classPlayer.html">Player</a> _player2);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTicTacToe.html#a637a0986399c31e14a2241349486cbcf">validateMove</a>(<span class="keyword">const</span> std::vector&lt;uint32_t&gt;&amp; move) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    GameState <a class="code hl_function" href="classTicTacToe.html#a7501ae96020a99310e94181f1d4bc2a0">getGameState</a>(<span class="keyword">const</span> std::vector&lt;uint32_t&gt;&amp; move) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
 </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#endif </span><span class="comment">//TICTACTOE_HPP</span></div>
-<div class="ttc" id="aclassBoardGame_html"><div class="ttname"><a href="classBoardGame.html">BoardGame</a></div><div class="ttdef"><b>Definição</b> BoardGame.hpp:23</div></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#endif </span><span class="comment">//TICTACTOE_HPP</span></div>
+<div class="ttc" id="aclassBoardGame_html"><div class="ttname"><a href="classBoardGame.html">BoardGame</a></div><div class="ttdef"><b>Definição</b> BoardGame.hpp:26</div></div>
 <div class="ttc" id="aclassPlayer_html"><div class="ttname"><a href="classPlayer.html">Player</a></div><div class="ttdef"><b>Definição</b> Player.hpp:15</div></div>
-<div class="ttc" id="aclassTicTacToe_html"><div class="ttname"><a href="classTicTacToe.html">TicTacToe</a></div><div class="ttdef"><b>Definição</b> TicTacToe.hpp:10</div></div>
+<div class="ttc" id="aclassTicTacToe_html"><div class="ttname"><a href="classTicTacToe.html">TicTacToe</a></div><div class="ttdef"><b>Definição</b> TicTacToe.hpp:13</div></div>
 <div class="ttc" id="aclassTicTacToe_html_a637a0986399c31e14a2241349486cbcf"><div class="ttname"><a href="classTicTacToe.html#a637a0986399c31e14a2241349486cbcf">TicTacToe::validateMove</a></div><div class="ttdeci">void validateMove(const std::vector&lt; uint32_t &gt; &amp;move) const override</div><div class="ttdef"><b>Definição</b> TicTacToe.cpp:15</div></div>
 <div class="ttc" id="aclassTicTacToe_html_a7501ae96020a99310e94181f1d4bc2a0"><div class="ttname"><a href="classTicTacToe.html#a7501ae96020a99310e94181f1d4bc2a0">TicTacToe::getGameState</a></div><div class="ttdeci">GameState getGameState(const std::vector&lt; uint32_t &gt; &amp;move) const override</div><div class="ttdef"><b>Definição</b> TicTacToe.cpp:25</div></div>
+<div class="ttc" id="aclassTicTacToe_html_afae89e11319b4adb915382362661463b"><div class="ttname"><a href="classTicTacToe.html#afae89e11319b4adb915382362661463b">TicTacToe::defaultBoardSize</a></div><div class="ttdeci">static const uint32_t defaultBoardSize</div><div class="ttdef"><b>Definição</b> TicTacToe.hpp:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

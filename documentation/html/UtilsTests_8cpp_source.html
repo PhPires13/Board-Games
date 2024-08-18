@@ -97,17 +97,19 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>TEST_SUITE(<span class="stringliteral">&quot;Utils&quot;</span>) {</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    TEST_CASE(<span class="stringliteral">&quot;Clear Terminal&quot;</span>) { <span class="comment">// Has to be the first test since it clears the terminal</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        CHECK_NOTHROW(Utils::clearTerminal());</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        CHECK_NOTHROW(<a class="code hl_function" href="classUtils.html#a3c419fea02d0bd591c0f7f0d2391803a">Utils::clearTerminal</a>());</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    }</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    TEST_CASE(<span class="stringliteral">&quot;Clean String&quot;</span>) {</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keyword">const</span> std::string input = <span class="stringliteral">&quot;  \t Hello \t\t\n   World \t - \n \t 0  &quot;</span>;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keyword">const</span> std::string expected = <span class="stringliteral">&quot;Hello World - 0&quot;</span>;</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        std::string returnValue;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        CHECK_NOTHROW(returnValue = Utils::cleanString(input));</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        CHECK_NOTHROW(returnValue = <a class="code hl_function" href="classUtils.html#abfdc20f58a047441561728dd9933eaa8">Utils::cleanString</a>(input));</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        CHECK(returnValue == expected);</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    }</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>}</div>
+<div class="ttc" id="aclassUtils_html_a3c419fea02d0bd591c0f7f0d2391803a"><div class="ttname"><a href="classUtils.html#a3c419fea02d0bd591c0f7f0d2391803a">Utils::clearTerminal</a></div><div class="ttdeci">static void clearTerminal()</div><div class="ttdef"><b>Definição</b> Utils.cpp:36</div></div>
+<div class="ttc" id="aclassUtils_html_abfdc20f58a047441561728dd9933eaa8"><div class="ttname"><a href="classUtils.html#abfdc20f58a047441561728dd9933eaa8">Utils::cleanString</a></div><div class="ttdeci">static std::string cleanString(const std::string &amp;input)</div><div class="ttdef"><b>Definição</b> Utils.cpp:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

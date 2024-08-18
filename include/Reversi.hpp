@@ -3,13 +3,16 @@
 
 #include "BoardGame.hpp"
 #include "Player.hpp"
-#include "exceptions.hpp"
 #include <vector>
 
+// TODO: validar de traduzir as descrições das funções
+/**
+ * Classe que representa o jogo Reversi
+ */
 class Reversi final : public BoardGame {
 private:
-    static const uint32_t minimumBoardSize;
-    static const uint32_t defaultBoardSize;
+    static const uint32_t minimumBoardSize; /**< Tamanho mínimo do tabuleiro (height == width) */
+    static const uint32_t defaultBoardSize; /**< Tamanho padrão do tabuleiro (height == width) */
 
 public:
     /**
@@ -52,9 +55,18 @@ private:
      *
      * @param move Coordenadas do movimento
      * @param symbol Símbolo do jogador que está realizando o movimento
+     *
+     * @throw invalid_move se o movimento estiver fora do tabuleiro
      */
     void makeMove(const std::vector<uint32_t> &move, char symbol) override;
 
+    /**
+     * Verifica o estado atual do jogo, verificando se ainda tem jogada válidas e quem tem mais peças.
+     *
+     * @param move 2D vector representing the last move
+     *
+     * @return O estado atual do jogo
+     */
     GameState getGameState(const std::vector<uint32_t>& move) const override;
 
     /**

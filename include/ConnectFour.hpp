@@ -10,11 +10,14 @@
 #include "Player.hpp"
 #include <vector>
 
+/**
+ * Class that represents the Connect Four game
+ */
 class ConnectFour final: public BoardGame {
 private:
-    static const uint32_t minimumBoardSize;
-    static const uint32_t defaultBoardHeight;
-    static const uint32_t defaultBoardWidth;
+    static const uint32_t minimumBoardSize; /**< Minimum size of the board (height == width) */
+    static const uint32_t defaultBoardHeight; /**< Default height of the board */
+    static const uint32_t defaultBoardWidth; /**< Default width of the board */
 
 public:
     /**
@@ -49,6 +52,9 @@ private:
      *  Verifica se a coluna selecionada está cheia e executa o movimento da peça no tabuleiro.
      *
      * @param move Coordenadas da coluna.
+     *
+     * @throws incorrect_format if the move is empty or has more than 2 values
+     * @throws invalid_move if the move is outside the board
      */
     void validateMove(const std::vector<uint32_t> &move)const override;
 

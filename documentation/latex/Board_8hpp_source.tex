@@ -13,38 +13,34 @@
 \DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
 \DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{00011\ }
-\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBoard}{Board}}\ final\ \{}
-\DoxyCodeLine{00013\ \ \ \ \ uint32\_t\ height;}
-\DoxyCodeLine{00014\ \ \ \ \ uint32\_t\ width;}
-\DoxyCodeLine{00015\ \ \ \ \ std::vector<std::vector<char>>\ board;}
-\DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ ANSI\ escape\ codes\ for\ coloring}}
-\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ indexColor;}
-\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ piecesColor;}
-\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ borderColor;}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ ANSI\ escape\ codes\ for\ background\ colors}}
-\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ evenBg;}
-\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ oddBg;}
-\DoxyCodeLine{00025\ }
-\DoxyCodeLine{00026\ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ emptyCell;}
-\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ maxBoardSize;}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00039\ \ \ \ \ \mbox{\hyperlink{classBoard}{Board}}(uint32\_t\ \_height,\ uint32\_t\ \_width,\ std::string\ indexColor\ =\ \textcolor{stringliteral}{"{}"{}},\ std::string\ piecesColor\ =\ \textcolor{stringliteral}{"{}"{}},}
-\DoxyCodeLine{00040\ \ \ \ \ \ std::string\ borderColor\ =\ \textcolor{stringliteral}{"{}"{}},\ std::string\ evenBg\ =\ \textcolor{stringliteral}{"{}"{}},\ std::string\ oddBg\ =\ \textcolor{stringliteral}{"{}"{}});}
-\DoxyCodeLine{00041\ }
-\DoxyCodeLine{00046\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classBoard_a497b16cc0884b2210dd45766fc63b25f}{getWidth}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00052\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classBoard_af30a5a43871230a04d49dd87b99acc55}{getHeight}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBoard_ac6bc45b6b0bee9b5c91a5bd0d9676fb5}{print}}()\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00058\ }
-\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classBoard_adcccff11170293326c090a8e0ca6b060}{getSymbol}}(uint32\_t\ line,\ uint32\_t\ column)\ \textcolor{keyword}{const};}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBoard_ab0ca907f6f0f22e55b0d7237253875eb}{placeSymbol}}(\textcolor{keyword}{const}\ std::vector<uint32\_t>\&\ move,\ \textcolor{keywordtype}{char}\ symbol);}
-\DoxyCodeLine{00073\ \};}
-\DoxyCodeLine{00074\ }
-\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//BOARD\_HPP}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBoard}{Board}}\ final\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classBoard_a93cbd5cf9a23c988858f8d513a4b58d6}{height}};\ }
+\DoxyCodeLine{00017\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classBoard_a13f008a949509aa8c758204cb1321b07}{width}};\ }
+\DoxyCodeLine{00018\ \ \ \ \ std::vector<std::vector<char>>\ \mbox{\hyperlink{classBoard_a66de759d6e3a02137540086b2454b2e1}{board}};\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ ANSI\ escape\ codes\ for\ coloring}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classBoard_ac17505d149335a5270ff450c3709dd63}{indexColor}};\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classBoard_abce2ef0188873ad9ec9675aa6777e54a}{piecesColor}};\ }
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classBoard_abf8e544c6a7e05bbeadac6b1646f9b21}{borderColor}};\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//\ ANSI\ escape\ codes\ for\ background\ colors}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classBoard_a4bf1cb8326ba86aec965b1df1acd91c3}{evenBg}};\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{classBoard_a7baafd9cc1a2a8fdb738a58d6a78324b}{oddBg}};\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classBoard_a910fab44670cbeab1c1e10687aab89fe}{emptyCell}};\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ \mbox{\hyperlink{classBoard_aeeff801399cfd05fe262a9e27c3c1d89}{maxBoardSize}};\ }
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{classBoard}{Board}}(uint32\_t\ \_height,\ uint32\_t\ \_width,\ std::string\ \mbox{\hyperlink{classBoard_ac17505d149335a5270ff450c3709dd63}{indexColor}}\ =\ \textcolor{stringliteral}{"{}"{}},\ std::string\ \mbox{\hyperlink{classBoard_abce2ef0188873ad9ec9675aa6777e54a}{piecesColor}}\ =\ \textcolor{stringliteral}{"{}"{}},}
+\DoxyCodeLine{00043\ \ \ \ \ \ std::string\ \mbox{\hyperlink{classBoard_abf8e544c6a7e05bbeadac6b1646f9b21}{borderColor}}\ =\ \textcolor{stringliteral}{"{}"{}},\ std::string\ \mbox{\hyperlink{classBoard_a4bf1cb8326ba86aec965b1df1acd91c3}{evenBg}}\ =\ \textcolor{stringliteral}{"{}"{}},\ std::string\ \mbox{\hyperlink{classBoard_a7baafd9cc1a2a8fdb738a58d6a78324b}{oddBg}}\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00049\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classBoard_a497b16cc0884b2210dd45766fc63b25f}{getWidth}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00055\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classBoard_af30a5a43871230a04d49dd87b99acc55}{getHeight}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBoard_ac6bc45b6b0bee9b5c91a5bd0d9676fb5}{print}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classBoard_adcccff11170293326c090a8e0ca6b060}{getSymbol}}(uint32\_t\ line,\ uint32\_t\ column)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBoard_ab0ca907f6f0f22e55b0d7237253875eb}{placeSymbol}}(\textcolor{keyword}{const}\ std::vector<uint32\_t>\&\ move,\ \textcolor{keywordtype}{char}\ symbol);}
+\DoxyCodeLine{00076\ \};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//BOARD\_HPP}}
 
 \end{DoxyCode}

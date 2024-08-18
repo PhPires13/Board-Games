@@ -10,6 +10,9 @@
 #include "Board.hpp"
 #include "Player.hpp"
 
+/**
+ * Enum to represent the possible states during a game
+ */
 enum GameState {
     NOT_OVER = 0,
     PLAYER1_WINS = 1,
@@ -18,22 +21,22 @@ enum GameState {
 };
 
 /**
- * Class to represent a board game, it is responsible for controlling all the processes of the game and the players in the match
+ * Class to represent a generic board game, it is responsible for controlling all the processes of the game and the players in the match
  */
 class BoardGame {
 protected:
-    static const uint32_t defaultBoardHeight;
-    static const uint32_t defaultBoardWidth;
+    static const uint32_t defaultBoardHeight; /**< Default height of the board */
+    static const uint32_t defaultBoardWidth; /**< Default width of the board */
 
-    static const char defaultSymbol1;
-    static const char defaultSymbol2;
+    static const char defaultSymbol1; /**< Default symbol for player 1 */
+    static const char defaultSymbol2; /**< Default symbol for player 2 */
 
-    Player player1;
-    Player player2;
+    Player player1; /**< Player 1 of the game */
+    Player player2; /**< Player 2 of the game */
 
-    Board board;
+    Board board; /**< The board of the game */
 
-    uint32_t turn;
+    uint32_t turn; /**< The current turn of the game, first turn is 1 */
 
 public:
     /**
@@ -52,6 +55,13 @@ public:
     BoardGame(Player _player1, Player _player2, uint32_t boardHeight = BoardGame::defaultBoardHeight, uint32_t boardWidth = BoardGame::defaultBoardWidth,
      const std::string& indexColor = "", const std::string& piecesColor = "", const std::string& borderColor = "",
      const std::string& evenBg = "", const std::string& oddBg = "");
+
+    /**
+     * Play the game
+     *
+     * @return The game state at the end
+     */
+    GameState playGame();
 
 protected:
     /**
@@ -87,8 +97,8 @@ protected:
      *
      * @param move The move to be checked
      *
-     * @throws incorrect_format
-     * @throws invalid_move
+     * @throws incorrect_format if the move is empty or has more than 2 values
+     * @throws invalid_move if the move is outside the board
      */
     virtual void validateMove(const std::vector<uint32_t>& move) const;
 
@@ -97,6 +107,8 @@ protected:
      *
      * @param move The move to be executed
      * @param symbol The symbol to be placed on the board
+     *
+     * @throw invalid_move if the move is outside the board
      */
     virtual void makeMove(const std::vector<uint32_t>& move, char symbol);
 
@@ -113,14 +125,6 @@ protected:
      * Check whose turn is it
      */
     Player whoseTurn() const;
-
-public:
-    /**
-     * Play the game
-     *
-     * @return The game state at the end
-     */
-    GameState playGame();
 };
 
 #endif //BOARDGAME_HPP

@@ -88,16 +88,16 @@ void Board::print() const {
 }
 
 char Board::getSymbol(const uint32_t line, const uint32_t column) const {
-    if (line >= this->height || column >= this->width) throw std::out_of_range("Out of range");
+    if (line >= this->height || column >= this->width) throw invalid_move();
     return this->board[line][column];
 }
 
 void Board::placeSymbol(const std::vector<uint32_t>& move, const char symbol) {
     if (move.size() == 2) {
-        if (move[0] >= this->height || move[1] >= this->width) throw std::out_of_range("Out of range");
+        if (move[0] >= this->height || move[1] >= this->width) throw invalid_move();
         this->board[move[0]][move[1]] = symbol;
     } else {
-        if (move[0] >= this->width) throw std::out_of_range("Out of range");
+        if (move[0] >= this->width) throw invalid_move();
         // Place the piece in the first empty space of the column
         for (int i = this->height - 1; i >= 0; i--) {
             if (this->board[i][move[0]] == Board::emptyCell) {
