@@ -90,9 +90,11 @@ $(TESTS_BIN_DIR)/Board_Games_Tests: $(TESTS_OBJ_DIR)/UtilsTests.o $(TESTS_OBJ_DI
 
 
 # ------------------------------------------------- Clean
-clean:
+clean: clean_coverage
 	rm -f \
 	$(BIN_DIR)/Board_Games $(TESTS_BIN_DIR)/Board_Games_Tests \
 	$(OBJ_DIR)/*.o $(OBJ_DIR)/*/*.o \
-	$(OBJ_DIR)/*.gcno $(OBJ_DIR)/*/*.gcno \
-	$(OBJ_DIR)/*.gcda $(OBJ_DIR)/*/*.gcda
+	$(OBJ_DIR)/*.gcno $(OBJ_DIR)/*/*.gcno
+
+clean_coverage:
+	rm -f $(OBJ_DIR)/*.gcda $(OBJ_DIR)/*/*.gcda

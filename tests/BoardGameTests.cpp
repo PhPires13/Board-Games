@@ -5,6 +5,10 @@
 #include "doctest.h"
 #include "exceptions.hpp"
 
+#include <random>
+#include <sstream>
+#include <iostream>
+
 #define private public
 #define protected public
 
@@ -54,6 +58,25 @@ TEST_SUITE("BoardGame") {
         CHECK_NOTHROW(boardGame.printBoard());
     }
 
+    TEST_CASE("Read Move") {
+        std::streambuf* cinbuf = std::cin.rdbuf();  // Store the original buffer
+
+        std::vector<uint32_t> expected = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}; // Expected output
+        const std::istringstream input("0 1 2 3 d  \t 4 5 c c 6 7 8\t 9 sjsiqs 10 11 aodm  dw d 12 13 14\n"); // Custom input
+        std::cin.rdbuf(input.rdbuf()); // Asign it to std::cin
+
+        std::vector<uint32_t> received;
+        CHECK_NOTHROW(received = BoardGame::readMove()); // Read the move
+
+        // Compare input
+        for (uint32_t i = 0; i < expected.size(); i++) {
+            CHECK(expected[i] == received[i]);
+        }
+
+        // Restore std::cin to its original state
+        std::cin.rdbuf(cinbuf);
+    }
+
     TEST_CASE("Validate Move") {
         constexpr int height = 7, width = 5;
 
@@ -100,7 +123,7 @@ TEST_SUITE("BoardGame") {
         // Further tst is not necessary, since makeMove just calls board.placeSymbol that already has its own tests
     }
 
-    TEST_CASE("Get game state") {
+    TEST_CASE("Get Game State") {
         constexpr int height = 7, width = 5;
         BoardGame boardGame(Player("Nick1", "Name1"), Player("Nick2", "Name2"), height, width);
         for (uint32_t i =0; i < height; i++) {
@@ -127,5 +150,53 @@ TEST_SUITE("BoardGame") {
         CHECK(boardGame.whoseTurn().getNick() == player1.getNick());
         boardGame.turn++;
         CHECK(boardGame.whoseTurn().getNick() == player2.getNick());
+    }
+
+    TEST_CASE("Play Game") {
+        std::streambuf* cinbuf = std::cin.rdbuf();  // Store the original buffer
+
+        constexpr int height = 7, width = 5;
+        BoardGame boardGame(Player("Nick1", "Name1"), Player("Nick2", "Name2"), height, width);
+
+        std::random_device rd;
+        std::mt19937 gen(rd());
+        std::uniform_int_distribution<> dis(0, 10);
+        // Create a string to fullfill the board
+        std::string input = "";
+        for (uint32_t i =0; i < height; i++) {
+            for (uint32_t j = 0; j < width; j++) {
+                int random_choice = dis(gen);
+                if (random_choice == 1) input += " ";
+                else if (random_choice == 2) input += "\t";
+                else if (random_choice == 3) input += "lixo lk ";
+
+                input += std::to_string(j);
+
+                // Randomly add some trash command
+                random_choice = dis(gen);
+                if (random_choice == 1) input += " ";
+                else if (random_choice == 2) input += "\t";
+                else if (random_choice == 3) input += " lixo lk";
+
+                input += "\n"; // Add a new line
+
+                // Randomly add some trash command
+                random_choice = dis(gen);
+                if (random_choice == 1) input += "ef \t ,dw0l dwdn \n";
+                else if (random_choice == 2) input += "a c\n";
+                else if (random_choice == 3) input += "lixo lk\n";
+            }
+        }
+        input += "\n";
+
+        // Fulfill the board
+        const std::istringstream ss(input); // Custom input
+        std::cin.rdbuf(ss.rdbuf()); // Asign it to std::cin
+        GameState gamteState;
+        CHECK_NOTHROW(gamteState = boardGame.playGame());
+        CHECK(gamteState == GameState::TIE);
+
+        // Restore std::cin to its original state
+        std::cin.rdbuf(cinbuf);
     }
 }

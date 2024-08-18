@@ -9,151 +9,243 @@
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}doctest.h"{}}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exceptions_8hpp}{exceptions.hpp}}"{}}}
 \DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ private\ public}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ protected\ public}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{TicTacToe_8hpp}{TicTacToe.hpp}}"{}}}
-\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Player_8hpp}{Player.hpp}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ private\ public}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ protected\ public}}
 \DoxyCodeLine{00013\ }
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#undef\ private}}
-\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#undef\ protected}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{TicTacToe_8hpp}{TicTacToe.hpp}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Player_8hpp}{Player.hpp}}"{}}}
 \DoxyCodeLine{00016\ }
-\DoxyCodeLine{00017\ \mbox{\hyperlink{TicTacToeTests_8cpp_ab8a3a519e81622c0695bc6f2a315d32e}{TEST\_SUITE}}(\textcolor{stringliteral}{"{}TicTacToe"{}})\ \{}
-\DoxyCodeLine{00018\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Constructor"{}})\ \{}
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}});}
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}});}
-\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classTicTacToe}{TicTacToe}}(player1,\ player2));}
-\DoxyCodeLine{00022\ \ \ \ \ \}}
-\DoxyCodeLine{00023\ }
-\DoxyCodeLine{00024\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Validate\ Move"{}})\ \{}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}});}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}});}
-\DoxyCodeLine{00027\ }
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt(player1,\ player2);}
-\DoxyCodeLine{00029\ }
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Valid\ moves}}
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{0,\ 0\}));}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{0,\ TicTacToe::defaultBoardSize-\/1\}));}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{TicTacToe::defaultBoardSize-\/1,\ 0\}));}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{TicTacToe::defaultBoardSize-\/1,\ TicTacToe::defaultBoardSize-\/1\}));}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Size\ invalid}}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{\}),\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}});}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{0\}),\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}});}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{0,\ 0,\ 0\}),\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}});}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Out\ of\ range}}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{TicTacToe::defaultBoardSize,\ 0\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{0,\ TicTacToe::defaultBoardSize\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{TicTacToe::defaultBoardSize,\ TicTacToe::defaultBoardSize\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
-\DoxyCodeLine{00045\ }
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Place\ is\ not\ empty}}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ ttt.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 0\},\ \textcolor{charliteral}{'X'});}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{0,\ 0\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
-\DoxyCodeLine{00049\ \ \ \ \ \}}
-\DoxyCodeLine{00050\ }
-\DoxyCodeLine{00051\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Get\ game\ state"{}})\ \{}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}},\ \textcolor{charliteral}{'X'});}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}},\ \textcolor{charliteral}{'O'});}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ a\ row,\ player\ 1\ wins}}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt1(player1,\ player2);}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ ttt1.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ ttt1.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ CHECK(ttt1.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{1,\ 0\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ ttt1.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 1\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ ttt1.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ ttt1.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 2\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ CHECK(ttt1.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{0,\ 2\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6}{GameState::PLAYER1\_WINS}});}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ a\ row,\ player\ 2\ wins}}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt2(player1,\ player2);}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ ttt2.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ ttt2.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ ttt2.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 1\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ CHECK(ttt2.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{0,\ 0\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ ttt2.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ ttt2.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 2\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ ttt2.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 2\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ CHECK(ttt2.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{1,\ 2\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20}{GameState::PLAYER2\_WINS}});}
-\DoxyCodeLine{00075\ }
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ a\ column,\ player\ 1\ wins}}
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt3(player1,\ player2);}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ ttt3.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ ttt3.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ ttt3.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ CHECK(ttt3.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{1,\ 0\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ ttt3.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ ttt3.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ CHECK(ttt3.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{2,\ 0\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6}{GameState::PLAYER1\_WINS}});}
-\DoxyCodeLine{00085\ }
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ a\ column,\ player\ 2\ wins}}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt4(player1,\ player2);}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ ttt4.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ ttt4.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ ttt4.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ CHECK(ttt4.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{1,\ 0\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ ttt4.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ ttt4.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 2\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ ttt4.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ CHECK(ttt4.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{2,\ 1\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20}{GameState::PLAYER2\_WINS}});}
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ diagonal,\ player\ 1\ wins}}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt5(player1,\ player2);}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ ttt5.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ ttt5.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ ttt5.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 1\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ CHECK(ttt5.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{1,\ 1\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ ttt5.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ ttt5.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 2\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ CHECK(ttt5.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{2,\ 2\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6}{GameState::PLAYER1\_WINS}});}
-\DoxyCodeLine{00106\ }
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ diagonal,\ player\ 2\ wins}}
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt6(player1,\ player2);}
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ ttt6.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 1\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ ttt6.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ ttt6.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ CHECK(ttt6.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{1,\ 0\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ ttt6.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ ttt6.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ ttt6.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 2\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ CHECK(ttt6.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{2,\ 2\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20}{GameState::PLAYER2\_WINS}});}
-\DoxyCodeLine{00117\ }
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ sub-\/diagonal,\ player\ 1\ wins}}
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt7(player1,\ player2);}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ ttt7.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 2\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ ttt7.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ ttt7.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 1\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ CHECK(ttt7.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{1,\ 1\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
-\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ ttt7.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ ttt7.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ CHECK(ttt7.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{2,\ 0\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6}{GameState::PLAYER1\_WINS}});}
-\DoxyCodeLine{00127\ }
-\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ sub-\/diagonal,\ player\ 2\ wins}}
-\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt8(player1,\ player2);}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ ttt8.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 1\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ ttt8.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 2\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ ttt8.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ CHECK(ttt8.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{1,\ 0\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
-\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ ttt8.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ ttt8.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 2\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ ttt8.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ CHECK(ttt8.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{2,\ 0\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20}{GameState::PLAYER2\_WINS}});}
-\DoxyCodeLine{00138\ }
-\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tie}}
-\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt9(player1,\ player2);}
-\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ ttt9.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ ttt9.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ ttt9.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 2\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ ttt9.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ CHECK(ttt9.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{1,\ 1\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
-\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ ttt9.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ ttt9.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 2\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ ttt9.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 1\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ ttt9.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ ttt9.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 2\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ CHECK(ttt9.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{2,\ 2\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a50b3b7506fcc5435fc762f98a09a6eac}{GameState::TIE}});}
-\DoxyCodeLine{00152\ \ \ \ \ \}}
-\DoxyCodeLine{00153\ \}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#undef\ private}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#undef\ protected}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \mbox{\hyperlink{TicTacToeTests_8cpp_ab8a3a519e81622c0695bc6f2a315d32e}{TEST\_SUITE}}(\textcolor{stringliteral}{"{}TicTacToe"{}})\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Constructor"{}})\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}});}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}});}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classTicTacToe}{TicTacToe}}(player1,\ player2));}
+\DoxyCodeLine{00025\ \ \ \ \ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Validate\ Move"{}})\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}});}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}});}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt(player1,\ player2);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Valid\ moves}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{0,\ 0\}));}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{0,\ TicTacToe::defaultBoardSize-\/1\}));}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{TicTacToe::defaultBoardSize-\/1,\ 0\}));}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{TicTacToe::defaultBoardSize-\/1,\ TicTacToe::defaultBoardSize-\/1\}));}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Size\ invalid}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{\}),\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}});}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{0\}),\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}});}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{0,\ 0,\ 0\}),\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}});}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Out\ of\ range}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{TicTacToe::defaultBoardSize,\ 0\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{0,\ TicTacToe::defaultBoardSize\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{TicTacToe::defaultBoardSize,\ TicTacToe::defaultBoardSize\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Place\ is\ not\ empty}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ ttt.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 0\},\ \textcolor{charliteral}{'X'});}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(ttt.\mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\{0,\ 0\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Get\ Game\ State"{}})\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}},\ \textcolor{charliteral}{'X'});}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}},\ \textcolor{charliteral}{'O'});}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ a\ row,\ player\ 1\ wins}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt1(player1,\ player2);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ ttt1.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ ttt1.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ CHECK(ttt1.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{1,\ 0\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ ttt1.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 1\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ ttt1.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ ttt1.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 2\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ CHECK(ttt1.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{0,\ 2\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6}{GameState::PLAYER1\_WINS}});}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ a\ row,\ player\ 2\ wins}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt2(player1,\ player2);}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ ttt2.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ ttt2.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ ttt2.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 1\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ CHECK(ttt2.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{0,\ 0\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ ttt2.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ ttt2.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 2\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ ttt2.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 2\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ CHECK(ttt2.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{1,\ 2\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20}{GameState::PLAYER2\_WINS}});}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ a\ column,\ player\ 1\ wins}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt3(player1,\ player2);}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ ttt3.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ ttt3.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ ttt3.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ CHECK(ttt3.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{1,\ 0\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ ttt3.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ ttt3.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ CHECK(ttt3.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{2,\ 0\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6}{GameState::PLAYER1\_WINS}});}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ a\ column,\ player\ 2\ wins}}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt4(player1,\ player2);}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ ttt4.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ ttt4.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ ttt4.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ CHECK(ttt4.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{1,\ 0\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ ttt4.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ ttt4.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 2\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ ttt4.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ CHECK(ttt4.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{2,\ 1\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20}{GameState::PLAYER2\_WINS}});}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ diagonal,\ player\ 1\ wins}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt5(player1,\ player2);}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ ttt5.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ ttt5.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ ttt5.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 1\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ CHECK(ttt5.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{1,\ 1\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ ttt5.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ ttt5.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 2\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ CHECK(ttt5.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{2,\ 2\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6}{GameState::PLAYER1\_WINS}});}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ diagonal,\ player\ 2\ wins}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt6(player1,\ player2);}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ ttt6.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 1\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ ttt6.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ ttt6.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ CHECK(ttt6.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{1,\ 0\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ ttt6.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ ttt6.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ ttt6.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 2\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ CHECK(ttt6.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{2,\ 2\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20}{GameState::PLAYER2\_WINS}});}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ sub-\/diagonal,\ player\ 1\ wins}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt7(player1,\ player2);}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ ttt7.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 2\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ ttt7.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ ttt7.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 1\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ CHECK(ttt7.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{1,\ 1\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ ttt7.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ ttt7.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ CHECK(ttt7.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{2,\ 0\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6}{GameState::PLAYER1\_WINS}});}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ sub-\/diagonal,\ player\ 2\ wins}}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt8(player1,\ player2);}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ ttt8.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 1\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ ttt8.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 2\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ ttt8.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ CHECK(ttt8.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{1,\ 0\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ ttt8.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ ttt8.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 2\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ ttt8.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ CHECK(ttt8.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{2,\ 0\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20}{GameState::PLAYER2\_WINS}});}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tie}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt9(player1,\ player2);}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ ttt9.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ ttt9.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ ttt9.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 2\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ ttt9.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ CHECK(ttt9.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{1,\ 1\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ ttt9.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ ttt9.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{1,\ 2\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ ttt9.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 1\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ ttt9.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ ttt9.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{2,\ 2\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ CHECK(ttt9.\mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\{2,\ 2\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a50b3b7506fcc5435fc762f98a09a6eac}{GameState::TIE}});}
+\DoxyCodeLine{00155\ \ \ \ \ \}}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Play\ Game"{}})\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ std::streambuf*\ cinbuf\ =\ std::cin.rdbuf();\ \ \textcolor{comment}{//\ Store\ the\ original\ buffer}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}},\ \textcolor{charliteral}{'X'});}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}},\ \textcolor{charliteral}{'O'});}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ a\ row,\ player\ 1\ wins}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input1(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n1\ 0\(\backslash\)n0\ 1\(\backslash\)n1\ 1\(\backslash\)n0\ 2\(\backslash\)n\(\backslash\)n"{}});\ \textcolor{comment}{//\ Custom\ input}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input1.rdbuf());\ \textcolor{comment}{//\ Asign\ it\ to\ std::cin}}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt1(player1,\ player2);}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}}\ gamteState;}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt1.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6}{GameState::PLAYER1\_WINS}});}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ a\ row,\ player\ 2\ wins}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input2(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n1\ 0\(\backslash\)n0\ 1\(\backslash\)n1\ 1\(\backslash\)n2\ 2\(\backslash\)n1\ 2\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input2.rdbuf());}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt2(player1,\ player2);}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt2.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20}{GameState::PLAYER2\_WINS}});}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ a\ column,\ player\ 1\ wins}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input3(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n0\ 1\(\backslash\)n1\ 0\(\backslash\)n1\ 1\(\backslash\)n2\ 0\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input3.rdbuf());}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt3(player1,\ player2);}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt3.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6}{GameState::PLAYER1\_WINS}});}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ a\ column,\ player\ 2\ wins}}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input4(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n0\ 1\(\backslash\)n1\ 0\(\backslash\)n1\ 1\(\backslash\)n0\ 2\(\backslash\)n2\ 1\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input4.rdbuf());}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt4(player1,\ player2);}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt4.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20}{GameState::PLAYER2\_WINS}});}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ diagonal,\ player\ 1\ wins}}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input5(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n0\ 1\(\backslash\)n1\ 1\(\backslash\)n1\ 0\(\backslash\)n2\ 2\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input5.rdbuf());}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt5(player1,\ player2);}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt5.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6}{GameState::PLAYER1\_WINS}});}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ diagonal,\ player\ 2\ wins}}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input6(\textcolor{stringliteral}{"{}0\ 1\(\backslash\)n0\ 0\(\backslash\)n1\ 0\(\backslash\)n1\ 1\(\backslash\)n2\ 0\(\backslash\)n2\ 2\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input6.rdbuf());}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt6(player1,\ player2);}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt6.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20}{GameState::PLAYER2\_WINS}});}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ sub-\/diagonal,\ player\ 1\ wins}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input7(\textcolor{stringliteral}{"{}0\ 2\(\backslash\)n0\ 1\(\backslash\)n1\ 1\(\backslash\)n1\ 0\(\backslash\)n2\ 0\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input7.rdbuf());}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt7(player1,\ player2);}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt7.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6}{GameState::PLAYER1\_WINS}});}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ sub-\/diagonal,\ player\ 2\ wins}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input8(\textcolor{stringliteral}{"{}0\ 1\(\backslash\)n0\ 2\(\backslash\)n1\ 0\(\backslash\)n1\ 1\(\backslash\)n2\ 2\(\backslash\)n2\ 0\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input8.rdbuf());}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt8(player1,\ player2);}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt8.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20}{GameState::PLAYER2\_WINS}});}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tie}}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input9(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n0\ 1\(\backslash\)n0\ 2\(\backslash\)n1\ 1\(\backslash\)n1\ 0\(\backslash\)n1\ 2\(\backslash\)n2\ 1\(\backslash\)n2\ 0\(\backslash\)n2\ 2\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input9.rdbuf());}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt9(player1,\ player2);}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt9.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a50b3b7506fcc5435fc762f98a09a6eac}{GameState::TIE}});}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Player\ sends\ invalid\ move\ in\ the\ middle\ of\ the\ game}}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ a\ row,\ player\ 2\ wins}}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input10(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n1\ 0\(\backslash\)na1\ bc\(\backslash\)n1\ c\(\backslash\)n0\ 1\(\backslash\)n1\ 1\(\backslash\)n2\ 2\(\backslash\)nc\ 1\(\backslash\)n1\ 2\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input10.rdbuf());}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt10(player1,\ player2);}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt10.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20}{GameState::PLAYER2\_WINS}});}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tie}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input11(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n0\ 1\(\backslash\)n\ \ ola\ ola\ ssm\ \ \(\backslash\)n0\ 2\(\backslash\)n1\ 1\(\backslash\)n1\ 0\(\backslash\)n\ \ 1\ \ \(\backslash\)t\ \ 2\ \ \ \ \ \(\backslash\)n2\ 1\(\backslash\)n2\ 0\(\backslash\)n2\ 2\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input11.rdbuf());}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt11(player1,\ player2);}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt11.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a50b3b7506fcc5435fc762f98a09a6eac}{GameState::TIE}});}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Restore\ std::cin\ to\ its\ original\ state}}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ std::cin.rdbuf(cinbuf);}
+\DoxyCodeLine{00244\ \ \ \ \ \}}
+\DoxyCodeLine{00245\ \}}
 
 \end{DoxyCode}

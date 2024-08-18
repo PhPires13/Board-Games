@@ -27,7 +27,7 @@
     </tr>
     <tr>
       <th scope="row">Date:</th>
-      <td>2024-08-18 01:33:45</td>
+      <td>2024-08-18 18:41:59</td>
     </tr>
   </table>
 </div>
@@ -73,7 +73,7 @@
       <th>Call count</th>
       <th>Block coverage</th>
     </tr>
-    <tr><td><a href="#l21">Player::Player(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, char) (line 21)</a></td><td>called 85 times, returned 83 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l21">Player::Player(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, char) (line 21)</a></td><td>called 89 times, returned 87 times</td><td>100.0%</td></tr>
     <tr><td><a href="#l69">Player::addStats(char, bool, bool) (line 69)</a></td><td>called 20 times, returned 20 times</td><td>100.0%</td></tr>
     <tr><td><a href="#l277">Player::compareByName(Player const&amp;, Player const&amp;) (line 277)</a></td><td>called 6 times, returned 6 times</td><td>73.0%</td></tr>
     <tr><td><a href="#l273">Player::compareByNick(Player const&amp;, Player const&amp;) (line 273)</a></td><td>called 6 times, returned 6 times</td><td>73.0%</td></tr>
@@ -83,12 +83,12 @@
     <tr><td><a href="#l256">Player::getAllPlayers[abi:cxx11]() (line 256)</a></td><td>called 5 times, returned 5 times</td><td>56.0%</td></tr>
     <tr><td><a href="#l56">Player::getLosses(char) const (line 56)</a></td><td>called 48 times, returned 48 times</td><td>100.0%</td></tr>
     <tr><td><a href="#l30">Player::getName[abi:cxx11]() const (line 30)</a></td><td>called 29 times, returned 29 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l26">Player::getNick[abi:cxx11]() const (line 26)</a></td><td>called 67 times, returned 67 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l34">Player::getSymbol() const (line 34)</a></td><td>called 233 times, returned 233 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l26">Player::getNick[abi:cxx11]() const (line 26)</a></td><td>called 196 times, returned 196 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l34">Player::getSymbol() const (line 34)</a></td><td>called 393 times, returned 393 times</td><td>100.0%</td></tr>
     <tr><td><a href="#l43">Player::getWins(char) const (line 43)</a></td><td>called 48 times, returned 48 times</td><td>100.0%</td></tr>
     <tr><td><a href="#l150">Player::loadPlayer(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;) (line 150)</a></td><td>called 12 times, returned 6 times</td><td>70.0%</td></tr>
     <tr><td><a href="#l87">Player::serialize(std::basic_ofstream&lt;char, std::char_traits&lt;char&gt; &gt;&amp;) const (line 87)</a></td><td>called 17 times, returned 17 times</td><td>100.0%</td></tr>
-    <tr><td><a href="#l38">Player::setSymbol(char) (line 38)</a></td><td>called 126 times, returned 122 times</td><td>100.0%</td></tr>
+    <tr><td><a href="#l38">Player::setSymbol(char) (line 38)</a></td><td>called 132 times, returned 128 times</td><td>100.0%</td></tr>
     <tr><td><a href="#l281">Player::syncDatabase() (line 281)</a></td><td>called 2 times, returned 2 times</td><td>62.0%</td></tr>
     <tr><td><a href="#l212">Player::updatePlayerInfo(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;, std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;, char) (line 212)</a></td><td>not called</td><td>0.0%</td></tr>
     <tr><td><a href="#l171">Player::updatePlayerStats(std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; const&amp;, char, bool, bool) (line 171)</a></td><td>called 11 times, returned 10 times</td><td>68.0%</td></tr>
@@ -250,14 +250,14 @@
       <td class="lineno"><a id="l21" href="#l21">21</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">85</td>
+      <td class="linecount coveredLine">89</td>
       <td class="src coveredLine"><span class="n">Player</span><span class="o">::</span><span class="n">Player</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">_nick</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">_name</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">symbol</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l22" href="#l22">22</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">85</td>
+      <td class="linecount coveredLine">89</td>
       <td class="src coveredLine"><span class="w">    </span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="n">nick</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">_nick</span><span class="p">)),</span><span class="w"> </span><span class="n">name</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">_name</span><span class="p">)),</span><span class="w"> </span><span class="n">reversiWins</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">reversiLosses</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">connectFourWins</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">connectFourLosses</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">tttWins</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">tttLosses</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
@@ -266,19 +266,19 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">2/2</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 1 taken 83 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 87 times.</div>
           <div class="takenBranch">&check; Branch 2 taken 2 times.</div>
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">85</td>
+      <td class="linecount coveredLine">89</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">setSymbol</span><span class="p">(</span><span class="n">symbol</span><span class="p">);</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l24" href="#l24">24</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">87</td>
+      <td class="linecount coveredLine">91</td>
       <td class="src coveredLine"><span class="p">}</span></td>
     </tr>
     <tr class="source-line">
@@ -292,14 +292,14 @@
       <td class="lineno"><a id="l26" href="#l26">26</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">67</td>
+      <td class="linecount coveredLine">196</td>
       <td class="src coveredLine"><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">Player</span><span class="o">::</span><span class="n">getNick</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l27" href="#l27">27</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">67</td>
+      <td class="linecount coveredLine">196</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">nick</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
@@ -348,14 +348,14 @@
       <td class="lineno"><a id="l34" href="#l34">34</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">233</td>
+      <td class="linecount coveredLine">393</td>
       <td class="src coveredLine"><span class="kt">char</span><span class="w"> </span><span class="n">Player</span><span class="o">::</span><span class="n">getSymbol</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l35" href="#l35">35</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">233</td>
+      <td class="linecount coveredLine">393</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">symbol</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
@@ -376,7 +376,7 @@
       <td class="lineno"><a id="l38" href="#l38">38</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">126</td>
+      <td class="linecount coveredLine">132</td>
       <td class="src coveredLine"><span class="kt">void</span><span class="w"> </span><span class="n">Player</span><span class="o">::</span><span class="n">setSymbol</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">symbol</span><span class="p">)</span><span class="w"> </span><span class="p">{</span></td>
     </tr>
     <tr class="source-line">
@@ -385,30 +385,30 @@
         <details class="linebranchDetails">
         <summary class="linebranchSummary">6/6</summary>
         <div class="linebranchContents">
-          <div class="takenBranch">&check; Branch 0 taken 52 times.</div>
-          <div class="takenBranch">&check; Branch 1 taken 74 times.</div>
+          <div class="takenBranch">&check; Branch 0 taken 56 times.</div>
+          <div class="takenBranch">&check; Branch 1 taken 76 times.</div>
           <div class="takenBranch">&check; Branch 2 taken 2 times.</div>
-          <div class="takenBranch">&check; Branch 3 taken 50 times.</div>
+          <div class="takenBranch">&check; Branch 3 taken 54 times.</div>
           <div class="takenBranch">&check; Branch 4 taken 4 times.</div>
-          <div class="takenBranch">&check; Branch 5 taken 72 times.</div>
+          <div class="takenBranch">&check; Branch 5 taken 74 times.</div>
         </div>
         </details>
       </td>
-      <td class="linecount coveredLine">126</td>
+      <td class="linecount coveredLine">132</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">symbol</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">firstValidSymbol</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">symbol</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">lastValidSymbol</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">symbol</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">throw</span><span class="w"> </span><span class="n">incorrect_data</span><span class="p">();</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l40" href="#l40">40</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">122</td>
+      <td class="linecount coveredLine">128</td>
       <td class="src coveredLine"><span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">symbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">symbol</span><span class="p">;</span></td>
     </tr>
     <tr class="source-line">
       <td class="lineno"><a id="l41" href="#l41">41</a></td>
       <td class="linebranch">
       </td>
-      <td class="linecount coveredLine">122</td>
+      <td class="linecount coveredLine">128</td>
       <td class="src coveredLine"><span class="p">}</span></td>
     </tr>
     <tr class="source-line">
