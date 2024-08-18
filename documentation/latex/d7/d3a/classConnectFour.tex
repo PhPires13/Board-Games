@@ -1,0 +1,238 @@
+\doxysection{Referência da Classe Connect\+Four}
+\hypertarget{classConnectFour}{}\label{classConnectFour}\index{ConnectFour@{ConnectFour}}
+
+
+{\ttfamily \#include $<$Connect\+Four.\+hpp$>$}
+
+Diagrama de hierarquia da classe Connect\+Four\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d7/d3a/classConnectFour}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classConnectFour_a09890aa7f977921704ba5aeac55ad654}{Connect\+Four}} (\mbox{\hyperlink{classPlayer}{Player}} \+\_\+player1, \mbox{\hyperlink{classPlayer}{Player}} \+\_\+player2, uint32\+\_\+t board\+Height=\mbox{\hyperlink{classConnectFour_aa474c9bb396a777c070c018400e6e8dd}{Connect\+Four\+::default\+Board\+Height}}, uint32\+\_\+t board\+Width=\mbox{\hyperlink{classConnectFour_a8ddaf98a1551f5060833d14e8f787f57}{Connect\+Four\+::default\+Board\+Width}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Membros Públicos herdados de \mbox{\hyperlink{classBoardGame}{Board\+Game}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBoardGame_a0d84f9fb30ea2420d7830b4e384db4d1}{Board\+Game}} (\mbox{\hyperlink{classPlayer}{Player}} \+\_\+player1, \mbox{\hyperlink{classPlayer}{Player}} \+\_\+player2, uint32\+\_\+t board\+Height=\mbox{\hyperlink{classBoardGame_aca61c3a52f024b05e8f38e452c8b4e29}{Board\+Game\+::default\+Board\+Height}}, uint32\+\_\+t board\+Width=\mbox{\hyperlink{classBoardGame_a44e4294a4c877b5fb5b43283ffc55843}{Board\+Game\+::default\+Board\+Width}}, const std\+::string \&index\+Color="{}"{}, const std\+::string \&pieces\+Color="{}"{}, const std\+::string \&border\+Color="{}"{}, const std\+::string \&even\+Bg="{}"{}, const std\+::string \&odd\+Bg="{}"{})
+\item 
+\mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} \mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{play\+Game}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Membros privados}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classConnectFour_a050f9a5463d9b0949698c462f3d7d6e5}{is\+AValid\+Height}} (uint32\+\_\+t board\+Height) const override
+\item 
+bool \mbox{\hyperlink{classConnectFour_ade2324e8f6036c45bf06c93d6e033048}{is\+AValid\+Width}} (uint32\+\_\+t board\+Width) const override
+\item 
+void \mbox{\hyperlink{classConnectFour_a23923563b9cdc2658a1397542ce5d6a8}{validate\+Move}} (const std\+::vector$<$ uint32\+\_\+t $>$ \&move) const override
+\item 
+\mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} \mbox{\hyperlink{classConnectFour_a7d74751dda08358520d8e5eba9cbd879}{get\+Game\+State}} (const std\+::vector$<$ uint32\+\_\+t $>$ \&move) const override
+\item 
+bool \mbox{\hyperlink{classConnectFour_aff77ca7012d2ffdebe4630c47cb9fb75}{check\+Direction}} (const std\+::vector$<$ uint32\+\_\+t $>$ \&move, char symbol, int d\+Row, int d\+Col) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos Privados Estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static const uint32\+\_\+t \mbox{\hyperlink{classConnectFour_a5f1529503e07d9c7c45fb283da877534}{minimum\+Board\+Size}} = 4
+\item 
+static const uint32\+\_\+t \mbox{\hyperlink{classConnectFour_aa474c9bb396a777c070c018400e6e8dd}{default\+Board\+Height}} = 6
+\item 
+static const uint32\+\_\+t \mbox{\hyperlink{classConnectFour_a8ddaf98a1551f5060833d14e8f787f57}{default\+Board\+Width}} = 7
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Outros membros herdados}
+\doxysubsection*{Membros protegidos herdados de \mbox{\hyperlink{classBoardGame}{Board\+Game}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classBoardGame_a3945f4cc72c1710e7bc834e79e97d590}{print\+Board}} () const
+\item 
+virtual void \mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{make\+Move}} (const std\+::vector$<$ uint32\+\_\+t $>$ \&move, char symbol)
+\item 
+\mbox{\hyperlink{classPlayer}{Player}} \mbox{\hyperlink{classBoardGame_a2e2f74f86bff4949516402d3ea981436}{whose\+Turn}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Membros protegidos estáticos herdados de \mbox{\hyperlink{classBoardGame}{Board\+Game}}}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::vector$<$ uint32\+\_\+t $>$ \mbox{\hyperlink{classBoardGame_ab949ea2e2cd99632d784a1f7334af96a}{read\+Move}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos Protegidos herdados de \mbox{\hyperlink{classBoardGame}{Board\+Game}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlayer}{Player}} \mbox{\hyperlink{classBoardGame_a3dbe986e81aebde93c1030704d8d2a26}{player1}}
+\item 
+\mbox{\hyperlink{classPlayer}{Player}} \mbox{\hyperlink{classBoardGame_a10fc21977a5f383bcc8decf1e3f715a5}{player2}}
+\item 
+\mbox{\hyperlink{classBoard}{Board}} \mbox{\hyperlink{classBoardGame_accfffd13a5f24592590c9a324cf7e8cd}{board}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classBoardGame_aeca0154244eb5f10db8b9b45cac24958}{turn}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos Protegidos Estáticos herdados de \mbox{\hyperlink{classBoardGame}{Board\+Game}}}
+\begin{DoxyCompactItemize}
+\item 
+static const uint32\+\_\+t \mbox{\hyperlink{classBoardGame_aca61c3a52f024b05e8f38e452c8b4e29}{default\+Board\+Height}} = 4
+\item 
+static const uint32\+\_\+t \mbox{\hyperlink{classBoardGame_a44e4294a4c877b5fb5b43283ffc55843}{default\+Board\+Width}} = 4
+\item 
+static const char \mbox{\hyperlink{classBoardGame_a8bca6b3c24bf6f5aa3d2cd699385509f}{default\+Symbol1}} = \textquotesingle{}X\textquotesingle{}
+\item 
+static const char \mbox{\hyperlink{classBoardGame_a1f911ef285f2c528caf01d5ab34d9df2}{default\+Symbol2}} = \textquotesingle{}O\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Class that represents the Connect Four game 
+
+\doxysubsection{Construtores e Destrutores}
+\Hypertarget{classConnectFour_a09890aa7f977921704ba5aeac55ad654}\label{classConnectFour_a09890aa7f977921704ba5aeac55ad654} 
+\index{ConnectFour@{ConnectFour}!ConnectFour@{ConnectFour}}
+\index{ConnectFour@{ConnectFour}!ConnectFour@{ConnectFour}}
+\doxysubsubsection{\texorpdfstring{ConnectFour()}{ConnectFour()}}
+{\footnotesize\ttfamily Connect\+Four\+::\+Connect\+Four (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}}}]{\+\_\+player1,  }\item[{\mbox{\hyperlink{classPlayer}{Player}}}]{\+\_\+player2,  }\item[{uint32\+\_\+t}]{board\+Height = {\ttfamily \mbox{\hyperlink{classConnectFour_aa474c9bb396a777c070c018400e6e8dd}{Connect\+Four\+::default\+Board\+Height}}},  }\item[{uint32\+\_\+t}]{board\+Width = {\ttfamily \mbox{\hyperlink{classConnectFour_a8ddaf98a1551f5060833d14e8f787f57}{Connect\+Four\+::default\+Board\+Width}}} }\end{DoxyParamCaption})}
+
+Construtor da classe \doxylink{classConnectFour}{Connect\+Four}. Inicializa o jogo com dois jogadores e as dimensões do tabuleiro.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+player1} & Jogador 1 \\
+\hline
+{\em \+\_\+player2} & Jogador 2 \\
+\hline
+{\em board\+Height} & Altura do tabuleiro \\
+\hline
+{\em board\+Width} & Largura do tabuleiro \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentação das funções}
+\Hypertarget{classConnectFour_aff77ca7012d2ffdebe4630c47cb9fb75}\label{classConnectFour_aff77ca7012d2ffdebe4630c47cb9fb75} 
+\index{ConnectFour@{ConnectFour}!checkDirection@{checkDirection}}
+\index{checkDirection@{checkDirection}!ConnectFour@{ConnectFour}}
+\doxysubsubsection{\texorpdfstring{checkDirection()}{checkDirection()}}
+{\footnotesize\ttfamily bool Connect\+Four\+::check\+Direction (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{move,  }\item[{char}]{symbol,  }\item[{int}]{d\+Row,  }\item[{int}]{d\+Col }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+Verifica se há quatro peças seguidas de mesmo símbolo em uma determinda direção no tabuleiro após uma jogada
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em move} & Coordenadas do movimento \\
+\hline
+{\em symbol} & Símbolo do jogador que fez o movimento \\
+\hline
+{\em d\+Row} & Sinalizador para analisar casas na direção vertical \\
+\hline
+{\em d\+Col} & Sinalizadorpara analisar casas na direção horizontal \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classConnectFour_a7d74751dda08358520d8e5eba9cbd879}\label{classConnectFour_a7d74751dda08358520d8e5eba9cbd879} 
+\index{ConnectFour@{ConnectFour}!getGameState@{getGameState}}
+\index{getGameState@{getGameState}!ConnectFour@{ConnectFour}}
+\doxysubsubsection{\texorpdfstring{getGameState()}{getGameState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} Connect\+Four\+::get\+Game\+State (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{move }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+Analisa o status atual do jogo após cada jogada e verifica se há algum vencedor, de acordo com as regras do Lig4.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em move} & Coordenadas do movimento \\
+\hline
+\end{DoxyParams}
+
+
+Reimplementa \mbox{\hyperlink{classBoardGame_aecc780aa669fa3287bf8988becb773b4}{Board\+Game}}.
+
+\Hypertarget{classConnectFour_a050f9a5463d9b0949698c462f3d7d6e5}\label{classConnectFour_a050f9a5463d9b0949698c462f3d7d6e5} 
+\index{ConnectFour@{ConnectFour}!isAValidHeight@{isAValidHeight}}
+\index{isAValidHeight@{isAValidHeight}!ConnectFour@{ConnectFour}}
+\doxysubsubsection{\texorpdfstring{isAValidHeight()}{isAValidHeight()}}
+{\footnotesize\ttfamily bool Connect\+Four\+::is\+AValid\+Height (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{board\+Height }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+Verifica se a altura do tabuleiro é válida.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em board\+Height} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+true se é uma altura válida. 
+\end{DoxyReturn}
+
+
+Reimplementa \mbox{\hyperlink{classBoardGame_af7251441fc9263b8b77d27aae106219c}{Board\+Game}}.
+
+\Hypertarget{classConnectFour_ade2324e8f6036c45bf06c93d6e033048}\label{classConnectFour_ade2324e8f6036c45bf06c93d6e033048} 
+\index{ConnectFour@{ConnectFour}!isAValidWidth@{isAValidWidth}}
+\index{isAValidWidth@{isAValidWidth}!ConnectFour@{ConnectFour}}
+\doxysubsubsection{\texorpdfstring{isAValidWidth()}{isAValidWidth()}}
+{\footnotesize\ttfamily bool Connect\+Four\+::is\+AValid\+Width (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{board\+Width }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+Verifica se a largura do tabuleiro é válida.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em board\+Width} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+true se é uma largura válida. 
+\end{DoxyReturn}
+
+
+Reimplementa \mbox{\hyperlink{classBoardGame_ae01b19538655c1d04161de92a8056e12}{Board\+Game}}.
+
+\Hypertarget{classConnectFour_a23923563b9cdc2658a1397542ce5d6a8}\label{classConnectFour_a23923563b9cdc2658a1397542ce5d6a8} 
+\index{ConnectFour@{ConnectFour}!validateMove@{validateMove}}
+\index{validateMove@{validateMove}!ConnectFour@{ConnectFour}}
+\doxysubsubsection{\texorpdfstring{validateMove()}{validateMove()}}
+{\footnotesize\ttfamily void Connect\+Four\+::validate\+Move (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{move }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+Verifica se a coluna selecionada está cheia e executa o movimento da peça no tabuleiro.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em move} & Coordenadas da coluna.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \doxylink{classincorrect__format}{incorrect\+\_\+format}} & if the move is empty or has more than 2 values \\
+\hline
+{\em \doxylink{classinvalid__move}{invalid\+\_\+move}} & if the move is outside the board \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplementa \mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{Board\+Game}}.
+
+
+
+\doxysubsection{Atributos}
+\Hypertarget{classConnectFour_aa474c9bb396a777c070c018400e6e8dd}\label{classConnectFour_aa474c9bb396a777c070c018400e6e8dd} 
+\index{ConnectFour@{ConnectFour}!defaultBoardHeight@{defaultBoardHeight}}
+\index{defaultBoardHeight@{defaultBoardHeight}!ConnectFour@{ConnectFour}}
+\doxysubsubsection{\texorpdfstring{defaultBoardHeight}{defaultBoardHeight}}
+{\footnotesize\ttfamily const uint32\+\_\+t Connect\+Four\+::default\+Board\+Height = 6\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Default height of the board \Hypertarget{classConnectFour_a8ddaf98a1551f5060833d14e8f787f57}\label{classConnectFour_a8ddaf98a1551f5060833d14e8f787f57} 
+\index{ConnectFour@{ConnectFour}!defaultBoardWidth@{defaultBoardWidth}}
+\index{defaultBoardWidth@{defaultBoardWidth}!ConnectFour@{ConnectFour}}
+\doxysubsubsection{\texorpdfstring{defaultBoardWidth}{defaultBoardWidth}}
+{\footnotesize\ttfamily const uint32\+\_\+t Connect\+Four\+::default\+Board\+Width = 7\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Default width of the board \Hypertarget{classConnectFour_a5f1529503e07d9c7c45fb283da877534}\label{classConnectFour_a5f1529503e07d9c7c45fb283da877534} 
+\index{ConnectFour@{ConnectFour}!minimumBoardSize@{minimumBoardSize}}
+\index{minimumBoardSize@{minimumBoardSize}!ConnectFour@{ConnectFour}}
+\doxysubsubsection{\texorpdfstring{minimumBoardSize}{minimumBoardSize}}
+{\footnotesize\ttfamily const uint32\+\_\+t Connect\+Four\+::minimum\+Board\+Size = 4\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Minimum size of the board (height == width) 
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{ConnectFour_8hpp}{Connect\+Four.\+hpp}}\item 
+src/\mbox{\hyperlink{ConnectFour_8cpp}{Connect\+Four.\+cpp}}\end{DoxyCompactItemize}

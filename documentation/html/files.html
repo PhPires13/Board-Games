@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -47,6 +51,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('files.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -72,32 +92,49 @@ $(function() {
   <div class="headertitle"><div class="title">Lista de Arquivos</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Esta é a lista de todos os arquivos documentados e suas respectivas descrições:</div><div class="directory">
+<div class="textblock">Esta é a lista de todos os arquivos e suas respectivas descrições:</div><div class="directory">
 <div class="levels">[nível de detalhes <span onclick="javascript:toggleLevel(1);">1</span><span onclick="javascript:toggleLevel(2);">2</span>]</div><table class="directory">
 <tr id="row_0_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_0_" class="arrow" onclick="toggleFolder('0_')">&#9660;</span><span id="img_0_" class="iconfopen" onclick="toggleFolder('0_')">&#160;</span><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html" target="_self">include</a></td><td class="desc"></td></tr>
-<tr id="row_0_0_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="Board_8hpp_source.html"><span class="icondoc"></span></a><b>Board.hpp</b></td><td class="desc"></td></tr>
-<tr id="row_0_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="BoardGame_8hpp_source.html"><span class="icondoc"></span></a><b>BoardGame.hpp</b></td><td class="desc"></td></tr>
-<tr id="row_0_2_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="ConnectFour_8hpp_source.html"><span class="icondoc"></span></a><b>ConnectFour.hpp</b></td><td class="desc"></td></tr>
-<tr id="row_0_3_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="exceptions_8hpp_source.html"><span class="icondoc"></span></a><b>exceptions.hpp</b></td><td class="desc"></td></tr>
-<tr id="row_0_4_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="Manager_8hpp_source.html"><span class="icondoc"></span></a><b>Manager.hpp</b></td><td class="desc"></td></tr>
-<tr id="row_0_5_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="Player_8hpp_source.html"><span class="icondoc"></span></a><b>Player.hpp</b></td><td class="desc"></td></tr>
-<tr id="row_0_6_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="Reversi_8hpp_source.html"><span class="icondoc"></span></a><b>Reversi.hpp</b></td><td class="desc"></td></tr>
-<tr id="row_0_7_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="TicTacToe_8hpp_source.html"><span class="icondoc"></span></a><b>TicTacToe.hpp</b></td><td class="desc"></td></tr>
-<tr id="row_0_8_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="Utils_8hpp_source.html"><span class="icondoc"></span></a><b>Utils.hpp</b></td><td class="desc"></td></tr>
-<tr id="row_1_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_1_" class="arrow" onclick="toggleFolder('1_')">&#9660;</span><span id="img_1_" class="iconfopen" onclick="toggleFolder('1_')">&#160;</span><a class="el" href="dir_59425e443f801f1f2fd8bbe4959a3ccf.html" target="_self">tests</a></td><td class="desc"></td></tr>
-<tr id="row_1_0_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="BoardGameTests_8cpp_source.html"><span class="icondoc"></span></a><b>BoardGameTests.cpp</b></td><td class="desc"></td></tr>
-<tr id="row_1_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="BoardTests_8cpp_source.html"><span class="icondoc"></span></a><b>BoardTests.cpp</b></td><td class="desc"></td></tr>
-<tr id="row_1_2_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="exceptionsTests_8cpp_source.html"><span class="icondoc"></span></a><b>exceptionsTests.cpp</b></td><td class="desc"></td></tr>
-<tr id="row_1_3_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="ManagerTests_8cpp_source.html"><span class="icondoc"></span></a><b>ManagerTests.cpp</b></td><td class="desc"></td></tr>
-<tr id="row_1_4_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="PlayerTests_8cpp_source.html"><span class="icondoc"></span></a><b>PlayerTests.cpp</b></td><td class="desc"></td></tr>
-<tr id="row_1_5_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="TicTacToeTests_8cpp_source.html"><span class="icondoc"></span></a><b>TicTacToeTests.cpp</b></td><td class="desc"></td></tr>
-<tr id="row_1_6_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="UtilsTests_8cpp_source.html"><span class="icondoc"></span></a><b>UtilsTests.cpp</b></td><td class="desc"></td></tr>
+<tr id="row_0_0_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="dd/db8/Board_8hpp_source.html"><span class="icondoc"></span></a><a class="el" href="dd/db8/Board_8hpp.html" target="_self">Board.hpp</a></td><td class="desc"></td></tr>
+<tr id="row_0_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="d2/d3b/BoardGame_8hpp_source.html"><span class="icondoc"></span></a><a class="el" href="d2/d3b/BoardGame_8hpp.html" target="_self">BoardGame.hpp</a></td><td class="desc"></td></tr>
+<tr id="row_0_2_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="d6/de6/ConnectFour_8hpp_source.html"><span class="icondoc"></span></a><a class="el" href="d6/de6/ConnectFour_8hpp.html" target="_self">ConnectFour.hpp</a></td><td class="desc"></td></tr>
+<tr id="row_0_3_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="da/d49/exceptions_8hpp_source.html"><span class="icondoc"></span></a><a class="el" href="da/d49/exceptions_8hpp.html" target="_self">exceptions.hpp</a></td><td class="desc"></td></tr>
+<tr id="row_0_4_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="d9/d54/Manager_8hpp_source.html"><span class="icondoc"></span></a><a class="el" href="d9/d54/Manager_8hpp.html" target="_self">Manager.hpp</a></td><td class="desc"></td></tr>
+<tr id="row_0_5_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="d3/d86/Player_8hpp_source.html"><span class="icondoc"></span></a><a class="el" href="d3/d86/Player_8hpp.html" target="_self">Player.hpp</a></td><td class="desc"></td></tr>
+<tr id="row_0_6_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="d9/d04/Reversi_8hpp_source.html"><span class="icondoc"></span></a><a class="el" href="d9/d04/Reversi_8hpp.html" target="_self">Reversi.hpp</a></td><td class="desc"></td></tr>
+<tr id="row_0_7_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="de/dad/TicTacToe_8hpp_source.html"><span class="icondoc"></span></a><a class="el" href="de/dad/TicTacToe_8hpp.html" target="_self">TicTacToe.hpp</a></td><td class="desc"></td></tr>
+<tr id="row_0_8_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="d7/d09/Utils_8hpp_source.html"><span class="icondoc"></span></a><a class="el" href="d7/d09/Utils_8hpp.html" target="_self">Utils.hpp</a></td><td class="desc"></td></tr>
+<tr id="row_1_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_1_" class="arrow" onclick="toggleFolder('1_')">&#9660;</span><span id="img_1_" class="iconfopen" onclick="toggleFolder('1_')">&#160;</span><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html" target="_self">src</a></td><td class="desc"></td></tr>
+<tr id="row_1_0_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="d6/dbe/Board_8cpp.html" target="_self">Board.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_1_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="d3/de8/BoardGame_8cpp.html" target="_self">BoardGame.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_1_2_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="d7/d44/ConnectFour_8cpp.html" target="_self">ConnectFour.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_1_3_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="dd/d12/exceptions_8cpp.html" target="_self">exceptions.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_1_4_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="df/d0a/main_8cpp.html" target="_self">main.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_1_5_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="df/de9/Manager_8cpp.html" target="_self">Manager.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_1_6_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="d5/d11/Player_8cpp.html" target="_self">Player.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_1_7_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="dd/df7/Reversi_8cpp.html" target="_self">Reversi.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_1_8_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="d7/da6/TicTacToe_8cpp.html" target="_self">TicTacToe.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_1_9_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="df/d0c/Utils_8cpp.html" target="_self">Utils.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_2_" class="odd"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_2_" class="arrow" onclick="toggleFolder('2_')">&#9660;</span><span id="img_2_" class="iconfopen" onclick="toggleFolder('2_')">&#160;</span><a class="el" href="dir_59425e443f801f1f2fd8bbe4959a3ccf.html" target="_self">tests</a></td><td class="desc"></td></tr>
+<tr id="row_2_0_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="d0/d90/BoardGameTests_8cpp_source.html"><span class="icondoc"></span></a><a class="el" href="d0/d90/BoardGameTests_8cpp.html" target="_self">BoardGameTests.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_2_1_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="d3/df9/BoardTests_8cpp_source.html"><span class="icondoc"></span></a><a class="el" href="d3/df9/BoardTests_8cpp.html" target="_self">BoardTests.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_2_2_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="d9/da6/ConnectFourTests_8cpp.html" target="_self">ConnectFourTests.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_2_3_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="d6/d8e/exceptionsTests_8cpp_source.html"><span class="icondoc"></span></a><a class="el" href="d6/d8e/exceptionsTests_8cpp.html" target="_self">exceptionsTests.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_2_4_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="d0/d1e/ManagerTests_8cpp_source.html"><span class="icondoc"></span></a><a class="el" href="d0/d1e/ManagerTests_8cpp.html" target="_self">ManagerTests.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_2_5_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="d3/d36/PlayerTests_8cpp_source.html"><span class="icondoc"></span></a><a class="el" href="d3/d36/PlayerTests_8cpp.html" target="_self">PlayerTests.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_2_6_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="d0/d25/ReversiTests_8cpp.html" target="_self">ReversiTests.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_2_7_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icondoc"></span><a class="el" href="d9/d1e/tests_8cpp.html" target="_self">tests.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_2_8_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="d7/df6/TicTacToeTests_8cpp_source.html"><span class="icondoc"></span></a><a class="el" href="d7/df6/TicTacToeTests_8cpp.html" target="_self">TicTacToeTests.cpp</a></td><td class="desc"></td></tr>
+<tr id="row_2_9_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><a href="da/db7/UtilsTests_8cpp_source.html"><span class="icondoc"></span></a><a class="el" href="da/db7/UtilsTests_8cpp.html" target="_self">UtilsTests.cpp</a></td><td class="desc"></td></tr>
 </table>
 </div><!-- directory -->
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
 </body>
 </html>

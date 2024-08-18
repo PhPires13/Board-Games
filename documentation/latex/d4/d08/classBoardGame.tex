@@ -1,0 +1,300 @@
+\doxysection{Referência da Classe Board\+Game}
+\hypertarget{classBoardGame}{}\label{classBoardGame}\index{BoardGame@{BoardGame}}
+
+
+{\ttfamily \#include $<$Board\+Game.\+hpp$>$}
+
+Diagrama de hierarquia da classe Board\+Game\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d4/d08/classBoardGame}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBoardGame_a0d84f9fb30ea2420d7830b4e384db4d1}{Board\+Game}} (\mbox{\hyperlink{classPlayer}{Player}} \+\_\+player1, \mbox{\hyperlink{classPlayer}{Player}} \+\_\+player2, uint32\+\_\+t board\+Height=\mbox{\hyperlink{classBoardGame_aca61c3a52f024b05e8f38e452c8b4e29}{Board\+Game\+::default\+Board\+Height}}, uint32\+\_\+t board\+Width=\mbox{\hyperlink{classBoardGame_a44e4294a4c877b5fb5b43283ffc55843}{Board\+Game\+::default\+Board\+Width}}, const std\+::string \&index\+Color="{}"{}, const std\+::string \&pieces\+Color="{}"{}, const std\+::string \&border\+Color="{}"{}, const std\+::string \&even\+Bg="{}"{}, const std\+::string \&odd\+Bg="{}"{})
+\item 
+\mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} \mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{play\+Game}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Membros protegidos}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classBoardGame_af7251441fc9263b8b77d27aae106219c}{is\+AValid\+Height}} (uint32\+\_\+t board\+Height) const
+\item 
+virtual bool \mbox{\hyperlink{classBoardGame_ae01b19538655c1d04161de92a8056e12}{is\+AValid\+Width}} (uint32\+\_\+t board\+Width) const
+\item 
+void \mbox{\hyperlink{classBoardGame_a3945f4cc72c1710e7bc834e79e97d590}{print\+Board}} () const
+\item 
+virtual void \mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validate\+Move}} (const std\+::vector$<$ uint32\+\_\+t $>$ \&move) const
+\item 
+virtual void \mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{make\+Move}} (const std\+::vector$<$ uint32\+\_\+t $>$ \&move, char symbol)
+\item 
+virtual \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} \mbox{\hyperlink{classBoardGame_aecc780aa669fa3287bf8988becb773b4}{get\+Game\+State}} (const std\+::vector$<$ uint32\+\_\+t $>$ \&move) const
+\item 
+\mbox{\hyperlink{classPlayer}{Player}} \mbox{\hyperlink{classBoardGame_a2e2f74f86bff4949516402d3ea981436}{whose\+Turn}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Membros protegidos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::vector$<$ uint32\+\_\+t $>$ \mbox{\hyperlink{classBoardGame_ab949ea2e2cd99632d784a1f7334af96a}{read\+Move}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos Protegidos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlayer}{Player}} \mbox{\hyperlink{classBoardGame_a3dbe986e81aebde93c1030704d8d2a26}{player1}}
+\item 
+\mbox{\hyperlink{classPlayer}{Player}} \mbox{\hyperlink{classBoardGame_a10fc21977a5f383bcc8decf1e3f715a5}{player2}}
+\item 
+\mbox{\hyperlink{classBoard}{Board}} \mbox{\hyperlink{classBoardGame_accfffd13a5f24592590c9a324cf7e8cd}{board}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classBoardGame_aeca0154244eb5f10db8b9b45cac24958}{turn}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos Protegidos Estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static const uint32\+\_\+t \mbox{\hyperlink{classBoardGame_aca61c3a52f024b05e8f38e452c8b4e29}{default\+Board\+Height}} = 4
+\item 
+static const uint32\+\_\+t \mbox{\hyperlink{classBoardGame_a44e4294a4c877b5fb5b43283ffc55843}{default\+Board\+Width}} = 4
+\item 
+static const char \mbox{\hyperlink{classBoardGame_a8bca6b3c24bf6f5aa3d2cd699385509f}{default\+Symbol1}} = \textquotesingle{}X\textquotesingle{}
+\item 
+static const char \mbox{\hyperlink{classBoardGame_a1f911ef285f2c528caf01d5ab34d9df2}{default\+Symbol2}} = \textquotesingle{}O\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Class to represent a generic board game, it is responsible for controlling all the processes of the game and the players in the match 
+
+\doxysubsection{Construtores e Destrutores}
+\Hypertarget{classBoardGame_a0d84f9fb30ea2420d7830b4e384db4d1}\label{classBoardGame_a0d84f9fb30ea2420d7830b4e384db4d1} 
+\index{BoardGame@{BoardGame}!BoardGame@{BoardGame}}
+\index{BoardGame@{BoardGame}!BoardGame@{BoardGame}}
+\doxysubsubsection{\texorpdfstring{BoardGame()}{BoardGame()}}
+{\footnotesize\ttfamily Board\+Game\+::\+Board\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}}}]{\+\_\+player1,  }\item[{\mbox{\hyperlink{classPlayer}{Player}}}]{\+\_\+player2,  }\item[{uint32\+\_\+t}]{board\+Height = {\ttfamily \mbox{\hyperlink{classBoardGame_aca61c3a52f024b05e8f38e452c8b4e29}{Board\+Game\+::default\+Board\+Height}}},  }\item[{uint32\+\_\+t}]{board\+Width = {\ttfamily \mbox{\hyperlink{classBoardGame_a44e4294a4c877b5fb5b43283ffc55843}{Board\+Game\+::default\+Board\+Width}}},  }\item[{const std\+::string \&}]{index\+Color = {\ttfamily "{}"{}},  }\item[{const std\+::string \&}]{pieces\+Color = {\ttfamily "{}"{}},  }\item[{const std\+::string \&}]{border\+Color = {\ttfamily "{}"{}},  }\item[{const std\+::string \&}]{even\+Bg = {\ttfamily "{}"{}},  }\item[{const std\+::string \&}]{odd\+Bg = {\ttfamily "{}"{}} }\end{DoxyParamCaption})}
+
+Create a \doxylink{classBoardGame}{Board\+Game} instance
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+player1} & \doxylink{classPlayer}{Player} 1 of the game \\
+\hline
+{\em \+\_\+player2} & \doxylink{classPlayer}{Player} 2 of the game \\
+\hline
+{\em board\+Height} & Height of the board \\
+\hline
+{\em board\+Width} & Width of the board \\
+\hline
+{\em index\+Color} & Color of the indexes \\
+\hline
+{\em pieces\+Color} & Color of the pieces \\
+\hline
+{\em border\+Color} & Color of the board \\
+\hline
+{\em even\+Bg} & Background color of the even cells \\
+\hline
+{\em odd\+Bg} & Background color of the odd cells \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentação das funções}
+\Hypertarget{classBoardGame_aecc780aa669fa3287bf8988becb773b4}\label{classBoardGame_aecc780aa669fa3287bf8988becb773b4} 
+\index{BoardGame@{BoardGame}!getGameState@{getGameState}}
+\index{getGameState@{getGameState}!BoardGame@{BoardGame}}
+\doxysubsubsection{\texorpdfstring{getGameState()}{getGameState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} Board\+Game\+::get\+Game\+State (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{move }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Check if the game is over
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em move} & The last move made, can be used for optimal checks\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Game\+State enum 
+\end{DoxyReturn}
+
+
+Reimplementado por \mbox{\hyperlink{classConnectFour_a7d74751dda08358520d8e5eba9cbd879}{Connect\+Four}}, \mbox{\hyperlink{classReversi_ae021a028f7f8704156abe8f41bfa8d8e}{Reversi}} e \mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{Tic\+Tac\+Toe}}.
+
+\Hypertarget{classBoardGame_af7251441fc9263b8b77d27aae106219c}\label{classBoardGame_af7251441fc9263b8b77d27aae106219c} 
+\index{BoardGame@{BoardGame}!isAValidHeight@{isAValidHeight}}
+\index{isAValidHeight@{isAValidHeight}!BoardGame@{BoardGame}}
+\doxysubsubsection{\texorpdfstring{isAValidHeight()}{isAValidHeight()}}
+{\footnotesize\ttfamily bool Board\+Game\+::is\+AValid\+Height (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{board\+Height }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Check if it is a valid height for the game board
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em board\+Height} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+true if it is a valid height 
+\end{DoxyReturn}
+
+
+Reimplementado por \mbox{\hyperlink{classConnectFour_a050f9a5463d9b0949698c462f3d7d6e5}{Connect\+Four}} e \mbox{\hyperlink{classReversi_a466d4e00c107fef195a722254c373cce}{Reversi}}.
+
+\Hypertarget{classBoardGame_ae01b19538655c1d04161de92a8056e12}\label{classBoardGame_ae01b19538655c1d04161de92a8056e12} 
+\index{BoardGame@{BoardGame}!isAValidWidth@{isAValidWidth}}
+\index{isAValidWidth@{isAValidWidth}!BoardGame@{BoardGame}}
+\doxysubsubsection{\texorpdfstring{isAValidWidth()}{isAValidWidth()}}
+{\footnotesize\ttfamily bool Board\+Game\+::is\+AValid\+Width (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{board\+Width }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Check if it is a valid height for the game board
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em board\+Width} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+true if it is a valid height 
+\end{DoxyReturn}
+
+
+Reimplementado por \mbox{\hyperlink{classConnectFour_ade2324e8f6036c45bf06c93d6e033048}{Connect\+Four}} e \mbox{\hyperlink{classReversi_a4620c65ea9531ace27ef30f5c212d4b1}{Reversi}}.
+
+\Hypertarget{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}\label{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0} 
+\index{BoardGame@{BoardGame}!makeMove@{makeMove}}
+\index{makeMove@{makeMove}!BoardGame@{BoardGame}}
+\doxysubsubsection{\texorpdfstring{makeMove()}{makeMove()}}
+{\footnotesize\ttfamily void Board\+Game\+::make\+Move (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{move,  }\item[{char}]{symbol }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Execute move on the board
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em move} & The move to be executed \\
+\hline
+{\em symbol} & The symbol to be placed on the board\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \doxylink{classinvalid__move}{invalid\+\_\+move}} & if the move is outside the board \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplementado por \mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{Reversi}}.
+
+\Hypertarget{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}\label{classBoardGame_a21c1e2ceca3946093027daefab20a3b7} 
+\index{BoardGame@{BoardGame}!playGame@{playGame}}
+\index{playGame@{playGame}!BoardGame@{BoardGame}}
+\doxysubsubsection{\texorpdfstring{playGame()}{playGame()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} Board\+Game\+::play\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Play the game
+
+\begin{DoxyReturn}{Retorna}
+The game state at the end 
+\end{DoxyReturn}
+\Hypertarget{classBoardGame_a3945f4cc72c1710e7bc834e79e97d590}\label{classBoardGame_a3945f4cc72c1710e7bc834e79e97d590} 
+\index{BoardGame@{BoardGame}!printBoard@{printBoard}}
+\index{printBoard@{printBoard}!BoardGame@{BoardGame}}
+\doxysubsubsection{\texorpdfstring{printBoard()}{printBoard()}}
+{\footnotesize\ttfamily void Board\+Game\+::print\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+Print the current board state \Hypertarget{classBoardGame_ab949ea2e2cd99632d784a1f7334af96a}\label{classBoardGame_ab949ea2e2cd99632d784a1f7334af96a} 
+\index{BoardGame@{BoardGame}!readMove@{readMove}}
+\index{readMove@{readMove}!BoardGame@{BoardGame}}
+\doxysubsubsection{\texorpdfstring{readMove()}{readMove()}}
+{\footnotesize\ttfamily std\+::vector$<$ uint32\+\_\+t $>$ Board\+Game\+::read\+Move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Read a move from the whole input line (int values separated by space)
+
+\begin{DoxyReturn}{Retorna}
+A vector with the move coordinates 
+\end{DoxyReturn}
+\Hypertarget{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}\label{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422} 
+\index{BoardGame@{BoardGame}!validateMove@{validateMove}}
+\index{validateMove@{validateMove}!BoardGame@{BoardGame}}
+\doxysubsubsection{\texorpdfstring{validateMove()}{validateMove()}}
+{\footnotesize\ttfamily void Board\+Game\+::validate\+Move (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{move }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+Validate if move is valid by throwing exceptions if not
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em move} & The move to be checked\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \doxylink{classincorrect__format}{incorrect\+\_\+format}} & if the move is empty or has more than 2 values \\
+\hline
+{\em \doxylink{classinvalid__move}{invalid\+\_\+move}} & if the move is outside the board \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplementado por \mbox{\hyperlink{classConnectFour_a23923563b9cdc2658a1397542ce5d6a8}{Connect\+Four}}, \mbox{\hyperlink{classReversi_a498106bdaa963752e31a1269ece47568}{Reversi}} e \mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{Tic\+Tac\+Toe}}.
+
+\Hypertarget{classBoardGame_a2e2f74f86bff4949516402d3ea981436}\label{classBoardGame_a2e2f74f86bff4949516402d3ea981436} 
+\index{BoardGame@{BoardGame}!whoseTurn@{whoseTurn}}
+\index{whoseTurn@{whoseTurn}!BoardGame@{BoardGame}}
+\doxysubsubsection{\texorpdfstring{whoseTurn()}{whoseTurn()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlayer}{Player}} Board\+Game\+::whose\+Turn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+Check whose turn is it 
+
+\doxysubsection{Atributos}
+\Hypertarget{classBoardGame_accfffd13a5f24592590c9a324cf7e8cd}\label{classBoardGame_accfffd13a5f24592590c9a324cf7e8cd} 
+\index{BoardGame@{BoardGame}!board@{board}}
+\index{board@{board}!BoardGame@{BoardGame}}
+\doxysubsubsection{\texorpdfstring{board}{board}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBoard}{Board}} Board\+Game\+::board\hspace{0.3cm}{\ttfamily [protected]}}
+
+The board of the game \Hypertarget{classBoardGame_aca61c3a52f024b05e8f38e452c8b4e29}\label{classBoardGame_aca61c3a52f024b05e8f38e452c8b4e29} 
+\index{BoardGame@{BoardGame}!defaultBoardHeight@{defaultBoardHeight}}
+\index{defaultBoardHeight@{defaultBoardHeight}!BoardGame@{BoardGame}}
+\doxysubsubsection{\texorpdfstring{defaultBoardHeight}{defaultBoardHeight}}
+{\footnotesize\ttfamily const uint32\+\_\+t Board\+Game\+::default\+Board\+Height = 4\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Default height of the board \Hypertarget{classBoardGame_a44e4294a4c877b5fb5b43283ffc55843}\label{classBoardGame_a44e4294a4c877b5fb5b43283ffc55843} 
+\index{BoardGame@{BoardGame}!defaultBoardWidth@{defaultBoardWidth}}
+\index{defaultBoardWidth@{defaultBoardWidth}!BoardGame@{BoardGame}}
+\doxysubsubsection{\texorpdfstring{defaultBoardWidth}{defaultBoardWidth}}
+{\footnotesize\ttfamily const uint32\+\_\+t Board\+Game\+::default\+Board\+Width = 4\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Default width of the board \Hypertarget{classBoardGame_a8bca6b3c24bf6f5aa3d2cd699385509f}\label{classBoardGame_a8bca6b3c24bf6f5aa3d2cd699385509f} 
+\index{BoardGame@{BoardGame}!defaultSymbol1@{defaultSymbol1}}
+\index{defaultSymbol1@{defaultSymbol1}!BoardGame@{BoardGame}}
+\doxysubsubsection{\texorpdfstring{defaultSymbol1}{defaultSymbol1}}
+{\footnotesize\ttfamily const char Board\+Game\+::default\+Symbol1 = \textquotesingle{}X\textquotesingle{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Default symbol for player 1 \Hypertarget{classBoardGame_a1f911ef285f2c528caf01d5ab34d9df2}\label{classBoardGame_a1f911ef285f2c528caf01d5ab34d9df2} 
+\index{BoardGame@{BoardGame}!defaultSymbol2@{defaultSymbol2}}
+\index{defaultSymbol2@{defaultSymbol2}!BoardGame@{BoardGame}}
+\doxysubsubsection{\texorpdfstring{defaultSymbol2}{defaultSymbol2}}
+{\footnotesize\ttfamily const char Board\+Game\+::default\+Symbol2 = \textquotesingle{}O\textquotesingle{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Default symbol for player 2 \Hypertarget{classBoardGame_a3dbe986e81aebde93c1030704d8d2a26}\label{classBoardGame_a3dbe986e81aebde93c1030704d8d2a26} 
+\index{BoardGame@{BoardGame}!player1@{player1}}
+\index{player1@{player1}!BoardGame@{BoardGame}}
+\doxysubsubsection{\texorpdfstring{player1}{player1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlayer}{Player}} Board\+Game\+::player1\hspace{0.3cm}{\ttfamily [protected]}}
+
+\doxylink{classPlayer}{Player} 1 of the game \Hypertarget{classBoardGame_a10fc21977a5f383bcc8decf1e3f715a5}\label{classBoardGame_a10fc21977a5f383bcc8decf1e3f715a5} 
+\index{BoardGame@{BoardGame}!player2@{player2}}
+\index{player2@{player2}!BoardGame@{BoardGame}}
+\doxysubsubsection{\texorpdfstring{player2}{player2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPlayer}{Player}} Board\+Game\+::player2\hspace{0.3cm}{\ttfamily [protected]}}
+
+\doxylink{classPlayer}{Player} 2 of the game \Hypertarget{classBoardGame_aeca0154244eb5f10db8b9b45cac24958}\label{classBoardGame_aeca0154244eb5f10db8b9b45cac24958} 
+\index{BoardGame@{BoardGame}!turn@{turn}}
+\index{turn@{turn}!BoardGame@{BoardGame}}
+\doxysubsubsection{\texorpdfstring{turn}{turn}}
+{\footnotesize\ttfamily uint32\+\_\+t Board\+Game\+::turn\hspace{0.3cm}{\ttfamily [protected]}}
+
+The current turn of the game, first turn is 1 
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{BoardGame_8hpp}{Board\+Game.\+hpp}}\item 
+src/\mbox{\hyperlink{BoardGame_8cpp}{Board\+Game.\+cpp}}\end{DoxyCompactItemize}

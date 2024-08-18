@@ -1,0 +1,28 @@
+\doxysection{Tic\+Tac\+Toe.\+hpp}
+\hypertarget{TicTacToe_8hpp_source}{}\label{TicTacToe_8hpp_source}\index{include/TicTacToe.hpp@{include/TicTacToe.hpp}}
+\mbox{\hyperlink{TicTacToe_8hpp}{Ir para a documentação desse arquivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Pedro\ Henrique\ Pires\ \ on\ 30/07/24.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ TICTACTOE\_HPP}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ TICTACTOE\_HPP}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{BoardGame_8hpp}{BoardGame.hpp}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ final:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ \mbox{\hyperlink{classTicTacToe_afae89e11319b4adb915382362661463b}{defaultBoardSize}};\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}(\mbox{\hyperlink{classPlayer}{Player}}\ \_player1,\ \mbox{\hyperlink{classPlayer}{Player}}\ \_player2);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validateMove}}(\textcolor{keyword}{const}\ std::vector<uint32\_t>\&\ move)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00043\ \ \ \ \ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}}\ \mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{getGameState}}(\textcolor{keyword}{const}\ std::vector<uint32\_t>\&\ move)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00044\ \};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//TICTACTOE\_HPP}}
+
+\end{DoxyCode}

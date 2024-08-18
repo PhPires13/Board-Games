@@ -1,0 +1,173 @@
+\doxysection{Referência da Classe Manager}
+\hypertarget{classManager}{}\label{classManager}\index{Manager@{Manager}}
+
+
+{\ttfamily \#include $<$Manager.\+hpp$>$}
+
+\doxysubsubsection*{Membros públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classManager_ab728cb2ad7342bffd0a71c9ca305a1a9}{menu}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Membros privados estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classManager_aeb05baeb0075a8235c8ddea7b43e49ab}{print\+Menu}} ()
+\item 
+static void \mbox{\hyperlink{classManager_aba37e0476aeccc0a8ccd3ac82e3a3ec5}{create\+Player}} (const std\+::string \&arguments)
+\item 
+static void \mbox{\hyperlink{classManager_aa7f33d8e27faebdcaf2d97d143c17c26}{delete\+Player}} (const std\+::string \&arguments)
+\item 
+static void \mbox{\hyperlink{classManager_a6c41295ecf1975e47623806a0416a2c9}{list\+Players}} (const std\+::string \&arguments)
+\item 
+static \mbox{\hyperlink{classBoardGame}{Board\+Game}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{create\+Match}} (char game, const \mbox{\hyperlink{classPlayer}{Player}} \&player1, const \mbox{\hyperlink{classPlayer}{Player}} \&player2, const std\+::string \&extra\+Arguments)
+\item 
+static void \mbox{\hyperlink{classManager_a76e1b288f52fb550445bf7847596cbfc}{play\+Match}} (const std\+::string \&arguments)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos Privados Estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static const uint32\+\_\+t \mbox{\hyperlink{classManager_a7e818729a1a7b49907c88d9b5074b4e2}{max\+Command\+Size}} = 100
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Class to manage the program, it is responsible for the interaction with the user 
+
+\doxysubsection{Documentação das funções}
+\Hypertarget{classManager_a6e591b522fd7201d55f152e662bf24d3}\label{classManager_a6e591b522fd7201d55f152e662bf24d3} 
+\index{Manager@{Manager}!createMatch@{createMatch}}
+\index{createMatch@{createMatch}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{createMatch()}{createMatch()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBoardGame}{Board\+Game}} \texorpdfstring{$\ast$}{*} Manager\+::create\+Match (\begin{DoxyParamCaption}\item[{char}]{game,  }\item[{const \mbox{\hyperlink{classPlayer}{Player}} \&}]{player1,  }\item[{const \mbox{\hyperlink{classPlayer}{Player}} \&}]{player2,  }\item[{const std\+::string \&}]{extra\+Arguments }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Create a match for the players of a given game
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em game} & char representing the game \\
+\hline
+{\em player1} & player 1 of the match \\
+\hline
+{\em player2} & player 2 of the match \\
+\hline
+{\em extra\+Arguments} & custom dimensions for the board, when applicable\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+a pointer to the created match
+\end{DoxyReturn}
+@thwros \doxylink{classincorrect__data}{incorrect\+\_\+data} if the data is invalid 
+\begin{DoxyExceptions}{Exceções}
+{\em \doxylink{classgame__not__found}{game\+\_\+not\+\_\+found}} & if the game is not found \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classManager_aba37e0476aeccc0a8ccd3ac82e3a3ec5}\label{classManager_aba37e0476aeccc0a8ccd3ac82e3a3ec5} 
+\index{Manager@{Manager}!createPlayer@{createPlayer}}
+\index{createPlayer@{createPlayer}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{createPlayer()}{createPlayer()}}
+{\footnotesize\ttfamily void Manager\+::create\+Player (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{arguments }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Create a player in the database
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em arguments} & Nick, name and symbol of the player\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \doxylink{classincorrect__format}{incorrect\+\_\+format}} & if was not able to parse the arguments \\
+\hline
+{\em \doxylink{classduplicated__player}{duplicated\+\_\+player}} & if nick already exists \\
+\hline
+{\em \doxylink{classfile__error}{file\+\_\+error}} & if was not able to write to the file \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classManager_aa7f33d8e27faebdcaf2d97d143c17c26}\label{classManager_aa7f33d8e27faebdcaf2d97d143c17c26} 
+\index{Manager@{Manager}!deletePlayer@{deletePlayer}}
+\index{deletePlayer@{deletePlayer}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{deletePlayer()}{deletePlayer()}}
+{\footnotesize\ttfamily void Manager\+::delete\+Player (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{arguments }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Delete a player from the database
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em arguments} & Nick of the player\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \doxylink{classfile__error}{file\+\_\+error}} & if was not able to remove from the file \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classManager_a6c41295ecf1975e47623806a0416a2c9}\label{classManager_a6c41295ecf1975e47623806a0416a2c9} 
+\index{Manager@{Manager}!listPlayers@{listPlayers}}
+\index{listPlayers@{listPlayers}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{listPlayers()}{listPlayers()}}
+{\footnotesize\ttfamily void Manager\+::list\+Players (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{arguments }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+List all players in the database
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em arguments} & order of the list (Apelido, Nome)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \doxylink{classfile__error}{file\+\_\+error}} & if was not able to read from the file \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classManager_ab728cb2ad7342bffd0a71c9ca305a1a9}\label{classManager_ab728cb2ad7342bffd0a71c9ca305a1a9} 
+\index{Manager@{Manager}!menu@{menu}}
+\index{menu@{menu}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily void Manager\+::menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Starts the program, keeps it running until the user decides to exit \Hypertarget{classManager_a76e1b288f52fb550445bf7847596cbfc}\label{classManager_a76e1b288f52fb550445bf7847596cbfc} 
+\index{Manager@{Manager}!playMatch@{playMatch}}
+\index{playMatch@{playMatch}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{playMatch()}{playMatch()}}
+{\footnotesize\ttfamily void Manager\+::play\+Match (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{arguments }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Play a match between two players
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em arguments} & game, nick1, nick2, custom dimensions\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \doxylink{classincorrect__format}{incorrect\+\_\+format}} & if was not able to parse the arguments \\
+\hline
+{\em \doxylink{classduplicated__player}{duplicated\+\_\+player}} & if nick1 == nick2 \\
+\hline
+{\em \doxylink{classfile__error}{file\+\_\+error}} & if was not able to open the file \\
+\hline
+{\em \doxylink{classplayer__not__found}{player\+\_\+not\+\_\+found}} & if nick1 or nick2 do not exist \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classManager_aeb05baeb0075a8235c8ddea7b43e49ab}\label{classManager_aeb05baeb0075a8235c8ddea7b43e49ab} 
+\index{Manager@{Manager}!printMenu@{printMenu}}
+\index{printMenu@{printMenu}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{printMenu()}{printMenu()}}
+{\footnotesize\ttfamily void Manager\+::print\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Print the menu of the program 
+
+\doxysubsection{Atributos}
+\Hypertarget{classManager_a7e818729a1a7b49907c88d9b5074b4e2}\label{classManager_a7e818729a1a7b49907c88d9b5074b4e2} 
+\index{Manager@{Manager}!maxCommandSize@{maxCommandSize}}
+\index{maxCommandSize@{maxCommandSize}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{maxCommandSize}{maxCommandSize}}
+{\footnotesize\ttfamily const uint32\+\_\+t Manager\+::max\+Command\+Size = 100\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+max command size 
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Manager_8hpp}{Manager.\+hpp}}\item 
+src/\mbox{\hyperlink{Manager_8cpp}{Manager.\+cpp}}\end{DoxyCompactItemize}

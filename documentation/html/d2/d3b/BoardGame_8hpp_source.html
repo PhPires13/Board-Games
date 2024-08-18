@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Board Games: Código-Fonte de include/BoardGame.hpp</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Board Games
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('d2/d3b/BoardGame_8hpp_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">BoardGame.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d2/d3b/BoardGame_8hpp.html">Ir para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by pires on 6/28/2024.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef BOARDGAME_HPP</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define BOARDGAME_HPP</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/db8/Board_8hpp.html">Board.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d86/Player_8hpp.html">Player.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d2/d3b/BoardGame_8hpp.html#a7899b65f1ea0f655e4bbf8d2a5714285">   16</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="../../d2/d3b/BoardGame_8hpp.html#a7899b65f1ea0f655e4bbf8d2a5714285">GameState</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../d2/d3b/BoardGame_8hpp.html#a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287">   17</a></span>    <a class="code hl_enumvalue" href="../../d2/d3b/BoardGame_8hpp.html#a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287">NOT_OVER</a> = 0,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../d2/d3b/BoardGame_8hpp.html#a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6">   18</a></span>    <a class="code hl_enumvalue" href="../../d2/d3b/BoardGame_8hpp.html#a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6">PLAYER1_WINS</a> = 1,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../d2/d3b/BoardGame_8hpp.html#a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20">   19</a></span>    <a class="code hl_enumvalue" href="../../d2/d3b/BoardGame_8hpp.html#a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20">PLAYER2_WINS</a> = 2,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d2/d3b/BoardGame_8hpp.html#a7899b65f1ea0f655e4bbf8d2a5714285a50b3b7506fcc5435fc762f98a09a6eac">   20</a></span>    <a class="code hl_enumvalue" href="../../d2/d3b/BoardGame_8hpp.html#a7899b65f1ea0f655e4bbf8d2a5714285a50b3b7506fcc5435fc762f98a09a6eac">TIE</a> = 3,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>};</div>
+</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d4/d08/classBoardGame.html">   26</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d4/d08/classBoardGame.html">BoardGame</a> {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../d4/d08/classBoardGame.html#aca61c3a52f024b05e8f38e452c8b4e29">   28</a></span>    <span class="keyword">static</span> <span class="keyword">const</span> uint32_t <a class="code hl_variable" href="../../d4/d08/classBoardGame.html#aca61c3a52f024b05e8f38e452c8b4e29">defaultBoardHeight</a>; </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d4/d08/classBoardGame.html#a44e4294a4c877b5fb5b43283ffc55843">   29</a></span>    <span class="keyword">static</span> <span class="keyword">const</span> uint32_t <a class="code hl_variable" href="../../d4/d08/classBoardGame.html#a44e4294a4c877b5fb5b43283ffc55843">defaultBoardWidth</a>; </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d4/d08/classBoardGame.html#a8bca6b3c24bf6f5aa3d2cd699385509f">   31</a></span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="../../d4/d08/classBoardGame.html#a8bca6b3c24bf6f5aa3d2cd699385509f">defaultSymbol1</a>; </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d4/d08/classBoardGame.html#a1f911ef285f2c528caf01d5ab34d9df2">   32</a></span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code hl_variable" href="../../d4/d08/classBoardGame.html#a1f911ef285f2c528caf01d5ab34d9df2">defaultSymbol2</a>; </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../d4/d08/classBoardGame.html#a3dbe986e81aebde93c1030704d8d2a26">   34</a></span>    <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a> <a class="code hl_variable" href="../../d4/d08/classBoardGame.html#a3dbe986e81aebde93c1030704d8d2a26">player1</a>; </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d4/d08/classBoardGame.html#a10fc21977a5f383bcc8decf1e3f715a5">   35</a></span>    <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a> <a class="code hl_variable" href="../../d4/d08/classBoardGame.html#a10fc21977a5f383bcc8decf1e3f715a5">player2</a>; </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../d4/d08/classBoardGame.html#accfffd13a5f24592590c9a324cf7e8cd">   37</a></span>    <a class="code hl_class" href="../../de/d23/classBoard.html">Board</a> <a class="code hl_variable" href="../../d4/d08/classBoardGame.html#accfffd13a5f24592590c9a324cf7e8cd">board</a>; </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../d4/d08/classBoardGame.html#aeca0154244eb5f10db8b9b45cac24958">   39</a></span>    uint32_t <a class="code hl_variable" href="../../d4/d08/classBoardGame.html#aeca0154244eb5f10db8b9b45cac24958">turn</a>; </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_class" href="../../d4/d08/classBoardGame.html">BoardGame</a>(<a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a> _player1, <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a> _player2, uint32_t boardHeight = <a class="code hl_variable" href="../../d4/d08/classBoardGame.html#aca61c3a52f024b05e8f38e452c8b4e29">BoardGame::defaultBoardHeight</a>, uint32_t boardWidth = <a class="code hl_variable" href="../../d4/d08/classBoardGame.html#a44e4294a4c877b5fb5b43283ffc55843">BoardGame::defaultBoardWidth</a>,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>     <span class="keyword">const</span> std::string&amp; indexColor = <span class="stringliteral">&quot;&quot;</span>, <span class="keyword">const</span> std::string&amp; piecesColor = <span class="stringliteral">&quot;&quot;</span>, <span class="keyword">const</span> std::string&amp; borderColor = <span class="stringliteral">&quot;&quot;</span>,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>     <span class="keyword">const</span> std::string&amp; evenBg = <span class="stringliteral">&quot;&quot;</span>, <span class="keyword">const</span> std::string&amp; oddBg = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_enumeration" href="../../d2/d3b/BoardGame_8hpp.html#a7899b65f1ea0f655e4bbf8d2a5714285">GameState</a> <a class="code hl_function" href="../../d4/d08/classBoardGame.html#a21c1e2ceca3946093027daefab20a3b7">playGame</a>();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d4/d08/classBoardGame.html#af7251441fc9263b8b77d27aae106219c">isAValidHeight</a>(uint32_t boardHeight) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d4/d08/classBoardGame.html#ae01b19538655c1d04161de92a8056e12">isAValidWidth</a>(uint32_t boardWidth) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d08/classBoardGame.html#a3945f4cc72c1710e7bc834e79e97d590">printBoard</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keyword">static</span> std::vector&lt;uint32_t&gt; <a class="code hl_function" href="../../d4/d08/classBoardGame.html#ab949ea2e2cd99632d784a1f7334af96a">readMove</a>();</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d08/classBoardGame.html#a5e5d7aa0e75dcc1964fbae0a97106422">validateMove</a>(<span class="keyword">const</span> std::vector&lt;uint32_t&gt;&amp; move) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d08/classBoardGame.html#ace8625ebf31b8d5b2b7477f0ebc7e9a0">makeMove</a>(<span class="keyword">const</span> std::vector&lt;uint32_t&gt;&amp; move, <span class="keywordtype">char</span> symbol);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keyword">virtual</span> <a class="code hl_enumeration" href="../../d2/d3b/BoardGame_8hpp.html#a7899b65f1ea0f655e4bbf8d2a5714285">GameState</a> <a class="code hl_function" href="../../d4/d08/classBoardGame.html#aecc780aa669fa3287bf8988becb773b4">getGameState</a>(<span class="keyword">const</span> std::vector&lt;uint32_t&gt;&amp; move) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a> <a class="code hl_function" href="../../d4/d08/classBoardGame.html#a2e2f74f86bff4949516402d3ea981436">whoseTurn</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>};</div>
+</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="preprocessor">#endif </span><span class="comment">//BOARDGAME_HPP</span></div>
+<div class="ttc" id="aBoardGame_8hpp_html_a7899b65f1ea0f655e4bbf8d2a5714285"><div class="ttname"><a href="../../d2/d3b/BoardGame_8hpp.html#a7899b65f1ea0f655e4bbf8d2a5714285">GameState</a></div><div class="ttdeci">GameState</div><div class="ttdef"><b>Definição</b> BoardGame.hpp:16</div></div>
+<div class="ttc" id="aBoardGame_8hpp_html_a7899b65f1ea0f655e4bbf8d2a5714285a50b3b7506fcc5435fc762f98a09a6eac"><div class="ttname"><a href="../../d2/d3b/BoardGame_8hpp.html#a7899b65f1ea0f655e4bbf8d2a5714285a50b3b7506fcc5435fc762f98a09a6eac">TIE</a></div><div class="ttdeci">@ TIE</div><div class="ttdef"><b>Definição</b> BoardGame.hpp:20</div></div>
+<div class="ttc" id="aBoardGame_8hpp_html_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287"><div class="ttname"><a href="../../d2/d3b/BoardGame_8hpp.html#a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287">NOT_OVER</a></div><div class="ttdeci">@ NOT_OVER</div><div class="ttdef"><b>Definição</b> BoardGame.hpp:17</div></div>
+<div class="ttc" id="aBoardGame_8hpp_html_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20"><div class="ttname"><a href="../../d2/d3b/BoardGame_8hpp.html#a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20">PLAYER2_WINS</a></div><div class="ttdeci">@ PLAYER2_WINS</div><div class="ttdef"><b>Definição</b> BoardGame.hpp:19</div></div>
+<div class="ttc" id="aBoardGame_8hpp_html_a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6"><div class="ttname"><a href="../../d2/d3b/BoardGame_8hpp.html#a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6">PLAYER1_WINS</a></div><div class="ttdeci">@ PLAYER1_WINS</div><div class="ttdef"><b>Definição</b> BoardGame.hpp:18</div></div>
+<div class="ttc" id="aBoard_8hpp_html"><div class="ttname"><a href="../../dd/db8/Board_8hpp.html">Board.hpp</a></div></div>
+<div class="ttc" id="aPlayer_8hpp_html"><div class="ttname"><a href="../../d3/d86/Player_8hpp.html">Player.hpp</a></div></div>
+<div class="ttc" id="aclassBoardGame_html"><div class="ttname"><a href="../../d4/d08/classBoardGame.html">BoardGame</a></div><div class="ttdef"><b>Definição</b> BoardGame.hpp:26</div></div>
+<div class="ttc" id="aclassBoardGame_html_a10fc21977a5f383bcc8decf1e3f715a5"><div class="ttname"><a href="../../d4/d08/classBoardGame.html#a10fc21977a5f383bcc8decf1e3f715a5">BoardGame::player2</a></div><div class="ttdeci">Player player2</div><div class="ttdef"><b>Definição</b> BoardGame.hpp:35</div></div>
+<div class="ttc" id="aclassBoardGame_html_a1f911ef285f2c528caf01d5ab34d9df2"><div class="ttname"><a href="../../d4/d08/classBoardGame.html#a1f911ef285f2c528caf01d5ab34d9df2">BoardGame::defaultSymbol2</a></div><div class="ttdeci">static const char defaultSymbol2</div><div class="ttdef"><b>Definição</b> BoardGame.hpp:32</div></div>
+<div class="ttc" id="aclassBoardGame_html_a21c1e2ceca3946093027daefab20a3b7"><div class="ttname"><a href="../../d4/d08/classBoardGame.html#a21c1e2ceca3946093027daefab20a3b7">BoardGame::playGame</a></div><div class="ttdeci">GameState playGame()</div><div class="ttdef"><b>Definição</b> BoardGame.cpp:97</div></div>
+<div class="ttc" id="aclassBoardGame_html_a2e2f74f86bff4949516402d3ea981436"><div class="ttname"><a href="../../d4/d08/classBoardGame.html#a2e2f74f86bff4949516402d3ea981436">BoardGame::whoseTurn</a></div><div class="ttdeci">Player whoseTurn() const</div><div class="ttdef"><b>Definição</b> BoardGame.cpp:93</div></div>
+<div class="ttc" id="aclassBoardGame_html_a3945f4cc72c1710e7bc834e79e97d590"><div class="ttname"><a href="../../d4/d08/classBoardGame.html#a3945f4cc72c1710e7bc834e79e97d590">BoardGame::printBoard</a></div><div class="ttdeci">void printBoard() const</div><div class="ttdef"><b>Definição</b> BoardGame.cpp:44</div></div>
+<div class="ttc" id="aclassBoardGame_html_a3dbe986e81aebde93c1030704d8d2a26"><div class="ttname"><a href="../../d4/d08/classBoardGame.html#a3dbe986e81aebde93c1030704d8d2a26">BoardGame::player1</a></div><div class="ttdeci">Player player1</div><div class="ttdef"><b>Definição</b> BoardGame.hpp:34</div></div>
+<div class="ttc" id="aclassBoardGame_html_a44e4294a4c877b5fb5b43283ffc55843"><div class="ttname"><a href="../../d4/d08/classBoardGame.html#a44e4294a4c877b5fb5b43283ffc55843">BoardGame::defaultBoardWidth</a></div><div class="ttdeci">static const uint32_t defaultBoardWidth</div><div class="ttdef"><b>Definição</b> BoardGame.hpp:29</div></div>
+<div class="ttc" id="aclassBoardGame_html_a5e5d7aa0e75dcc1964fbae0a97106422"><div class="ttname"><a href="../../d4/d08/classBoardGame.html#a5e5d7aa0e75dcc1964fbae0a97106422">BoardGame::validateMove</a></div><div class="ttdeci">virtual void validateMove(const std::vector&lt; uint32_t &gt; &amp;move) const</div><div class="ttdef"><b>Definição</b> BoardGame.cpp:65</div></div>
+<div class="ttc" id="aclassBoardGame_html_a8bca6b3c24bf6f5aa3d2cd699385509f"><div class="ttname"><a href="../../d4/d08/classBoardGame.html#a8bca6b3c24bf6f5aa3d2cd699385509f">BoardGame::defaultSymbol1</a></div><div class="ttdeci">static const char defaultSymbol1</div><div class="ttdef"><b>Definição</b> BoardGame.hpp:31</div></div>
+<div class="ttc" id="aclassBoardGame_html_ab949ea2e2cd99632d784a1f7334af96a"><div class="ttname"><a href="../../d4/d08/classBoardGame.html#ab949ea2e2cd99632d784a1f7334af96a">BoardGame::readMove</a></div><div class="ttdeci">static std::vector&lt; uint32_t &gt; readMove()</div><div class="ttdef"><b>Definição</b> BoardGame.cpp:48</div></div>
+<div class="ttc" id="aclassBoardGame_html_aca61c3a52f024b05e8f38e452c8b4e29"><div class="ttname"><a href="../../d4/d08/classBoardGame.html#aca61c3a52f024b05e8f38e452c8b4e29">BoardGame::defaultBoardHeight</a></div><div class="ttdeci">static const uint32_t defaultBoardHeight</div><div class="ttdef"><b>Definição</b> BoardGame.hpp:28</div></div>
+<div class="ttc" id="aclassBoardGame_html_accfffd13a5f24592590c9a324cf7e8cd"><div class="ttname"><a href="../../d4/d08/classBoardGame.html#accfffd13a5f24592590c9a324cf7e8cd">BoardGame::board</a></div><div class="ttdeci">Board board</div><div class="ttdef"><b>Definição</b> BoardGame.hpp:37</div></div>
+<div class="ttc" id="aclassBoardGame_html_ace8625ebf31b8d5b2b7477f0ebc7e9a0"><div class="ttname"><a href="../../d4/d08/classBoardGame.html#ace8625ebf31b8d5b2b7477f0ebc7e9a0">BoardGame::makeMove</a></div><div class="ttdeci">virtual void makeMove(const std::vector&lt; uint32_t &gt; &amp;move, char symbol)</div><div class="ttdef"><b>Definição</b> BoardGame.cpp:78</div></div>
+<div class="ttc" id="aclassBoardGame_html_ae01b19538655c1d04161de92a8056e12"><div class="ttname"><a href="../../d4/d08/classBoardGame.html#ae01b19538655c1d04161de92a8056e12">BoardGame::isAValidWidth</a></div><div class="ttdeci">virtual bool isAValidWidth(uint32_t boardWidth) const</div><div class="ttdef"><b>Definição</b> BoardGame.cpp:40</div></div>
+<div class="ttc" id="aclassBoardGame_html_aeca0154244eb5f10db8b9b45cac24958"><div class="ttname"><a href="../../d4/d08/classBoardGame.html#aeca0154244eb5f10db8b9b45cac24958">BoardGame::turn</a></div><div class="ttdeci">uint32_t turn</div><div class="ttdef"><b>Definição</b> BoardGame.hpp:39</div></div>
+<div class="ttc" id="aclassBoardGame_html_aecc780aa669fa3287bf8988becb773b4"><div class="ttname"><a href="../../d4/d08/classBoardGame.html#aecc780aa669fa3287bf8988becb773b4">BoardGame::getGameState</a></div><div class="ttdeci">virtual GameState getGameState(const std::vector&lt; uint32_t &gt; &amp;move) const</div><div class="ttdef"><b>Definição</b> BoardGame.cpp:82</div></div>
+<div class="ttc" id="aclassBoardGame_html_af7251441fc9263b8b77d27aae106219c"><div class="ttname"><a href="../../d4/d08/classBoardGame.html#af7251441fc9263b8b77d27aae106219c">BoardGame::isAValidHeight</a></div><div class="ttdeci">virtual bool isAValidHeight(uint32_t boardHeight) const</div><div class="ttdef"><b>Definição</b> BoardGame.cpp:36</div></div>
+<div class="ttc" id="aclassBoard_html"><div class="ttname"><a href="../../de/d23/classBoard.html">Board</a></div><div class="ttdef"><b>Definição</b> Board.hpp:15</div></div>
+<div class="ttc" id="aclassPlayer_html"><div class="ttname"><a href="../../d2/d4b/classPlayer.html">Player</a></div><div class="ttdef"><b>Definição</b> Player.hpp:15</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="../../d2/d3b/BoardGame_8hpp.html">BoardGame.hpp</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

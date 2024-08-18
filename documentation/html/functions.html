@@ -9,6 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
@@ -47,6 +51,22 @@ $(function() {
 </script>
 <div id="main-nav"></div>
 </div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('functions.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -69,173 +89,177 @@ $(function() {
 </div>
 
 <div class="contents">
-<div class="textblock">Esta é a lista de todos os membros de classes documentados com referências para a documentação da classe de cada membro:</div>
+<div class="textblock">Esta é a lista de todos os membros de classes com referências para a classe a que pertencem:</div>
 
 <h3><a id="index_a" name="index_a"></a>- a -</h3><ul>
-<li>addStats()&#160;:&#160;<a class="el" href="classPlayer.html#a31f3abdbf2e241d6f6e8659b04c2bd20">Player</a></li>
+<li>addStats()&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#a31f3abdbf2e241d6f6e8659b04c2bd20">Player</a></li>
 </ul>
 
 
 <h3><a id="index_b" name="index_b"></a>- b -</h3><ul>
-<li>Board()&#160;:&#160;<a class="el" href="classBoard.html#a68ea81e340b13febd14968008a95141f">Board</a></li>
-<li>board&#160;:&#160;<a class="el" href="classBoard.html#a66de759d6e3a02137540086b2454b2e1">Board</a>, <a class="el" href="classBoardGame.html#accfffd13a5f24592590c9a324cf7e8cd">BoardGame</a></li>
-<li>BoardGame()&#160;:&#160;<a class="el" href="classBoardGame.html#a0d84f9fb30ea2420d7830b4e384db4d1">BoardGame</a></li>
-<li>borderColor&#160;:&#160;<a class="el" href="classBoard.html#abf8e544c6a7e05bbeadac6b1646f9b21">Board</a></li>
+<li>Board()&#160;:&#160;<a class="el" href="de/d23/classBoard.html#a68ea81e340b13febd14968008a95141f">Board</a></li>
+<li>board&#160;:&#160;<a class="el" href="de/d23/classBoard.html#a66de759d6e3a02137540086b2454b2e1">Board</a>, <a class="el" href="d4/d08/classBoardGame.html#accfffd13a5f24592590c9a324cf7e8cd">BoardGame</a></li>
+<li>BoardGame()&#160;:&#160;<a class="el" href="d4/d08/classBoardGame.html#a0d84f9fb30ea2420d7830b4e384db4d1">BoardGame</a></li>
+<li>borderColor&#160;:&#160;<a class="el" href="de/d23/classBoard.html#abf8e544c6a7e05bbeadac6b1646f9b21">Board</a></li>
 </ul>
 
 
 <h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
-<li>checkDirection()&#160;:&#160;<a class="el" href="classConnectFour.html#aff77ca7012d2ffdebe4630c47cb9fb75">ConnectFour</a></li>
-<li>cleanString()&#160;:&#160;<a class="el" href="classUtils.html#abfdc20f58a047441561728dd9933eaa8">Utils</a></li>
-<li>clearTerminal()&#160;:&#160;<a class="el" href="classUtils.html#a3c419fea02d0bd591c0f7f0d2391803a">Utils</a></li>
-<li>compareByName()&#160;:&#160;<a class="el" href="classPlayer.html#aae458284178943b8ca2af752c5442736">Player</a></li>
-<li>compareByNick()&#160;:&#160;<a class="el" href="classPlayer.html#acb610de195b5f560e009fc666b2ffced">Player</a></li>
-<li>ConnectFour()&#160;:&#160;<a class="el" href="classConnectFour.html#a09890aa7f977921704ba5aeac55ad654">ConnectFour</a></li>
-<li>connectFourLosses&#160;:&#160;<a class="el" href="classPlayer.html#a92b2370aec97aed74127649187277da6">Player</a></li>
-<li>connectFourWins&#160;:&#160;<a class="el" href="classPlayer.html#a664e20f91ba4bdf775a1a9aa6607f85d">Player</a></li>
-<li>createMatch()&#160;:&#160;<a class="el" href="classManager.html#a6e591b522fd7201d55f152e662bf24d3">Manager</a></li>
-<li>createPlayer()&#160;:&#160;<a class="el" href="classManager.html#aba37e0476aeccc0a8ccd3ac82e3a3ec5">Manager</a>, <a class="el" href="classPlayer.html#a12f65a371cdda1f1a049752489445d48">Player</a></li>
+<li>checkDirection()&#160;:&#160;<a class="el" href="d7/d3a/classConnectFour.html#aff77ca7012d2ffdebe4630c47cb9fb75">ConnectFour</a></li>
+<li>cleanString()&#160;:&#160;<a class="el" href="dc/dc5/classUtils.html#abfdc20f58a047441561728dd9933eaa8">Utils</a></li>
+<li>clearTerminal()&#160;:&#160;<a class="el" href="dc/dc5/classUtils.html#a3c419fea02d0bd591c0f7f0d2391803a">Utils</a></li>
+<li>compareByName()&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#aae458284178943b8ca2af752c5442736">Player</a></li>
+<li>compareByNick()&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#acb610de195b5f560e009fc666b2ffced">Player</a></li>
+<li>ConnectFour()&#160;:&#160;<a class="el" href="d7/d3a/classConnectFour.html#a09890aa7f977921704ba5aeac55ad654">ConnectFour</a></li>
+<li>connectFourLosses&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#a92b2370aec97aed74127649187277da6">Player</a></li>
+<li>connectFourWins&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#a664e20f91ba4bdf775a1a9aa6607f85d">Player</a></li>
+<li>createMatch()&#160;:&#160;<a class="el" href="dd/dcd/classManager.html#a6e591b522fd7201d55f152e662bf24d3">Manager</a></li>
+<li>createPlayer()&#160;:&#160;<a class="el" href="dd/dcd/classManager.html#aba37e0476aeccc0a8ccd3ac82e3a3ec5">Manager</a>, <a class="el" href="d2/d4b/classPlayer.html#a12f65a371cdda1f1a049752489445d48">Player</a></li>
 </ul>
 
 
 <h3><a id="index_d" name="index_d"></a>- d -</h3><ul>
-<li>defaultBoardHeight&#160;:&#160;<a class="el" href="classBoardGame.html#aca61c3a52f024b05e8f38e452c8b4e29">BoardGame</a>, <a class="el" href="classConnectFour.html#aa474c9bb396a777c070c018400e6e8dd">ConnectFour</a></li>
-<li>defaultBoardSize&#160;:&#160;<a class="el" href="classReversi.html#a838ef12443282a53e2c20aa14e9118be">Reversi</a>, <a class="el" href="classTicTacToe.html#afae89e11319b4adb915382362661463b">TicTacToe</a></li>
-<li>defaultBoardWidth&#160;:&#160;<a class="el" href="classBoardGame.html#a44e4294a4c877b5fb5b43283ffc55843">BoardGame</a>, <a class="el" href="classConnectFour.html#a8ddaf98a1551f5060833d14e8f787f57">ConnectFour</a></li>
-<li>defaultSymbol1&#160;:&#160;<a class="el" href="classBoardGame.html#a8bca6b3c24bf6f5aa3d2cd699385509f">BoardGame</a></li>
-<li>defaultSymbol2&#160;:&#160;<a class="el" href="classBoardGame.html#a1f911ef285f2c528caf01d5ab34d9df2">BoardGame</a></li>
-<li>deletePlayer()&#160;:&#160;<a class="el" href="classManager.html#aa7f33d8e27faebdcaf2d97d143c17c26">Manager</a>, <a class="el" href="classPlayer.html#a431643a31f1dd19c95c22a6fdb0232a6">Player</a></li>
-<li>deserialize()&#160;:&#160;<a class="el" href="classPlayer.html#a476cdc330565616e3bdc6a660c24a4b4">Player</a></li>
+<li>defaultBoardHeight&#160;:&#160;<a class="el" href="d4/d08/classBoardGame.html#aca61c3a52f024b05e8f38e452c8b4e29">BoardGame</a>, <a class="el" href="d7/d3a/classConnectFour.html#aa474c9bb396a777c070c018400e6e8dd">ConnectFour</a></li>
+<li>defaultBoardSize&#160;:&#160;<a class="el" href="d2/dae/classReversi.html#a838ef12443282a53e2c20aa14e9118be">Reversi</a>, <a class="el" href="de/df8/classTicTacToe.html#afae89e11319b4adb915382362661463b">TicTacToe</a></li>
+<li>defaultBoardWidth&#160;:&#160;<a class="el" href="d4/d08/classBoardGame.html#a44e4294a4c877b5fb5b43283ffc55843">BoardGame</a>, <a class="el" href="d7/d3a/classConnectFour.html#a8ddaf98a1551f5060833d14e8f787f57">ConnectFour</a></li>
+<li>defaultSymbol1&#160;:&#160;<a class="el" href="d4/d08/classBoardGame.html#a8bca6b3c24bf6f5aa3d2cd699385509f">BoardGame</a></li>
+<li>defaultSymbol2&#160;:&#160;<a class="el" href="d4/d08/classBoardGame.html#a1f911ef285f2c528caf01d5ab34d9df2">BoardGame</a></li>
+<li>deletePlayer()&#160;:&#160;<a class="el" href="dd/dcd/classManager.html#aa7f33d8e27faebdcaf2d97d143c17c26">Manager</a>, <a class="el" href="d2/d4b/classPlayer.html#a431643a31f1dd19c95c22a6fdb0232a6">Player</a></li>
+<li>deserialize()&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#a476cdc330565616e3bdc6a660c24a4b4">Player</a></li>
 </ul>
 
 
 <h3><a id="index_e" name="index_e"></a>- e -</h3><ul>
-<li>emptyCell&#160;:&#160;<a class="el" href="classBoard.html#a910fab44670cbeab1c1e10687aab89fe">Board</a></li>
-<li>evenBg&#160;:&#160;<a class="el" href="classBoard.html#a4bf1cb8326ba86aec965b1df1acd91c3">Board</a></li>
+<li>emptyCell&#160;:&#160;<a class="el" href="de/d23/classBoard.html#a910fab44670cbeab1c1e10687aab89fe">Board</a></li>
+<li>evenBg&#160;:&#160;<a class="el" href="de/d23/classBoard.html#a4bf1cb8326ba86aec965b1df1acd91c3">Board</a></li>
 </ul>
 
 
 <h3><a id="index_f" name="index_f"></a>- f -</h3><ul>
-<li>filePath&#160;:&#160;<a class="el" href="classPlayer.html#a9b7e2146125da66d32032b8467cbbb1c">Player</a></li>
-<li>firstValidSymbol&#160;:&#160;<a class="el" href="classPlayer.html#af65be825657caae667881028cf6f2de5">Player</a></li>
-<li>flipInDirection()&#160;:&#160;<a class="el" href="classReversi.html#ab287714eda83ffd7e4db4a4d7d981072">Reversi</a></li>
-<li>flipPieces()&#160;:&#160;<a class="el" href="classReversi.html#ad9096a2babeb691a4cc4fbab862f9a26">Reversi</a></li>
+<li>filePath&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#a9b7e2146125da66d32032b8467cbbb1c">Player</a></li>
+<li>firstValidSymbol&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#af65be825657caae667881028cf6f2de5">Player</a></li>
+<li>flipInDirection()&#160;:&#160;<a class="el" href="d2/dae/classReversi.html#ab287714eda83ffd7e4db4a4d7d981072">Reversi</a></li>
+<li>flipPieces()&#160;:&#160;<a class="el" href="d2/dae/classReversi.html#ad9096a2babeb691a4cc4fbab862f9a26">Reversi</a></li>
 </ul>
 
 
 <h3><a id="index_g" name="index_g"></a>- g -</h3><ul>
-<li>getAllPlayers()&#160;:&#160;<a class="el" href="classPlayer.html#ac2cc0794b5a02b0d9325de133f4c9ed3">Player</a></li>
-<li>getGameState()&#160;:&#160;<a class="el" href="classBoardGame.html#aecc780aa669fa3287bf8988becb773b4">BoardGame</a>, <a class="el" href="classConnectFour.html#a7d74751dda08358520d8e5eba9cbd879">ConnectFour</a>, <a class="el" href="classReversi.html#ae021a028f7f8704156abe8f41bfa8d8e">Reversi</a>, <a class="el" href="classTicTacToe.html#a7501ae96020a99310e94181f1d4bc2a0">TicTacToe</a></li>
-<li>getHeight()&#160;:&#160;<a class="el" href="classBoard.html#af30a5a43871230a04d49dd87b99acc55">Board</a></li>
-<li>getLosses()&#160;:&#160;<a class="el" href="classPlayer.html#a6566537dd373e87d43385b2fe4de942e">Player</a></li>
-<li>getName()&#160;:&#160;<a class="el" href="classPlayer.html#a73e4ff2d70e62ca7e3be1d9b4ad9de85">Player</a></li>
-<li>getNick()&#160;:&#160;<a class="el" href="classPlayer.html#aeb6f99400482a46e55c60f2ef6d2f764">Player</a></li>
-<li>getSymbol()&#160;:&#160;<a class="el" href="classBoard.html#adcccff11170293326c090a8e0ca6b060">Board</a>, <a class="el" href="classPlayer.html#acafb522e729c2fe951550f09809e075c">Player</a></li>
-<li>getWidth()&#160;:&#160;<a class="el" href="classBoard.html#a497b16cc0884b2210dd45766fc63b25f">Board</a></li>
-<li>getWins()&#160;:&#160;<a class="el" href="classPlayer.html#a53339bac955beb333581f865546db107">Player</a></li>
+<li>getAllPlayers()&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#ac2cc0794b5a02b0d9325de133f4c9ed3">Player</a></li>
+<li>getGameState()&#160;:&#160;<a class="el" href="d4/d08/classBoardGame.html#aecc780aa669fa3287bf8988becb773b4">BoardGame</a>, <a class="el" href="d7/d3a/classConnectFour.html#a7d74751dda08358520d8e5eba9cbd879">ConnectFour</a>, <a class="el" href="d2/dae/classReversi.html#ae021a028f7f8704156abe8f41bfa8d8e">Reversi</a>, <a class="el" href="de/df8/classTicTacToe.html#a7501ae96020a99310e94181f1d4bc2a0">TicTacToe</a></li>
+<li>getHeight()&#160;:&#160;<a class="el" href="de/d23/classBoard.html#af30a5a43871230a04d49dd87b99acc55">Board</a></li>
+<li>getLosses()&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#a6566537dd373e87d43385b2fe4de942e">Player</a></li>
+<li>getName()&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#a73e4ff2d70e62ca7e3be1d9b4ad9de85">Player</a></li>
+<li>getNick()&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#aeb6f99400482a46e55c60f2ef6d2f764">Player</a></li>
+<li>getSymbol()&#160;:&#160;<a class="el" href="de/d23/classBoard.html#adcccff11170293326c090a8e0ca6b060">Board</a>, <a class="el" href="d2/d4b/classPlayer.html#acafb522e729c2fe951550f09809e075c">Player</a></li>
+<li>getWidth()&#160;:&#160;<a class="el" href="de/d23/classBoard.html#a497b16cc0884b2210dd45766fc63b25f">Board</a></li>
+<li>getWins()&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#a53339bac955beb333581f865546db107">Player</a></li>
 </ul>
 
 
 <h3><a id="index_h" name="index_h"></a>- h -</h3><ul>
-<li>hasValidMoves()&#160;:&#160;<a class="el" href="classReversi.html#a0320d6014c5cba793f49069b7865fd7d">Reversi</a></li>
-<li>height&#160;:&#160;<a class="el" href="classBoard.html#a93cbd5cf9a23c988858f8d513a4b58d6">Board</a></li>
+<li>hasValidMoves()&#160;:&#160;<a class="el" href="d2/dae/classReversi.html#a0320d6014c5cba793f49069b7865fd7d">Reversi</a></li>
+<li>height&#160;:&#160;<a class="el" href="de/d23/classBoard.html#a93cbd5cf9a23c988858f8d513a4b58d6">Board</a></li>
 </ul>
 
 
 <h3><a id="index_i" name="index_i"></a>- i -</h3><ul>
-<li>indexColor&#160;:&#160;<a class="el" href="classBoard.html#ac17505d149335a5270ff450c3709dd63">Board</a></li>
-<li>isAnyDirectionValid()&#160;:&#160;<a class="el" href="classReversi.html#a408f41a7527c882e3d24357a85c9463c">Reversi</a></li>
-<li>isAValidHeight()&#160;:&#160;<a class="el" href="classBoardGame.html#af7251441fc9263b8b77d27aae106219c">BoardGame</a>, <a class="el" href="classConnectFour.html#a050f9a5463d9b0949698c462f3d7d6e5">ConnectFour</a>, <a class="el" href="classReversi.html#a466d4e00c107fef195a722254c373cce">Reversi</a></li>
-<li>isAValidWidth()&#160;:&#160;<a class="el" href="classBoardGame.html#ae01b19538655c1d04161de92a8056e12">BoardGame</a>, <a class="el" href="classConnectFour.html#ade2324e8f6036c45bf06c93d6e033048">ConnectFour</a>, <a class="el" href="classReversi.html#a4620c65ea9531ace27ef30f5c212d4b1">Reversi</a></li>
-<li>isValidDirection()&#160;:&#160;<a class="el" href="classReversi.html#af316b36ba367e41839519c5b15cffe92">Reversi</a></li>
-<li>isWithinBounds()&#160;:&#160;<a class="el" href="classReversi.html#a586beda484e3631c0c5182bf02a1a612">Reversi</a></li>
+<li>indexColor&#160;:&#160;<a class="el" href="de/d23/classBoard.html#ac17505d149335a5270ff450c3709dd63">Board</a></li>
+<li>isAnyDirectionValid()&#160;:&#160;<a class="el" href="d2/dae/classReversi.html#a408f41a7527c882e3d24357a85c9463c">Reversi</a></li>
+<li>isAValidHeight()&#160;:&#160;<a class="el" href="d4/d08/classBoardGame.html#af7251441fc9263b8b77d27aae106219c">BoardGame</a>, <a class="el" href="d7/d3a/classConnectFour.html#a050f9a5463d9b0949698c462f3d7d6e5">ConnectFour</a>, <a class="el" href="d2/dae/classReversi.html#a466d4e00c107fef195a722254c373cce">Reversi</a></li>
+<li>isAValidWidth()&#160;:&#160;<a class="el" href="d4/d08/classBoardGame.html#ae01b19538655c1d04161de92a8056e12">BoardGame</a>, <a class="el" href="d7/d3a/classConnectFour.html#ade2324e8f6036c45bf06c93d6e033048">ConnectFour</a>, <a class="el" href="d2/dae/classReversi.html#a4620c65ea9531ace27ef30f5c212d4b1">Reversi</a></li>
+<li>isValidDirection()&#160;:&#160;<a class="el" href="d2/dae/classReversi.html#af316b36ba367e41839519c5b15cffe92">Reversi</a></li>
+<li>isWithinBounds()&#160;:&#160;<a class="el" href="d2/dae/classReversi.html#a586beda484e3631c0c5182bf02a1a612">Reversi</a></li>
 </ul>
 
 
 <h3><a id="index_l" name="index_l"></a>- l -</h3><ul>
-<li>lastValidSymbol&#160;:&#160;<a class="el" href="classPlayer.html#a5a3836b1264dd70581e1558c32c77a2b">Player</a></li>
-<li>listPlayers()&#160;:&#160;<a class="el" href="classManager.html#a6c41295ecf1975e47623806a0416a2c9">Manager</a></li>
-<li>loadPlayer()&#160;:&#160;<a class="el" href="classPlayer.html#ae950c7e93426454a231b5e85b164caa2">Player</a></li>
+<li>lastValidSymbol&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#a5a3836b1264dd70581e1558c32c77a2b">Player</a></li>
+<li>listPlayers()&#160;:&#160;<a class="el" href="dd/dcd/classManager.html#a6c41295ecf1975e47623806a0416a2c9">Manager</a></li>
+<li>loadPlayer()&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#ae950c7e93426454a231b5e85b164caa2">Player</a></li>
 </ul>
 
 
 <h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
-<li>makeMove()&#160;:&#160;<a class="el" href="classBoardGame.html#ace8625ebf31b8d5b2b7477f0ebc7e9a0">BoardGame</a>, <a class="el" href="classReversi.html#a6ff01487a33a53b990b860eea97b5e14">Reversi</a></li>
-<li>maxBoardSize&#160;:&#160;<a class="el" href="classBoard.html#aeeff801399cfd05fe262a9e27c3c1d89">Board</a></li>
-<li>maxCommandSize&#160;:&#160;<a class="el" href="classManager.html#a7e818729a1a7b49907c88d9b5074b4e2">Manager</a></li>
-<li>menu()&#160;:&#160;<a class="el" href="classManager.html#ab728cb2ad7342bffd0a71c9ca305a1a9">Manager</a></li>
-<li>minimumBoardSize&#160;:&#160;<a class="el" href="classConnectFour.html#a5f1529503e07d9c7c45fb283da877534">ConnectFour</a>, <a class="el" href="classReversi.html#aa5efab117441a759dd829780dcdab197">Reversi</a></li>
+<li>makeMove()&#160;:&#160;<a class="el" href="d4/d08/classBoardGame.html#ace8625ebf31b8d5b2b7477f0ebc7e9a0">BoardGame</a>, <a class="el" href="d2/dae/classReversi.html#a6ff01487a33a53b990b860eea97b5e14">Reversi</a></li>
+<li>maxBoardSize&#160;:&#160;<a class="el" href="de/d23/classBoard.html#aeeff801399cfd05fe262a9e27c3c1d89">Board</a></li>
+<li>maxCommandSize&#160;:&#160;<a class="el" href="dd/dcd/classManager.html#a7e818729a1a7b49907c88d9b5074b4e2">Manager</a></li>
+<li>menu()&#160;:&#160;<a class="el" href="dd/dcd/classManager.html#ab728cb2ad7342bffd0a71c9ca305a1a9">Manager</a></li>
+<li>minimumBoardSize&#160;:&#160;<a class="el" href="d7/d3a/classConnectFour.html#a5f1529503e07d9c7c45fb283da877534">ConnectFour</a>, <a class="el" href="d2/dae/classReversi.html#aa5efab117441a759dd829780dcdab197">Reversi</a></li>
 </ul>
 
 
 <h3><a id="index_n" name="index_n"></a>- n -</h3><ul>
-<li>name&#160;:&#160;<a class="el" href="classPlayer.html#af9c920fabaafdeb7961a645315b521ff">Player</a></li>
-<li>nick&#160;:&#160;<a class="el" href="classPlayer.html#aac4d26817345888cde02637183497507">Player</a></li>
+<li>name&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#af9c920fabaafdeb7961a645315b521ff">Player</a></li>
+<li>nick&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#aac4d26817345888cde02637183497507">Player</a></li>
 </ul>
 
 
 <h3><a id="index_o" name="index_o"></a>- o -</h3><ul>
-<li>oddBg&#160;:&#160;<a class="el" href="classBoard.html#a7baafd9cc1a2a8fdb738a58d6a78324b">Board</a></li>
+<li>oddBg&#160;:&#160;<a class="el" href="de/d23/classBoard.html#a7baafd9cc1a2a8fdb738a58d6a78324b">Board</a></li>
 </ul>
 
 
 <h3><a id="index_p" name="index_p"></a>- p -</h3><ul>
-<li>piecesColor&#160;:&#160;<a class="el" href="classBoard.html#abce2ef0188873ad9ec9675aa6777e54a">Board</a></li>
-<li>placeSymbol()&#160;:&#160;<a class="el" href="classBoard.html#ab0ca907f6f0f22e55b0d7237253875eb">Board</a></li>
-<li>Player()&#160;:&#160;<a class="el" href="classPlayer.html#acc752e5c1ec278228dc15de19db92fc6">Player</a></li>
-<li>player1&#160;:&#160;<a class="el" href="classBoardGame.html#a3dbe986e81aebde93c1030704d8d2a26">BoardGame</a></li>
-<li>player2&#160;:&#160;<a class="el" href="classBoardGame.html#a10fc21977a5f383bcc8decf1e3f715a5">BoardGame</a></li>
-<li>playGame()&#160;:&#160;<a class="el" href="classBoardGame.html#a21c1e2ceca3946093027daefab20a3b7">BoardGame</a></li>
-<li>playMatch()&#160;:&#160;<a class="el" href="classManager.html#a76e1b288f52fb550445bf7847596cbfc">Manager</a></li>
-<li>print()&#160;:&#160;<a class="el" href="classBoard.html#ac6bc45b6b0bee9b5c91a5bd0d9676fb5">Board</a></li>
-<li>printBoard()&#160;:&#160;<a class="el" href="classBoardGame.html#a3945f4cc72c1710e7bc834e79e97d590">BoardGame</a></li>
-<li>printMenu()&#160;:&#160;<a class="el" href="classManager.html#aeb05baeb0075a8235c8ddea7b43e49ab">Manager</a></li>
+<li>piecesColor&#160;:&#160;<a class="el" href="de/d23/classBoard.html#abce2ef0188873ad9ec9675aa6777e54a">Board</a></li>
+<li>placeSymbol()&#160;:&#160;<a class="el" href="de/d23/classBoard.html#ab0ca907f6f0f22e55b0d7237253875eb">Board</a></li>
+<li>Player()&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#acc752e5c1ec278228dc15de19db92fc6">Player</a></li>
+<li>player1&#160;:&#160;<a class="el" href="d4/d08/classBoardGame.html#a3dbe986e81aebde93c1030704d8d2a26">BoardGame</a></li>
+<li>player2&#160;:&#160;<a class="el" href="d4/d08/classBoardGame.html#a10fc21977a5f383bcc8decf1e3f715a5">BoardGame</a></li>
+<li>playGame()&#160;:&#160;<a class="el" href="d4/d08/classBoardGame.html#a21c1e2ceca3946093027daefab20a3b7">BoardGame</a></li>
+<li>playMatch()&#160;:&#160;<a class="el" href="dd/dcd/classManager.html#a76e1b288f52fb550445bf7847596cbfc">Manager</a></li>
+<li>print()&#160;:&#160;<a class="el" href="de/d23/classBoard.html#ac6bc45b6b0bee9b5c91a5bd0d9676fb5">Board</a></li>
+<li>printBoard()&#160;:&#160;<a class="el" href="d4/d08/classBoardGame.html#a3945f4cc72c1710e7bc834e79e97d590">BoardGame</a></li>
+<li>printMenu()&#160;:&#160;<a class="el" href="dd/dcd/classManager.html#aeb05baeb0075a8235c8ddea7b43e49ab">Manager</a></li>
 </ul>
 
 
 <h3><a id="index_r" name="index_r"></a>- r -</h3><ul>
-<li>readMove()&#160;:&#160;<a class="el" href="classBoardGame.html#ab949ea2e2cd99632d784a1f7334af96a">BoardGame</a></li>
-<li>Reversi()&#160;:&#160;<a class="el" href="classReversi.html#a53b7ed598bb879c3356820f5ec897f3a">Reversi</a></li>
-<li>reversiLosses&#160;:&#160;<a class="el" href="classPlayer.html#aaa29bdcffb21488407e46fbf521902ea">Player</a></li>
-<li>reversiWins&#160;:&#160;<a class="el" href="classPlayer.html#a2e08da24b414d3c688da46e47592faf5">Player</a></li>
+<li>readMove()&#160;:&#160;<a class="el" href="d4/d08/classBoardGame.html#ab949ea2e2cd99632d784a1f7334af96a">BoardGame</a></li>
+<li>Reversi()&#160;:&#160;<a class="el" href="d2/dae/classReversi.html#a53b7ed598bb879c3356820f5ec897f3a">Reversi</a></li>
+<li>reversiLosses&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#aaa29bdcffb21488407e46fbf521902ea">Player</a></li>
+<li>reversiWins&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#a2e08da24b414d3c688da46e47592faf5">Player</a></li>
 </ul>
 
 
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
-<li>serialize()&#160;:&#160;<a class="el" href="classPlayer.html#a7b80a4d7bc5fe7522a45a6c8e3a99773">Player</a></li>
-<li>setSymbol()&#160;:&#160;<a class="el" href="classPlayer.html#a6cd993753014ccdc16e08aa404203958">Player</a></li>
-<li>symbol&#160;:&#160;<a class="el" href="classPlayer.html#a01218f5efc53791ed75c77c99fedf0e2">Player</a></li>
-<li>syncDatabase()&#160;:&#160;<a class="el" href="classPlayer.html#a547c60608af80be40ce6fc657c938313">Player</a></li>
+<li>serialize()&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#a7b80a4d7bc5fe7522a45a6c8e3a99773">Player</a></li>
+<li>setSymbol()&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#a6cd993753014ccdc16e08aa404203958">Player</a></li>
+<li>symbol&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#a01218f5efc53791ed75c77c99fedf0e2">Player</a></li>
+<li>syncDatabase()&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#a547c60608af80be40ce6fc657c938313">Player</a></li>
 </ul>
 
 
 <h3><a id="index_t" name="index_t"></a>- t -</h3><ul>
-<li>TicTacToe()&#160;:&#160;<a class="el" href="classTicTacToe.html#a1367ed4407bad52c2ad38e72ca81f165">TicTacToe</a></li>
-<li>tttLosses&#160;:&#160;<a class="el" href="classPlayer.html#a35068e4b798614f94850554cd3d67a4f">Player</a></li>
-<li>tttWins&#160;:&#160;<a class="el" href="classPlayer.html#a6b6bebb772b53f558373e71f730ad96f">Player</a></li>
-<li>turn&#160;:&#160;<a class="el" href="classBoardGame.html#aeca0154244eb5f10db8b9b45cac24958">BoardGame</a></li>
+<li>TicTacToe()&#160;:&#160;<a class="el" href="de/df8/classTicTacToe.html#a1367ed4407bad52c2ad38e72ca81f165">TicTacToe</a></li>
+<li>tttLosses&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#a35068e4b798614f94850554cd3d67a4f">Player</a></li>
+<li>tttWins&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#a6b6bebb772b53f558373e71f730ad96f">Player</a></li>
+<li>turn&#160;:&#160;<a class="el" href="d4/d08/classBoardGame.html#aeca0154244eb5f10db8b9b45cac24958">BoardGame</a></li>
 </ul>
 
 
 <h3><a id="index_u" name="index_u"></a>- u -</h3><ul>
-<li>updatePlayerInfo()&#160;:&#160;<a class="el" href="classPlayer.html#a5574664867e1d05cba067d4aaa1fac5c">Player</a></li>
-<li>updatePlayerStats()&#160;:&#160;<a class="el" href="classPlayer.html#a29b1e59eb6040d19ce5ac384fd6471e9">Player</a></li>
+<li>updatePlayerInfo()&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#a5574664867e1d05cba067d4aaa1fac5c">Player</a></li>
+<li>updatePlayerStats()&#160;:&#160;<a class="el" href="d2/d4b/classPlayer.html#a29b1e59eb6040d19ce5ac384fd6471e9">Player</a></li>
 </ul>
 
 
 <h3><a id="index_v" name="index_v"></a>- v -</h3><ul>
-<li>validateMove()&#160;:&#160;<a class="el" href="classBoardGame.html#a5e5d7aa0e75dcc1964fbae0a97106422">BoardGame</a>, <a class="el" href="classConnectFour.html#a23923563b9cdc2658a1397542ce5d6a8">ConnectFour</a>, <a class="el" href="classReversi.html#a498106bdaa963752e31a1269ece47568">Reversi</a>, <a class="el" href="classTicTacToe.html#a637a0986399c31e14a2241349486cbcf">TicTacToe</a></li>
+<li>validateMove()&#160;:&#160;<a class="el" href="d4/d08/classBoardGame.html#a5e5d7aa0e75dcc1964fbae0a97106422">BoardGame</a>, <a class="el" href="d7/d3a/classConnectFour.html#a23923563b9cdc2658a1397542ce5d6a8">ConnectFour</a>, <a class="el" href="d2/dae/classReversi.html#a498106bdaa963752e31a1269ece47568">Reversi</a>, <a class="el" href="de/df8/classTicTacToe.html#a637a0986399c31e14a2241349486cbcf">TicTacToe</a></li>
 </ul>
 
 
 <h3><a id="index_w" name="index_w"></a>- w -</h3><ul>
-<li>whoseTurn()&#160;:&#160;<a class="el" href="classBoardGame.html#a2e2f74f86bff4949516402d3ea981436">BoardGame</a></li>
-<li>width&#160;:&#160;<a class="el" href="classBoard.html#a13f008a949509aa8c758204cb1321b07">Board</a></li>
+<li>what()&#160;:&#160;<a class="el" href="d6/d67/classduplicated__player.html#add90ed292a3a71a49641997252938897">duplicated_player</a>, <a class="el" href="db/ddf/classfile__error.html#a1446e93cb4ab19d0f81cafff668a5ce5">file_error</a>, <a class="el" href="df/dec/classgame__not__found.html#ac04e9b074679d75e233772e09f618b02">game_not_found</a>, <a class="el" href="dd/d93/classincorrect__data.html#ad81a5913f4dd75f54c3a1173c77c2fca">incorrect_data</a>, <a class="el" href="d3/d35/classincorrect__format.html#a02400f4eed4b5243d3297add46280636">incorrect_format</a>, <a class="el" href="d5/d23/classinvalid__command.html#a05e895da6519678680f0f8aa26b7f94d">invalid_command</a>, <a class="el" href="d2/d27/classinvalid__move.html#a555cd8c5d791e9c3998b3df2dbcf39a4">invalid_move</a>, <a class="el" href="dd/d80/classplayer__not__found.html#a581375c8e6a5129a3c13e066034cbcc1">player_not_found</a>, <a class="el" href="db/df0/classsize__exceeded.html#a13ef914cb450e55776c9694370d7f72f">size_exceeded</a></li>
+<li>whoseTurn()&#160;:&#160;<a class="el" href="d4/d08/classBoardGame.html#a2e2f74f86bff4949516402d3ea981436">BoardGame</a></li>
+<li>width&#160;:&#160;<a class="el" href="de/d23/classBoard.html#a13f008a949509aa8c758204cb1321b07">Board</a></li>
 </ul>
 </div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
 </body>
 </html>

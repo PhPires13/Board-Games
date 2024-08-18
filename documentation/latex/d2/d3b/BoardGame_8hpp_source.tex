@@ -1,0 +1,61 @@
+\doxysection{Board\+Game.\+hpp}
+\hypertarget{BoardGame_8hpp_source}{}\label{BoardGame_8hpp_source}\index{include/BoardGame.hpp@{include/BoardGame.hpp}}
+\mbox{\hyperlink{BoardGame_8hpp}{Ir para a documentação desse arquivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ pires\ on\ 6/28/2024.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ BOARDGAME\_HPP}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ BOARDGAME\_HPP}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Board_8hpp}{Board.hpp}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Player_8hpp}{Player.hpp}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{NOT\_OVER}}\ =\ 0,}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6}{PLAYER1\_WINS}}\ =\ 1,}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20}{PLAYER2\_WINS}}\ =\ 2,}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a50b3b7506fcc5435fc762f98a09a6eac}{TIE}}\ =\ 3,}
+\DoxyCodeLine{00021\ \};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00026\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classBoardGame}{BoardGame}}\ \{}
+\DoxyCodeLine{00027\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ \mbox{\hyperlink{classBoardGame_aca61c3a52f024b05e8f38e452c8b4e29}{defaultBoardHeight}};\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ \mbox{\hyperlink{classBoardGame_a44e4294a4c877b5fb5b43283ffc55843}{defaultBoardWidth}};\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classBoardGame_a8bca6b3c24bf6f5aa3d2cd699385509f}{defaultSymbol1}};\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classBoardGame_a1f911ef285f2c528caf01d5ab34d9df2}{defaultSymbol2}};\ }
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ \mbox{\hyperlink{classBoardGame_a3dbe986e81aebde93c1030704d8d2a26}{player1}};\ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ \mbox{\hyperlink{classBoardGame_a10fc21977a5f383bcc8decf1e3f715a5}{player2}};\ }
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{classBoard}{Board}}\ \mbox{\hyperlink{classBoardGame_accfffd13a5f24592590c9a324cf7e8cd}{board}};\ }
+\DoxyCodeLine{00039\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classBoardGame_aeca0154244eb5f10db8b9b45cac24958}{turn}};\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{classBoardGame}{BoardGame}}(\mbox{\hyperlink{classPlayer}{Player}}\ \_player1,\ \mbox{\hyperlink{classPlayer}{Player}}\ \_player2,\ uint32\_t\ boardHeight\ =\ \mbox{\hyperlink{classBoardGame_aca61c3a52f024b05e8f38e452c8b4e29}{BoardGame::defaultBoardHeight}},\ uint32\_t\ boardWidth\ =\ \mbox{\hyperlink{classBoardGame_a44e4294a4c877b5fb5b43283ffc55843}{BoardGame::defaultBoardWidth}},}
+\DoxyCodeLine{00056\ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ indexColor\ =\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{keyword}{const}\ std::string\&\ piecesColor\ =\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{keyword}{const}\ std::string\&\ borderColor\ =\ \textcolor{stringliteral}{"{}"{}},}
+\DoxyCodeLine{00057\ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ evenBg\ =\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{keyword}{const}\ std::string\&\ oddBg\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}}\ \mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}();}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classBoardGame_af7251441fc9263b8b77d27aae106219c}{isAValidHeight}}(uint32\_t\ boardHeight)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classBoardGame_ae01b19538655c1d04161de92a8056e12}{isAValidWidth}}(uint32\_t\ boardWidth)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBoardGame_a3945f4cc72c1710e7bc834e79e97d590}{printBoard}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<uint32\_t>\ \mbox{\hyperlink{classBoardGame_ab949ea2e2cd99632d784a1f7334af96a}{readMove}}();}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\textcolor{keyword}{const}\ std::vector<uint32\_t>\&\ move)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\textcolor{keyword}{const}\ std::vector<uint32\_t>\&\ move,\ \textcolor{keywordtype}{char}\ symbol);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}}\ \mbox{\hyperlink{classBoardGame_aecc780aa669fa3287bf8988becb773b4}{getGameState}}(\textcolor{keyword}{const}\ std::vector<uint32\_t>\&\ move)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00127\ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ \mbox{\hyperlink{classBoardGame_a2e2f74f86bff4949516402d3ea981436}{whoseTurn}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00128\ \};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//BOARDGAME\_HPP}}
+
+\end{DoxyCode}

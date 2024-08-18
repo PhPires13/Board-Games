@@ -1,0 +1,40 @@
+\doxysection{Connect\+Four.\+hpp}
+\hypertarget{ConnectFour_8hpp_source}{}\label{ConnectFour_8hpp_source}\index{include/ConnectFour.hpp@{include/ConnectFour.hpp}}
+\mbox{\hyperlink{ConnectFour_8hpp}{Ir para a documentação desse arquivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Carlos\ Eduardo\ on\ 05/08/2024.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ CONNECTFOUR\_HPP}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ CONNECTFOUR\_HPP}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{BoardGame_8hpp}{BoardGame.hpp}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Player_8hpp}{Player.hpp}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classConnectFour}{ConnectFour}}\ final:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ \mbox{\hyperlink{classConnectFour_a5f1529503e07d9c7c45fb283da877534}{minimumBoardSize}};\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ \mbox{\hyperlink{classConnectFour_aa474c9bb396a777c070c018400e6e8dd}{defaultBoardHeight}};\ }
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ \mbox{\hyperlink{classConnectFour_a8ddaf98a1551f5060833d14e8f787f57}{defaultBoardWidth}};\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{classConnectFour}{ConnectFour}}(\mbox{\hyperlink{classPlayer}{Player}}\ \_player1,\ \mbox{\hyperlink{classPlayer}{Player}}\ \_player2,\ uint32\_t\ boardHeight\ =\ \mbox{\hyperlink{classConnectFour_aa474c9bb396a777c070c018400e6e8dd}{ConnectFour::defaultBoardHeight}},\ uint32\_t\ boardWidth\ =\ \mbox{\hyperlink{classConnectFour_a8ddaf98a1551f5060833d14e8f787f57}{ConnectFour::defaultBoardWidth}});}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classConnectFour_a050f9a5463d9b0949698c462f3d7d6e5}{isAValidHeight}}(uint32\_t\ boardHeight)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classConnectFour_ade2324e8f6036c45bf06c93d6e033048}{isAValidWidth}}(uint32\_t\ boardWidth)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classConnectFour_a23923563b9cdc2658a1397542ce5d6a8}{validateMove}}(\textcolor{keyword}{const}\ std::vector<uint32\_t>\ \&move)\textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}}\ \mbox{\hyperlink{classConnectFour_a7d74751dda08358520d8e5eba9cbd879}{getGameState}}(\textcolor{keyword}{const}\ std::vector<uint32\_t>\&\ move)\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classConnectFour_aff77ca7012d2ffdebe4630c47cb9fb75}{checkDirection}}(\textcolor{keyword}{const}\ std::vector<uint32\_t>\ \&move,\ \textcolor{keywordtype}{char}\ symbol,\ \textcolor{keywordtype}{int}\ dRow,\ \textcolor{keywordtype}{int}\ dCol)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ \};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//CONNECTFOUR\_HPP}}
+
+\end{DoxyCode}

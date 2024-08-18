@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Board Games: Código-Fonte de tests/ManagerTests.cpp</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Board Games
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('d0/d1e/ManagerTests_8cpp_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ManagerTests.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d0/d1e/ManagerTests_8cpp.html">Ir para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by Paulo Henrique Pires  on 17/08/24.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;doctest.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/d49/exceptions_8hpp.html">exceptions.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="../../d0/d1e/ManagerTests_8cpp.html#a6a1d6e1a12975a4e9a0b5b952e79eaad">    8</a></span><span class="preprocessor">#define private public</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="../../d0/d1e/ManagerTests_8cpp.html#a363c8dcebb1777654ad1703136a14ec8">    9</a></span><span class="preprocessor">#define protected public</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d9/d54/Manager_8hpp.html">Manager.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#undef private</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#undef protected</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="../../d0/d1e/ManagerTests_8cpp.html#af038f93dcce074a5917f21e526467b92">   16</a></span><a class="code hl_function" href="../../d0/d1e/ManagerTests_8cpp.html#af038f93dcce074a5917f21e526467b92">TEST_SUITE</a>(<span class="stringliteral">&quot;Manager&quot;</span>) {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    TEST_CASE(<span class="stringliteral">&quot;Print menu&quot;</span>) {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#aeb05baeb0075a8235c8ddea7b43e49ab">Manager::printMenu</a>());</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    }</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    TEST_CASE(<span class="stringliteral">&quot;Create Match&quot;</span>) {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="comment">// Correct game and attributes</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#a6e591b522fd7201d55f152e662bf24d3">Manager::createMatch</a>(<a class="code hl_enumvalue" href="../../d9/d54/Manager_8hpp.html#a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a">Game::REVERSI</a>, <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a>(<span class="stringliteral">&quot;Nick1&quot;</span>, <span class="stringliteral">&quot;Name1&quot;</span>), <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a>(<span class="stringliteral">&quot;Nick2&quot;</span>, <span class="stringliteral">&quot;Name2&quot;</span>), <span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#a6e591b522fd7201d55f152e662bf24d3">Manager::createMatch</a>(<a class="code hl_enumvalue" href="../../d9/d54/Manager_8hpp.html#a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9">Game::CONNECT_FOUR</a>, <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a>(<span class="stringliteral">&quot;Nick1&quot;</span>, <span class="stringliteral">&quot;Name1&quot;</span>), <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a>(<span class="stringliteral">&quot;Nick2&quot;</span>, <span class="stringliteral">&quot;Name2&quot;</span>), <span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#a6e591b522fd7201d55f152e662bf24d3">Manager::createMatch</a>(<a class="code hl_enumvalue" href="../../d9/d54/Manager_8hpp.html#a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa">Game::TTT</a>, <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a>(<span class="stringliteral">&quot;Nick1&quot;</span>, <span class="stringliteral">&quot;Name1&quot;</span>), <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a>(<span class="stringliteral">&quot;Nick2&quot;</span>, <span class="stringliteral">&quot;Name2&quot;</span>), <span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="comment">// Explicit size</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#a6e591b522fd7201d55f152e662bf24d3">Manager::createMatch</a>(<a class="code hl_enumvalue" href="../../d9/d54/Manager_8hpp.html#a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a">Game::REVERSI</a>, <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a>(<span class="stringliteral">&quot;Nick1&quot;</span>, <span class="stringliteral">&quot;Name1&quot;</span>), <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a>(<span class="stringliteral">&quot;Nick2&quot;</span>, <span class="stringliteral">&quot;Name2&quot;</span>), <span class="stringliteral">&quot;10&quot;</span>));</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#a6e591b522fd7201d55f152e662bf24d3">Manager::createMatch</a>(<a class="code hl_enumvalue" href="../../d9/d54/Manager_8hpp.html#a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9">Game::CONNECT_FOUR</a>, <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a>(<span class="stringliteral">&quot;Nick1&quot;</span>, <span class="stringliteral">&quot;Name1&quot;</span>), <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a>(<span class="stringliteral">&quot;Nick2&quot;</span>, <span class="stringliteral">&quot;Name2&quot;</span>), <span class="stringliteral">&quot;8 7&quot;</span>));</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#a6e591b522fd7201d55f152e662bf24d3">Manager::createMatch</a>(<a class="code hl_enumvalue" href="../../d9/d54/Manager_8hpp.html#a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa">Game::TTT</a>, <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a>(<span class="stringliteral">&quot;Nick1&quot;</span>, <span class="stringliteral">&quot;Name1&quot;</span>), <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a>(<span class="stringliteral">&quot;Nick2&quot;</span>, <span class="stringliteral">&quot;Name2&quot;</span>), <span class="stringliteral">&quot;3 3&quot;</span>));</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="comment">// Invalid game</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        CHECK_THROWS_AS(<a class="code hl_function" href="../../dd/dcd/classManager.html#a6e591b522fd7201d55f152e662bf24d3">Manager::createMatch</a>(0, <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a>(<span class="stringliteral">&quot;Nick1&quot;</span>, <span class="stringliteral">&quot;Name1&quot;</span>), <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a>(<span class="stringliteral">&quot;Nick2&quot;</span>, <span class="stringliteral">&quot;Name2&quot;</span>), <span class="stringliteral">&quot;&quot;</span>), <a class="code hl_class" href="../../df/dec/classgame__not__found.html">game_not_found</a>);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    }</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    TEST_CASE(<span class="stringliteral">&quot;CRUD Players&quot;</span>) {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="comment">// Sync file</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        CHECK_NOTHROW(std::remove(<a class="code hl_variable" href="../../d2/d4b/classPlayer.html#a9b7e2146125da66d32032b8467cbbb1c">Player::filePath</a>.c_str())); <span class="comment">// Delete test file if exists</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../d2/d4b/classPlayer.html#a547c60608af80be40ce6fc657c938313">Player::syncDatabase</a>());</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="comment">// Create player correct attributes with symbol</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keyword">const</span> std::string nick = <span class="stringliteral">&quot;Nick1&quot;</span>, name = <span class="stringliteral">&quot;Name1&quot;</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keyword">constexpr</span> <span class="keywordtype">char</span> symbol = <span class="charliteral">&#39;X&#39;</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keyword">const</span> std::string arguments = nick + <span class="stringliteral">&quot; &quot;</span> + name + <span class="stringliteral">&quot; &quot;</span> + symbol;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#aba37e0476aeccc0a8ccd3ac82e3a3ec5">Manager::createPlayer</a>(arguments));</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="comment">// Validate player attributes</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a> recoveredPlayer(<span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        CHECK_NOTHROW(recoveredPlayer = <a class="code hl_function" href="../../d2/d4b/classPlayer.html#ae950c7e93426454a231b5e85b164caa2">Player::loadPlayer</a>(nick));</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        CHECK(recoveredPlayer.<a class="code hl_function" href="../../d2/d4b/classPlayer.html#aeb6f99400482a46e55c60f2ef6d2f764">getNick</a>() == nick);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        CHECK(recoveredPlayer.<a class="code hl_function" href="../../d2/d4b/classPlayer.html#a73e4ff2d70e62ca7e3be1d9b4ad9de85">getName</a>() == name);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        CHECK(recoveredPlayer.<a class="code hl_function" href="../../d2/d4b/classPlayer.html#acafb522e729c2fe951550f09809e075c">getSymbol</a>() == symbol);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="comment">// Crate player correct attributes without symbol</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">const</span> std::string nick2 = <span class="stringliteral">&quot;Nick2&quot;</span>, name2 = <span class="stringliteral">&quot;Name2&quot;</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keyword">const</span> std::string arguments2 = nick2 + <span class="stringliteral">&quot; &quot;</span> + name2;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#aba37e0476aeccc0a8ccd3ac82e3a3ec5">Manager::createPlayer</a>(arguments2));</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a> recoveredPlayer2(<span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        CHECK_NOTHROW(recoveredPlayer2 = <a class="code hl_function" href="../../d2/d4b/classPlayer.html#ae950c7e93426454a231b5e85b164caa2">Player::loadPlayer</a>(nick2));</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        CHECK(recoveredPlayer2.<a class="code hl_function" href="../../d2/d4b/classPlayer.html#aeb6f99400482a46e55c60f2ef6d2f764">getNick</a>() == nick2);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        CHECK(recoveredPlayer2.<a class="code hl_function" href="../../d2/d4b/classPlayer.html#a73e4ff2d70e62ca7e3be1d9b4ad9de85">getName</a>() == name2);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        CHECK(recoveredPlayer2.<a class="code hl_function" href="../../d2/d4b/classPlayer.html#acafb522e729c2fe951550f09809e075c">getSymbol</a>() == 0);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="comment">// Create duplicate player</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        CHECK_THROWS_AS(<a class="code hl_function" href="../../dd/dcd/classManager.html#aba37e0476aeccc0a8ccd3ac82e3a3ec5">Manager::createPlayer</a>(arguments), <a class="code hl_class" href="../../d6/d67/classduplicated__player.html">duplicated_player</a>);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="comment">// Create player incorrect attributes</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keyword">const</span> std::string consequentSymbol = <span class="stringliteral">&quot;f&quot;</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keyword">const</span> std::string nick3 = <span class="stringliteral">&quot;Nick3&quot;</span>, name3 = <span class="stringliteral">&quot;Name3 3r r45&quot;</span>; <span class="comment">// Will consider last character as symbol</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keyword">const</span> std::string arguments3 = nick3 + <span class="stringliteral">&quot; &quot;</span> + name3 + <span class="stringliteral">&quot; &quot;</span> + consequentSymbol;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#aba37e0476aeccc0a8ccd3ac82e3a3ec5">Manager::createPlayer</a>(arguments3));</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <a class="code hl_class" href="../../d2/d4b/classPlayer.html">Player</a> recoveredPlayer3(<span class="stringliteral">&quot;&quot;</span>, <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        CHECK_NOTHROW(recoveredPlayer3 = <a class="code hl_function" href="../../d2/d4b/classPlayer.html#ae950c7e93426454a231b5e85b164caa2">Player::loadPlayer</a>(nick3));</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        CHECK(recoveredPlayer3.<a class="code hl_function" href="../../d2/d4b/classPlayer.html#aeb6f99400482a46e55c60f2ef6d2f764">getNick</a>() == nick3);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        CHECK(recoveredPlayer3.<a class="code hl_function" href="../../d2/d4b/classPlayer.html#a73e4ff2d70e62ca7e3be1d9b4ad9de85">getName</a>() == name3);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        CHECK(recoveredPlayer3.<a class="code hl_function" href="../../d2/d4b/classPlayer.html#acafb522e729c2fe951550f09809e075c">getSymbol</a>() == consequentSymbol[0]);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="comment">// List player no order</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#a6c41295ecf1975e47623806a0416a2c9">Manager::listPlayers</a>(<span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="comment">// List player by nick</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keyword">const</span> std::string nickOrder = <span class="stringliteral">&quot;A&quot;</span>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#a6c41295ecf1975e47623806a0416a2c9">Manager::listPlayers</a>(nickOrder));</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="comment">// List player by name</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keyword">const</span> std::string nameOrder = <span class="stringliteral">&quot;N&quot;</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#a6c41295ecf1975e47623806a0416a2c9">Manager::listPlayers</a>(nameOrder));</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="comment">// List player by unknown order</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keyword">const</span> std::string unknownOrder = <span class="stringliteral">&quot;Z&quot;</span>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#a6c41295ecf1975e47623806a0416a2c9">Manager::listPlayers</a>(unknownOrder));</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="comment">// Create match</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#a6e591b522fd7201d55f152e662bf24d3">Manager::createMatch</a>(<a class="code hl_enumvalue" href="../../d9/d54/Manager_8hpp.html#a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a">Game::REVERSI</a>, recoveredPlayer, recoveredPlayer2, <span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#a6e591b522fd7201d55f152e662bf24d3">Manager::createMatch</a>(<a class="code hl_enumvalue" href="../../d9/d54/Manager_8hpp.html#a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9">Game::CONNECT_FOUR</a>, recoveredPlayer, recoveredPlayer2, <span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#a6e591b522fd7201d55f152e662bf24d3">Manager::createMatch</a>(<a class="code hl_enumvalue" href="../../d9/d54/Manager_8hpp.html#a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa">Game::TTT</a>, recoveredPlayer, recoveredPlayer2, <span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#a6e591b522fd7201d55f152e662bf24d3">Manager::createMatch</a>(<a class="code hl_enumvalue" href="../../d9/d54/Manager_8hpp.html#a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a">Game::REVERSI</a>, recoveredPlayer, recoveredPlayer2, <span class="stringliteral">&quot;10&quot;</span>));</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#a6e591b522fd7201d55f152e662bf24d3">Manager::createMatch</a>(<a class="code hl_enumvalue" href="../../d9/d54/Manager_8hpp.html#a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9">Game::CONNECT_FOUR</a>, recoveredPlayer, recoveredPlayer2, <span class="stringliteral">&quot;8 7&quot;</span>));</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#a6e591b522fd7201d55f152e662bf24d3">Manager::createMatch</a>(<a class="code hl_enumvalue" href="../../d9/d54/Manager_8hpp.html#a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa">Game::TTT</a>, recoveredPlayer, recoveredPlayer2, <span class="stringliteral">&quot;4 5&quot;</span>));</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        CHECK_THROWS_AS(<a class="code hl_function" href="../../dd/dcd/classManager.html#a6e591b522fd7201d55f152e662bf24d3">Manager::createMatch</a>(<span class="charliteral">&#39;Z&#39;</span>, recoveredPlayer, recoveredPlayer2, <span class="stringliteral">&quot;4 5&quot;</span>), <a class="code hl_class" href="../../df/dec/classgame__not__found.html">game_not_found</a>);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="comment">// Delete player</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#aa7f33d8e27faebdcaf2d97d143c17c26">Manager::deletePlayer</a>(nick));</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        CHECK_NOTHROW(<a class="code hl_function" href="../../dd/dcd/classManager.html#aa7f33d8e27faebdcaf2d97d143c17c26">Manager::deletePlayer</a>(nick2));</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="comment">// Delete test file</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        CHECK_NOTHROW(std::remove(<a class="code hl_variable" href="../../d2/d4b/classPlayer.html#a9b7e2146125da66d32032b8467cbbb1c">Player::filePath</a>.c_str()));</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    }</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>}</div>
+</div>
+<div class="ttc" id="aManagerTests_8cpp_html_af038f93dcce074a5917f21e526467b92"><div class="ttname"><a href="../../d0/d1e/ManagerTests_8cpp.html#af038f93dcce074a5917f21e526467b92">TEST_SUITE</a></div><div class="ttdeci">TEST_SUITE(&quot;Manager&quot;)</div><div class="ttdef"><b>Definição</b> ManagerTests.cpp:16</div></div>
+<div class="ttc" id="aManager_8hpp_html"><div class="ttname"><a href="../../d9/d54/Manager_8hpp.html">Manager.hpp</a></div></div>
+<div class="ttc" id="aManager_8hpp_html_a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa"><div class="ttname"><a href="../../d9/d54/Manager_8hpp.html#a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa">TTT</a></div><div class="ttdeci">@ TTT</div><div class="ttdef"><b>Definição</b> Manager.hpp:19</div></div>
+<div class="ttc" id="aManager_8hpp_html_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a"><div class="ttname"><a href="../../d9/d54/Manager_8hpp.html#a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a">REVERSI</a></div><div class="ttdeci">@ REVERSI</div><div class="ttdef"><b>Definição</b> Manager.hpp:17</div></div>
+<div class="ttc" id="aManager_8hpp_html_a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9"><div class="ttname"><a href="../../d9/d54/Manager_8hpp.html#a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9">CONNECT_FOUR</a></div><div class="ttdeci">@ CONNECT_FOUR</div><div class="ttdef"><b>Definição</b> Manager.hpp:18</div></div>
+<div class="ttc" id="aclassManager_html_a6c41295ecf1975e47623806a0416a2c9"><div class="ttname"><a href="../../dd/dcd/classManager.html#a6c41295ecf1975e47623806a0416a2c9">Manager::listPlayers</a></div><div class="ttdeci">static void listPlayers(const std::string &amp;arguments)</div><div class="ttdef"><b>Definição</b> Manager.cpp:99</div></div>
+<div class="ttc" id="aclassManager_html_a6e591b522fd7201d55f152e662bf24d3"><div class="ttname"><a href="../../dd/dcd/classManager.html#a6e591b522fd7201d55f152e662bf24d3">Manager::createMatch</a></div><div class="ttdeci">static BoardGame * createMatch(char game, const Player &amp;player1, const Player &amp;player2, const std::string &amp;extraArguments)</div><div class="ttdef"><b>Definição</b> Manager.cpp:145</div></div>
+<div class="ttc" id="aclassManager_html_aa7f33d8e27faebdcaf2d97d143c17c26"><div class="ttname"><a href="../../dd/dcd/classManager.html#aa7f33d8e27faebdcaf2d97d143c17c26">Manager::deletePlayer</a></div><div class="ttdeci">static void deletePlayer(const std::string &amp;arguments)</div><div class="ttdef"><b>Definição</b> Manager.cpp:88</div></div>
+<div class="ttc" id="aclassManager_html_aba37e0476aeccc0a8ccd3ac82e3a3ec5"><div class="ttname"><a href="../../dd/dcd/classManager.html#aba37e0476aeccc0a8ccd3ac82e3a3ec5">Manager::createPlayer</a></div><div class="ttdeci">static void createPlayer(const std::string &amp;arguments)</div><div class="ttdef"><b>Definição</b> Manager.cpp:54</div></div>
+<div class="ttc" id="aclassManager_html_aeb05baeb0075a8235c8ddea7b43e49ab"><div class="ttname"><a href="../../dd/dcd/classManager.html#aeb05baeb0075a8235c8ddea7b43e49ab">Manager::printMenu</a></div><div class="ttdeci">static void printMenu()</div><div class="ttdef"><b>Definição</b> Manager.cpp:23</div></div>
+<div class="ttc" id="aclassPlayer_html"><div class="ttname"><a href="../../d2/d4b/classPlayer.html">Player</a></div><div class="ttdef"><b>Definição</b> Player.hpp:15</div></div>
+<div class="ttc" id="aclassPlayer_html_a547c60608af80be40ce6fc657c938313"><div class="ttname"><a href="../../d2/d4b/classPlayer.html#a547c60608af80be40ce6fc657c938313">Player::syncDatabase</a></div><div class="ttdeci">static void syncDatabase()</div><div class="ttdef"><b>Definição</b> Player.cpp:281</div></div>
+<div class="ttc" id="aclassPlayer_html_a73e4ff2d70e62ca7e3be1d9b4ad9de85"><div class="ttname"><a href="../../d2/d4b/classPlayer.html#a73e4ff2d70e62ca7e3be1d9b4ad9de85">Player::getName</a></div><div class="ttdeci">std::string getName() const</div><div class="ttdef"><b>Definição</b> Player.cpp:30</div></div>
+<div class="ttc" id="aclassPlayer_html_a9b7e2146125da66d32032b8467cbbb1c"><div class="ttname"><a href="../../d2/d4b/classPlayer.html#a9b7e2146125da66d32032b8467cbbb1c">Player::filePath</a></div><div class="ttdeci">static const std::string filePath</div><div class="ttdef"><b>Definição</b> Player.hpp:17</div></div>
+<div class="ttc" id="aclassPlayer_html_acafb522e729c2fe951550f09809e075c"><div class="ttname"><a href="../../d2/d4b/classPlayer.html#acafb522e729c2fe951550f09809e075c">Player::getSymbol</a></div><div class="ttdeci">char getSymbol() const</div><div class="ttdef"><b>Definição</b> Player.cpp:34</div></div>
+<div class="ttc" id="aclassPlayer_html_ae950c7e93426454a231b5e85b164caa2"><div class="ttname"><a href="../../d2/d4b/classPlayer.html#ae950c7e93426454a231b5e85b164caa2">Player::loadPlayer</a></div><div class="ttdeci">static Player loadPlayer(const std::string &amp;nick)</div><div class="ttdef"><b>Definição</b> Player.cpp:150</div></div>
+<div class="ttc" id="aclassPlayer_html_aeb6f99400482a46e55c60f2ef6d2f764"><div class="ttname"><a href="../../d2/d4b/classPlayer.html#aeb6f99400482a46e55c60f2ef6d2f764">Player::getNick</a></div><div class="ttdeci">std::string getNick() const</div><div class="ttdef"><b>Definição</b> Player.cpp:26</div></div>
+<div class="ttc" id="aclassduplicated__player_html"><div class="ttname"><a href="../../d6/d67/classduplicated__player.html">duplicated_player</a></div><div class="ttdef"><b>Definição</b> exceptions.hpp:53</div></div>
+<div class="ttc" id="aclassgame__not__found_html"><div class="ttname"><a href="../../df/dec/classgame__not__found.html">game_not_found</a></div><div class="ttdef"><b>Definição</b> exceptions.hpp:21</div></div>
+<div class="ttc" id="aexceptions_8hpp_html"><div class="ttname"><a href="../../da/d49/exceptions_8hpp.html">exceptions.hpp</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_59425e443f801f1f2fd8bbe4959a3ccf.html">tests</a></li><li class="navelem"><a class="el" href="../../d0/d1e/ManagerTests_8cpp.html">ManagerTests.cpp</a></li>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+\doxysection{Referência da Classe Utils}
+\hypertarget{classUtils}{}\label{classUtils}\index{Utils@{Utils}}
+
+
+{\ttfamily \#include $<$Utils.\+hpp$>$}
+
+\doxysubsubsection*{Membros públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{classUtils_abfdc20f58a047441561728dd9933eaa8}{clean\+String}} (const std\+::string \&input)
+\item 
+static void \mbox{\hyperlink{classUtils_a3c419fea02d0bd591c0f7f0d2391803a}{clear\+Terminal}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+Class with utility functions 
+
+\doxysubsection{Documentação das funções}
+\Hypertarget{classUtils_abfdc20f58a047441561728dd9933eaa8}\label{classUtils_abfdc20f58a047441561728dd9933eaa8} 
+\index{Utils@{Utils}!cleanString@{cleanString}}
+\index{cleanString@{cleanString}!Utils@{Utils}}
+\doxysubsubsection{\texorpdfstring{cleanString()}{cleanString()}}
+{\footnotesize\ttfamily std\+::string Utils\+::clean\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Remove all the duplicated "{}invisible"{} characters from a string~\newline
+Also from the beginning and the end~\newline
+Leaving only one space between words
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em input} & string to clean\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+cleaned string 
+\end{DoxyReturn}
+\Hypertarget{classUtils_a3c419fea02d0bd591c0f7f0d2391803a}\label{classUtils_a3c419fea02d0bd591c0f7f0d2391803a} 
+\index{Utils@{Utils}!clearTerminal@{clearTerminal}}
+\index{clearTerminal@{clearTerminal}!Utils@{Utils}}
+\doxysubsubsection{\texorpdfstring{clearTerminal()}{clearTerminal()}}
+{\footnotesize\ttfamily void Utils\+::clear\+Terminal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Clear the terminal screen, for windows and unix 
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{Utils_8hpp}{Utils.\+hpp}}\item 
+src/\mbox{\hyperlink{Utils_8cpp}{Utils.\+cpp}}\end{DoxyCompactItemize}

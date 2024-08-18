@@ -1,0 +1,44 @@
+\doxysection{Manager.\+hpp}
+\hypertarget{Manager_8hpp_source}{}\label{Manager_8hpp_source}\index{include/Manager.hpp@{include/Manager.hpp}}
+\mbox{\hyperlink{Manager_8hpp}{Ir para a documentação desse arquivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ pedro-\/pires\ on\ 7/4/24.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ MANAGER\_HPP}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ MANAGER\_HPP}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{BoardGame_8hpp}{BoardGame.hpp}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Player_8hpp}{Player.hpp}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46a}{Game}}\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{REVERSI}}\ =\ \textcolor{charliteral}{'R'},}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9}{CONNECT\_FOUR}}\ =\ \textcolor{charliteral}{'L'},}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa}{TTT}}\ =\ \textcolor{charliteral}{'V'}}
+\DoxyCodeLine{00020\ \};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classManager}{Manager}}\ \{}
+\DoxyCodeLine{00026\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ \mbox{\hyperlink{classManager_a7e818729a1a7b49907c88d9b5074b4e2}{maxCommandSize}};\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classManager_aeb05baeb0075a8235c8ddea7b43e49ab}{printMenu}}();}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classManager_aba37e0476aeccc0a8ccd3ac82e3a3ec5}{createPlayer}}(\textcolor{keyword}{const}\ std::string\&\ arguments);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classManager_aa7f33d8e27faebdcaf2d97d143c17c26}{deletePlayer}}(\textcolor{keyword}{const}\ std::string\&\ arguments);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classManager_a6c41295ecf1975e47623806a0416a2c9}{listPlayers}}(\textcolor{keyword}{const}\ std::string\&\ arguments);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classBoardGame}{BoardGame}}*\ \mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{createMatch}}(\textcolor{keywordtype}{char}\ game,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\&\ player1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\&\ player2,\ \textcolor{keyword}{const}\ std::string\&\ extraArguments);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classManager_a76e1b288f52fb550445bf7847596cbfc}{playMatch}}(\textcolor{keyword}{const}\ std::string\&\ arguments);}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classManager_ab728cb2ad7342bffd0a71c9ca305a1a9}{menu}}();}
+\DoxyCodeLine{00095\ \};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//MANAGER\_HPP}}
+
+\end{DoxyCode}

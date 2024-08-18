@@ -1,0 +1,93 @@
+\doxysection{Board\+Tests.\+cpp}
+\hypertarget{BoardTests_8cpp_source}{}\label{BoardTests_8cpp_source}\index{tests/BoardTests.cpp@{tests/BoardTests.cpp}}
+\mbox{\hyperlink{BoardTests_8cpp}{Ir para a documentação desse arquivo.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Paulo\ Henrique\ Pires\ \ on\ 16/08/24.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}doctest.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exceptions_8hpp}{exceptions.hpp}}"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ private\ public}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ protected\ public}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Board_8hpp}{Board.hpp}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#undef\ private}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#undef\ protected}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \mbox{\hyperlink{BoardTests_8cpp_a852c9171e945eac50712c34eec3ecd35}{TEST\_SUITE}}(\textcolor{stringliteral}{"{}Board"{}})\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Constructor"{}})\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Negative\ values}}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classBoard}{Board}}(8,\ -\/8),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classBoard}{Board}}(-\/8,\ 8),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classBoard}{Board}}(-\/8,\ -\/8),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Zero\ values}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classBoard}{Board}}(0,\ 8),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classBoard}{Board}}(8,\ 0),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classBoard}{Board}}(0,\ 0),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Exceeding\ max\ board\ size}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classBoard}{Board}}(\mbox{\hyperlink{classBoard_aeeff801399cfd05fe262a9e27c3c1d89}{Board::maxBoardSize}}\ +\ 1,\ 8),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classBoard}{Board}}(8,\ \mbox{\hyperlink{classBoard_aeeff801399cfd05fe262a9e27c3c1d89}{Board::maxBoardSize}}\ +\ 1),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classBoard}{Board}}(\mbox{\hyperlink{classBoard_aeeff801399cfd05fe262a9e27c3c1d89}{Board::maxBoardSize}}\ +\ 1,\ \mbox{\hyperlink{classBoard_aeeff801399cfd05fe262a9e27c3c1d89}{Board::maxBoardSize}}\ +\ 1),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Right\ values}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classBoard}{Board}}(8,\ 8));}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classBoard}{Board}}(8,\ \mbox{\hyperlink{classBoard_aeeff801399cfd05fe262a9e27c3c1d89}{Board::maxBoardSize}}));}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classBoard}{Board}}(\mbox{\hyperlink{classBoard_aeeff801399cfd05fe262a9e27c3c1d89}{Board::maxBoardSize}},\ 8));}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classBoard}{Board}}(\mbox{\hyperlink{classBoard_aeeff801399cfd05fe262a9e27c3c1d89}{Board::maxBoardSize}},\ \mbox{\hyperlink{classBoard_aeeff801399cfd05fe262a9e27c3c1d89}{Board::maxBoardSize}}));}
+\DoxyCodeLine{00038\ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Get\ Dimensions"{}})\ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ height\ =\ 7,\ width\ =\ 5;}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBoard}{Board}}\ board(height,\ width);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ CHECK(board.\mbox{\hyperlink{classBoard_af30a5a43871230a04d49dd87b99acc55}{getHeight}}()\ ==\ height);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ CHECK(board.\mbox{\hyperlink{classBoard_a497b16cc0884b2210dd45766fc63b25f}{getWidth}}()\ ==\ width);}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Print"{}})\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classBoard}{Board}}(1,\ 1).print());}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classBoard}{Board}}(\mbox{\hyperlink{classBoard_aeeff801399cfd05fe262a9e27c3c1d89}{Board::maxBoardSize}},\ \mbox{\hyperlink{classBoard_aeeff801399cfd05fe262a9e27c3c1d89}{Board::maxBoardSize}}).print());}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Place/Get\ Symbol"{}})\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{char}\ symbol\ =\ \textcolor{charliteral}{'X'};}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ height\ =\ 7,\ width\ =\ 5;}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Placed\ right}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBoard}{Board}}\ board1(height,\ width);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ board1.\mbox{\hyperlink{classBoard_ab0ca907f6f0f22e55b0d7237253875eb}{placeSymbol}}(\{0\},\ symbol);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ CHECK(board1.\mbox{\hyperlink{classBoard_adcccff11170293326c090a8e0ca6b060}{getSymbol}}(height-\/1,\ 0)\ ==\ symbol);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ board1.\mbox{\hyperlink{classBoard_ab0ca907f6f0f22e55b0d7237253875eb}{placeSymbol}}(\{width-\/1\},\ symbol);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ CHECK(board1.\mbox{\hyperlink{classBoard_adcccff11170293326c090a8e0ca6b060}{getSymbol}}(height-\/1,\ width-\/1)\ ==\ symbol);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBoard}{Board}}\ board2(height,\ width);}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ board2.\mbox{\hyperlink{classBoard_ab0ca907f6f0f22e55b0d7237253875eb}{placeSymbol}}(\{0,\ 0\},\ symbol);}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ CHECK(board2.\mbox{\hyperlink{classBoard_adcccff11170293326c090a8e0ca6b060}{getSymbol}}(0,\ 0)\ ==\ symbol);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ board2.\mbox{\hyperlink{classBoard_ab0ca907f6f0f22e55b0d7237253875eb}{placeSymbol}}(\{0,\ width-\/1\},\ symbol);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ CHECK(board2.\mbox{\hyperlink{classBoard_adcccff11170293326c090a8e0ca6b060}{getSymbol}}(0,\ width-\/1)\ ==\ symbol);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ board2.\mbox{\hyperlink{classBoard_ab0ca907f6f0f22e55b0d7237253875eb}{placeSymbol}}(\{height-\/1,\ 0\},\ symbol);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ CHECK(board2.\mbox{\hyperlink{classBoard_adcccff11170293326c090a8e0ca6b060}{getSymbol}}(height-\/1,\ 0)\ ==\ symbol);}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ board2.\mbox{\hyperlink{classBoard_ab0ca907f6f0f22e55b0d7237253875eb}{placeSymbol}}(\{height-\/1,\ width-\/1\},\ symbol);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ CHECK(board2.\mbox{\hyperlink{classBoard_adcccff11170293326c090a8e0ca6b060}{getSymbol}}(height-\/1,\ width-\/1)\ ==\ symbol);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ out\ of\ range}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(board2.\mbox{\hyperlink{classBoard_adcccff11170293326c090a8e0ca6b060}{getSymbol}}(-\/1,\ 0),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(board2.\mbox{\hyperlink{classBoard_adcccff11170293326c090a8e0ca6b060}{getSymbol}}(0,\ -\/1),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(board2.\mbox{\hyperlink{classBoard_adcccff11170293326c090a8e0ca6b060}{getSymbol}}(-\/1,\ -\/1),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(board2.\mbox{\hyperlink{classBoard_adcccff11170293326c090a8e0ca6b060}{getSymbol}}(height,\ 0),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(board2.\mbox{\hyperlink{classBoard_adcccff11170293326c090a8e0ca6b060}{getSymbol}}(0,\ width),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(board2.\mbox{\hyperlink{classBoard_adcccff11170293326c090a8e0ca6b060}{getSymbol}}(height,\ width),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Place\ out\ of\ range}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(board1.\mbox{\hyperlink{classBoard_ab0ca907f6f0f22e55b0d7237253875eb}{placeSymbol}}(\{width\},\ symbol),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(board2.\mbox{\hyperlink{classBoard_ab0ca907f6f0f22e55b0d7237253875eb}{placeSymbol}}(\{height,\ 0\},\ symbol),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(board2.\mbox{\hyperlink{classBoard_ab0ca907f6f0f22e55b0d7237253875eb}{placeSymbol}}(\{0,\ width\},\ symbol),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(board2.\mbox{\hyperlink{classBoard_ab0ca907f6f0f22e55b0d7237253875eb}{placeSymbol}}(\{height,\ width\},\ symbol),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00086\ \ \ \ \ \}}
+\DoxyCodeLine{00087\ \}}
+
+\end{DoxyCode}
