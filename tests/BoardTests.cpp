@@ -4,6 +4,7 @@
 
 #include "doctest.h"
 #include "exceptions.hpp"
+#include <stdexcept>
 
 #define private public
 #define protected public
