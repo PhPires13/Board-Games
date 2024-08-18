@@ -15,6 +15,7 @@
 #include "TicTacToeTests.cpp"
 #include "PlayerTests.cpp"
 #include "ManagerTests.cpp"
+#include "exceptionsTests.cpp"
 
 #undef private
 #undef protected

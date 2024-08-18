@@ -94,18 +94,60 @@ TEST_SUITE("TicTacToe") {
         ttt4.makeMove({2, 1}, player2.getSymbol());
         CHECK(ttt4.getGameState({2, 1}) == GameState::PLAYER2_WINS);
 
-        // Tie
+        // Complete diagonal, player 1 wins
         TicTacToe ttt5(player1, player2);
         ttt5.makeMove({0, 0}, player1.getSymbol());
         ttt5.makeMove({0, 1}, player2.getSymbol());
-        ttt5.makeMove({0, 2}, player1.getSymbol());
-        ttt5.makeMove({1, 1}, player2.getSymbol());
+        ttt5.makeMove({1, 1}, player1.getSymbol());
         CHECK(ttt5.getGameState({1, 1}) == GameState::NOT_OVER);
-        ttt5.makeMove({1, 0}, player1.getSymbol());
-        ttt5.makeMove({1, 2}, player2.getSymbol());
-        ttt5.makeMove({2, 1}, player1.getSymbol());
-        ttt5.makeMove({2, 0}, player2.getSymbol());
+        ttt5.makeMove({1, 0}, player2.getSymbol());
         ttt5.makeMove({2, 2}, player1.getSymbol());
-        CHECK(ttt5.getGameState({2, 2}) == GameState::TIE);
+        CHECK(ttt5.getGameState({2, 2}) == GameState::PLAYER1_WINS);
+
+        // Complete diagonal, player 2 wins
+        TicTacToe ttt6(player1, player2);
+        ttt6.makeMove({0, 1}, player1.getSymbol());
+        ttt6.makeMove({0, 0}, player2.getSymbol());
+        ttt6.makeMove({1, 0}, player1.getSymbol());
+        CHECK(ttt6.getGameState({1, 0}) == GameState::NOT_OVER);
+        ttt6.makeMove({1, 1}, player2.getSymbol());
+        ttt6.makeMove({2, 0}, player1.getSymbol());
+        ttt6.makeMove({2, 2}, player2.getSymbol());
+        CHECK(ttt6.getGameState({2, 2}) == GameState::PLAYER2_WINS);
+
+        // Complete sub-diagonal, player 1 wins
+        TicTacToe ttt7(player1, player2);
+        ttt7.makeMove({0, 2}, player1.getSymbol());
+        ttt7.makeMove({0, 1}, player2.getSymbol());
+        ttt7.makeMove({1, 1}, player1.getSymbol());
+        CHECK(ttt7.getGameState({1, 1}) == GameState::NOT_OVER);
+        ttt7.makeMove({1, 0}, player2.getSymbol());
+        ttt7.makeMove({2, 0}, player1.getSymbol());
+        CHECK(ttt7.getGameState({2, 0}) == GameState::PLAYER1_WINS);
+
+        // Complete sub-diagonal, player 2 wins
+        TicTacToe ttt8(player1, player2);
+        ttt8.makeMove({0, 1}, player1.getSymbol());
+        ttt8.makeMove({0, 2}, player2.getSymbol());
+        ttt8.makeMove({1, 0}, player1.getSymbol());
+        CHECK(ttt8.getGameState({1, 0}) == GameState::NOT_OVER);
+        ttt8.makeMove({1, 1}, player2.getSymbol());
+        ttt8.makeMove({2, 2}, player1.getSymbol());
+        ttt8.makeMove({2, 0}, player2.getSymbol());
+        CHECK(ttt8.getGameState({2, 0}) == GameState::PLAYER2_WINS);
+
+        // Tie
+        TicTacToe ttt9(player1, player2);
+        ttt9.makeMove({0, 0}, player1.getSymbol());
+        ttt9.makeMove({0, 1}, player2.getSymbol());
+        ttt9.makeMove({0, 2}, player1.getSymbol());
+        ttt9.makeMove({1, 1}, player2.getSymbol());
+        CHECK(ttt9.getGameState({1, 1}) == GameState::NOT_OVER);
+        ttt9.makeMove({1, 0}, player1.getSymbol());
+        ttt9.makeMove({1, 2}, player2.getSymbol());
+        ttt9.makeMove({2, 1}, player1.getSymbol());
+        ttt9.makeMove({2, 0}, player2.getSymbol());
+        ttt9.makeMove({2, 2}, player1.getSymbol());
+        CHECK(ttt9.getGameState({2, 2}) == GameState::TIE);
     }
 }
