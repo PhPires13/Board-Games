@@ -57,6 +57,12 @@ $(BIN_DIR)/Board_Games: $(OBJ_DIR)/Utils.o $(OBJ_DIR)/exceptions.o $(OBJ_DIR)/Bo
 # ------------------------------------------------- Tests
 tests: $(BIN_DIR)/Board_Games $(TESTS_BIN_DIR)/Board_Games_Tests
 
+$(TESTS_OBJ_DIR)/UtilsTests.o: $(TESTS_DIR)/UtilsTests.cpp $(INCLUDE_DIR)/Utils.hpp $(THIRD_PARTY_DIR)/doctest.h
+	$(CC) $(CFLAGS) -c --coverage $(TESTS_DIR)/UtilsTests.cpp -I $(INCLUDE_DIR) -I $(THIRD_PARTY_DIR) -o $(TESTS_OBJ_DIR)/UtilsTests.o
+
+$(TESTS_OBJ_DIR)/exceptionsTests.o: $(TESTS_DIR)/exceptionsTests.cpp $(INCLUDE_DIR)/exceptions.hpp $(THIRD_PARTY_DIR)/doctest.h
+	$(CC) $(CFLAGS) -c --coverage $(TESTS_DIR)/exceptionsTests.cpp -I $(INCLUDE_DIR) -I $(THIRD_PARTY_DIR) -o $(TESTS_OBJ_DIR)/exceptionsTests.o
+
 $(TESTS_OBJ_DIR)/BoardTests.o: $(TESTS_DIR)/BoardTests.cpp $(INCLUDE_DIR)/Board.hpp $(INCLUDE_DIR)/exceptions.hpp $(THIRD_PARTY_DIR)/doctest.h
 	$(CC) $(CFLAGS) -c --coverage $(TESTS_DIR)/BoardTests.cpp -I $(INCLUDE_DIR) -I $(THIRD_PARTY_DIR) -o $(TESTS_OBJ_DIR)/BoardTests.o
 
@@ -74,17 +80,11 @@ $(TESTS_OBJ_DIR)/TicTacToeTests.o: $(TESTS_DIR)/TicTacToeTests.cpp $(INCLUDE_DIR
 $(TESTS_OBJ_DIR)/ManagerTests.o: $(TESTS_DIR)/ManagerTests.cpp $(INCLUDE_DIR)/Manager.hpp $(INCLUDE_DIR)/Player.hpp $(INCLUDE_DIR)/exceptions.hpp $(THIRD_PARTY_DIR)/doctest.h
 	$(CC) $(CFLAGS) -c --coverage $(TESTS_DIR)/ManagerTests.cpp -I $(INCLUDE_DIR) -I $(THIRD_PARTY_DIR) -o $(TESTS_OBJ_DIR)/ManagerTests.o
 
-$(TESTS_OBJ_DIR)/UtilsTests.o: $(TESTS_DIR)/UtilsTests.cpp $(INCLUDE_DIR)/Utils.hpp $(THIRD_PARTY_DIR)/doctest.h
-	$(CC) $(CFLAGS) -c --coverage $(TESTS_DIR)/UtilsTests.cpp -I $(INCLUDE_DIR) -I $(THIRD_PARTY_DIR) -o $(TESTS_OBJ_DIR)/UtilsTests.o
-
-$(TESTS_OBJ_DIR)/exceptionsTests.o: $(TESTS_DIR)/exceptionsTests.cpp $(INCLUDE_DIR)/exceptions.hpp $(THIRD_PARTY_DIR)/doctest.h
-	$(CC) $(CFLAGS) -c --coverage $(TESTS_DIR)/exceptionsTests.cpp -I $(INCLUDE_DIR) -I $(THIRD_PARTY_DIR) -o $(TESTS_OBJ_DIR)/exceptionsTests.o
-
-$(TESTS_OBJ_DIR)/tests.o: $(TESTS_DIR)/tests.cpp $(THIRD_PARTY_DIR)/doctest.h $(TESTS_DIR)/BoardTests.cpp $(TESTS_DIR)/BoardGameTests.cpp $(TESTS_DIR)/PlayerTests.cpp $(TESTS_DIR)/TicTacToeTests.cpp $(TESTS_DIR)/ManagerTests.cpp $(TESTS_DIR)/UtilsTests.cpp
+$(TESTS_OBJ_DIR)/tests.o: $(TESTS_DIR)/tests.cpp $(THIRD_PARTY_DIR)/doctest.h $(TESTS_DIR)/UtilsTests.cpp $(TESTS_DIR)/exceptionsTests.cpp $(TESTS_DIR)/BoardTests.cpp $(TESTS_DIR)/BoardGameTests.cpp $(TESTS_DIR)/PlayerTests.cpp $(TESTS_DIR)/TicTacToeTests.cpp $(TESTS_DIR)/ReversiTests.cpp $(TESTS_DIR)/ConnectFourTests.cpp $(TESTS_DIR)/ManagerTests.cpp
 	$(CC) $(CFLAGS) -c --coverage $(TESTS_DIR)/tests.cpp -I $(INCLUDE_DIR) -I $(THIRD_PARTY_DIR) -o $(TESTS_OBJ_DIR)/tests.o
 
 # TODO: add ReversiTests.o and ConnectFourTests.o
-$(TESTS_BIN_DIR)/Board_Games_Tests: $(TESTS_OBJ_DIR)/BoardTests.o $(TESTS_OBJ_DIR)/BoardGameTests.o $(TESTS_OBJ_DIR)/PlayerTests.o $(TESTS_OBJ_DIR)/TicTacToeTests.o $(TESTS_OBJ_DIR)/ManagerTests.o $(TESTS_OBJ_DIR)/UtilsTests.o $(TESTS_OBJ_DIR)/exceptionsTests.o $(TESTS_OBJ_DIR)/tests.o \
+$(TESTS_BIN_DIR)/Board_Games_Tests: $(TESTS_OBJ_DIR)/UtilsTests.o $(TESTS_OBJ_DIR)/exceptionsTests.o $(TESTS_OBJ_DIR)/BoardTests.o $(TESTS_OBJ_DIR)/BoardGameTests.o $(TESTS_OBJ_DIR)/PlayerTests.o $(TESTS_OBJ_DIR)/TicTacToeTests.o $(TESTS_OBJ_DIR)/ManagerTests.o $(TESTS_OBJ_DIR)/tests.o \
 									$(OBJ_DIR)/Utils.o $(OBJ_DIR)/exceptions.o $(OBJ_DIR)/Board.o $(OBJ_DIR)/Player.o $(OBJ_DIR)/BoardGame.o $(OBJ_DIR)/TicTacToe.o $(OBJ_DIR)/Reversi.o $(OBJ_DIR)/ConnectFour.o $(OBJ_DIR)/Manager.o
 	$(CC) $(CFLAGS) --coverage $(TESTS_OBJ_DIR)/*.o $(filter-out $(OBJ_DIR)/main.o, $(wildcard $(OBJ_DIR)/*.o)) -o $(TESTS_BIN_DIR)/Board_Games_Tests
 

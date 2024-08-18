@@ -65,9 +65,9 @@ FS: Finalizar Sistema
     - <b>Windows</b>: ```run.bat```
 
 - ### Testes
-  - Basta executar alguns dos arquivos ``tests``
-    - <b>Unix</b>: ```./tests.sh```
-    - <b>Windows</b>: ```tests.bat```
+  - Basta executar alguns dos arquivos ``test``
+    - <b>Unix</b>: ```./test.sh```
+    - <b>Windows</b>: ```test.bat```
 
 - ### Clean
   - Em caso de necessidade de reset dos arquivos gerados pela compilação, basta executar alguns dos arquivos ``clean``
