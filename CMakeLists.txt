@@ -54,5 +54,7 @@ add_executable(Board_Games_Tests tests/tests.cpp
         tests/PlayerTests.cpp
         tests/ManagerTests.cpp
         tests/UtilsTests.cpp
+        tests/ReversiTests.cpp
+        tests/ConnectFourTests.cpp
 
 )

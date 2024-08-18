@@ -53,5 +53,5 @@ bin/*/[^.]*
 *.bin
 
 # Coverage
-.gcno
-.gcda
+*.gcno
+*.gcda
