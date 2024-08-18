@@ -47,6 +47,13 @@ TEST_SUITE("BoardGame") {
         CHECK(boardGame.isAValidWidth(1) == true);
     }
 
+    TEST_CASE("Print Board") {
+        const Player player1("Nick1", "Name1");
+        const Player player2("Nick2", "Name2");
+        const BoardGame boardGame(player1, player2);
+        CHECK_NOTHROW(boardGame.printBoard());
+    }
+
     TEST_CASE("Validate Move") {
         constexpr int height = 7, width = 5;
 
