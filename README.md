@@ -74,6 +74,11 @@ FS: Finalizar Sistema
     - <b>Unix</b>: ```./clean.sh```
     - <b>Windows</b>: ```clean.bat```
 
+- #### Documentar e Cobertura
+  - O script para documentar e gerar a cobertura de testes está disponível em caso de necessidade.
+    - <b>Unix</b>: ```./document.sh```
+    - <b>Unix</b>: ```./coverage.sh```
+  - É necessário ter o ``doxygen`` e ``gcovr`` instalados para a execução dos seus respectivos.
 ---
 ## Documentação
 - ### Código
@@ -129,7 +134,7 @@ FS: Finalizar Sistema
 - ``CRUD Player``: após tratamento descrito acima, Sào chamas as funções da classe ``Player`` para completar o procedimento.
 - ``Executar Partida``: após tratamento descrito acima, é escolhido qual jogo será executado, 
 então armazenado em um ponteiro da classe genérica para o correto funcionamento do <i> Dynamic Dispatch </i>
-é chamada então a função ``playGame()``, e apos o resultado são atualizadas as estatísticas dos jogadores.
+é chamada então a função ``playGame()``, e após o resultado são atualizadas as estatísticas dos jogadores.
 
 ---
 ## Principais Desafios

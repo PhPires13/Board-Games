@@ -54,9 +54,15 @@ std::vector<uint32_t> BoardGame::readMove() {
     line = Utils::cleanString(line);
     std::stringstream lineStream(line);
 
-    uint32_t value;
-    while (lineStream >> value) {
-        move.push_back(value);
+    std::string token;
+    while (lineStream >> token) {
+        try {
+            std::stringstream tokenStream(token);
+            uint32_t value;
+            tokenStream >> value;
+            if (tokenStream.fail() || !tokenStream.eof()) throw incorrect_format();
+            move.push_back(value);
+        } catch (const std::exception& e) {}
     }
 
     return move;
