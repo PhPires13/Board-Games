@@ -1,0 +1,128 @@
+\doxysection{Referência da Classe Tic\+Tac\+Toe}
+\hypertarget{classTicTacToe}{}\label{classTicTacToe}\index{TicTacToe@{TicTacToe}}
+Diagrama de hierarquia da classe Tic\+Tac\+Toe\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classTicTacToe}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classTicTacToe_a1367ed4407bad52c2ad38e72ca81f165}\label{classTicTacToe_a1367ed4407bad52c2ad38e72ca81f165} 
+{\bfseries Tic\+Tac\+Toe} (\mbox{\hyperlink{classPlayer}{Player}} \+\_\+player1, \mbox{\hyperlink{classPlayer}{Player}} \+\_\+player2)
+\end{DoxyCompactItemize}
+\doxysubsection*{Membros Públicos herdados de \mbox{\hyperlink{classBoardGame}{Board\+Game}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBoardGame_a0d84f9fb30ea2420d7830b4e384db4d1}{Board\+Game}} (\mbox{\hyperlink{classPlayer}{Player}} \+\_\+player1, \mbox{\hyperlink{classPlayer}{Player}} \+\_\+player2, uint32\+\_\+t board\+Height=Board\+Game\+::default\+Board\+Height, uint32\+\_\+t board\+Width=Board\+Game\+::default\+Board\+Width, const std\+::string \&index\+Color="{}"{}, const std\+::string \&pieces\+Color="{}"{}, const std\+::string \&border\+Color="{}"{}, const std\+::string \&even\+Bg="{}"{}, const std\+::string \&odd\+Bg="{}"{})
+\item 
+Game\+State \mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{play\+Game}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Membros privados}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classTicTacToe_a637a0986399c31e14a2241349486cbcf}{validate\+Move}} (const std\+::vector$<$ uint32\+\_\+t $>$ \&move) const override
+\item 
+Game\+State \mbox{\hyperlink{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}{get\+Game\+State}} (const std\+::vector$<$ uint32\+\_\+t $>$ \&move) const override
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos Privados Estáticos}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classTicTacToe_afae89e11319b4adb915382362661463b}\label{classTicTacToe_afae89e11319b4adb915382362661463b} 
+static const uint32\+\_\+t {\bfseries default\+Board\+Size} = 3
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Outros membros herdados}
+\doxysubsection*{Membros protegidos herdados de \mbox{\hyperlink{classBoardGame}{Board\+Game}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classBoardGame_af7251441fc9263b8b77d27aae106219c}{is\+AValid\+Height}} (uint32\+\_\+t board\+Height) const
+\item 
+virtual bool \mbox{\hyperlink{classBoardGame_ae01b19538655c1d04161de92a8056e12}{is\+AValid\+Width}} (uint32\+\_\+t board\+Width) const
+\item 
+void \mbox{\hyperlink{classBoardGame_a3945f4cc72c1710e7bc834e79e97d590}{print\+Board}} () const
+\item 
+virtual void \mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{make\+Move}} (const std\+::vector$<$ uint32\+\_\+t $>$ \&move, char symbol)
+\item 
+\mbox{\hyperlink{classPlayer}{Player}} \mbox{\hyperlink{classBoardGame_a2e2f74f86bff4949516402d3ea981436}{whose\+Turn}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Membros protegidos estáticos herdados de \mbox{\hyperlink{classBoardGame}{Board\+Game}}}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::vector$<$ uint32\+\_\+t $>$ \mbox{\hyperlink{classBoardGame_ab949ea2e2cd99632d784a1f7334af96a}{read\+Move}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos Protegidos herdados de \mbox{\hyperlink{classBoardGame}{Board\+Game}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlayer}{Player}} {\bfseries player1}
+\item 
+\mbox{\hyperlink{classPlayer}{Player}} {\bfseries player2}
+\item 
+\mbox{\hyperlink{classBoard}{Board}} {\bfseries board}
+\item 
+uint32\+\_\+t {\bfseries turn}
+\end{DoxyCompactItemize}
+\doxysubsection*{Atributos Protegidos Estáticos herdados de \mbox{\hyperlink{classBoardGame}{Board\+Game}}}
+\begin{DoxyCompactItemize}
+\item 
+static const uint32\+\_\+t {\bfseries default\+Board\+Height} = 4
+\item 
+static const uint32\+\_\+t {\bfseries default\+Board\+Width} = 4
+\item 
+static const char {\bfseries default\+Symbol1} = \textquotesingle{}X\textquotesingle{}
+\item 
+static const char {\bfseries default\+Symbol2} = \textquotesingle{}O\textquotesingle{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentação das funções}
+\Hypertarget{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0}\label{classTicTacToe_a7501ae96020a99310e94181f1d4bc2a0} 
+\index{TicTacToe@{TicTacToe}!getGameState@{getGameState}}
+\index{getGameState@{getGameState}!TicTacToe@{TicTacToe}}
+\doxysubsubsection{\texorpdfstring{getGameState()}{getGameState()}}
+{\footnotesize\ttfamily Game\+State Tic\+Tac\+Toe\+::get\+Game\+State (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{move }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+Check if the game is over
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em move} & The last move made, can be used for optimal checks\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+Game\+State enum 
+\end{DoxyReturn}
+
+
+Reimplementa \mbox{\hyperlink{classBoardGame_aecc780aa669fa3287bf8988becb773b4}{Board\+Game}}.
+
+\Hypertarget{classTicTacToe_a637a0986399c31e14a2241349486cbcf}\label{classTicTacToe_a637a0986399c31e14a2241349486cbcf} 
+\index{TicTacToe@{TicTacToe}!validateMove@{validateMove}}
+\index{validateMove@{validateMove}!TicTacToe@{TicTacToe}}
+\doxysubsubsection{\texorpdfstring{validateMove()}{validateMove()}}
+{\footnotesize\ttfamily void Tic\+Tac\+Toe\+::validate\+Move (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{move }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
+
+Validate if move is valid by throwing exceptions if not
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em move} & The move to be checked\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \doxylink{classincorrect__format}{incorrect\+\_\+format}} & \\
+\hline
+{\em \doxylink{classinvalid__move}{invalid\+\_\+move}} & \\
+\hline
+\end{DoxyExceptions}
+
+
+Reimplementa \mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{Board\+Game}}.
+
+
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+include/Tic\+Tac\+Toe.\+hpp\item 
+src/Tic\+Tac\+Toe.\+cpp\end{DoxyCompactItemize}

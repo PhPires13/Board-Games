@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Board Games: Código-Fonte de include/Reversi.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Board Games
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Reversi.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef REVERSI_HPP</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define REVERSI_HPP</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;BoardGame.hpp&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;Player.hpp&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;exceptions.hpp&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classReversi.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="classReversi.html">Reversi</a> final : <span class="keyword">public</span> <a class="code hl_class" href="classBoardGame.html">BoardGame</a> {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">static</span> <span class="keyword">const</span> uint32_t minimumBoardSize;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">static</span> <span class="keyword">const</span> uint32_t defaultBoardSize;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_class" href="classReversi.html">Reversi</a>(<a class="code hl_class" href="classPlayer.html">Player</a> _player1, <a class="code hl_class" href="classPlayer.html">Player</a> _player2, uint32_t boardSize = Reversi::defaultBoardSize);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classReversi.html#a466d4e00c107fef195a722254c373cce">isAValidHeight</a>(uint32_t boardHeight) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classReversi.html#a4620c65ea9531ace27ef30f5c212d4b1">isAValidWidth</a>(uint32_t boardWidth) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classReversi.html#a498106bdaa963752e31a1269ece47568">validateMove</a>(<span class="keyword">const</span> std::vector&lt;uint32_t&gt; &amp;move) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classReversi.html#a6ff01487a33a53b990b860eea97b5e14">makeMove</a>(<span class="keyword">const</span> std::vector&lt;uint32_t&gt; &amp;move, <span class="keywordtype">char</span> symbol) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    GameState <a class="code hl_function" href="classReversi.html#ae021a028f7f8704156abe8f41bfa8d8e">getGameState</a>(<span class="keyword">const</span> std::vector&lt;uint32_t&gt;&amp; move) <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classReversi.html#ad9096a2babeb691a4cc4fbab862f9a26">flipPieces</a>(<span class="keyword">const</span> std::vector&lt;uint32_t&gt;&amp; move, <span class="keywordtype">char</span> playerSymbol);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classReversi.html#af316b36ba367e41839519c5b15cffe92">isValidDirection</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> col, <span class="keywordtype">int</span> directionRow, <span class="keywordtype">int</span> directionCol, <span class="keywordtype">char</span> playerSymbol) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classReversi.html#ab287714eda83ffd7e4db4a4d7d981072">flipInDirection</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> col, <span class="keywordtype">int</span> directionRow, <span class="keywordtype">int</span> directionCol, <span class="keywordtype">char</span> playerSymbol);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classReversi.html#a408f41a7527c882e3d24357a85c9463c">isAnyDirectionValid</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> col, <span class="keywordtype">char</span> playerSymbol) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classReversi.html#a586beda484e3631c0c5182bf02a1a612">isWithinBounds</a>(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> col) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classReversi.html#a0320d6014c5cba793f49069b7865fd7d">hasValidMoves</a>(<span class="keywordtype">char</span> playerSymbol) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>};</div>
+</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassBoardGame_html"><div class="ttname"><a href="classBoardGame.html">BoardGame</a></div><div class="ttdef"><b>Definição</b> BoardGame.hpp:23</div></div>
+<div class="ttc" id="aclassPlayer_html"><div class="ttname"><a href="classPlayer.html">Player</a></div><div class="ttdef"><b>Definição</b> Player.hpp:15</div></div>
+<div class="ttc" id="aclassReversi_html"><div class="ttname"><a href="classReversi.html">Reversi</a></div><div class="ttdef"><b>Definição</b> Reversi.hpp:9</div></div>
+<div class="ttc" id="aclassReversi_html_a0320d6014c5cba793f49069b7865fd7d"><div class="ttname"><a href="classReversi.html#a0320d6014c5cba793f49069b7865fd7d">Reversi::hasValidMoves</a></div><div class="ttdeci">bool hasValidMoves(char playerSymbol) const</div><div class="ttdef"><b>Definição</b> Reversi.cpp:222</div></div>
+<div class="ttc" id="aclassReversi_html_a408f41a7527c882e3d24357a85c9463c"><div class="ttname"><a href="classReversi.html#a408f41a7527c882e3d24357a85c9463c">Reversi::isAnyDirectionValid</a></div><div class="ttdeci">bool isAnyDirectionValid(int row, int col, char playerSymbol) const</div><div class="ttdef"><b>Definição</b> Reversi.cpp:189</div></div>
+<div class="ttc" id="aclassReversi_html_a4620c65ea9531ace27ef30f5c212d4b1"><div class="ttname"><a href="classReversi.html#a4620c65ea9531ace27ef30f5c212d4b1">Reversi::isAValidWidth</a></div><div class="ttdeci">bool isAValidWidth(uint32_t boardWidth) const override</div><div class="ttdef"><b>Definição</b> Reversi.cpp:35</div></div>
+<div class="ttc" id="aclassReversi_html_a466d4e00c107fef195a722254c373cce"><div class="ttname"><a href="classReversi.html#a466d4e00c107fef195a722254c373cce">Reversi::isAValidHeight</a></div><div class="ttdeci">bool isAValidHeight(uint32_t boardHeight) const override</div><div class="ttdef"><b>Definição</b> Reversi.cpp:25</div></div>
+<div class="ttc" id="aclassReversi_html_a498106bdaa963752e31a1269ece47568"><div class="ttname"><a href="classReversi.html#a498106bdaa963752e31a1269ece47568">Reversi::validateMove</a></div><div class="ttdeci">void validateMove(const std::vector&lt; uint32_t &gt; &amp;move) const override</div><div class="ttdef"><b>Definição</b> Reversi.cpp:45</div></div>
+<div class="ttc" id="aclassReversi_html_a586beda484e3631c0c5182bf02a1a612"><div class="ttname"><a href="classReversi.html#a586beda484e3631c0c5182bf02a1a612">Reversi::isWithinBounds</a></div><div class="ttdeci">bool isWithinBounds(int row, int col) const</div><div class="ttdef"><b>Definição</b> Reversi.cpp:211</div></div>
+<div class="ttc" id="aclassReversi_html_a6ff01487a33a53b990b860eea97b5e14"><div class="ttname"><a href="classReversi.html#a6ff01487a33a53b990b860eea97b5e14">Reversi::makeMove</a></div><div class="ttdeci">void makeMove(const std::vector&lt; uint32_t &gt; &amp;move, char symbol) override</div><div class="ttdef"><b>Definição</b> Reversi.cpp:72</div></div>
+<div class="ttc" id="aclassReversi_html_ab287714eda83ffd7e4db4a4d7d981072"><div class="ttname"><a href="classReversi.html#ab287714eda83ffd7e4db4a4d7d981072">Reversi::flipInDirection</a></div><div class="ttdeci">void flipInDirection(int row, int col, int directionRow, int directionCol, char playerSymbol)</div><div class="ttdef"><b>Definição</b> Reversi.cpp:169</div></div>
+<div class="ttc" id="aclassReversi_html_ad9096a2babeb691a4cc4fbab862f9a26"><div class="ttname"><a href="classReversi.html#ad9096a2babeb691a4cc4fbab862f9a26">Reversi::flipPieces</a></div><div class="ttdeci">void flipPieces(const std::vector&lt; uint32_t &gt; &amp;move, char playerSymbol)</div><div class="ttdef"><b>Definição</b> Reversi.cpp:110</div></div>
+<div class="ttc" id="aclassReversi_html_ae021a028f7f8704156abe8f41bfa8d8e"><div class="ttname"><a href="classReversi.html#ae021a028f7f8704156abe8f41bfa8d8e">Reversi::getGameState</a></div><div class="ttdeci">GameState getGameState(const std::vector&lt; uint32_t &gt; &amp;move) const override</div><div class="ttdef"><b>Definição</b> Reversi.cpp:83</div></div>
+<div class="ttc" id="aclassReversi_html_af316b36ba367e41839519c5b15cffe92"><div class="ttname"><a href="classReversi.html#af316b36ba367e41839519c5b15cffe92">Reversi::isValidDirection</a></div><div class="ttdeci">bool isValidDirection(int row, int col, int directionRow, int directionCol, char playerSymbol) const</div><div class="ttdef"><b>Definição</b> Reversi.cpp:131</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

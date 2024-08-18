@@ -1,0 +1,94 @@
+\doxysection{Board\+Tests.\+cpp}
+\hypertarget{BoardTests_8cpp_source}{}\label{BoardTests_8cpp_source}\index{tests/BoardTests.cpp@{tests/BoardTests.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Paulo\ Henrique\ Pires\ \ on\ 16/08/24.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}doctest.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}exceptions.hpp"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ private\ public}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ protected\ public}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}Board.hpp"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#undef\ private}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#undef\ protected}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ TEST\_SUITE(\textcolor{stringliteral}{"{}Board"{}})\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Constructor"{}})\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Negative\ values}}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classBoard}{Board}}(8,\ -\/8),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classBoard}{Board}}(-\/8,\ 8),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classBoard}{Board}}(-\/8,\ -\/8),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Zero\ values}}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classBoard}{Board}}(0,\ 8),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classBoard}{Board}}(8,\ 0),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classBoard}{Board}}(0,\ 0),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Exceeding\ max\ board\ size}}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classBoard}{Board}}(Board::maxBoardSize\ +\ 1,\ 8),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classBoard}{Board}}(8,\ Board::maxBoardSize\ +\ 1),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classBoard}{Board}}(Board::maxBoardSize\ +\ 1,\ Board::maxBoardSize\ +\ 1),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Right\ values}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classBoard}{Board}}(8,\ 8));}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classBoard}{Board}}(8,\ Board::maxBoardSize));}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classBoard}{Board}}(Board::maxBoardSize,\ 8));}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classBoard}{Board}}(Board::maxBoardSize,\ Board::maxBoardSize));}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Get\ Dimensions"{}})\ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ height\ =\ 7,\ width\ =\ 5;}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBoard}{Board}}\ board(height,\ width);}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ CHECK(board.getHeight()\ ==\ height);}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ CHECK(board.getWidth()\ ==\ width);}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Print"{}})\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classBoard}{Board}}(1,\ 1).print());}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classBoard}{Board}}(Board::maxBoardSize,\ Board::maxBoardSize).print());}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Place/Get\ Symbol"{}})\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{char}\ symbol\ =\ \textcolor{charliteral}{'X'};}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ height\ =\ 7,\ width\ =\ 5;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Placed\ right}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBoard}{Board}}\ board1(height,\ width);}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ board1.placeSymbol(\{0\},\ symbol);}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ CHECK(board1.getSymbol(height-\/1,\ 0)\ ==\ symbol);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ board1.placeSymbol(\{width-\/1\},\ symbol);}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ CHECK(board1.getSymbol(height-\/1,\ width-\/1)\ ==\ symbol);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBoard}{Board}}\ board2(height,\ width);}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ board2.placeSymbol(\{0,\ 0\},\ symbol);}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ CHECK(board2.getSymbol(0,\ 0)\ ==\ symbol);}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ board2.placeSymbol(\{0,\ width-\/1\},\ symbol);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ CHECK(board2.getSymbol(0,\ width-\/1)\ ==\ symbol);}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ board2.placeSymbol(\{height-\/1,\ 0\},\ symbol);}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ CHECK(board2.getSymbol(height-\/1,\ 0)\ ==\ symbol);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ board2.placeSymbol(\{height-\/1,\ width-\/1\},\ symbol);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ CHECK(board2.getSymbol(height-\/1,\ width-\/1)\ ==\ symbol);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ out\ of\ range}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(board2.getSymbol(-\/1,\ 0),\ std::out\_of\_range);}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(board2.getSymbol(0,\ -\/1),\ std::out\_of\_range);}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(board2.getSymbol(-\/1,\ -\/1),\ std::out\_of\_range);}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(board2.getSymbol(height,\ 0),\ std::out\_of\_range);}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(board2.getSymbol(0,\ width),\ std::out\_of\_range);}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(board2.getSymbol(height,\ width),\ std::out\_of\_range);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Place\ out\ of\ range}}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(board1.placeSymbol(\{width\},\ symbol),\ std::out\_of\_range);}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(board2.placeSymbol(\{height,\ 0\},\ symbol),\ std::out\_of\_range);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(board2.placeSymbol(\{0,\ width\},\ symbol),\ std::out\_of\_range);}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(board2.placeSymbol(\{height,\ width\},\ symbol),\ std::out\_of\_range);}
+\DoxyCodeLine{00087\ \ \ \ \ \}}
+\DoxyCodeLine{00088\ \}}
+
+\end{DoxyCode}

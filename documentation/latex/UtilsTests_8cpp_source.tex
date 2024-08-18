@@ -1,0 +1,33 @@
+\doxysection{Utils\+Tests.\+cpp}
+\hypertarget{UtilsTests_8cpp_source}{}\label{UtilsTests_8cpp_source}\index{tests/UtilsTests.cpp@{tests/UtilsTests.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Paulo\ Henrique\ Pires\ \ on\ 17/08/24.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}doctest.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ private\ public}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ protected\ public}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}Utils.hpp"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#undef\ private}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#undef\ protected}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ TEST\_SUITE(\textcolor{stringliteral}{"{}Utils"{}})\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Clear\ Terminal"{}})\ \{\ \textcolor{comment}{//\ Has\ to\ be\ the\ first\ test\ since\ it\ clears\ the\ terminal}}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(Utils::clearTerminal());}
+\DoxyCodeLine{00018\ \ \ \ \ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Clean\ String"{}})\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ input\ =\ \textcolor{stringliteral}{"{}\ \ \(\backslash\)t\ Hello\ \(\backslash\)t\(\backslash\)t\(\backslash\)n\ \ \ World\ \(\backslash\)t\ -\/\ \(\backslash\)n\ \(\backslash\)t\ 0\ \ "{}};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ expected\ =\ \textcolor{stringliteral}{"{}Hello\ World\ -\/\ 0"{}};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ std::string\ returnValue;}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(returnValue\ =\ Utils::cleanString(input));}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ CHECK(returnValue\ ==\ expected);}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \}}
+
+\end{DoxyCode}

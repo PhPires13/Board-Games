@@ -1,0 +1,79 @@
+\doxysection{Player.\+hpp}
+\hypertarget{Player_8hpp_source}{}\label{Player_8hpp_source}\index{include/Player.hpp@{include/Player.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ pedro-\/pires\ on\ 7/3/24.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ PLAYER\_HPP}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ PLAYER\_HPP}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <list>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classPlayer}{Player}}\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ filePath;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ firstValidSymbol;}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ uint32\_t\ lastValidSymbol;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ std::string\ nick;}
+\DoxyCodeLine{00023\ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{char}\ symbol;}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ uint32\_t\ reversiWins;}
+\DoxyCodeLine{00028\ \ \ \ \ uint32\_t\ reversiLosses;}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ uint32\_t\ connectFourWins;}
+\DoxyCodeLine{00031\ \ \ \ \ uint32\_t\ connectFourLosses;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ uint32\_t\ tttWins;}
+\DoxyCodeLine{00034\ \ \ \ \ uint32\_t\ tttLosses;}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}(std::string\ \_nick,\ std::string\ \_name,\ \textcolor{keywordtype}{char}\ symbol\ =\ 0);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00051\ \ \ \ \ std::string\ \mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00058\ \ \ \ \ std::string\ \mbox{\hyperlink{classPlayer_a73e4ff2d70e62ca7e3be1d9b4ad9de85}{getName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayer_a6cd993753014ccdc16e08aa404203958}{setSymbol}}(\textcolor{keywordtype}{char}\ symbol);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00081\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classPlayer_a53339bac955beb333581f865546db107}{getWins}}(\textcolor{keywordtype}{char}\ game)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00090\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classPlayer_a6566537dd373e87d43385b2fe4de942e}{getLosses}}(\textcolor{keywordtype}{char}\ game)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayer_a31f3abdbf2e241d6f6e8659b04c2bd20}{addStats}}(\textcolor{keywordtype}{char}\ game,\ \textcolor{keywordtype}{bool}\ toAddWin,\ \textcolor{keywordtype}{bool}\ toAddLoss);}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayer_a7b80a4d7bc5fe7522a45a6c8e3a99773}{serialize}}(std::ofstream\&\ outputFile)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayer_a476cdc330565616e3bdc6a660c24a4b4}{deserialize}}(std::ifstream\&\ inputFile);}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayer_a12f65a371cdda1f1a049752489445d48}{createPlayer}}(\textcolor{keyword}{const}\ std::string\&\ nick,\ \textcolor{keyword}{const}\ std::string\&\ name,\ \textcolor{keywordtype}{char}\ symbol\ =\ 0);}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classPlayer}{Player}}\ \mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{loadPlayer}}(\textcolor{keyword}{const}\ std::string\&\ nick);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{updatePlayerStats}}(\textcolor{keyword}{const}\ std::string\&\ nick,\ \textcolor{keywordtype}{char}\ game,\ \textcolor{keywordtype}{bool}\ toAddWin,\ \textcolor{keywordtype}{bool}\ toAddLoss);}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayer_a5574664867e1d05cba067d4aaa1fac5c}{updatePlayerInfo}}(\textcolor{keyword}{const}\ std::string\&\ nick,\ \textcolor{keyword}{const}\ std::string\&\ name\ =\ \textcolor{stringliteral}{"{}"{}},\ \textcolor{keywordtype}{char}\ symbol\ =\ 0);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00168\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayer_a431643a31f1dd19c95c22a6fdb0232a6}{deletePlayer}}(\textcolor{keyword}{const}\ std::string\&\ nick);}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{static}\ std::list<Player>\ \mbox{\hyperlink{classPlayer_ac2cc0794b5a02b0d9325de133f4c9ed3}{getAllPlayers}}();}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classPlayer_acb610de195b5f560e009fc666b2ffced}{compareByNick}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\&\ player1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\&\ player2);}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classPlayer_aae458284178943b8ca2af752c5442736}{compareByName}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\&\ player1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\&\ player2);}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classPlayer_a547c60608af80be40ce6fc657c938313}{syncDatabase}}();}
+\DoxyCodeLine{00199\ \};}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//PLAYER\_HPP}}
+
+\end{DoxyCode}

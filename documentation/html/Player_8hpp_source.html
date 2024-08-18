@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Board Games: Código-Fonte de include/Player.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Board Games
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Player.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by pedro-pires on 7/3/24.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef PLAYER_HPP</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define PLAYER_HPP</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classPlayer.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="classPlayer.html">Player</a> {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">static</span> <span class="keyword">const</span> std::string filePath;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">static</span> <span class="keyword">const</span> uint32_t firstValidSymbol;</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">static</span> <span class="keyword">const</span> uint32_t lastValidSymbol;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    std::string nick;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    std::string name;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">char</span> symbol;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    uint32_t reversiWins;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    uint32_t reversiLosses;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    uint32_t connectFourWins;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    uint32_t connectFourLosses;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    uint32_t tttWins;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    uint32_t tttLosses;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="classPlayer.html">Player</a>(std::string _nick, std::string _name, <span class="keywordtype">char</span> symbol = 0);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    std::string <a class="code hl_function" href="classPlayer.html#aeb6f99400482a46e55c60f2ef6d2f764">getNick</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    std::string <a class="code hl_function" href="classPlayer.html#a73e4ff2d70e62ca7e3be1d9b4ad9de85">getName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">char</span> <a class="code hl_function" href="classPlayer.html#acafb522e729c2fe951550f09809e075c">getSymbol</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a6cd993753014ccdc16e08aa404203958">setSymbol</a>(<span class="keywordtype">char</span> symbol);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    uint32_t <a class="code hl_function" href="classPlayer.html#a53339bac955beb333581f865546db107">getWins</a>(<span class="keywordtype">char</span> game) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    uint32_t <a class="code hl_function" href="classPlayer.html#a6566537dd373e87d43385b2fe4de942e">getLosses</a>(<span class="keywordtype">char</span> game) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a31f3abdbf2e241d6f6e8659b04c2bd20">addStats</a>(<span class="keywordtype">char</span> game, <span class="keywordtype">bool</span> toAddWin, <span class="keywordtype">bool</span> toAddLoss);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a7b80a4d7bc5fe7522a45a6c8e3a99773">serialize</a>(std::ofstream&amp; outputFile) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a476cdc330565616e3bdc6a660c24a4b4">deserialize</a>(std::ifstream&amp; inputFile);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a12f65a371cdda1f1a049752489445d48">createPlayer</a>(<span class="keyword">const</span> std::string&amp; nick, <span class="keyword">const</span> std::string&amp; name, <span class="keywordtype">char</span> symbol = 0);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keyword">static</span> <a class="code hl_class" href="classPlayer.html">Player</a> <a class="code hl_function" href="classPlayer.html#ae950c7e93426454a231b5e85b164caa2">loadPlayer</a>(<span class="keyword">const</span> std::string&amp; nick);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a29b1e59eb6040d19ce5ac384fd6471e9">updatePlayerStats</a>(<span class="keyword">const</span> std::string&amp; nick, <span class="keywordtype">char</span> game, <span class="keywordtype">bool</span> toAddWin, <span class="keywordtype">bool</span> toAddLoss);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a5574664867e1d05cba067d4aaa1fac5c">updatePlayerInfo</a>(<span class="keyword">const</span> std::string&amp; nick, <span class="keyword">const</span> std::string&amp; name = <span class="stringliteral">&quot;&quot;</span>, <span class="keywordtype">char</span> symbol = 0);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a431643a31f1dd19c95c22a6fdb0232a6">deletePlayer</a>(<span class="keyword">const</span> std::string&amp; nick);</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="keyword">static</span> std::list&lt;Player&gt; <a class="code hl_function" href="classPlayer.html#ac2cc0794b5a02b0d9325de133f4c9ed3">getAllPlayers</a>();</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classPlayer.html#acb610de195b5f560e009fc666b2ffced">compareByNick</a>(<span class="keyword">const</span> <a class="code hl_class" href="classPlayer.html">Player</a>&amp; player1, <span class="keyword">const</span> <a class="code hl_class" href="classPlayer.html">Player</a>&amp; player2);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classPlayer.html#aae458284178943b8ca2af752c5442736">compareByName</a>(<span class="keyword">const</span> <a class="code hl_class" href="classPlayer.html">Player</a>&amp; player1, <span class="keyword">const</span> <a class="code hl_class" href="classPlayer.html">Player</a>&amp; player2);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classPlayer.html#a547c60608af80be40ce6fc657c938313">syncDatabase</a>();</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>};</div>
+</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="preprocessor">#endif </span><span class="comment">//PLAYER_HPP</span></div>
+<div class="ttc" id="aclassPlayer_html"><div class="ttname"><a href="classPlayer.html">Player</a></div><div class="ttdef"><b>Definição</b> Player.hpp:15</div></div>
+<div class="ttc" id="aclassPlayer_html_a12f65a371cdda1f1a049752489445d48"><div class="ttname"><a href="classPlayer.html#a12f65a371cdda1f1a049752489445d48">Player::createPlayer</a></div><div class="ttdeci">static void createPlayer(const std::string &amp;nick, const std::string &amp;name, char symbol=0)</div><div class="ttdef"><b>Definição</b> Player.cpp:127</div></div>
+<div class="ttc" id="aclassPlayer_html_a29b1e59eb6040d19ce5ac384fd6471e9"><div class="ttname"><a href="classPlayer.html#a29b1e59eb6040d19ce5ac384fd6471e9">Player::updatePlayerStats</a></div><div class="ttdeci">static void updatePlayerStats(const std::string &amp;nick, char game, bool toAddWin, bool toAddLoss)</div><div class="ttdef"><b>Definição</b> Player.cpp:171</div></div>
+<div class="ttc" id="aclassPlayer_html_a31f3abdbf2e241d6f6e8659b04c2bd20"><div class="ttname"><a href="classPlayer.html#a31f3abdbf2e241d6f6e8659b04c2bd20">Player::addStats</a></div><div class="ttdeci">void addStats(char game, bool toAddWin, bool toAddLoss)</div><div class="ttdef"><b>Definição</b> Player.cpp:69</div></div>
+<div class="ttc" id="aclassPlayer_html_a431643a31f1dd19c95c22a6fdb0232a6"><div class="ttname"><a href="classPlayer.html#a431643a31f1dd19c95c22a6fdb0232a6">Player::deletePlayer</a></div><div class="ttdeci">static void deletePlayer(const std::string &amp;nick)</div><div class="ttdef"><b>Definição</b> Player.cpp:217</div></div>
+<div class="ttc" id="aclassPlayer_html_a476cdc330565616e3bdc6a660c24a4b4"><div class="ttname"><a href="classPlayer.html#a476cdc330565616e3bdc6a660c24a4b4">Player::deserialize</a></div><div class="ttdeci">void deserialize(std::ifstream &amp;inputFile)</div><div class="ttdef"><b>Definição</b> Player.cpp:106</div></div>
+<div class="ttc" id="aclassPlayer_html_a53339bac955beb333581f865546db107"><div class="ttname"><a href="classPlayer.html#a53339bac955beb333581f865546db107">Player::getWins</a></div><div class="ttdeci">uint32_t getWins(char game) const</div><div class="ttdef"><b>Definição</b> Player.cpp:43</div></div>
+<div class="ttc" id="aclassPlayer_html_a547c60608af80be40ce6fc657c938313"><div class="ttname"><a href="classPlayer.html#a547c60608af80be40ce6fc657c938313">Player::syncDatabase</a></div><div class="ttdeci">static void syncDatabase()</div><div class="ttdef"><b>Definição</b> Player.cpp:281</div></div>
+<div class="ttc" id="aclassPlayer_html_a5574664867e1d05cba067d4aaa1fac5c"><div class="ttname"><a href="classPlayer.html#a5574664867e1d05cba067d4aaa1fac5c">Player::updatePlayerInfo</a></div><div class="ttdeci">static void updatePlayerInfo(const std::string &amp;nick, const std::string &amp;name=&quot;&quot;, char symbol=0)</div><div class="ttdef"><b>Definição</b> Player.cpp:212</div></div>
+<div class="ttc" id="aclassPlayer_html_a6566537dd373e87d43385b2fe4de942e"><div class="ttname"><a href="classPlayer.html#a6566537dd373e87d43385b2fe4de942e">Player::getLosses</a></div><div class="ttdeci">uint32_t getLosses(char game) const</div><div class="ttdef"><b>Definição</b> Player.cpp:56</div></div>
+<div class="ttc" id="aclassPlayer_html_a6cd993753014ccdc16e08aa404203958"><div class="ttname"><a href="classPlayer.html#a6cd993753014ccdc16e08aa404203958">Player::setSymbol</a></div><div class="ttdeci">void setSymbol(char symbol)</div><div class="ttdef"><b>Definição</b> Player.cpp:38</div></div>
+<div class="ttc" id="aclassPlayer_html_a73e4ff2d70e62ca7e3be1d9b4ad9de85"><div class="ttname"><a href="classPlayer.html#a73e4ff2d70e62ca7e3be1d9b4ad9de85">Player::getName</a></div><div class="ttdeci">std::string getName() const</div><div class="ttdef"><b>Definição</b> Player.cpp:30</div></div>
+<div class="ttc" id="aclassPlayer_html_a7b80a4d7bc5fe7522a45a6c8e3a99773"><div class="ttname"><a href="classPlayer.html#a7b80a4d7bc5fe7522a45a6c8e3a99773">Player::serialize</a></div><div class="ttdeci">void serialize(std::ofstream &amp;outputFile) const</div><div class="ttdef"><b>Definição</b> Player.cpp:87</div></div>
+<div class="ttc" id="aclassPlayer_html_aae458284178943b8ca2af752c5442736"><div class="ttname"><a href="classPlayer.html#aae458284178943b8ca2af752c5442736">Player::compareByName</a></div><div class="ttdeci">static bool compareByName(const Player &amp;player1, const Player &amp;player2)</div><div class="ttdef"><b>Definição</b> Player.cpp:277</div></div>
+<div class="ttc" id="aclassPlayer_html_ac2cc0794b5a02b0d9325de133f4c9ed3"><div class="ttname"><a href="classPlayer.html#ac2cc0794b5a02b0d9325de133f4c9ed3">Player::getAllPlayers</a></div><div class="ttdeci">static std::list&lt; Player &gt; getAllPlayers()</div><div class="ttdef"><b>Definição</b> Player.cpp:256</div></div>
+<div class="ttc" id="aclassPlayer_html_acafb522e729c2fe951550f09809e075c"><div class="ttname"><a href="classPlayer.html#acafb522e729c2fe951550f09809e075c">Player::getSymbol</a></div><div class="ttdeci">char getSymbol() const</div><div class="ttdef"><b>Definição</b> Player.cpp:34</div></div>
+<div class="ttc" id="aclassPlayer_html_acb610de195b5f560e009fc666b2ffced"><div class="ttname"><a href="classPlayer.html#acb610de195b5f560e009fc666b2ffced">Player::compareByNick</a></div><div class="ttdeci">static bool compareByNick(const Player &amp;player1, const Player &amp;player2)</div><div class="ttdef"><b>Definição</b> Player.cpp:273</div></div>
+<div class="ttc" id="aclassPlayer_html_ae950c7e93426454a231b5e85b164caa2"><div class="ttname"><a href="classPlayer.html#ae950c7e93426454a231b5e85b164caa2">Player::loadPlayer</a></div><div class="ttdeci">static Player loadPlayer(const std::string &amp;nick)</div><div class="ttdef"><b>Definição</b> Player.cpp:150</div></div>
+<div class="ttc" id="aclassPlayer_html_aeb6f99400482a46e55c60f2ef6d2f764"><div class="ttname"><a href="classPlayer.html#aeb6f99400482a46e55c60f2ef6d2f764">Player::getNick</a></div><div class="ttdeci">std::string getNick() const</div><div class="ttdef"><b>Definição</b> Player.cpp:26</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,141 @@
+\doxysection{Referência da Classe Board}
+\hypertarget{classBoard}{}\label{classBoard}\index{Board@{Board}}
+\doxysubsubsection*{Membros Públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBoard_a68ea81e340b13febd14968008a95141f}{Board}} (uint32\+\_\+t \+\_\+height, uint32\+\_\+t \+\_\+width, std\+::string index\+Color="{}"{}, std\+::string pieces\+Color="{}"{}, std\+::string border\+Color="{}"{}, std\+::string even\+Bg="{}"{}, std\+::string odd\+Bg="{}"{})
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classBoard_a497b16cc0884b2210dd45766fc63b25f}{get\+Width}} () const
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classBoard_af30a5a43871230a04d49dd87b99acc55}{get\+Height}} () const
+\item 
+void \mbox{\hyperlink{classBoard_ac6bc45b6b0bee9b5c91a5bd0d9676fb5}{print}} () const
+\item 
+char \mbox{\hyperlink{classBoard_adcccff11170293326c090a8e0ca6b060}{get\+Symbol}} (uint32\+\_\+t line, uint32\+\_\+t column) const
+\item 
+void \mbox{\hyperlink{classBoard_ab0ca907f6f0f22e55b0d7237253875eb}{place\+Symbol}} (const std\+::vector$<$ uint32\+\_\+t $>$ \&move, char symbol)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos Públicos Estáticos}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classBoard_a910fab44670cbeab1c1e10687aab89fe}\label{classBoard_a910fab44670cbeab1c1e10687aab89fe} 
+static const char {\bfseries empty\+Cell} = \textquotesingle{} \textquotesingle{}
+\item 
+\Hypertarget{classBoard_aeeff801399cfd05fe262a9e27c3c1d89}\label{classBoard_aeeff801399cfd05fe262a9e27c3c1d89} 
+static const uint32\+\_\+t {\bfseries max\+Board\+Size} = 12
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Atributos Privados}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classBoard_a93cbd5cf9a23c988858f8d513a4b58d6}\label{classBoard_a93cbd5cf9a23c988858f8d513a4b58d6} 
+uint32\+\_\+t {\bfseries height}
+\item 
+\Hypertarget{classBoard_a13f008a949509aa8c758204cb1321b07}\label{classBoard_a13f008a949509aa8c758204cb1321b07} 
+uint32\+\_\+t {\bfseries width}
+\item 
+\Hypertarget{classBoard_a66de759d6e3a02137540086b2454b2e1}\label{classBoard_a66de759d6e3a02137540086b2454b2e1} 
+std\+::vector$<$ std\+::vector$<$ char $>$ $>$ {\bfseries board}
+\item 
+\Hypertarget{classBoard_ac17505d149335a5270ff450c3709dd63}\label{classBoard_ac17505d149335a5270ff450c3709dd63} 
+const std\+::string {\bfseries index\+Color}
+\item 
+\Hypertarget{classBoard_abce2ef0188873ad9ec9675aa6777e54a}\label{classBoard_abce2ef0188873ad9ec9675aa6777e54a} 
+const std\+::string {\bfseries pieces\+Color}
+\item 
+\Hypertarget{classBoard_abf8e544c6a7e05bbeadac6b1646f9b21}\label{classBoard_abf8e544c6a7e05bbeadac6b1646f9b21} 
+const std\+::string {\bfseries border\+Color}
+\item 
+\Hypertarget{classBoard_a4bf1cb8326ba86aec965b1df1acd91c3}\label{classBoard_a4bf1cb8326ba86aec965b1df1acd91c3} 
+const std\+::string {\bfseries even\+Bg}
+\item 
+\Hypertarget{classBoard_a7baafd9cc1a2a8fdb738a58d6a78324b}\label{classBoard_a7baafd9cc1a2a8fdb738a58d6a78324b} 
+const std\+::string {\bfseries odd\+Bg}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Construtores e Destrutores}
+\Hypertarget{classBoard_a68ea81e340b13febd14968008a95141f}\label{classBoard_a68ea81e340b13febd14968008a95141f} 
+\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{Board()}{Board()}}
+{\footnotesize\ttfamily Board\+::\+Board (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{\+\_\+height,  }\item[{uint32\+\_\+t}]{\+\_\+width,  }\item[{std\+::string}]{index\+Color = {\ttfamily "{}"{}},  }\item[{std\+::string}]{pieces\+Color = {\ttfamily "{}"{}},  }\item[{std\+::string}]{border\+Color = {\ttfamily "{}"{}},  }\item[{std\+::string}]{even\+Bg = {\ttfamily "{}"{}},  }\item[{std\+::string}]{odd\+Bg = {\ttfamily "{}"{}} }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em \+\_\+height} & board height \\
+\hline
+{\em \+\_\+width} & board width \\
+\hline
+{\em index\+Color} & color for the indexes \\
+\hline
+{\em pieces\+Color} & color for the pieces \\
+\hline
+{\em border\+Color} & color for the board \\
+\hline
+{\em even\+Bg} & background color for the even cells \\
+\hline
+{\em odd\+Bg} & background color for the odd cells \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Documentação das funções}
+\Hypertarget{classBoard_af30a5a43871230a04d49dd87b99acc55}\label{classBoard_af30a5a43871230a04d49dd87b99acc55} 
+\index{Board@{Board}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getHeight()}{getHeight()}}
+{\footnotesize\ttfamily uint32\+\_\+t Board\+::get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Retorna}
+board height 
+\end{DoxyReturn}
+\Hypertarget{classBoard_adcccff11170293326c090a8e0ca6b060}\label{classBoard_adcccff11170293326c090a8e0ca6b060} 
+\index{Board@{Board}!getSymbol@{getSymbol}}
+\index{getSymbol@{getSymbol}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getSymbol()}{getSymbol()}}
+{\footnotesize\ttfamily char Board\+::get\+Symbol (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{line,  }\item[{uint32\+\_\+t}]{column }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em line} & \\
+\hline
+{\em column} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+the symbol at the given position 
+\end{DoxyReturn}
+\Hypertarget{classBoard_a497b16cc0884b2210dd45766fc63b25f}\label{classBoard_a497b16cc0884b2210dd45766fc63b25f} 
+\index{Board@{Board}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getWidth()}{getWidth()}}
+{\footnotesize\ttfamily uint32\+\_\+t Board\+::get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Retorna}
+board width 
+\end{DoxyReturn}
+\Hypertarget{classBoard_ab0ca907f6f0f22e55b0d7237253875eb}\label{classBoard_ab0ca907f6f0f22e55b0d7237253875eb} 
+\index{Board@{Board}!placeSymbol@{placeSymbol}}
+\index{placeSymbol@{placeSymbol}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{placeSymbol()}{placeSymbol()}}
+{\footnotesize\ttfamily void Board\+::place\+Symbol (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{move,  }\item[{char}]{symbol }\end{DoxyParamCaption})}
+
+Place symbol in the board, falling on the column or in the given coordinates 
+\begin{DoxyParams}{Parâmetros}
+{\em move} & vector with coordinates to place the symbol dim\+: 1-\/2 \\
+\hline
+{\em symbol} & symbol to be placed \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classBoard_ac6bc45b6b0bee9b5c91a5bd0d9676fb5}\label{classBoard_ac6bc45b6b0bee9b5c91a5bd0d9676fb5} 
+\index{Board@{Board}!print@{print}}
+\index{print@{print}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Board\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Print the current board state 
+
+A documentação para essa classe foi gerada a partir dos seguintes arquivos\+:\begin{DoxyCompactItemize}
+\item 
+include/Board.\+hpp\item 
+src/Board.\+cpp\end{DoxyCompactItemize}

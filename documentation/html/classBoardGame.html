@@ -1,0 +1,548 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Board Games: Referência da Classe BoardGame</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Board Games
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Membros Públicos</a> &#124;
+<a href="#pro-methods">Membros protegidos</a> &#124;
+<a href="#pro-static-methods">Membros protegidos estáticos</a> &#124;
+<a href="#pro-attribs">Atributos Protegidos</a> &#124;
+<a href="#pro-static-attribs">Atributos Protegidos Estáticos</a> &#124;
+<a href="classBoardGame-members.html">Lista de todos os Membros</a>  </div>
+  <div class="headertitle"><div class="title">Referência da Classe BoardGame</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="BoardGame_8hpp_source.html">BoardGame.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de hierarquia da classe BoardGame:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classBoardGame.png" usemap="#BoardGame_map" alt=""/>
+  <map id="BoardGame_map" name="BoardGame_map">
+<area href="classConnectFour.html" alt="ConnectFour" shape="rect" coords="0,56,86,80"/>
+<area href="classReversi.html" alt="Reversi" shape="rect" coords="96,56,182,80"/>
+<area href="classTicTacToe.html" alt="TicTacToe" shape="rect" coords="192,56,278,80"/>
+  </map>
+</div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Membros Públicos</h2></td></tr>
+<tr class="memitem:a0d84f9fb30ea2420d7830b4e384db4d1" id="r_a0d84f9fb30ea2420d7830b4e384db4d1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoardGame.html#a0d84f9fb30ea2420d7830b4e384db4d1">BoardGame</a> (<a class="el" href="classPlayer.html">Player</a> _player1, <a class="el" href="classPlayer.html">Player</a> _player2, uint32_t boardHeight=BoardGame::defaultBoardHeight, uint32_t boardWidth=BoardGame::defaultBoardWidth, const std::string &amp;indexColor=&quot;&quot;, const std::string &amp;piecesColor=&quot;&quot;, const std::string &amp;borderColor=&quot;&quot;, const std::string &amp;evenBg=&quot;&quot;, const std::string &amp;oddBg=&quot;&quot;)</td></tr>
+<tr class="separator:a0d84f9fb30ea2420d7830b4e384db4d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21c1e2ceca3946093027daefab20a3b7" id="r_a21c1e2ceca3946093027daefab20a3b7"><td class="memItemLeft" align="right" valign="top">GameState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoardGame.html#a21c1e2ceca3946093027daefab20a3b7">playGame</a> ()</td></tr>
+<tr class="separator:a21c1e2ceca3946093027daefab20a3b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Membros protegidos</h2></td></tr>
+<tr class="memitem:af7251441fc9263b8b77d27aae106219c" id="r_af7251441fc9263b8b77d27aae106219c"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoardGame.html#af7251441fc9263b8b77d27aae106219c">isAValidHeight</a> (uint32_t boardHeight) const</td></tr>
+<tr class="separator:af7251441fc9263b8b77d27aae106219c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae01b19538655c1d04161de92a8056e12" id="r_ae01b19538655c1d04161de92a8056e12"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoardGame.html#ae01b19538655c1d04161de92a8056e12">isAValidWidth</a> (uint32_t boardWidth) const</td></tr>
+<tr class="separator:ae01b19538655c1d04161de92a8056e12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3945f4cc72c1710e7bc834e79e97d590" id="r_a3945f4cc72c1710e7bc834e79e97d590"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoardGame.html#a3945f4cc72c1710e7bc834e79e97d590">printBoard</a> () const</td></tr>
+<tr class="separator:a3945f4cc72c1710e7bc834e79e97d590"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e5d7aa0e75dcc1964fbae0a97106422" id="r_a5e5d7aa0e75dcc1964fbae0a97106422"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoardGame.html#a5e5d7aa0e75dcc1964fbae0a97106422">validateMove</a> (const std::vector&lt; uint32_t &gt; &amp;move) const</td></tr>
+<tr class="separator:a5e5d7aa0e75dcc1964fbae0a97106422"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace8625ebf31b8d5b2b7477f0ebc7e9a0" id="r_ace8625ebf31b8d5b2b7477f0ebc7e9a0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoardGame.html#ace8625ebf31b8d5b2b7477f0ebc7e9a0">makeMove</a> (const std::vector&lt; uint32_t &gt; &amp;move, char symbol)</td></tr>
+<tr class="separator:ace8625ebf31b8d5b2b7477f0ebc7e9a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecc780aa669fa3287bf8988becb773b4" id="r_aecc780aa669fa3287bf8988becb773b4"><td class="memItemLeft" align="right" valign="top">virtual GameState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoardGame.html#aecc780aa669fa3287bf8988becb773b4">getGameState</a> (const std::vector&lt; uint32_t &gt; &amp;move) const</td></tr>
+<tr class="separator:aecc780aa669fa3287bf8988becb773b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e2f74f86bff4949516402d3ea981436" id="r_a2e2f74f86bff4949516402d3ea981436"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPlayer.html">Player</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoardGame.html#a2e2f74f86bff4949516402d3ea981436">whoseTurn</a> () const</td></tr>
+<tr class="separator:a2e2f74f86bff4949516402d3ea981436"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
+Membros protegidos estáticos</h2></td></tr>
+<tr class="memitem:ab949ea2e2cd99632d784a1f7334af96a" id="r_ab949ea2e2cd99632d784a1f7334af96a"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; uint32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classBoardGame.html#ab949ea2e2cd99632d784a1f7334af96a">readMove</a> ()</td></tr>
+<tr class="separator:ab949ea2e2cd99632d784a1f7334af96a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Atributos Protegidos</h2></td></tr>
+<tr class="memitem:a3dbe986e81aebde93c1030704d8d2a26" id="r_a3dbe986e81aebde93c1030704d8d2a26"><td class="memItemLeft" align="right" valign="top"><a id="a3dbe986e81aebde93c1030704d8d2a26" name="a3dbe986e81aebde93c1030704d8d2a26"></a>
+<a class="el" href="classPlayer.html">Player</a>&#160;</td><td class="memItemRight" valign="bottom"><b>player1</b></td></tr>
+<tr class="separator:a3dbe986e81aebde93c1030704d8d2a26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10fc21977a5f383bcc8decf1e3f715a5" id="r_a10fc21977a5f383bcc8decf1e3f715a5"><td class="memItemLeft" align="right" valign="top"><a id="a10fc21977a5f383bcc8decf1e3f715a5" name="a10fc21977a5f383bcc8decf1e3f715a5"></a>
+<a class="el" href="classPlayer.html">Player</a>&#160;</td><td class="memItemRight" valign="bottom"><b>player2</b></td></tr>
+<tr class="separator:a10fc21977a5f383bcc8decf1e3f715a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accfffd13a5f24592590c9a324cf7e8cd" id="r_accfffd13a5f24592590c9a324cf7e8cd"><td class="memItemLeft" align="right" valign="top"><a id="accfffd13a5f24592590c9a324cf7e8cd" name="accfffd13a5f24592590c9a324cf7e8cd"></a>
+<a class="el" href="classBoard.html">Board</a>&#160;</td><td class="memItemRight" valign="bottom"><b>board</b></td></tr>
+<tr class="separator:accfffd13a5f24592590c9a324cf7e8cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeca0154244eb5f10db8b9b45cac24958" id="r_aeca0154244eb5f10db8b9b45cac24958"><td class="memItemLeft" align="right" valign="top"><a id="aeca0154244eb5f10db8b9b45cac24958" name="aeca0154244eb5f10db8b9b45cac24958"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>turn</b></td></tr>
+<tr class="separator:aeca0154244eb5f10db8b9b45cac24958"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
+Atributos Protegidos Estáticos</h2></td></tr>
+<tr class="memitem:aca61c3a52f024b05e8f38e452c8b4e29" id="r_aca61c3a52f024b05e8f38e452c8b4e29"><td class="memItemLeft" align="right" valign="top"><a id="aca61c3a52f024b05e8f38e452c8b4e29" name="aca61c3a52f024b05e8f38e452c8b4e29"></a>
+static const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>defaultBoardHeight</b> = 4</td></tr>
+<tr class="separator:aca61c3a52f024b05e8f38e452c8b4e29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44e4294a4c877b5fb5b43283ffc55843" id="r_a44e4294a4c877b5fb5b43283ffc55843"><td class="memItemLeft" align="right" valign="top"><a id="a44e4294a4c877b5fb5b43283ffc55843" name="a44e4294a4c877b5fb5b43283ffc55843"></a>
+static const uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>defaultBoardWidth</b> = 4</td></tr>
+<tr class="separator:a44e4294a4c877b5fb5b43283ffc55843"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bca6b3c24bf6f5aa3d2cd699385509f" id="r_a8bca6b3c24bf6f5aa3d2cd699385509f"><td class="memItemLeft" align="right" valign="top"><a id="a8bca6b3c24bf6f5aa3d2cd699385509f" name="a8bca6b3c24bf6f5aa3d2cd699385509f"></a>
+static const char&#160;</td><td class="memItemRight" valign="bottom"><b>defaultSymbol1</b> = 'X'</td></tr>
+<tr class="separator:a8bca6b3c24bf6f5aa3d2cd699385509f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f911ef285f2c528caf01d5ab34d9df2" id="r_a1f911ef285f2c528caf01d5ab34d9df2"><td class="memItemLeft" align="right" valign="top"><a id="a1f911ef285f2c528caf01d5ab34d9df2" name="a1f911ef285f2c528caf01d5ab34d9df2"></a>
+static const char&#160;</td><td class="memItemRight" valign="bottom"><b>defaultSymbol2</b> = 'O'</td></tr>
+<tr class="separator:a1f911ef285f2c528caf01d5ab34d9df2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Class to represent a board game, it is responsible for controlling all the processes of the game and the players in the match </p>
+</div><h2 class="groupheader">Construtores e Destrutores</h2>
+<a id="a0d84f9fb30ea2420d7830b4e384db4d1" name="a0d84f9fb30ea2420d7830b4e384db4d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d84f9fb30ea2420d7830b4e384db4d1">&#9670;&#160;</a></span>BoardGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BoardGame::BoardGame </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPlayer.html">Player</a>&#160;</td>
+          <td class="paramname"><em>_player1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPlayer.html">Player</a>&#160;</td>
+          <td class="paramname"><em>_player2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>boardHeight</em> = <code>BoardGame::defaultBoardHeight</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>boardWidth</em> = <code>BoardGame::defaultBoardWidth</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>indexColor</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>piecesColor</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>borderColor</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>evenBg</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>oddBg</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Create a <a class="el" href="classBoardGame.html">BoardGame</a> instance</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">_player1</td><td><a class="el" href="classPlayer.html">Player</a> 1 of the game </td></tr>
+    <tr><td class="paramname">_player2</td><td><a class="el" href="classPlayer.html">Player</a> 2 of the game </td></tr>
+    <tr><td class="paramname">boardHeight</td><td>Height of the board </td></tr>
+    <tr><td class="paramname">boardWidth</td><td>Width of the board </td></tr>
+    <tr><td class="paramname">indexColor</td><td>Color of the indexes </td></tr>
+    <tr><td class="paramname">piecesColor</td><td>Color of the pieces </td></tr>
+    <tr><td class="paramname">borderColor</td><td>Color of the board </td></tr>
+    <tr><td class="paramname">evenBg</td><td>Background color of the even cells </td></tr>
+    <tr><td class="paramname">oddBg</td><td>Background color of the odd cells </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Documentação das funções</h2>
+<a id="aecc780aa669fa3287bf8988becb773b4" name="aecc780aa669fa3287bf8988becb773b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecc780aa669fa3287bf8988becb773b4">&#9670;&#160;</a></span>getGameState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameState BoardGame::getGameState </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; uint32_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>move</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Check if the game is over</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">move</td><td>The last move made, can be used for optimal checks</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>GameState enum </dd></dl>
+
+<p>Reimplementado por <a class="el" href="classConnectFour.html#a7d74751dda08358520d8e5eba9cbd879">ConnectFour</a>, <a class="el" href="classReversi.html#ae021a028f7f8704156abe8f41bfa8d8e">Reversi</a> e <a class="el" href="classTicTacToe.html#a7501ae96020a99310e94181f1d4bc2a0">TicTacToe</a>.</p>
+
+</div>
+</div>
+<a id="af7251441fc9263b8b77d27aae106219c" name="af7251441fc9263b8b77d27aae106219c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7251441fc9263b8b77d27aae106219c">&#9670;&#160;</a></span>isAValidHeight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BoardGame::isAValidHeight </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>boardHeight</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Check if it is a valid height for the game board</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">boardHeight</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true if it is a valid height </dd></dl>
+
+<p>Reimplementado por <a class="el" href="classConnectFour.html#a050f9a5463d9b0949698c462f3d7d6e5">ConnectFour</a> e <a class="el" href="classReversi.html#a466d4e00c107fef195a722254c373cce">Reversi</a>.</p>
+
+</div>
+</div>
+<a id="ae01b19538655c1d04161de92a8056e12" name="ae01b19538655c1d04161de92a8056e12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae01b19538655c1d04161de92a8056e12">&#9670;&#160;</a></span>isAValidWidth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool BoardGame::isAValidWidth </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>boardWidth</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Check if it is a valid height for the game board</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">boardWidth</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true if it is a valid height </dd></dl>
+
+<p>Reimplementado por <a class="el" href="classConnectFour.html#ade2324e8f6036c45bf06c93d6e033048">ConnectFour</a> e <a class="el" href="classReversi.html#a4620c65ea9531ace27ef30f5c212d4b1">Reversi</a>.</p>
+
+</div>
+</div>
+<a id="ace8625ebf31b8d5b2b7477f0ebc7e9a0" name="ace8625ebf31b8d5b2b7477f0ebc7e9a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace8625ebf31b8d5b2b7477f0ebc7e9a0">&#9670;&#160;</a></span>makeMove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BoardGame::makeMove </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; uint32_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>move</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>symbol</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Execute move on the board</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">move</td><td>The move to be executed </td></tr>
+    <tr><td class="paramname">symbol</td><td>The symbol to be placed on the board </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplementado por <a class="el" href="classReversi.html#a6ff01487a33a53b990b860eea97b5e14">Reversi</a>.</p>
+
+</div>
+</div>
+<a id="a21c1e2ceca3946093027daefab20a3b7" name="a21c1e2ceca3946093027daefab20a3b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21c1e2ceca3946093027daefab20a3b7">&#9670;&#160;</a></span>playGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GameState BoardGame::playGame </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Play the game</p>
+<dl class="section return"><dt>Retorna</dt><dd>The game state at the end </dd></dl>
+
+</div>
+</div>
+<a id="a3945f4cc72c1710e7bc834e79e97d590" name="a3945f4cc72c1710e7bc834e79e97d590"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3945f4cc72c1710e7bc834e79e97d590">&#9670;&#160;</a></span>printBoard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BoardGame::printBoard </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Print the current board state </p>
+
+</div>
+</div>
+<a id="ab949ea2e2cd99632d784a1f7334af96a" name="ab949ea2e2cd99632d784a1f7334af96a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab949ea2e2cd99632d784a1f7334af96a">&#9670;&#160;</a></span>readMove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; uint32_t &gt; BoardGame::readMove </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Read a move from the whole input line (int values separated by space)</p>
+<dl class="section return"><dt>Retorna</dt><dd>A vector with the move coordinates </dd></dl>
+
+</div>
+</div>
+<a id="a5e5d7aa0e75dcc1964fbae0a97106422" name="a5e5d7aa0e75dcc1964fbae0a97106422"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e5d7aa0e75dcc1964fbae0a97106422">&#9670;&#160;</a></span>validateMove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void BoardGame::validateMove </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; uint32_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>move</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Validate if move is valid by throwing exceptions if not</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">move</td><td>The move to be checked</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="classincorrect__format.html">incorrect_format</a></td><td></td></tr>
+    <tr><td class="paramname"><a class="el" href="classinvalid__move.html">invalid_move</a></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplementado por <a class="el" href="classConnectFour.html#a23923563b9cdc2658a1397542ce5d6a8">ConnectFour</a>, <a class="el" href="classReversi.html#a498106bdaa963752e31a1269ece47568">Reversi</a> e <a class="el" href="classTicTacToe.html#a637a0986399c31e14a2241349486cbcf">TicTacToe</a>.</p>
+
+</div>
+</div>
+<a id="a2e2f74f86bff4949516402d3ea981436" name="a2e2f74f86bff4949516402d3ea981436"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e2f74f86bff4949516402d3ea981436">&#9670;&#160;</a></span>whoseTurn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPlayer.html">Player</a> BoardGame::whoseTurn </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Check whose turn is it </p>
+
+</div>
+</div>
+<hr/>A documentação para essa classe foi gerada a partir dos seguintes arquivos:<ul>
+<li>include/<a class="el" href="BoardGame_8hpp_source.html">BoardGame.hpp</a></li>
+<li>src/<b>BoardGame.cpp</b></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

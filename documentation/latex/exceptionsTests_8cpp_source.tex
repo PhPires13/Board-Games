@@ -1,0 +1,55 @@
+\doxysection{exceptions\+Tests.\+cpp}
+\hypertarget{exceptionsTests_8cpp_source}{}\label{exceptionsTests_8cpp_source}\index{tests/exceptionsTests.cpp@{tests/exceptionsTests.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Paulo\ Henrique\ Pires\ \ on\ 17/08/24.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}doctest.h"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ private\ public}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ protected\ public}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}exceptions.hpp"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#undef\ private}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#undef\ protected}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ TEST\_SUITE(\textcolor{stringliteral}{"{}Exceptions"{}})\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Throw"{}})\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classinvalid__command}{invalid\_command}}(),\ \mbox{\hyperlink{classinvalid__command}{invalid\_command}});}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classgame__not__found}{game\_not\_found}}(),\ \mbox{\hyperlink{classgame__not__found}{game\_not\_found}});}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}}(),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classplayer__not__found}{player\_not\_found}}(),\ \mbox{\hyperlink{classplayer__not__found}{player\_not\_found}});}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classfile__error}{file\_error}}(),\ \mbox{\hyperlink{classfile__error}{file\_error}});}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classduplicated__player}{duplicated\_player}}(),\ \mbox{\hyperlink{classduplicated__player}{duplicated\_player}});}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}}(),\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}});}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}}(),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classsize__exceeded}{size\_exceeded}}(),\ \mbox{\hyperlink{classsize__exceeded}{size\_exceeded}});}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classinvalid__command}{invalid\_command}}(),\ std::exception);}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classgame__not__found}{game\_not\_found}}(),\ std::exception);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}}(),\ std::exception);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classplayer__not__found}{player\_not\_found}}(),\ std::exception);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classfile__error}{file\_error}}(),\ std::exception);}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classduplicated__player}{duplicated\_player}}(),\ std::exception);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}}(),\ std::exception);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}}(),\ std::exception);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\textcolor{keywordflow}{throw}\ \mbox{\hyperlink{classsize__exceeded}{size\_exceeded}}(),\ std::exception);}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}What"{}})\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classinvalid__command}{invalid\_command}}().what());}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classgame__not__found}{game\_not\_found}}().what());}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classincorrect__data}{incorrect\_data}}().what());}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classplayer__not__found}{player\_not\_found}}().what());}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classfile__error}{file\_error}}().what());}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classduplicated__player}{duplicated\_player}}().what());}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classincorrect__format}{incorrect\_format}}().what());}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classinvalid__move}{invalid\_move}}().what());}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classsize__exceeded}{size\_exceeded}}().what());}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Board Games: Código-Fonte de include/BoardGame.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Board Games
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">BoardGame.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// Created by pires on 6/28/2024.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">//</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef BOARDGAME_HPP</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define BOARDGAME_HPP</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;Board.hpp&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;Player.hpp&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">enum</span> GameState {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    NOT_OVER = 0,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    PLAYER1_WINS = 1,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    PLAYER2_WINS = 2,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    TIE = 3,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>};</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classBoardGame.html">   23</a></span><span class="keyword">class </span><a class="code hl_class" href="classBoardGame.html">BoardGame</a> {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">static</span> <span class="keyword">const</span> uint32_t defaultBoardHeight;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">static</span> <span class="keyword">const</span> uint32_t defaultBoardWidth;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> defaultSymbol1;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> defaultSymbol2;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_class" href="classPlayer.html">Player</a> player1;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_class" href="classPlayer.html">Player</a> player2;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_class" href="classBoard.html">Board</a> board;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    uint32_t turn;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_class" href="classBoardGame.html">BoardGame</a>(<a class="code hl_class" href="classPlayer.html">Player</a> _player1, <a class="code hl_class" href="classPlayer.html">Player</a> _player2, uint32_t boardHeight = BoardGame::defaultBoardHeight, uint32_t boardWidth = BoardGame::defaultBoardWidth,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>     <span class="keyword">const</span> std::string&amp; indexColor = <span class="stringliteral">&quot;&quot;</span>, <span class="keyword">const</span> std::string&amp; piecesColor = <span class="stringliteral">&quot;&quot;</span>, <span class="keyword">const</span> std::string&amp; borderColor = <span class="stringliteral">&quot;&quot;</span>,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>     <span class="keyword">const</span> std::string&amp; evenBg = <span class="stringliteral">&quot;&quot;</span>, <span class="keyword">const</span> std::string&amp; oddBg = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classBoardGame.html#af7251441fc9263b8b77d27aae106219c">isAValidHeight</a>(uint32_t boardHeight) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classBoardGame.html#ae01b19538655c1d04161de92a8056e12">isAValidWidth</a>(uint32_t boardWidth) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classBoardGame.html#a3945f4cc72c1710e7bc834e79e97d590">printBoard</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">static</span> std::vector&lt;uint32_t&gt; <a class="code hl_function" href="classBoardGame.html#ab949ea2e2cd99632d784a1f7334af96a">readMove</a>();</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classBoardGame.html#a5e5d7aa0e75dcc1964fbae0a97106422">validateMove</a>(<span class="keyword">const</span> std::vector&lt;uint32_t&gt;&amp; move) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classBoardGame.html#ace8625ebf31b8d5b2b7477f0ebc7e9a0">makeMove</a>(<span class="keyword">const</span> std::vector&lt;uint32_t&gt;&amp; move, <span class="keywordtype">char</span> symbol);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keyword">virtual</span> GameState <a class="code hl_function" href="classBoardGame.html#aecc780aa669fa3287bf8988becb773b4">getGameState</a>(<span class="keyword">const</span> std::vector&lt;uint32_t&gt;&amp; move) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <a class="code hl_class" href="classPlayer.html">Player</a> <a class="code hl_function" href="classBoardGame.html#a2e2f74f86bff4949516402d3ea981436">whoseTurn</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    GameState <a class="code hl_function" href="classBoardGame.html#a21c1e2ceca3946093027daefab20a3b7">playGame</a>();</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>};</div>
+</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="preprocessor">#endif </span><span class="comment">//BOARDGAME_HPP</span></div>
+<div class="ttc" id="aclassBoardGame_html"><div class="ttname"><a href="classBoardGame.html">BoardGame</a></div><div class="ttdef"><b>Definição</b> BoardGame.hpp:23</div></div>
+<div class="ttc" id="aclassBoardGame_html_a21c1e2ceca3946093027daefab20a3b7"><div class="ttname"><a href="classBoardGame.html#a21c1e2ceca3946093027daefab20a3b7">BoardGame::playGame</a></div><div class="ttdeci">GameState playGame()</div><div class="ttdef"><b>Definição</b> BoardGame.cpp:97</div></div>
+<div class="ttc" id="aclassBoardGame_html_a2e2f74f86bff4949516402d3ea981436"><div class="ttname"><a href="classBoardGame.html#a2e2f74f86bff4949516402d3ea981436">BoardGame::whoseTurn</a></div><div class="ttdeci">Player whoseTurn() const</div><div class="ttdef"><b>Definição</b> BoardGame.cpp:93</div></div>
+<div class="ttc" id="aclassBoardGame_html_a3945f4cc72c1710e7bc834e79e97d590"><div class="ttname"><a href="classBoardGame.html#a3945f4cc72c1710e7bc834e79e97d590">BoardGame::printBoard</a></div><div class="ttdeci">void printBoard() const</div><div class="ttdef"><b>Definição</b> BoardGame.cpp:44</div></div>
+<div class="ttc" id="aclassBoardGame_html_a5e5d7aa0e75dcc1964fbae0a97106422"><div class="ttname"><a href="classBoardGame.html#a5e5d7aa0e75dcc1964fbae0a97106422">BoardGame::validateMove</a></div><div class="ttdeci">virtual void validateMove(const std::vector&lt; uint32_t &gt; &amp;move) const</div><div class="ttdef"><b>Definição</b> BoardGame.cpp:65</div></div>
+<div class="ttc" id="aclassBoardGame_html_ab949ea2e2cd99632d784a1f7334af96a"><div class="ttname"><a href="classBoardGame.html#ab949ea2e2cd99632d784a1f7334af96a">BoardGame::readMove</a></div><div class="ttdeci">static std::vector&lt; uint32_t &gt; readMove()</div><div class="ttdef"><b>Definição</b> BoardGame.cpp:48</div></div>
+<div class="ttc" id="aclassBoardGame_html_ace8625ebf31b8d5b2b7477f0ebc7e9a0"><div class="ttname"><a href="classBoardGame.html#ace8625ebf31b8d5b2b7477f0ebc7e9a0">BoardGame::makeMove</a></div><div class="ttdeci">virtual void makeMove(const std::vector&lt; uint32_t &gt; &amp;move, char symbol)</div><div class="ttdef"><b>Definição</b> BoardGame.cpp:78</div></div>
+<div class="ttc" id="aclassBoardGame_html_ae01b19538655c1d04161de92a8056e12"><div class="ttname"><a href="classBoardGame.html#ae01b19538655c1d04161de92a8056e12">BoardGame::isAValidWidth</a></div><div class="ttdeci">virtual bool isAValidWidth(uint32_t boardWidth) const</div><div class="ttdef"><b>Definição</b> BoardGame.cpp:40</div></div>
+<div class="ttc" id="aclassBoardGame_html_aecc780aa669fa3287bf8988becb773b4"><div class="ttname"><a href="classBoardGame.html#aecc780aa669fa3287bf8988becb773b4">BoardGame::getGameState</a></div><div class="ttdeci">virtual GameState getGameState(const std::vector&lt; uint32_t &gt; &amp;move) const</div><div class="ttdef"><b>Definição</b> BoardGame.cpp:82</div></div>
+<div class="ttc" id="aclassBoardGame_html_af7251441fc9263b8b77d27aae106219c"><div class="ttname"><a href="classBoardGame.html#af7251441fc9263b8b77d27aae106219c">BoardGame::isAValidHeight</a></div><div class="ttdeci">virtual bool isAValidHeight(uint32_t boardHeight) const</div><div class="ttdef"><b>Definição</b> BoardGame.cpp:36</div></div>
+<div class="ttc" id="aclassBoard_html"><div class="ttname"><a href="classBoard.html">Board</a></div><div class="ttdef"><b>Definição</b> Board.hpp:12</div></div>
+<div class="ttc" id="aclassPlayer_html"><div class="ttname"><a href="classPlayer.html">Player</a></div><div class="ttdef"><b>Definição</b> Player.hpp:15</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>
