@@ -1,11 +1,24 @@
+ifeq ($(OS),Windows_NT) # TODO: check if needed
+    SEP = \\
+    RM = del /Q
+else
+    SEP = /
+    RM = rm -f
+endif
+
 CC=g++
 CFLAGS=-std=c++11 -Wall
 INCLUDE_DIR=include
 SRC_DIR=src
 OBJ_DIR=obj
 BIN_DIR=bin
+TESTS_DIR=tests
+TESTS_OBJ_DIR=$(OBJ_DIR)/tests
+TESTS_BIN_DIR=$(BIN_DIR)/tests
+THIRD_PARTY_DIR=third_party
 
-all: $(BIN_DIR)/Board_Games
+# ------------------------------------------------- Main
+main: $(BIN_DIR)/Board_Games
 
 $(OBJ_DIR)/Utils.o: $(INCLUDE_DIR)/Utils.hpp $(SRC_DIR)/Utils.cpp
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/Utils.cpp -I $(INCLUDE_DIR) -o $(OBJ_DIR)/Utils.o
@@ -40,5 +53,37 @@ $(OBJ_DIR)/main.o: $(SRC_DIR)/main.cpp $(INCLUDE_DIR)/Manager.hpp $(INCLUDE_DIR)
 $(BIN_DIR)/Board_Games: $(OBJ_DIR)/Utils.o $(OBJ_DIR)/exceptions.o $(OBJ_DIR)/Board.o $(OBJ_DIR)/Player.o $(OBJ_DIR)/BoardGame.o $(OBJ_DIR)/TicTacToe.o $(OBJ_DIR)/Reversi.o $(OBJ_DIR)/ConnectFour.o $(OBJ_DIR)/Manager.o $(OBJ_DIR)/main.o
 	$(CC) $(CFLAGS) $(OBJ_DIR)/*.o -o $(BIN_DIR)/Board_Games
 
+
+# ------------------------------------------------- Tests
+tests: main $(TESTS_BIN_DIR)/Board_Games_Tests
+
+$(TESTS_OBJ_DIR)/BoardTests.o: $(TESTS_DIR)/BoardTests.cpp $(INCLUDE_DIR)/Board.hpp $(INCLUDE_DIR)/exceptions.hpp $(THIRD_PARTY_DIR)/doctest.h
+	$(CC) $(CFLAGS) -c $(TESTS_DIR)/BoardTests.cpp -I $(INCLUDE_DIR) -I $(THIRD_PARTY_DIR) -o $(TESTS_OBJ_DIR)/BoardTests.o
+
+$(TESTS_OBJ_DIR)/BoardGameTests.o: $(TESTS_DIR)/BoardGameTests.cpp $(INCLUDE_DIR)/BoardGame.hpp $(INCLUDE_DIR)/Player.hpp $(INCLUDE_DIR)/exceptions.hpp $(THIRD_PARTY_DIR)/doctest.h
+	$(CC) $(CFLAGS) -c $(TESTS_DIR)/BoardGameTests.cpp -I $(INCLUDE_DIR) -I $(THIRD_PARTY_DIR) -o $(TESTS_OBJ_DIR)/BoardGameTests.o
+
+$(TESTS_OBJ_DIR)/PlayerTests.o: $(TESTS_DIR)/PlayerTests.cpp $(INCLUDE_DIR)/Player.hpp $(INCLUDE_DIR)/Manager.hpp $(INCLUDE_DIR)/exceptions.hpp $(THIRD_PARTY_DIR)/doctest.h
+	$(CC) $(CFLAGS) -c $(TESTS_DIR)/PlayerTests.cpp -I $(INCLUDE_DIR) -I $(THIRD_PARTY_DIR) -o $(TESTS_OBJ_DIR)/PlayerTests.o
+
+$(TESTS_OBJ_DIR)/TicTacToeTests.o: $(TESTS_DIR)/TicTacToeTests.cpp $(INCLUDE_DIR)/TicTacToe.hpp $(INCLUDE_DIR)/Player.hpp $(INCLUDE_DIR)/exceptions.hpp $(THIRD_PARTY_DIR)/doctest.h
+	$(CC) $(CFLAGS) -c $(TESTS_DIR)/TicTacToeTests.cpp -I $(INCLUDE_DIR) -I $(THIRD_PARTY_DIR) -o $(TESTS_OBJ_DIR)/TicTacToeTests.o
+
+# TODO: Add tests for Reversi and ConnectFour
+
+$(TESTS_OBJ_DIR)/ManagerTests.o: $(TESTS_DIR)/ManagerTests.cpp $(INCLUDE_DIR)/Manager.hpp $(INCLUDE_DIR)/Player.hpp $(INCLUDE_DIR)/exceptions.hpp $(THIRD_PARTY_DIR)/doctest.h
+	$(CC) $(CFLAGS) -c $(TESTS_DIR)/ManagerTests.cpp -I $(INCLUDE_DIR) -I $(THIRD_PARTY_DIR) -o $(TESTS_OBJ_DIR)/ManagerTests.o
+
+$(TESTS_OBJ_DIR)/UtilsTests.o: $(TESTS_DIR)/UtilsTests.cpp $(INCLUDE_DIR)/Utils.hpp $(THIRD_PARTY_DIR)/doctest.h
+	$(CC) $(CFLAGS) -c $(TESTS_DIR)/UtilsTests.cpp -I $(INCLUDE_DIR) -I $(THIRD_PARTY_DIR) -o $(TESTS_OBJ_DIR)/UtilsTests.o
+
+$(TESTS_OBJ_DIR)/tests.o: $(TESTS_DIR)/tests.cpp $(THIRD_PARTY_DIR)/doctest.h $(TESTS_DIR)/BoardTests.cpp $(TESTS_DIR)/BoardGameTests.cpp $(TESTS_DIR)/PlayerTests.cpp $(TESTS_DIR)/TicTacToeTests.cpp $(TESTS_DIR)/ManagerTests.cpp $(TESTS_DIR)/UtilsTests.cpp
+	$(CC) $(CFLAGS) -c $(TESTS_DIR)/tests.cpp -I $(INCLUDE_DIR) -I $(THIRD_PARTY_DIR) -o $(TESTS_OBJ_DIR)/tests.o
+
+$(TESTS_BIN_DIR)/Board_Games_Tests: $(TESTS_OBJ_DIR)/BoardTests.o $(TESTS_OBJ_DIR)/BoardGameTests.o $(TESTS_OBJ_DIR)/PlayerTests.o $(TESTS_OBJ_DIR)/TicTacToeTests.o $(TESTS_OBJ_DIR)/ManagerTests.o $(TESTS_OBJ_DIR)/UtilsTests.o $(TESTS_OBJ_DIR)/tests.o
+	$(CC) $(CFLAGS) $(TESTS_OBJ_DIR)/*.o $(filter-out $(OBJ_DIR)/main.o, $(wildcard $(OBJ_DIR)/*.o)) -o $(TESTS_BIN_DIR)/Board_Games_Tests
+
+
+# ------------------------------------------------- Clean
 clean:
-	rm -f $(BIN_DIR)/Board_Games $(OBJ_DIR)/*.o
+	rm -f $(BIN_DIR)/Board_Games $(TESTS_BIN_DIR)/Board_Games_Tests $(OBJ_DIR)/*.o $(OBJ_DIR)/*/*.o

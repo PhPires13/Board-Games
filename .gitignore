@@ -36,7 +36,12 @@
 cmake-build-debug/
 
 # Executables
+# Ignore all files in /bin without a file extension
 bin/[^.]*
+# Ignore all files in /bin/* without a file extension
+bin/*/[^.]*
+# Unignore subdirectories
+!bin/*/
 
 # MacOS
 .DS_Store
