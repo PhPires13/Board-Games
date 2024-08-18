@@ -35,7 +35,7 @@ void Manager::printMenu() {
     std::cout << titleColor << "Obs.:" << reset << std::endl;
     std::cout << noteColor << "?: parametros opcionais" << reset << std::endl;
     std::cout << exampleColor << "R: reversi, tabuleiro: quadrado, par, min 4x4\t" << reset;
-    std::cout << exampleColor << "L: liga4, tabuleiro: min 4x4\t" << reset;
+    std::cout << exampleColor << "L: lig4, tabuleiro: min 4x4\t" << reset;
     std::cout << exampleColor << "V: velha, tabuleiro: 3x3" << reset;
     std::cout << std::endl << std::endl;
 
