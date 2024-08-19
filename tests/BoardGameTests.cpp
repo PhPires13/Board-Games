@@ -187,7 +187,6 @@ TEST_SUITE("BoardGame") {
                 else if (random_choice == 3) input += "lixo lk\n";
             }
         }
-        input += "\n";
 
         // Fulfill the board
         const std::istringstream ss(input); // Custom input

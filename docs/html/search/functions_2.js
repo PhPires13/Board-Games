@@ -7,5 +7,5 @@ var searchData=
   ['comparebynick_4',['compareByNick',['../d2/d4b/classPlayer.html#acb610de195b5f560e009fc666b2ffced',1,'Player']]],
   ['connectfour_5',['ConnectFour',['../d7/d3a/classConnectFour.html#a09890aa7f977921704ba5aeac55ad654',1,'ConnectFour']]],
   ['creatematch_6',['createMatch',['../dd/dcd/classManager.html#a6e591b522fd7201d55f152e662bf24d3',1,'Manager']]],
-  ['createplayer_7',['createplayer',['../dd/dcd/classManager.html#aba37e0476aeccc0a8ccd3ac82e3a3ec5',1,'Manager::createPlayer()'],['../d2/d4b/classPlayer.html#a12f65a371cdda1f1a049752489445d48',1,'Player::createPlayer()']]]
+  ['createplayer_7',['createplayer',['../dd/dcd/classManager.html#aba37e0476aeccc0a8ccd3ac82e3a3ec5',1,'Manager::createPlayer()'],['../d2/d4b/classPlayer.html#a60f83f57c5458476d1ff622af4a382b2',1,'Player::createPlayer()']]]
 ];

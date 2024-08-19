@@ -165,7 +165,7 @@
 \DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}},\ \textcolor{charliteral}{'O'});}
 \DoxyCodeLine{00162\ }
 \DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ a\ row,\ player\ 1\ wins}}
-\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input1(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n1\ 0\(\backslash\)n0\ 1\(\backslash\)n1\ 1\(\backslash\)n0\ 2\(\backslash\)n\(\backslash\)n"{}});\ \textcolor{comment}{//\ Custom\ input}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input1(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n1\ 0\(\backslash\)n0\ 1\(\backslash\)n1\ 1\(\backslash\)n0\ 2\(\backslash\)n"{}});\ \textcolor{comment}{//\ Custom\ input}}
 \DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input1.rdbuf());\ \textcolor{comment}{//\ Asign\ it\ to\ std::cin}}
 \DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt1(player1,\ player2);}
 \DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}}\ gamteState;}
@@ -173,56 +173,56 @@
 \DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6}{GameState::PLAYER1\_WINS}});}
 \DoxyCodeLine{00170\ }
 \DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ a\ row,\ player\ 2\ wins}}
-\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input2(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n1\ 0\(\backslash\)n0\ 1\(\backslash\)n1\ 1\(\backslash\)n2\ 2\(\backslash\)n1\ 2\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input2(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n1\ 0\(\backslash\)n0\ 1\(\backslash\)n1\ 1\(\backslash\)n2\ 2\(\backslash\)n1\ 2\(\backslash\)n"{}});}
 \DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input2.rdbuf());}
 \DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt2(player1,\ player2);}
 \DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt2.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
 \DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20}{GameState::PLAYER2\_WINS}});}
 \DoxyCodeLine{00177\ }
 \DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ a\ column,\ player\ 1\ wins}}
-\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input3(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n0\ 1\(\backslash\)n1\ 0\(\backslash\)n1\ 1\(\backslash\)n2\ 0\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input3(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n0\ 1\(\backslash\)n1\ 0\(\backslash\)n1\ 1\(\backslash\)n2\ 0\(\backslash\)n"{}});}
 \DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input3.rdbuf());}
 \DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt3(player1,\ player2);}
 \DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt3.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
 \DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6}{GameState::PLAYER1\_WINS}});}
 \DoxyCodeLine{00184\ }
 \DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ a\ column,\ player\ 2\ wins}}
-\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input4(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n0\ 1\(\backslash\)n1\ 0\(\backslash\)n1\ 1\(\backslash\)n0\ 2\(\backslash\)n2\ 1\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input4(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n0\ 1\(\backslash\)n1\ 0\(\backslash\)n1\ 1\(\backslash\)n0\ 2\(\backslash\)n2\ 1\(\backslash\)n"{}});}
 \DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input4.rdbuf());}
 \DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt4(player1,\ player2);}
 \DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt4.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
 \DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20}{GameState::PLAYER2\_WINS}});}
 \DoxyCodeLine{00191\ }
 \DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ diagonal,\ player\ 1\ wins}}
-\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input5(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n0\ 1\(\backslash\)n1\ 1\(\backslash\)n1\ 0\(\backslash\)n2\ 2\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input5(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n0\ 1\(\backslash\)n1\ 1\(\backslash\)n1\ 0\(\backslash\)n2\ 2\(\backslash\)n"{}});}
 \DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input5.rdbuf());}
 \DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt5(player1,\ player2);}
 \DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt5.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
 \DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6}{GameState::PLAYER1\_WINS}});}
 \DoxyCodeLine{00198\ }
 \DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ diagonal,\ player\ 2\ wins}}
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input6(\textcolor{stringliteral}{"{}0\ 1\(\backslash\)n0\ 0\(\backslash\)n1\ 0\(\backslash\)n1\ 1\(\backslash\)n2\ 0\(\backslash\)n2\ 2\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input6(\textcolor{stringliteral}{"{}0\ 1\(\backslash\)n0\ 0\(\backslash\)n1\ 0\(\backslash\)n1\ 1\(\backslash\)n2\ 0\(\backslash\)n2\ 2\(\backslash\)n"{}});}
 \DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input6.rdbuf());}
 \DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt6(player1,\ player2);}
 \DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt6.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
 \DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20}{GameState::PLAYER2\_WINS}});}
 \DoxyCodeLine{00205\ }
 \DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ sub-\/diagonal,\ player\ 1\ wins}}
-\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input7(\textcolor{stringliteral}{"{}0\ 2\(\backslash\)n0\ 1\(\backslash\)n1\ 1\(\backslash\)n1\ 0\(\backslash\)n2\ 0\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input7(\textcolor{stringliteral}{"{}0\ 2\(\backslash\)n0\ 1\(\backslash\)n1\ 1\(\backslash\)n1\ 0\(\backslash\)n2\ 0\(\backslash\)n"{}});}
 \DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input7.rdbuf());}
 \DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt7(player1,\ player2);}
 \DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt7.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
 \DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6}{GameState::PLAYER1\_WINS}});}
 \DoxyCodeLine{00212\ }
 \DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ sub-\/diagonal,\ player\ 2\ wins}}
-\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input8(\textcolor{stringliteral}{"{}0\ 1\(\backslash\)n0\ 2\(\backslash\)n1\ 0\(\backslash\)n1\ 1\(\backslash\)n2\ 2\(\backslash\)n2\ 0\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input8(\textcolor{stringliteral}{"{}0\ 1\(\backslash\)n0\ 2\(\backslash\)n1\ 0\(\backslash\)n1\ 1\(\backslash\)n2\ 2\(\backslash\)n2\ 0\(\backslash\)n"{}});}
 \DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input8.rdbuf());}
 \DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt8(player1,\ player2);}
 \DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt8.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
 \DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20}{GameState::PLAYER2\_WINS}});}
 \DoxyCodeLine{00219\ }
 \DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tie}}
-\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input9(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n0\ 1\(\backslash\)n0\ 2\(\backslash\)n1\ 1\(\backslash\)n1\ 0\(\backslash\)n1\ 2\(\backslash\)n2\ 1\(\backslash\)n2\ 0\(\backslash\)n2\ 2\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input9(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n0\ 1\(\backslash\)n0\ 2\(\backslash\)n1\ 1\(\backslash\)n1\ 0\(\backslash\)n1\ 2\(\backslash\)n2\ 1\(\backslash\)n2\ 0\(\backslash\)n2\ 2\(\backslash\)n"{}});}
 \DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input9.rdbuf());}
 \DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt9(player1,\ player2);}
 \DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt9.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
@@ -230,14 +230,14 @@
 \DoxyCodeLine{00226\ }
 \DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Player\ sends\ invalid\ move\ in\ the\ middle\ of\ the\ game}}
 \DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ a\ row,\ player\ 2\ wins}}
-\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input10(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n1\ 0\(\backslash\)na1\ bc\(\backslash\)n1\ c\(\backslash\)n0\ 1\(\backslash\)n1\ 1\(\backslash\)n2\ 2\(\backslash\)nc\ 1\(\backslash\)n1\ 2\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input10(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n1\ 0\(\backslash\)na1\ bc\(\backslash\)n1\ c\(\backslash\)n0\ 1\(\backslash\)n1\ 1\(\backslash\)n2\ 2\(\backslash\)nc\ 1\(\backslash\)n1\ 2\(\backslash\)n"{}});}
 \DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input10.rdbuf());}
 \DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt10(player1,\ player2);}
 \DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt10.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
 \DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20}{GameState::PLAYER2\_WINS}});}
 \DoxyCodeLine{00234\ }
 \DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tie}}
-\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input11(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n0\ 1\(\backslash\)n\ \ ola\ ola\ ssm\ \ \(\backslash\)n0\ 2\(\backslash\)n1\ 1\(\backslash\)n1\ 0\(\backslash\)n\ \ 1\ \ \(\backslash\)t\ \ 2\ \ \ \ \ \(\backslash\)n2\ 1\(\backslash\)n2\ 0\(\backslash\)n2\ 2\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input11(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n0\ 1\(\backslash\)n\ \ ola\ ola\ ssm\ \ \(\backslash\)n0\ 2\(\backslash\)n1\ 1\(\backslash\)n1\ 0\(\backslash\)n\ \ 1\ \ \(\backslash\)t\ \ 2\ \ \ \ \ \(\backslash\)n2\ 1\(\backslash\)n2\ 0\(\backslash\)n2\ 2\(\backslash\)n"{}});}
 \DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input11.rdbuf());}
 \DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTicTacToe}{TicTacToe}}\ ttt11(player1,\ player2);}
 \DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ ttt11.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}

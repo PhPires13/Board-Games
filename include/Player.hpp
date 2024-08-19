@@ -122,7 +122,7 @@ public:
      * @throws duplicated_player if the player already exists
      * @throws file_error if was not able to write to the file
      */
-    static void createPlayer(const std::string& nick, const std::string& name, char symbol = 0);
+    static void createPlayer(std::string nick, std::string name, char symbol = 0);
 
     /**
      * Load a player from the database
@@ -152,13 +152,26 @@ public:
     /**
      * Update a player info in the database
      *
-     * @param name (optional) The player's name to be changed
-     * @param symbol (optional) The player's symbol to be changed
+     * @param nick The player's nickname
+     * @param toUpdateName If the name should be changed
+     * @param toUpdateSymbol If the symbol should be changed
+     * @param content The new content of the field, the symbol can be empty to remove it
      *
      * @throws player_not_found if the player was not found
      * @throws file_error if was not able to write to the file
      */
-    static void updatePlayerInfo(const std::string& nick, const std::string& name = "", char symbol = 0);
+    static void updatePlayerInfo(const std::string& nick, bool toUpdateName, bool toUpdateSymbol, std::string content);
+
+    /**
+     * Update a player in the database
+     *
+     * @param nick The player's nickname
+     * @param newPlayerData The new player data
+     *
+     * @throws player_not_found if the player was not found
+     * @throws file_error if was not able to write to the file
+     */
+    static void updatePlayer(const std::string& nick, const Player& newPlayerData);
 
     /**
      * Delete a player from the database

@@ -93,6 +93,13 @@ TEST_SUITE("Player") {
         constexpr char symbol = 'X';
         CHECK_NOTHROW(Player::createPlayer(nick, name, symbol));
 
+        // Load player
+        Player recoveredPlayer("", "");
+        CHECK_NOTHROW(recoveredPlayer = Player::loadPlayer(nick));
+        CHECK(recoveredPlayer.getNick() == nick);
+        CHECK(recoveredPlayer.getName() == name);
+        CHECK(recoveredPlayer.getSymbol() == symbol);
+
         // Update player stats
         CHECK_NOTHROW(Player::updatePlayerStats(nick, Game::REVERSI, true, false));
         CHECK_NOTHROW(Player::updatePlayerStats(nick, Game::REVERSI, true, false));
@@ -105,12 +112,20 @@ TEST_SUITE("Player") {
         CHECK_NOTHROW(Player::updatePlayerStats(nick, 0, true, false));
         CHECK_NOTHROW(Player::updatePlayerStats(nick, 0, false, true));
 
-        // Load player
-        Player recoveredPlayer("", "");
+        // Update player info
+        const std::string newName = "NewName1";
+        const std::string newSymbol = "0";
+        CHECK_NOTHROW(Player::updatePlayerInfo(nick, true, false, newName));
+        CHECK_NOTHROW(Player::updatePlayerInfo(nick, false, true, newSymbol));
+        CHECK_THROWS_AS(Player::updatePlayerInfo(nick, true, true, newName), invalid_command);
+        CHECK_THROWS_AS(Player::updatePlayerInfo(nick, false, false, newName), invalid_command);
+        CHECK_THROWS_AS(Player::updatePlayerInfo(nick, true, false, ""), incorrect_data);
+
+        // Load updated player
         CHECK_NOTHROW(recoveredPlayer = Player::loadPlayer(nick));
         CHECK(recoveredPlayer.getNick() == nick);
-        CHECK(recoveredPlayer.getName() == name);
-        CHECK(recoveredPlayer.getSymbol() == symbol);
+        CHECK(recoveredPlayer.getName() == newName);
+        CHECK(recoveredPlayer.getSymbol() == newSymbol[0]);
 
         // Check stats
         CHECK(recoveredPlayer.getWins(Game::REVERSI) == 2);
@@ -121,6 +136,11 @@ TEST_SUITE("Player") {
         CHECK(recoveredPlayer.getLosses(Game::CONNECT_FOUR) == 2);
         CHECK(recoveredPlayer.getLosses(Game::TTT) == 1);
         CHECK(recoveredPlayer.getLosses(0) == 0);
+
+        // Remove player symbol
+        CHECK_NOTHROW(Player::updatePlayerInfo(nick, false, true, ""));
+        CHECK_NOTHROW(recoveredPlayer = Player::loadPlayer(nick));
+        CHECK(recoveredPlayer.getSymbol() == 0);
 
         // Create duplicate player
         const std::string nick2 = "Nick2";

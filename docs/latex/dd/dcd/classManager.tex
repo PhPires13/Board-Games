@@ -16,6 +16,8 @@ static void \mbox{\hyperlink{classManager_aeb05baeb0075a8235c8ddea7b43e49ab}{pri
 \item 
 static void \mbox{\hyperlink{classManager_aba37e0476aeccc0a8ccd3ac82e3a3ec5}{create\+Player}} (const std\+::string \&arguments)
 \item 
+static void \mbox{\hyperlink{classManager_a9f03c15016f12c39936f694d845f1818}{update\+Player}} (const std\+::string \&arguments)
+\item 
 static void \mbox{\hyperlink{classManager_aa7f33d8e27faebdcaf2d97d143c17c26}{delete\+Player}} (const std\+::string \&arguments)
 \item 
 static void \mbox{\hyperlink{classManager_a6c41295ecf1975e47623806a0416a2c9}{list\+Players}} (const std\+::string \&arguments)
@@ -156,7 +158,27 @@ Play a match between two players
 \doxysubsubsection{\texorpdfstring{printMenu()}{printMenu()}}
 {\footnotesize\ttfamily void Manager\+::print\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
 
-Print the menu of the program 
+Print the menu of the program \Hypertarget{classManager_a9f03c15016f12c39936f694d845f1818}\label{classManager_a9f03c15016f12c39936f694d845f1818} 
+\index{Manager@{Manager}!updatePlayer@{updatePlayer}}
+\index{updatePlayer@{updatePlayer}!Manager@{Manager}}
+\doxysubsubsection{\texorpdfstring{updatePlayer()}{updatePlayer()}}
+{\footnotesize\ttfamily void Manager\+::update\+Player (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{arguments }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+Update a player info in the database
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em arguments} & Nick, Attribute to be Changed, New Value of the Attribute\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \doxylink{classincorrect__format}{incorrect\+\_\+format}} & if was not able to parse the arguments \\
+\hline
+{\em \doxylink{classfile__error}{file\+\_\+error}} & if was not able to write to the file \\
+\hline
+\end{DoxyExceptions}
+
 
 \doxysubsection{Atributos}
 \Hypertarget{classManager_a7e818729a1a7b49907c88d9b5074b4e2}\label{classManager_a7e818729a1a7b49907c88d9b5074b4e2} 

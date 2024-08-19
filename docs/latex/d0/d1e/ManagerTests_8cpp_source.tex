@@ -9,104 +9,245 @@
 \DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}doctest.h"{}}}
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exceptions_8hpp}{exceptions.hpp}}"{}}}
 \DoxyCodeLine{00007\ }
-\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ private\ public}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ protected\ public}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
 \DoxyCodeLine{00010\ }
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Manager_8hpp}{Manager.hpp}}"{}}}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#undef\ private}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#undef\ protected}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ private\ public}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ protected\ public}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Manager_8hpp}{Manager.hpp}}"{}}}
 \DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \mbox{\hyperlink{ManagerTests_8cpp_af038f93dcce074a5917f21e526467b92}{TEST\_SUITE}}(\textcolor{stringliteral}{"{}Manager"{}})\ \{}
-\DoxyCodeLine{00017\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Print\ menu"{}})\ \{}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_aeb05baeb0075a8235c8ddea7b43e49ab}{Manager::printMenu}}());}
-\DoxyCodeLine{00019\ \ \ \ \ \}}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Create\ Match"{}})\ \{}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Correct\ game\ and\ attributes}}
-\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{Game::REVERSI}},\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}}),\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}}),\ \textcolor{stringliteral}{"{}"{}}));}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9}{Game::CONNECT\_FOUR}},\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}}),\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}}),\ \textcolor{stringliteral}{"{}"{}}));}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa}{Game::TTT}},\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}}),\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}}),\ \textcolor{stringliteral}{"{}"{}}));}
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Explicit\ size}}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{Game::REVERSI}},\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}}),\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}}),\ \textcolor{stringliteral}{"{}10"{}}));}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9}{Game::CONNECT\_FOUR}},\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}}),\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}}),\ \textcolor{stringliteral}{"{}8\ 7"{}}));}
-\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa}{Game::TTT}},\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}}),\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}}),\ \textcolor{stringliteral}{"{}3\ 3"{}}));}
-\DoxyCodeLine{00031\ }
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Invalid\ game}}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(0,\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}}),\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}}),\ \textcolor{stringliteral}{"{}"{}}),\ \mbox{\hyperlink{classgame__not__found}{game\_not\_found}});}
-\DoxyCodeLine{00034\ \ \ \ \ \}}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00036\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}CRUD\ Players"{}})\ \{}
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sync\ file}}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(std::remove(\mbox{\hyperlink{classPlayer_a9b7e2146125da66d32032b8467cbbb1c}{Player::filePath}}.c\_str()));\ \textcolor{comment}{//\ Delete\ test\ file\ if\ exists}}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a547c60608af80be40ce6fc657c938313}{Player::syncDatabase}}());}
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ player\ correct\ attributes\ with\ symbol}}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ nick\ =\ \textcolor{stringliteral}{"{}Nick1"{}},\ name\ =\ \textcolor{stringliteral}{"{}Name1"{}};}
-\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{char}\ symbol\ =\ \textcolor{charliteral}{'X'};}
-\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ arguments\ =\ nick\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ name\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ symbol;}
-\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_aba37e0476aeccc0a8ccd3ac82e3a3ec5}{Manager::createPlayer}}(arguments));}
-\DoxyCodeLine{00046\ }
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Validate\ player\ attributes}}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ recoveredPlayer(\textcolor{stringliteral}{"{}"{}},\ \textcolor{stringliteral}{"{}"{}});}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(recoveredPlayer\ =\ \mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{Player::loadPlayer}}(nick));}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}()\ ==\ nick);}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a73e4ff2d70e62ca7e3be1d9b4ad9de85}{getName}}()\ ==\ name);}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ ==\ symbol);}
-\DoxyCodeLine{00053\ }
-\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Crate\ player\ correct\ attributes\ without\ symbol}}
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ nick2\ =\ \textcolor{stringliteral}{"{}Nick2"{}},\ name2\ =\ \textcolor{stringliteral}{"{}Name2"{}};}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ arguments2\ =\ nick2\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ name2;}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_aba37e0476aeccc0a8ccd3ac82e3a3ec5}{Manager::createPlayer}}(arguments2));}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ recoveredPlayer2(\textcolor{stringliteral}{"{}"{}},\ \textcolor{stringliteral}{"{}"{}});}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(recoveredPlayer2\ =\ \mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{Player::loadPlayer}}(nick2));}
-\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer2.\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}()\ ==\ nick2);}
-\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer2.\mbox{\hyperlink{classPlayer_a73e4ff2d70e62ca7e3be1d9b4ad9de85}{getName}}()\ ==\ name2);}
-\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ ==\ 0);}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ duplicate\ player}}
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classManager_aba37e0476aeccc0a8ccd3ac82e3a3ec5}{Manager::createPlayer}}(arguments),\ \mbox{\hyperlink{classduplicated__player}{duplicated\_player}});}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ player\ incorrect\ attributes}}
-\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ consequentSymbol\ =\ \textcolor{stringliteral}{"{}f"{}};}
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ nick3\ =\ \textcolor{stringliteral}{"{}Nick3"{}},\ name3\ =\ \textcolor{stringliteral}{"{}Name3\ 3r\ r45"{}};\ \textcolor{comment}{//\ Will\ consider\ last\ character\ as\ symbol}}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ arguments3\ =\ nick3\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ name3\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ consequentSymbol;}
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_aba37e0476aeccc0a8ccd3ac82e3a3ec5}{Manager::createPlayer}}(arguments3));}
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ recoveredPlayer3(\textcolor{stringliteral}{"{}"{}},\ \textcolor{stringliteral}{"{}"{}});}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(recoveredPlayer3\ =\ \mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{Player::loadPlayer}}(nick3));}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer3.\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}()\ ==\ nick3);}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer3.\mbox{\hyperlink{classPlayer_a73e4ff2d70e62ca7e3be1d9b4ad9de85}{getName}}()\ ==\ name3);}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer3.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ ==\ consequentSymbol[0]);}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ List\ player\ no\ order}}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6c41295ecf1975e47623806a0416a2c9}{Manager::listPlayers}}(\textcolor{stringliteral}{"{}"{}}));}
-\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ List\ player\ by\ nick}}
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ nickOrder\ =\ \textcolor{stringliteral}{"{}A"{}};}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6c41295ecf1975e47623806a0416a2c9}{Manager::listPlayers}}(nickOrder));}
-\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ List\ player\ by\ name}}
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ nameOrder\ =\ \textcolor{stringliteral}{"{}N"{}};}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6c41295ecf1975e47623806a0416a2c9}{Manager::listPlayers}}(nameOrder));}
-\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ List\ player\ by\ unknown\ order}}
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ unknownOrder\ =\ \textcolor{stringliteral}{"{}Z"{}};}
-\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6c41295ecf1975e47623806a0416a2c9}{Manager::listPlayers}}(unknownOrder));}
-\DoxyCodeLine{00089\ }
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ match}}
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{Game::REVERSI}},\ recoveredPlayer,\ recoveredPlayer2,\ \textcolor{stringliteral}{"{}"{}}));}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9}{Game::CONNECT\_FOUR}},\ recoveredPlayer,\ recoveredPlayer2,\ \textcolor{stringliteral}{"{}"{}}));}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa}{Game::TTT}},\ recoveredPlayer,\ recoveredPlayer2,\ \textcolor{stringliteral}{"{}"{}}));}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{Game::REVERSI}},\ recoveredPlayer,\ recoveredPlayer2,\ \textcolor{stringliteral}{"{}10"{}}));}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9}{Game::CONNECT\_FOUR}},\ recoveredPlayer,\ recoveredPlayer2,\ \textcolor{stringliteral}{"{}8\ 7"{}}));}
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa}{Game::TTT}},\ recoveredPlayer,\ recoveredPlayer2,\ \textcolor{stringliteral}{"{}4\ 5"{}}));}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\textcolor{charliteral}{'Z'},\ recoveredPlayer,\ recoveredPlayer2,\ \textcolor{stringliteral}{"{}4\ 5"{}}),\ \mbox{\hyperlink{classgame__not__found}{game\_not\_found}});}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Delete\ player}}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_aa7f33d8e27faebdcaf2d97d143c17c26}{Manager::deletePlayer}}(nick));}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_aa7f33d8e27faebdcaf2d97d143c17c26}{Manager::deletePlayer}}(nick2));}
-\DoxyCodeLine{00102\ }
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Delete\ test\ file}}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(std::remove(\mbox{\hyperlink{classPlayer_a9b7e2146125da66d32032b8467cbbb1c}{Player::filePath}}.c\_str()));}
-\DoxyCodeLine{00105\ \ \ \ \ \}}
-\DoxyCodeLine{00106\ \}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#undef\ private}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#undef\ protected}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \mbox{\hyperlink{ManagerTests_8cpp_af038f93dcce074a5917f21e526467b92}{TEST\_SUITE}}(\textcolor{stringliteral}{"{}Manager"{}})\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Print\ menu"{}})\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_aeb05baeb0075a8235c8ddea7b43e49ab}{Manager::printMenu}}());}
+\DoxyCodeLine{00022\ \ \ \ \ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Create\ Match"{}})\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Correct\ game\ and\ attributes}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{Game::REVERSI}},\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}}),\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}}),\ \textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9}{Game::CONNECT\_FOUR}},\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}}),\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}}),\ \textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa}{Game::TTT}},\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}}),\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}}),\ \textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Explicit\ size}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{Game::REVERSI}},\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}}),\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}}),\ \textcolor{stringliteral}{"{}10"{}}));}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9}{Game::CONNECT\_FOUR}},\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}}),\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}}),\ \textcolor{stringliteral}{"{}8\ 7"{}}));}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa}{Game::TTT}},\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}}),\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}}),\ \textcolor{stringliteral}{"{}3\ 3"{}}));}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Invalid\ game}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(0,\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}}),\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}}),\ \textcolor{stringliteral}{"{}"{}}),\ \mbox{\hyperlink{classgame__not__found}{game\_not\_found}});}
+\DoxyCodeLine{00037\ \ \ \ \ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}CRUD\ Players"{}})\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sync\ file}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(std::remove(\mbox{\hyperlink{classPlayer_a9b7e2146125da66d32032b8467cbbb1c}{Player::filePath}}.c\_str()));\ \textcolor{comment}{//\ Delete\ test\ file\ if\ exists}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a547c60608af80be40ce6fc657c938313}{Player::syncDatabase}}());}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ player\ correct\ attributes\ with\ symbol}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ nick\ =\ \textcolor{stringliteral}{"{}Nick1"{}},\ name\ =\ \textcolor{stringliteral}{"{}Name1"{}};}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{char}\ symbol\ =\ \textcolor{charliteral}{'X'};}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ arguments\ =\ nick\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ name\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ symbol;}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_aba37e0476aeccc0a8ccd3ac82e3a3ec5}{Manager::createPlayer}}(arguments));}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Validate\ player\ attributes}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ recoveredPlayer(\textcolor{stringliteral}{"{}"{}},\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(recoveredPlayer\ =\ \mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{Player::loadPlayer}}(nick));}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}()\ ==\ nick);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a73e4ff2d70e62ca7e3be1d9b4ad9de85}{getName}}()\ ==\ name);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ ==\ symbol);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ player\ name,\ remove\ symbol}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ newName\ =\ \textcolor{stringliteral}{"{}NewName"{}};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ argumentsUpdate1\ =\ nick\ +\ \textcolor{stringliteral}{"{}\ N\ "{}}\ +\ newName;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ argumentsUpdate2\ =\ nick\ +\ \textcolor{stringliteral}{"{}\ S\ "{}};}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ argumentsUpdate3\ =\ nick\ +\ \textcolor{stringliteral}{"{}\ N\ "{}};}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ argumentsUpdate4\ =\ nick\ +\ \textcolor{stringliteral}{"{}\ Z\ "{}}\ +\ newName;}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a9f03c15016f12c39936f694d845f1818}{Manager::updatePlayer}}(argumentsUpdate1));}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a9f03c15016f12c39936f694d845f1818}{Manager::updatePlayer}}(argumentsUpdate2));}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classManager_a9f03c15016f12c39936f694d845f1818}{Manager::updatePlayer}}(argumentsUpdate3),\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}});}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classManager_a9f03c15016f12c39936f694d845f1818}{Manager::updatePlayer}}(argumentsUpdate4),\ \mbox{\hyperlink{classinvalid__command}{invalid\_command}});}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classManager_a9f03c15016f12c39936f694d845f1818}{Manager::updatePlayer}}(\textcolor{stringliteral}{"{}"{}}),\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}});}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Validate\ player\ attributes}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(recoveredPlayer\ =\ \mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{Player::loadPlayer}}(nick));}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}()\ ==\ nick);}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a73e4ff2d70e62ca7e3be1d9b4ad9de85}{getName}}()\ ==\ newName);}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ ==\ 0);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Crate\ player\ correct\ attributes\ without\ symbol}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ nick2\ =\ \textcolor{stringliteral}{"{}Nick2"{}},\ name2\ =\ \textcolor{stringliteral}{"{}Name2"{}};}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ arguments2\ =\ nick2\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ name2;}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_aba37e0476aeccc0a8ccd3ac82e3a3ec5}{Manager::createPlayer}}(arguments2));}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ recoveredPlayer2(\textcolor{stringliteral}{"{}"{}},\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(recoveredPlayer2\ =\ \mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{Player::loadPlayer}}(nick2));}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer2.\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}()\ ==\ nick2);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer2.\mbox{\hyperlink{classPlayer_a73e4ff2d70e62ca7e3be1d9b4ad9de85}{getName}}()\ ==\ name2);}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ ==\ 0);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Add\ symbol\ to\ player}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ argumentsUpdate5\ =\ nick2\ +\ \textcolor{stringliteral}{"{}\ S\ "{}}\ +\ symbol;}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a9f03c15016f12c39936f694d845f1818}{Manager::updatePlayer}}(argumentsUpdate5));}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(recoveredPlayer2\ =\ \mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{Player::loadPlayer}}(nick2));}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer2.\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}()\ ==\ nick2);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer2.\mbox{\hyperlink{classPlayer_a73e4ff2d70e62ca7e3be1d9b4ad9de85}{getName}}()\ ==\ name2);}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ ==\ symbol);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ duplicate\ player}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classManager_aba37e0476aeccc0a8ccd3ac82e3a3ec5}{Manager::createPlayer}}(arguments),\ \mbox{\hyperlink{classduplicated__player}{duplicated\_player}});}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ player\ incorrect\ attributes}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ consequentSymbol\ =\ \textcolor{stringliteral}{"{}f"{}};}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ nick3\ =\ \textcolor{stringliteral}{"{}Nick3"{}},\ name3\ =\ \textcolor{stringliteral}{"{}Name3\ 3r\ r45"{}};\ \textcolor{comment}{//\ Will\ consider\ last\ character\ as\ symbol}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ arguments3\ =\ nick3\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ name3\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ consequentSymbol;}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_aba37e0476aeccc0a8ccd3ac82e3a3ec5}{Manager::createPlayer}}(arguments3));}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ recoveredPlayer3(\textcolor{stringliteral}{"{}"{}},\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(recoveredPlayer3\ =\ \mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{Player::loadPlayer}}(nick3));}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer3.\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}()\ ==\ nick3);}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer3.\mbox{\hyperlink{classPlayer_a73e4ff2d70e62ca7e3be1d9b4ad9de85}{getName}}()\ ==\ name3);}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer3.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ ==\ consequentSymbol[0]);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ List\ player\ no\ order}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6c41295ecf1975e47623806a0416a2c9}{Manager::listPlayers}}(\textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ List\ player\ by\ nick}}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ nickOrder\ =\ \textcolor{stringliteral}{"{}A"{}};}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6c41295ecf1975e47623806a0416a2c9}{Manager::listPlayers}}(nickOrder));}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ List\ player\ by\ name}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ nameOrder\ =\ \textcolor{stringliteral}{"{}N"{}};}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6c41295ecf1975e47623806a0416a2c9}{Manager::listPlayers}}(nameOrder));}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ List\ player\ by\ unknown\ order}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ unknownOrder\ =\ \textcolor{stringliteral}{"{}Z"{}};}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6c41295ecf1975e47623806a0416a2c9}{Manager::listPlayers}}(unknownOrder));}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ match}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{Game::REVERSI}},\ recoveredPlayer,\ recoveredPlayer2,\ \textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9}{Game::CONNECT\_FOUR}},\ recoveredPlayer,\ recoveredPlayer2,\ \textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa}{Game::TTT}},\ recoveredPlayer,\ recoveredPlayer2,\ \textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{Game::REVERSI}},\ recoveredPlayer,\ recoveredPlayer2,\ \textcolor{stringliteral}{"{}10"{}}));}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9}{Game::CONNECT\_FOUR}},\ recoveredPlayer,\ recoveredPlayer2,\ \textcolor{stringliteral}{"{}8\ 7"{}}));}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa}{Game::TTT}},\ recoveredPlayer,\ recoveredPlayer2,\ \textcolor{stringliteral}{"{}4\ 5"{}}));}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classManager_a6e591b522fd7201d55f152e662bf24d3}{Manager::createMatch}}(\textcolor{charliteral}{'Z'},\ recoveredPlayer,\ recoveredPlayer2,\ \textcolor{stringliteral}{"{}4\ 5"{}}),\ \mbox{\hyperlink{classgame__not__found}{game\_not\_found}});}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Delete\ player}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_aa7f33d8e27faebdcaf2d97d143c17c26}{Manager::deletePlayer}}(nick));}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_aa7f33d8e27faebdcaf2d97d143c17c26}{Manager::deletePlayer}}(nick2));}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Delete\ test\ file}}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(std::remove(\mbox{\hyperlink{classPlayer_a9b7e2146125da66d32032b8467cbbb1c}{Player::filePath}}.c\_str()));}
+\DoxyCodeLine{00134\ \ \ \ \ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Play\ Match"{}})\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(std::remove(\mbox{\hyperlink{classPlayer_a9b7e2146125da66d32032b8467cbbb1c}{Player::filePath}}.c\_str()));\ \textcolor{comment}{//\ Delete\ test\ file\ if\ exists}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a547c60608af80be40ce6fc657c938313}{Player::syncDatabase}}());}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ std::streambuf*\ cinbuf\ =\ std::cin.rdbuf();\ \ \textcolor{comment}{//\ Store\ the\ original\ buffer}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ players\ for\ match}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ game\ =\ \textcolor{stringliteral}{"{}V"{}};}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ nick1\ =\ \textcolor{stringliteral}{"{}Nick1"{}},\ name1\ =\ \textcolor{stringliteral}{"{}Name1"{}};}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ nick2\ =\ \textcolor{stringliteral}{"{}Nick2"{}},\ name2\ =\ \textcolor{stringliteral}{"{}Name2"{}};}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ arguments1\ =\ nick1\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ name1;}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ arguments2\ =\ nick2\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ name2;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_aba37e0476aeccc0a8ccd3ac82e3a3ec5}{Manager::createPlayer}}(arguments1));}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_aba37e0476aeccc0a8ccd3ac82e3a3ec5}{Manager::createPlayer}}(arguments2));}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ if\ stats\ are\ 0}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ recoveredPlayer1(\textcolor{stringliteral}{"{}"{}},\ \textcolor{stringliteral}{"{}"{}}),\ recoveredPlayer2(\textcolor{stringliteral}{"{}"{}},\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(recoveredPlayer1\ =\ \mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{Player::loadPlayer}}(nick1));}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(recoveredPlayer2\ =\ \mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{Player::loadPlayer}}(nick2));}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer1.getWins(game[0])\ ==\ 0);}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer2.\mbox{\hyperlink{classPlayer_a6566537dd373e87d43385b2fe4de942e}{getLosses}}(game[0])\ ==\ 0);}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ Play\ match}}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ a\ row,\ player\ 1\ wins}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input1(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n1\ 0\(\backslash\)n0\ 1\(\backslash\)n1\ 1\(\backslash\)n0\ 2\(\backslash\)n"{}});\ \textcolor{comment}{//\ Custom\ input}}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input1.rdbuf());\ \textcolor{comment}{//\ Asign\ it\ to\ std::cin}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a76e1b288f52fb550445bf7847596cbfc}{Manager::playMatch}}(game\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ nick1\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ nick2));}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Complete\ a\ row,\ player\ 2\ wins}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input2(\textcolor{stringliteral}{"{}0\ 0\(\backslash\)n1\ 0\(\backslash\)n0\ 1\(\backslash\)n1\ 1\(\backslash\)n2\ 2\(\backslash\)n1\ 2\(\backslash\)n"{}});}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input2.rdbuf());}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_a76e1b288f52fb550445bf7847596cbfc}{Manager::playMatch}}(game\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ nick1\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ nick2));}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ if\ stats\ were\ updated}}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(recoveredPlayer1\ =\ \mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{Player::loadPlayer}}(nick1));}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(recoveredPlayer2\ =\ \mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{Player::loadPlayer}}(nick2));}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer1.getWins(game[0])\ ==\ 1);}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer2.\mbox{\hyperlink{classPlayer_a6566537dd373e87d43385b2fe4de942e}{getLosses}}(game[0])\ ==\ 1);}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Restore\ std::cin\ to\ its\ original\ state}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ std::cin.rdbuf(cinbuf);}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Invalid\ game}}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classManager_a76e1b288f52fb550445bf7847596cbfc}{Manager::playMatch}}(\textcolor{stringliteral}{"{}Z\ "{}}\ +\ nick1\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ nick2),\ \mbox{\hyperlink{classgame__not__found}{game\_not\_found}});}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Empty\ game}}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Will\ get\ the\ player\ first\ letter\ as\ game,\ this\ functionality\ helps\ to\ avoid\ game\_not\_found\ for\ missing\ space}}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classManager_a76e1b288f52fb550445bf7847596cbfc}{Manager::playMatch}}(\textcolor{stringliteral}{"{}\ "{}}\ +\ nick1\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ nick2),\ \mbox{\hyperlink{classplayer__not__found}{player\_not\_found}});}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Invalid\ nick}}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classManager_a76e1b288f52fb550445bf7847596cbfc}{Manager::playMatch}}(game\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ nick1\ +\ \textcolor{stringliteral}{"{}\ Nick3"{}}),\ \mbox{\hyperlink{classplayer__not__found}{player\_not\_found}});}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classManager_a76e1b288f52fb550445bf7847596cbfc}{Manager::playMatch}}(game\ +\ \textcolor{stringliteral}{"{}\ Nick3\ "{}}\ +\ nick2),\ \mbox{\hyperlink{classplayer__not__found}{player\_not\_found}});}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classManager_a76e1b288f52fb550445bf7847596cbfc}{Manager::playMatch}}(game\ +\ \textcolor{stringliteral}{"{}\ Nick3\ Nick4"{}}),\ \mbox{\hyperlink{classplayer__not__found}{player\_not\_found}});}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Empty\ nick}}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classManager_a76e1b288f52fb550445bf7847596cbfc}{Manager::playMatch}}(game\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ nick1\ +\ \textcolor{stringliteral}{"{}\ "{}}),\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}});}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classManager_a76e1b288f52fb550445bf7847596cbfc}{Manager::playMatch}}(game\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ nick2),\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}});}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classManager_a76e1b288f52fb550445bf7847596cbfc}{Manager::playMatch}}(game\ +\ \textcolor{stringliteral}{"{}\ "{}}),\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}});}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Duplicated\ player}}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classManager_a76e1b288f52fb550445bf7847596cbfc}{Manager::playMatch}}(game\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ nick1\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ nick1),\ \mbox{\hyperlink{classduplicated__player}{duplicated\_player}});}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Delete\ test\ file}}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(std::remove(\mbox{\hyperlink{classPlayer_a9b7e2146125da66d32032b8467cbbb1c}{Player::filePath}}.c\_str()));}
+\DoxyCodeLine{00199\ \ \ \ \ \}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Menu"{}})\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(std::remove(\mbox{\hyperlink{classPlayer_a9b7e2146125da66d32032b8467cbbb1c}{Player::filePath}}.c\_str()));\ \textcolor{comment}{//\ Delete\ test\ file\ if\ exists}}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a547c60608af80be40ce6fc657c938313}{Player::syncDatabase}}());}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ std::streambuf*\ cinbuf\ =\ std::cin.rdbuf();\ \ \textcolor{comment}{//\ Store\ the\ original\ buffer}}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ ent\ =\ \textcolor{stringliteral}{"{}\ \(\backslash\)n"{}};}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ game\ =\ \textcolor{stringliteral}{"{}V"{}};}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ nick1\ =\ \textcolor{stringliteral}{"{}Nick1"{}},\ name1\ =\ \textcolor{stringliteral}{"{}Name1"{}};}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ nick2\ =\ \textcolor{stringliteral}{"{}Nick2"{}},\ name2\ =\ \textcolor{stringliteral}{"{}Name2"{}},\ symbol2\ =\ \textcolor{stringliteral}{"{}0"{}};}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ nick3\ =\ \textcolor{stringliteral}{"{}Nick3"{}},\ name3\ =\ \textcolor{stringliteral}{"{}Name3"{}};}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ cj1\ =\ \textcolor{stringliteral}{"{}CJ\ "{}}\ +\ nick1\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ name1\ +\ ent;}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ cj2\ =\ \textcolor{stringliteral}{"{}CJ\ "{}}\ +\ nick2\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ name2\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ symbol2\ +\ ent;}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ cj3\ =\ \textcolor{stringliteral}{"{}CJ\ "{}}\ +\ nick3\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ name3\ +\ ent;}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ ep1\ =\ \textcolor{stringliteral}{"{}EP\ "{}}\ +\ game\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ nick1\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ nick2\ +\ ent;}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ tttGameP1\ =\ \textcolor{stringliteral}{"{}0\ 0\(\backslash\)n1\ 0\(\backslash\)n0\ 1\(\backslash\)n1\ 1\(\backslash\)n0\ 2\(\backslash\)n"{}};}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ ep2\ =\ \textcolor{stringliteral}{"{}EP\ "{}}\ +\ game\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ nick1\ +\ \textcolor{stringliteral}{"{}\ "{}}\ +\ nick2\ +\ ent;}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ tttGameP2\ =\ \textcolor{stringliteral}{"{}0\ 0\(\backslash\)n1\ 0\(\backslash\)n0\ 1\(\backslash\)n1\ 1\(\backslash\)n2\ 2\(\backslash\)n1\ 2\(\backslash\)n"{}};}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ ej1\ =\ \textcolor{stringliteral}{"{}EJ\ "{}}\ +\ nick1\ +\ \textcolor{stringliteral}{"{}\ N\ New"{}}\ +\ name1\ +\ ent;}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ ej2\ =\ \textcolor{stringliteral}{"{}EJ\ "{}}\ +\ nick2\ +\ \textcolor{stringliteral}{"{}\ S\ "{}}\ +\ ent;}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ lj\ =\ \textcolor{stringliteral}{"{}LJ"{}}\ +\ ent;}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ ljA\ =\ \textcolor{stringliteral}{"{}LJ\ A"{}}\ +\ ent;}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ ljN\ =\ \textcolor{stringliteral}{"{}LJ\ N"{}}\ +\ ent;}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ rj3\ =\ \textcolor{stringliteral}{"{}RJ\ "{}}\ +\ nick3\ +\ ent;}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ invalid\ =\ \textcolor{stringliteral}{"{}ZS\ ddw\ d4"{}}\ +\ ent;}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ fs\ =\ \textcolor{stringliteral}{"{}FS"{}}\ +\ ent;}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ input\ =\ cj1\ +\ ent\ +\ cj2\ +\ ent\ +\ cj3\ +\ ent\ +}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ ep1\ +\ tttGameP1\ +\ ent\ +\ ep2\ +\ tttGameP2\ +\ ent\ +}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ ej1\ +\ ent\ +\ ej2\ +\ ent\ +}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ lj\ +\ ent\ +\ ljA\ +\ ent\ +\ ljN\ +\ ent\ +}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ rj3\ +\ ent\ +}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ invalid\ +\ ent\ +}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ fs;\ \textcolor{comment}{//\ Custom\ input}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ ss(input);}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ std::cin.rdbuf(ss.rdbuf());\ \textcolor{comment}{//\ Asign\ it\ to\ std::cin}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classManager_ab728cb2ad7342bffd0a71c9ca305a1a9}{Manager::menu}}());}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Restore\ std::cin\ to\ its\ original\ state}}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ std::cin.rdbuf(cinbuf);}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Delete\ test\ file}}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(std::remove(\mbox{\hyperlink{classPlayer_a9b7e2146125da66d32032b8467cbbb1c}{Player::filePath}}.c\_str()));}
+\DoxyCodeLine{00246\ \ \ \ \ \}}
+\DoxyCodeLine{00247\ \}}
 
 \end{DoxyCode}

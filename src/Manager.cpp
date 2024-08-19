@@ -27,13 +27,14 @@ void Manager::printMenu() {
     const std::string descriptionColor = "\033[0;36m"; // Cyan
     const std::string paramColor = "\033[0;33m"; // Yellow
     const std::string optionalParamColor = "\033[0;35m"; // Magenta
+    const std::string partiallyOptionalParamColor = "\033[38;2;255;140;0m"; // Orange
     const std::string optionsColor = "\033[0;31m"; // Red
-    const std::string exampleColor = "\033[1;31m"; // Bold red
-    const std::string noteColor = "\033[1;33m"; // Bold yellow
+    const std::string exampleColor = "\033[0;31m"; // Bold red
     const std::string reset = "\033[0m"; // Reset color
 
     std::cout << titleColor << "Obs.:" << reset << std::endl;
-    std::cout << noteColor << "?: parametros opcionais" << reset << std::endl;
+    std::cout << optionalParamColor << "?: parametros opcionais" << reset << std::endl;
+    std::cout << partiallyOptionalParamColor << "?!: parametros que podem ser opcionais ou nao dependendo do restante do contexto" << reset << std::endl;
     std::cout << exampleColor << "R: reversi, tabuleiro: quadrado, par, min 4x4\t" << reset;
     std::cout << exampleColor << "L: lig4, tabuleiro: min 4x4\t" << reset;
     std::cout << exampleColor << "V: velha, tabuleiro: 3x3" << reset;
@@ -41,6 +42,7 @@ void Manager::printMenu() {
 
     std::cout << titleColor << "------------------------------------ MENU ------------------------------------" << reset << std::endl;
     std::cout << optionColor << "CJ: " << reset << descriptionColor << "Cadastrar Jogador (" << paramColor << "<Apelido> <Nome>" << optionalParamColor << " <? Simbolo>" << descriptionColor << ")" << reset << std::endl;
+    std::cout << optionColor << "EJ: " << reset << descriptionColor << "Editar Jogador (" << paramColor << "<Apelido>" << " <Atributo: " << optionsColor << "[N|S]" << paramColor << "> " << partiallyOptionalParamColor << "<?! Novo Valor>" << descriptionColor << ")" << reset << std::endl;
     std::cout << optionColor << "RJ: " << reset << descriptionColor << "Remover Jogador (" << paramColor << "<Apelido>" << descriptionColor << ")" << reset << std::endl;
     std::cout << optionColor << "LJ: " << reset << descriptionColor << "Listar Jogadores (" << optionalParamColor << "<? Ordem: " << optionsColor << "[A|N]" << optionalParamColor << ">" << descriptionColor << ")" << reset << std::endl;
     std::cout << optionColor << "EP: " << reset << descriptionColor << "Executar Partida (" << paramColor << "<Jogo: " << optionsColor << "(R|L|V)" << paramColor << "> <Apelido Jogador 1> <Apelido Jogador 2>" << optionalParamColor << " <? Altura Tabuleiro> <? Largura Tabuleiro>" << descriptionColor << ")" << reset << std::endl;
@@ -48,8 +50,6 @@ void Manager::printMenu() {
     std::cout << std::endl;
     std::cout << "> ";
 }
-
-
 
 void Manager::createPlayer(const std::string& arguments) {
     std::string nick, name;
@@ -83,6 +83,37 @@ void Manager::createPlayer(const std::string& arguments) {
     Player::createPlayer(nick, name, symbol);
 
     std::cout << "Jogador " << nick << " cadastrado com sucesso" << std::endl;
+}
+
+void Manager::updatePlayer(const std::string& arguments) {
+    std::string nick, newValue;
+    char attribute = 0;
+
+    // Split the arguments into substrings by space
+    std::istringstream ss(arguments);
+
+    try {
+        ss >> nick >> attribute;
+        getline(ss, newValue);
+        attribute = std::toupper(attribute);
+        newValue = Utils::cleanString(newValue);
+    } catch (std::exception& e) {
+        throw incorrect_format();
+    }
+
+    // Get the attribute to be updated
+    const bool toUpdateName = (attribute == 'N');
+    const bool toUpdateSymbol = (attribute == 'S');
+
+    // Check if attributes are correct
+    if (nick.empty()) throw incorrect_format();
+    if (!toUpdateName && !toUpdateSymbol) throw invalid_command();
+    if (toUpdateName && newValue.empty()) throw incorrect_format();
+
+    // Update the player
+    Player::updatePlayerInfo(nick, toUpdateName, toUpdateSymbol, newValue);
+
+    std::cout << "Jogador " << nick << " atualizado com sucesso" << std::endl;
 }
 
 void Manager::deletePlayer(const std::string& arguments) {
@@ -227,6 +258,8 @@ void Manager::menu() {
             std::transform(command.begin(), command.end(), command.begin(), ::toupper);
             if (command == "CJ")
                 createPlayer(arguments);
+            else if (command == "EJ")
+                updatePlayer(arguments);
             else if (command == "RJ")
                 deletePlayer(arguments);
             else if (command == "LJ")
@@ -242,7 +275,8 @@ void Manager::menu() {
         }
 
         std::cout << std::endl<< "Pressione: <ENTER>";
-        getchar();
+        std::string wait;
+        std::getline(std::cin, wait); // Use getline to handle empty input
         Utils::clearTerminal();
     }
 }

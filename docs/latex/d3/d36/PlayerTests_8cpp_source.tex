@@ -95,74 +95,94 @@
 \DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ player}}
 \DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ nick\ =\ \textcolor{stringliteral}{"{}Nick1"{}},\ name\ =\ \textcolor{stringliteral}{"{}Name1"{}};}
 \DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{char}\ symbol\ =\ \textcolor{charliteral}{'X'};}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a12f65a371cdda1f1a049752489445d48}{Player::createPlayer}}(nick,\ name,\ symbol));}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a60f83f57c5458476d1ff622af4a382b2}{Player::createPlayer}}(nick,\ name,\ symbol));}
 \DoxyCodeLine{00095\ }
-\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ player\ stats}}
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick,\ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{Game::REVERSI}},\ \textcolor{keyword}{true},\ \textcolor{keyword}{false}));}
-\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick,\ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{Game::REVERSI}},\ \textcolor{keyword}{true},\ \textcolor{keyword}{false}));}
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick,\ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{Game::REVERSI}},\ \textcolor{keyword}{false},\ \textcolor{keyword}{true}));}
-\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick,\ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9}{Game::CONNECT\_FOUR}},\ \textcolor{keyword}{true},\ \textcolor{keyword}{false}));}
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick,\ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9}{Game::CONNECT\_FOUR}},\ \textcolor{keyword}{false},\ \textcolor{keyword}{true}));}
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick,\ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9}{Game::CONNECT\_FOUR}},\ \textcolor{keyword}{false},\ \textcolor{keyword}{true}));}
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick,\ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa}{Game::TTT}},\ \textcolor{keyword}{true},\ \textcolor{keyword}{false}));}
-\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick,\ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa}{Game::TTT}},\ \textcolor{keyword}{false},\ \textcolor{keyword}{true}));}
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick,\ 0,\ \textcolor{keyword}{true},\ \textcolor{keyword}{false}));}
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick,\ 0,\ \textcolor{keyword}{false},\ \textcolor{keyword}{true}));}
-\DoxyCodeLine{00107\ }
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Load\ player}}
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ recoveredPlayer(\textcolor{stringliteral}{"{}"{}},\ \textcolor{stringliteral}{"{}"{}});}
-\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(recoveredPlayer\ =\ \mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{Player::loadPlayer}}(nick));}
-\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}()\ ==\ nick);}
-\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a73e4ff2d70e62ca7e3be1d9b4ad9de85}{getName}}()\ ==\ name);}
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ ==\ symbol);}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Load\ player}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ recoveredPlayer(\textcolor{stringliteral}{"{}"{}},\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(recoveredPlayer\ =\ \mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{Player::loadPlayer}}(nick));}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}()\ ==\ nick);}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a73e4ff2d70e62ca7e3be1d9b4ad9de85}{getName}}()\ ==\ name);}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ ==\ symbol);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ player\ stats}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick,\ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{Game::REVERSI}},\ \textcolor{keyword}{true},\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick,\ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{Game::REVERSI}},\ \textcolor{keyword}{true},\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick,\ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{Game::REVERSI}},\ \textcolor{keyword}{false},\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick,\ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9}{Game::CONNECT\_FOUR}},\ \textcolor{keyword}{true},\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick,\ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9}{Game::CONNECT\_FOUR}},\ \textcolor{keyword}{false},\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick,\ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9}{Game::CONNECT\_FOUR}},\ \textcolor{keyword}{false},\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick,\ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa}{Game::TTT}},\ \textcolor{keyword}{true},\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick,\ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa}{Game::TTT}},\ \textcolor{keyword}{false},\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick,\ 0,\ \textcolor{keyword}{true},\ \textcolor{keyword}{false}));}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick,\ 0,\ \textcolor{keyword}{false},\ \textcolor{keyword}{true}));}
 \DoxyCodeLine{00114\ }
-\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ stats}}
-\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a53339bac955beb333581f865546db107}{getWins}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{Game::REVERSI}})\ ==\ 2);}
-\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a53339bac955beb333581f865546db107}{getWins}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9}{Game::CONNECT\_FOUR}})\ ==\ 1);}
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a53339bac955beb333581f865546db107}{getWins}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa}{Game::TTT}})\ ==\ 1);}
-\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a53339bac955beb333581f865546db107}{getWins}}(0)\ ==\ 0);}
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a6566537dd373e87d43385b2fe4de942e}{getLosses}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{Game::REVERSI}})\ ==\ 1);}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a6566537dd373e87d43385b2fe4de942e}{getLosses}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9}{Game::CONNECT\_FOUR}})\ ==\ 2);}
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a6566537dd373e87d43385b2fe4de942e}{getLosses}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa}{Game::TTT}})\ ==\ 1);}
-\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a6566537dd373e87d43385b2fe4de942e}{getLosses}}(0)\ ==\ 0);}
-\DoxyCodeLine{00124\ }
-\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ duplicate\ player}}
-\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ nick2\ =\ \textcolor{stringliteral}{"{}Nick2"{}};}
-\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classPlayer_a12f65a371cdda1f1a049752489445d48}{Player::createPlayer}}(nick,\ nick2),\ \mbox{\hyperlink{classduplicated__player}{duplicated\_player}});}
-\DoxyCodeLine{00128\ }
-\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Load\ non-\/existent\ player}}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ nick3\ =\ \textcolor{stringliteral}{"{}Nick3"{}};}
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{Player::loadPlayer}}(nick3),\ \mbox{\hyperlink{classplayer__not__found}{player\_not\_found}});}
-\DoxyCodeLine{00132\ }
-\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Upddate\ non-\/existent\ player}}
-\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick3,\ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{Game::REVERSI}},\ \textcolor{keyword}{true},\ \textcolor{keyword}{false}),\ \mbox{\hyperlink{classplayer__not__found}{player\_not\_found}});}
-\DoxyCodeLine{00135\ }
-\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Delete\ player}}
-\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a431643a31f1dd19c95c22a6fdb0232a6}{Player::deletePlayer}}(nick));}
-\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{Player::loadPlayer}}(nick),\ \mbox{\hyperlink{classplayer__not__found}{player\_not\_found}});}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ player\ info}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ newName\ =\ \textcolor{stringliteral}{"{}NewName1"{}};}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ newSymbol\ =\ \textcolor{stringliteral}{"{}0"{}};}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a91c61f8f64e7692f0e7db5e55e85a8c0}{Player::updatePlayerInfo}}(nick,\ \textcolor{keyword}{true},\ \textcolor{keyword}{false},\ newName));}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a91c61f8f64e7692f0e7db5e55e85a8c0}{Player::updatePlayerInfo}}(nick,\ \textcolor{keyword}{false},\ \textcolor{keyword}{true},\ newSymbol));}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classPlayer_a91c61f8f64e7692f0e7db5e55e85a8c0}{Player::updatePlayerInfo}}(nick,\ \textcolor{keyword}{true},\ \textcolor{keyword}{true},\ newName),\ \mbox{\hyperlink{classinvalid__command}{invalid\_command}});}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classPlayer_a91c61f8f64e7692f0e7db5e55e85a8c0}{Player::updatePlayerInfo}}(nick,\ \textcolor{keyword}{false},\ \textcolor{keyword}{false},\ newName),\ \mbox{\hyperlink{classinvalid__command}{invalid\_command}});}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classPlayer_a91c61f8f64e7692f0e7db5e55e85a8c0}{Player::updatePlayerInfo}}(nick,\ \textcolor{keyword}{true},\ \textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}"{}}),\ \mbox{\hyperlink{classincorrect__data}{incorrect\_data}});}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Load\ updated\ player}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(recoveredPlayer\ =\ \mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{Player::loadPlayer}}(nick));}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}()\ ==\ nick);}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a73e4ff2d70e62ca7e3be1d9b4ad9de85}{getName}}()\ ==\ newName);}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ ==\ newSymbol[0]);}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ stats}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a53339bac955beb333581f865546db107}{getWins}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{Game::REVERSI}})\ ==\ 2);}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a53339bac955beb333581f865546db107}{getWins}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9}{Game::CONNECT\_FOUR}})\ ==\ 1);}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a53339bac955beb333581f865546db107}{getWins}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa}{Game::TTT}})\ ==\ 1);}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a53339bac955beb333581f865546db107}{getWins}}(0)\ ==\ 0);}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a6566537dd373e87d43385b2fe4de942e}{getLosses}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{Game::REVERSI}})\ ==\ 1);}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a6566537dd373e87d43385b2fe4de942e}{getLosses}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aab075c3682e716cd34c995fb2cd4bccf9}{Game::CONNECT\_FOUR}})\ ==\ 2);}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a6566537dd373e87d43385b2fe4de942e}{getLosses}}(\mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa1124eb9c574a9aa3d1c02705e7369faa}{Game::TTT}})\ ==\ 1);}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_a6566537dd373e87d43385b2fe4de942e}{getLosses}}(0)\ ==\ 0);}
 \DoxyCodeLine{00139\ }
-\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ all\ players}}
-\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_ac2cc0794b5a02b0d9325de133f4c9ed3}{Player::getAllPlayers}}());}
-\DoxyCodeLine{00142\ }
-\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Delete\ test\ file}}
-\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(std::remove(\mbox{\hyperlink{classPlayer_a9b7e2146125da66d32032b8467cbbb1c}{Player::filePath}}.c\_str()));}
-\DoxyCodeLine{00145\ \ \ \ \ \}}
-\DoxyCodeLine{00146\ }
-\DoxyCodeLine{00147\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Compare\ Players"{}})\ \{}
-\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ greaterNick\ =\ \textcolor{stringliteral}{"{}Anick"{}},\ smallerNick\ =\ \textcolor{stringliteral}{"{}Bnick"{}};}
-\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ greaterName\ =\ \textcolor{stringliteral}{"{}Aname"{}},\ smallerName\ =\ \textcolor{stringliteral}{"{}Bname"{}};}
-\DoxyCodeLine{00150\ }
-\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ player1(greaterNick,\ smallerName);}
-\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ player2(smallerNick,\ greaterName);}
-\DoxyCodeLine{00153\ }
-\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Compare\ nick}}
-\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ CHECK(\mbox{\hyperlink{classPlayer_acb610de195b5f560e009fc666b2ffced}{Player::compareByNick}}(player1,\ player2));}
-\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ CHECK\_FALSE(\mbox{\hyperlink{classPlayer_acb610de195b5f560e009fc666b2ffced}{Player::compareByNick}}(player2,\ player1));}
-\DoxyCodeLine{00157\ }
-\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Compare\ name}}
-\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ CHECK\_FALSE(\mbox{\hyperlink{classPlayer_aae458284178943b8ca2af752c5442736}{Player::compareByName}}(player1,\ player2));}
-\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ CHECK(\mbox{\hyperlink{classPlayer_aae458284178943b8ca2af752c5442736}{Player::compareByName}}(player2,\ player1));}
-\DoxyCodeLine{00161\ \ \ \ \ \}}
-\DoxyCodeLine{00162\ \}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Remove\ player\ symbol}}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a91c61f8f64e7692f0e7db5e55e85a8c0}{Player::updatePlayerInfo}}(nick,\ \textcolor{keyword}{false},\ \textcolor{keyword}{true},\ \textcolor{stringliteral}{"{}"{}}));}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(recoveredPlayer\ =\ \mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{Player::loadPlayer}}(nick));}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ CHECK(recoveredPlayer.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ ==\ 0);}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ duplicate\ player}}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ nick2\ =\ \textcolor{stringliteral}{"{}Nick2"{}};}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classPlayer_a60f83f57c5458476d1ff622af4a382b2}{Player::createPlayer}}(nick,\ nick2),\ \mbox{\hyperlink{classduplicated__player}{duplicated\_player}});}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Load\ non-\/existent\ player}}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ nick3\ =\ \textcolor{stringliteral}{"{}Nick3"{}};}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{Player::loadPlayer}}(nick3),\ \mbox{\hyperlink{classplayer__not__found}{player\_not\_found}});}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Upddate\ non-\/existent\ player}}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{Player::updatePlayerStats}}(nick3,\ \mbox{\hyperlink{Manager_8hpp_a4ec25c3351f43b6c631aedeb9e14d46aa5ac6559c0a96dc91b4bf758eb896772a}{Game::REVERSI}},\ \textcolor{keyword}{true},\ \textcolor{keyword}{false}),\ \mbox{\hyperlink{classplayer__not__found}{player\_not\_found}});}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Delete\ player}}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_a431643a31f1dd19c95c22a6fdb0232a6}{Player::deletePlayer}}(nick));}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(\mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{Player::loadPlayer}}(nick),\ \mbox{\hyperlink{classplayer__not__found}{player\_not\_found}});}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Get\ all\ players}}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classPlayer_ac2cc0794b5a02b0d9325de133f4c9ed3}{Player::getAllPlayers}}());}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Delete\ test\ file}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(std::remove(\mbox{\hyperlink{classPlayer_a9b7e2146125da66d32032b8467cbbb1c}{Player::filePath}}.c\_str()));}
+\DoxyCodeLine{00165\ \ \ \ \ \}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Compare\ Players"{}})\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ greaterNick\ =\ \textcolor{stringliteral}{"{}Anick"{}},\ smallerNick\ =\ \textcolor{stringliteral}{"{}Bnick"{}};}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ greaterName\ =\ \textcolor{stringliteral}{"{}Aname"{}},\ smallerName\ =\ \textcolor{stringliteral}{"{}Bname"{}};}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ player1(greaterNick,\ smallerName);}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ player2(smallerNick,\ greaterName);}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Compare\ nick}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ CHECK(\mbox{\hyperlink{classPlayer_acb610de195b5f560e009fc666b2ffced}{Player::compareByNick}}(player1,\ player2));}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ CHECK\_FALSE(\mbox{\hyperlink{classPlayer_acb610de195b5f560e009fc666b2ffced}{Player::compareByNick}}(player2,\ player1));}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Compare\ name}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ CHECK\_FALSE(\mbox{\hyperlink{classPlayer_aae458284178943b8ca2af752c5442736}{Player::compareByName}}(player1,\ player2));}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ CHECK(\mbox{\hyperlink{classPlayer_aae458284178943b8ca2af752c5442736}{Player::compareByName}}(player2,\ player1));}
+\DoxyCodeLine{00181\ \ \ \ \ \}}
+\DoxyCodeLine{00182\ \}}
 
 \end{DoxyCode}

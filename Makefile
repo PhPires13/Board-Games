@@ -29,7 +29,7 @@ $(OBJ_DIR)/exceptions.o: $(INCLUDE_DIR)/exceptions.hpp $(SRC_DIR)/exceptions.cpp
 $(OBJ_DIR)/Board.o: $(INCLUDE_DIR)/Board.hpp $(SRC_DIR)/Board.cpp
 	$(CC) $(CFLAGS) -c --coverage $(SRC_DIR)/Board.cpp -I $(INCLUDE_DIR) -o $(OBJ_DIR)/Board.o
 
-$(OBJ_DIR)/Player.o: $(INCLUDE_DIR)/Player.hpp $(SRC_DIR)/Player.cpp $(INCLUDE_DIR)/exceptions.hpp $(INCLUDE_DIR)/Manager.hpp
+$(OBJ_DIR)/Player.o: $(INCLUDE_DIR)/Player.hpp $(SRC_DIR)/Player.cpp $(INCLUDE_DIR)/exceptions.hpp $(INCLUDE_DIR)/Manager.hpp $(INCLUDE_DIR)/Utils.hpp
 	$(CC) $(CFLAGS) -c --coverage $(SRC_DIR)/Player.cpp -I $(INCLUDE_DIR) -o $(OBJ_DIR)/Player.o
 
 $(OBJ_DIR)/BoardGame.o: $(INCLUDE_DIR)/BoardGame.hpp $(SRC_DIR)/BoardGame.cpp $(INCLUDE_DIR)/Board.hpp $(INCLUDE_DIR)/Player.hpp $(INCLUDE_DIR)/exceptions.hpp $(INCLUDE_DIR)/Utils.hpp
@@ -44,7 +44,7 @@ $(OBJ_DIR)/Reversi.o: $(INCLUDE_DIR)/Reversi.hpp $(SRC_DIR)/Reversi.cpp $(INCLUD
 $(OBJ_DIR)/ConnectFour.o: $(INCLUDE_DIR)/ConnectFour.hpp $(SRC_DIR)/ConnectFour.cpp $(INCLUDE_DIR)/BoardGame.hpp $(INCLUDE_DIR)/Board.hpp $(INCLUDE_DIR)/Player.hpp $(INCLUDE_DIR)/exceptions.hpp $(INCLUDE_DIR)/Utils.hpp
 	$(CC) $(CFLAGS) -c --coverage $(SRC_DIR)/ConnectFour.cpp -I $(INCLUDE_DIR) -o $(OBJ_DIR)/ConnectFour.o
 
-$(OBJ_DIR)/Manager.o: $(INCLUDE_DIR)/Manager.hpp $(SRC_DIR)/Manager.cpp $(INCLUDE_DIR)/BoardGame.hpp $(INCLUDE_DIR)/Player.hpp $(INCLUDE_DIR)/exceptions.hpp $(INCLUDE_DIR)/Reversi.hpp $(INCLUDE_DIR)/TicTacToe.hpp $(INCLUDE_DIR)/Utils.hpp
+$(OBJ_DIR)/Manager.o: $(INCLUDE_DIR)/Manager.hpp $(SRC_DIR)/Manager.cpp $(INCLUDE_DIR)/BoardGame.hpp $(INCLUDE_DIR)/Player.hpp $(INCLUDE_DIR)/exceptions.hpp $(INCLUDE_DIR)/TicTacToe.hpp $(INCLUDE_DIR)/Reversi.hpp $(INCLUDE_DIR)/ConnectFour.hpp $(INCLUDE_DIR)/Utils.hpp
 	$(CC) $(CFLAGS) -c --coverage $(SRC_DIR)/Manager.cpp -I $(INCLUDE_DIR) -o $(OBJ_DIR)/Manager.o
 
 $(OBJ_DIR)/main.o: $(SRC_DIR)/main.cpp $(INCLUDE_DIR)/Manager.hpp $(INCLUDE_DIR)/Player.hpp
