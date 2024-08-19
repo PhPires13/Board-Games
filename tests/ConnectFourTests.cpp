@@ -90,7 +90,7 @@ TEST_SUITE("ConnectFour") {
         const Player player1("Nick1", "Name1", 'X');
         const Player player2("Nick2", "Name2", 'O');
 
-        // Complete Horizontal _
+        // Complete Horizontal _ Player 1 wins
         ConnectFour cf1(player1, player2, ConnectFour::minimumBoardSize, ConnectFour::minimumBoardSize);
         cf1.makeMove({0}, player1.getSymbol());
         cf1.makeMove({0}, player2.getSymbol());
@@ -102,6 +102,22 @@ TEST_SUITE("ConnectFour") {
         // Completing the four by the middle
         cf1.makeMove({2}, player1.getSymbol());
         CHECK(cf1.getGameState({2}) == GameState::PLAYER1_WINS);
+
+        // Complete Horizontal _ Player 2 wins
+        ConnectFour cf6(player1, player2, ConnectFour::minimumBoardSize, ConnectFour::minimumBoardSize);
+        cf6.makeMove({0}, player1.getSymbol());
+        cf6.makeMove({0}, player2.getSymbol());
+        cf6.makeMove({1}, player1.getSymbol());
+        cf6.makeMove({1}, player2.getSymbol());
+        cf6.makeMove({3}, player1.getSymbol());
+        cf6.makeMove({3}, player2.getSymbol());
+        CHECK(cf6.getGameState({3}) == GameState::NOT_OVER);
+        // Completing the four by the middle
+        cf6.makeMove({0}, player1.getSymbol());
+        cf6.makeMove({2}, player2.getSymbol());
+        cf6.makeMove({1}, player1.getSymbol());
+        cf6.makeMove({2}, player2.getSymbol());
+        CHECK(cf6.getGameState({2}) == GameState::PLAYER2_WINS);
 
         // Complete Vertical |
         ConnectFour cf2(player1, player2);
