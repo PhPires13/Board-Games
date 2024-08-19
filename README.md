@@ -106,7 +106,7 @@ FS: Finalizar Sistema
   - Para acessar basta abrir o arquivo ``index.html`` localizado na pasta ``docs/html``.
 - ### Cartão Classe Responsabilidades Colaboradores (CRC)
   - A documentação CRC foi gerada utilizando a ferramenta CRC Card Builder (http://groups.umd.umich.edu/cis/tinytools/cis375/f19/team7/index.html).
-  - Para acessar basta abrir o arquivo ``crc.pdf`` localizado na pasta ``docs``.
+  - Para acessar basta abrir o arquivo ``Class Responsability Collaboration Card.pdf`` localizado na pasta ``docs``.
 - ### Cobertura de Testes
   - A documentação da cobertura de testes foi gerada utilizando a ferramenta ``gcovr``.
   - Para acessar basta abrir o arquivo ``relatorio.html`` localizado na pasta ``coverage``.
