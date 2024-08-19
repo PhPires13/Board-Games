@@ -57,7 +57,7 @@ FS: Finalizar Sistema
   - Criar executáveis para ambos os sistemas operacionais.
   - Usar códigos que funcionem corretamente em todos os sistemas.
   - Caso não existisse código comum, identificar o sistema e roda suas equivalências, como: o ``clear`` e o ``cls``
-  ou o ``rm -f`` e o ``del /Q`` no Makefile.
+  ou o ``rm -f`` e o ``del`` no Makefile.
 - ### 7 Estatística de Cobertura de testes
   - Foi realizada a análise de cobertura de testes, um extra, mesmo que não solicitado.
 
@@ -108,8 +108,8 @@ FS: Finalizar Sistema
 - ### Cobertura de Testes
   - A documentação da cobertura de testes foi gerada utilizando a ferramenta ``gcovr``.
   - Para acessar basta abrir o arquivo ``relatorio.html`` localizado na pasta ``coverage``.
-  - Obs.: a porcentagem de cobertura não consegue ser muito alta devido a considerar grande quantidade de trechos não testáveis, 
-  como main e a própria biblioteca de teste, mas os arquivos necessários possuem uma cobertura de testes muito alta. 
+  - Obs.: a porcentagem de cobertura não consegue ser muito alta devido a considerar muitos trechos não testáveis, 
+  como main, os arquivos de teste e a própria biblioteca, mas os arquivos necessários possuem uma cobertura de testes muito alta. 
 
 ---
 ## Estrutura
