@@ -162,6 +162,7 @@ então armazenado em um ponteiro da classe genérica para o correto funcionament
 - Lidar com parâmetros opcionais, uma vez que sua disposição pode variar.
 - Entender como jogar Reversi rsrsrs.
 - Realizar tests que dependeriam da interação do usuário.
+- Validar se trechos do código funcionam em todos os sistemas, lidando principalmente com shell windows
 
 ---
 ## Requisitos

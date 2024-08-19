@@ -207,7 +207,7 @@ public:
     static bool compareByName(const Player& player1, const Player& player2);
 
     /**
-     * Guarantee that the databse file exists
+     * Guarantee that the database file exists
      *
      * @throws file_error if was not able to open the file
      */
