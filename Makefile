@@ -99,8 +99,8 @@ $(TESTS_BIN_DIR)/Board_Games_Tests: $(TESTS_OBJ_DIR)/UtilsTests.o $(TESTS_OBJ_DI
 clean: clean_coverage
 ifeq ($(OS),Windows_NT)
 	$(RM) $(BIN_DIR)\Board_Games.exe $(TESTS_BIN_DIR)\Board_Games_Tests.exe
-	$(FIND) $(OBJ_DIR) $(DELETE_FILES) *.o $(COMMAND)
-	$(FIND) $(OBJ_DIR) $(DELETE_FILES) *.gcno $(COMMAND)
+	-$(FIND) $(OBJ_DIR) $(DELETE_FILES) *.o $(COMMAND)
+	-$(FIND) $(OBJ_DIR) $(DELETE_FILES) *.gcno $(COMMAND)
 else
 	$(RM) \
 	$(BIN_DIR)/Board_Games $(TESTS_BIN_DIR)/Board_Games_Tests \
@@ -110,7 +110,7 @@ endif
 
 clean_coverage:
 ifeq ($(OS),Windows_NT)
-	$(FIND) $(OBJ_DIR) $(DELETE_FILES) *.gcda $(COMMAND)
+	-$(FIND) $(OBJ_DIR) $(DELETE_FILES) *.gcda $(COMMAND)
 else
 	$(RM) $(OBJ_DIR)/*.gcda $(OBJ_DIR)/*/*.gcda
 endif

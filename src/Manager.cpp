@@ -229,11 +229,13 @@ void Manager::playMatch(const std::string &arguments) {
     const GameState gameState = boardGame->playGame();
 
     // Update players stats
-    const bool player1Won = gameState == GameState::PLAYER1_WINS;
-    const bool player2Won = gameState == GameState::PLAYER2_WINS;
+    if (gameState != GameState::TIE) {
+        const bool player1Won = gameState == GameState::PLAYER1_WINS;
+        const bool player2Won = gameState == GameState::PLAYER2_WINS;
 
-    Player::updatePlayerStats(player1.getNick(), game, player1Won, player2Won);
-    Player::updatePlayerStats(player2.getNick(), game, player2Won, player1Won);
+        Player::updatePlayerStats(player1.getNick(), game, player1Won, player2Won);
+        Player::updatePlayerStats(player2.getNick(), game, player2Won, player1Won);
+    }
 }
 
 void Manager::menu() {
