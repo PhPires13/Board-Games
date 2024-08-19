@@ -1,5 +1,4 @@
 #include "Reversi.hpp"  // Inclui o cabeçalho que contém as declarações da classe Reversi.
-#include <iostream>     // Inclui a biblioteca para entrada e saída padrão.
 #include "exceptions.hpp"
 
 const uint32_t Reversi::minimumBoardSize = 4;  // Define o tamanho mínimo do tabuleiro como 4.
