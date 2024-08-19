@@ -1,21 +1,21 @@
 #include "Reversi.hpp"  // Inclui o cabeçalho que contém as declarações da classe Reversi.
 #include "exceptions.hpp"
 
-const uint32_t Reversi::minimumBoardSize = 4;  // Define o tamanho mínimo do tabuleiro como 4.
-const uint32_t Reversi::defaultBoardSize = 8;  // Define o tamanho padrão do tabuleiro como 8.
+const uint32_t Reversi::minimumBoardSize = 4;  // Define the minimum board size as 4.
+const uint32_t Reversi::defaultBoardSize = 8;  // Define the default board size as 8.
 
 Reversi::Reversi(Player _player1, Player _player2, uint32_t boardSize)
     : BoardGame(std::move(_player1), std::move(_player2), 
-                (Reversi::isAValidHeight(boardSize) ? boardSize : Reversi::defaultBoardSize),  // Define a altura do tabuleiro.
-                (Reversi::isAValidWidth(boardSize) ? boardSize : Reversi::defaultBoardSize),   // Define a largura do tabuleiro.
-                "\033[38;2;255;255;0m", "\033[38;2;255;255;255m", "\033[30m",                 // Define as cores dos jogadores.
-                "\033[48;2;0;150;23m", "\033[48;2;0;100;15m") {                               // Define as cores do tabuleiro.
+                (Reversi::isAValidHeight(boardSize) ? boardSize : Reversi::defaultBoardSize),  // Define the board height.
+                (Reversi::isAValidWidth(boardSize) ? boardSize : Reversi::defaultBoardSize),   // Define the board width.
+                "\033[38;2;255;255;0m", "\033[38;2;255;255;255m", "\033[30m",                 // Define players colors.
+                "\033[48;2;0;150;23m", "\033[48;2;0;100;15m") {                               // Define board colors.
     if (!Reversi::isAValidHeight(boardSize))
-        boardSize = Reversi::defaultBoardSize;  // Se o tamanho do tabuleiro não for válido, usa o tamanho padrão.
+        boardSize = Reversi::defaultBoardSize;  // If the board size is not valid, use the default size.
 
-    const uint32_t mid = boardSize / 2;  // Calcula a posição central do tabuleiro.
+    const uint32_t mid = boardSize / 2;  // Calculate the board central position.
 
-    // Inicializa o tabuleiro com as peças iniciais no meio.
+    // Initialize the board with the starting pieces in its middle.
     this->board.placeSymbol({mid - 1, mid - 1}, player1.getSymbol());
     this->board.placeSymbol({mid - 1, mid}, player2.getSymbol());
     this->board.placeSymbol({mid, mid - 1}, player2.getSymbol());
@@ -24,68 +24,68 @@ Reversi::Reversi(Player _player1, Player _player2, uint32_t boardSize)
 
 bool Reversi::isAValidHeight(const uint32_t boardHeight) const {
     /**
-     * Verifica se a altura do tabuleiro é válida.
+     * Check if the board's height is valid.
      *
-     * @param boardHeight Altura do tabuleiro
-     * @return true se a altura é maior ou igual ao tamanho mínimo e é um número par, false caso contrário
+     * @param boardHeight
+     * @return true if it is as valid height.
      */
     return boardHeight >= Reversi::minimumBoardSize && boardHeight % 2 == 0;
 }
 
 bool Reversi::isAValidWidth(const uint32_t boardWidth) const {
-    /**
-     * Verifica se a largura do tabuleiro é válida.
-     *
-     * @param boardWidth Largura do tabuleiro
-     * @return true se a largura é válida, false caso contrário
-     */
+     /**
+      * Check if the board's width is valid.
+      *
+      * @param boardWidth
+      * @return true if it is as valid height.
+      */
     return Reversi::isAValidHeight(boardWidth);
 }
 
 void Reversi::validateMove(const std::vector<uint32_t> &move) const {
     /**
-     * Valida o movimento dado de acordo com as regras do jogo Reversi.
+     * Check if the move made is valid, according to Reversi rules.
      *
-     * @param move Vetor com as coordenadas do movimento (linha e coluna)
-     * @throw incorrect_format se o movimento não tiver exatamente duas coordenadas
-     * @throw invalid_move se o movimento não for válido
+     * @param move Move coordinates (row, column)
+     * @throws incorrect_format if the move is empty, has more than 2 values and less than 1 value.
+     * @throws invalid_move if the move is invalid.
      */
-    BoardGame::validateMove(move);  // Valida o movimento usando as regras do jogo base.
+    BoardGame::validateMove(move);  // Validate the move using the base game rules.
 
-    if (move.size() != 2) throw incorrect_format();  // Verifica se o movimento tem exatamente duas coordenadas (linha, coluna).
+    if (move.size() != 2) throw incorrect_format();  // Check if the move has exactly two coordinates (row, column).
 
     const int row = move[0];
     const int col = move[1];
 
-    // Verifica se a célula já está ocupada.
+    // Check if the cell is already filled.
     if (this->board.getSymbol(row, col) != Board::emptyCell) throw invalid_move();
 
-    // Obtém o símbolo do jogador atual.
+    // Get the symbol of the current player.
     const char currentPlayerSymbol = this->whoseTurn().getSymbol();
     
-    // Verifica se o movimento é válido em qualquer direção.
+    // Check if the move is valid in any direction.
     if (!isAnyDirectionValid(row, col, currentPlayerSymbol)) {
-        throw invalid_move();  // Se não for válido, lança exceção de movimento inválido.
+        throw invalid_move();  // If it is not valid, throw exception invalid_move.
     }
 }
 
 void Reversi::makeMove(const std::vector<uint32_t> &move, const char symbol) {
-    /**
-     * Executa o movimento no tabuleiro e vira as peças do oponente conforme necessário.
-     *
-     * @param move Coordenadas do movimento
-     * @param symbol Símbolo do jogador que está realizando o movimento
-     */
-    BoardGame::makeMove(move, symbol);  // Faz o movimento no tabuleiro.
-    flipPieces(move, symbol);  // Vira as peças do oponente cercadas pelo símbolo atual.
+     /**
+      * Execute the move and flip the necessary pieces.
+      *
+      * @param move Move coordinates
+      * @param symbol Symbol of the player who made the move
+      */
+    BoardGame::makeMove(move, symbol);  // Make the move on the board.
+    flipPieces(move, symbol);  // Flip the opponent pieces surrounded by current symbol.
 }
 
 GameState Reversi::getGameState(const std::vector<uint32_t>& move) const {
-    // Verifica se há movimentos válidos para qualquer jogador
+    // Check if there are valid moves for any player.
     if ((!hasValidMoves(player1.getSymbol()) && this->whoseTurn().getSymbol() == player1.getSymbol()) ||
         (!hasValidMoves(player2.getSymbol()) && this->whoseTurn().getSymbol() == player2.getSymbol())) {
         
-        // Conta as peças de cada jogador para determinar o vencedor.
+        // Count the pieces of each player to determine the winner.
         int player1Count = 0;
         int player2Count = 0;
         for (int row = 0; row < this->board.getHeight(); ++row) {
@@ -98,28 +98,28 @@ GameState Reversi::getGameState(const std::vector<uint32_t>& move) const {
             }
         }
 
-        if (player1Count > player2Count) return GameState::PLAYER1_WINS;  // Retorna vitória do jogador 1.
-        if (player2Count > player1Count) return GameState::PLAYER2_WINS;  // Retorna vitória do jogador 2.
+        if (player1Count > player2Count) return GameState::PLAYER1_WINS;  // Return Player 1 Wins.
+        if (player2Count > player1Count) return GameState::PLAYER2_WINS;  // Return Player 2 Wins.
 
-        return GameState::TIE;  // Retorna empate.
+        return GameState::TIE;  // Return tie.
     }
 
-    return GameState::NOT_OVER;  // O jogo ainda não acabou.
+    return GameState::NOT_OVER;  // The game is not over.
 }
 
 void Reversi::flipPieces(const std::vector<uint32_t>& move, const char playerSymbol) {
     /**
-     * Vira as peças do oponente de acordo com as regras do Reversi, após um movimento válido.
+     * Flip the opponent pieces according to Reversi rules, after a valid move.
      *
-     * @param move Coordenadas do movimento
-     * @param playerSymbol Símbolo do jogador que fez o movimento
+     * @param move Move coordinates
+     * @param playerSymbol Symbol of the player who made the move
      */
     const int row = move[0];
     const int col = move[1];
     for (int directionRow = -1; directionRow <= 1; ++directionRow) {
         for (int directionCol = -1; directionCol <= 1; ++directionCol) {
             if (directionRow != 0 || directionCol != 0) {
-                // Verifica se a direção é válida para virar peças.
+                // Check if the direction is valid to flip pieces.
                 if (isValidDirection(row, col, directionRow, directionCol, playerSymbol)) {
                     flipInDirection(row, col, directionRow, directionCol, playerSymbol);
                 }
@@ -130,20 +130,20 @@ void Reversi::flipPieces(const std::vector<uint32_t>& move, const char playerSym
 
 bool Reversi::isValidDirection(const int row, const int col, const int directionRow, const int directionCol, const char playerSymbol) const {
     /**
-     * Verifica se uma direção específica a partir de uma posição é válida para virar peças.
+     * Check a specific direction from a valid position to flip the pieces.
      *
-     * @param row Linha de origem do movimento
-     * @param col Coluna de origem do movimento
-     * @param directionRow Direção na linha (-1, 0, 1)
-     * @param directionCol Direção na coluna (-1, 0, 1)
-     * @param playerSymbol Símbolo do jogador atual
-     * @return true se a direção é válida, false caso contrário
+     * @param row Move row
+     * @param col Move column
+     * @param directionRow Line direction (-1, 0, 1)
+     * @param directionCol Column direction (-1, 0, 1)
+     * @param playerSymbol Symbol of the current player
+     * @return true if it is a valid direction
      */
     int r = row + directionRow;
     int c = col + directionCol;
     const char opponentSymbol = (playerSymbol == player1.getSymbol()) ? player2.getSymbol() : player1.getSymbol();
 
-    // Verifica se a posição inicial da direção contém uma peça do oponente.
+    // Check if the initial position of the direction has an opponent piece.
     if (!isWithinBounds(r, c) || this->board.getSymbol(r, c) != opponentSymbol) {
         return false;
     }
@@ -151,13 +151,13 @@ bool Reversi::isValidDirection(const int row, const int col, const int direction
     r += directionRow;
     c += directionCol;
 
-    // Percorre na direção especificada para verificar se há uma peça do jogador atual.
+    // Scroll in the specified direction to check if there is one current player piece.
     while (isWithinBounds(r, c)) {
         if (this->board.getSymbol(r, c) == Board::emptyCell) {
             return false;
         }
         if (this->board.getSymbol(r, c) == playerSymbol) {
-            return true;  // Direção válida.
+            return true;  // Valid direction.
         }
         r += directionRow;
         c += directionCol;
@@ -168,18 +168,18 @@ bool Reversi::isValidDirection(const int row, const int col, const int direction
 
 void Reversi::flipInDirection(const int row, const int col, const int directionRow, const int directionCol, const char playerSymbol) {
     /**
-     * Vira as peças do oponente em uma direção específica.
+     * Flip the opponent pieces in a specific direction.
      *
-     * @param row Linha de origem do movimento
-     * @param col Coluna de origem do movimento
-     * @param directionRow Direção na linha (-1, 0, 1)
-     * @param directionCol Direção na coluna (-1, 0, 1)
-     * @param playerSymbol Símbolo do jogador atual
+     * @param row Move row
+     * @param col Move column
+     * @param directionRow Line direction (-1, 0, 1)
+     * @param directionCol Column direction (-1, 0, 1)
+     * @param playerSymbol Symbol of the current player
      */
     uint32_t r = row + directionRow;
     uint32_t c = col + directionCol;
     while (this->board.getSymbol(r, c) != playerSymbol) {
-        // Vira a peça na direção especificada até encontrar uma peça do jogador atual.
+        // Flip the piece on the specified direction until it finds the current player piece.
         this->board.placeSymbol({r, c}, playerSymbol);
         r += directionRow;
         c += directionCol;
@@ -188,16 +188,16 @@ void Reversi::flipInDirection(const int row, const int col, const int directionR
 
 bool Reversi::isAnyDirectionValid(const int row, const int col, const char playerSymbol) const {
     /**
-     * Verifica se existe alguma direção válida para o movimento dado.
+     * Check if there is any valid direction for the given move.
      *
-     * @param row Linha de origem do movimento
-     * @param col Coluna de origem do movimento
-     * @param playerSymbol Símbolo do jogador atual
-     * @return true se ao menos uma direção for válida, false caso contrário
+     * @param row Move row
+     * @param col Move column
+     * @param playerSymbol Symbol of the current player
+     * @return true if there is at least one valid direction.
      */
     for (int directionRow = -1; directionRow <= 1; directionRow++) {
         for (int directionCol = -1; directionCol <= 1; directionCol++) {
-            // Verifica todas as direções (exceto a direção (0,0) que é inválida).
+            // Check all directions (except for (0,0) which is invalid).
             if (directionRow != 0 || directionCol != 0) {
                 if (isValidDirection(row, col, directionRow, directionCol, playerSymbol)) {
                     return true;
@@ -210,21 +210,21 @@ bool Reversi::isAnyDirectionValid(const int row, const int col, const char playe
 
 bool Reversi::isWithinBounds(const int row, const int col) const {
     /**
-     * Verifica se as coordenadas estão dentro dos limites do tabuleiro.
+     * Check if the coordinates are inside the board edges.
      *
-     * @param row Linha a ser verificada
-     * @param col Coluna a ser verificada
-     * @return true se as coordenadas estão dentro dos limites, false caso contrário
+     * @param row Row to be checked
+     * @param col Column to be checked.
+     * @return true if the coordinates are insde the board edges.
      */
     return row >= 0 && row < this->board.getHeight() && col >= 0 && col < this->board.getWidth();
 }
 
 bool Reversi::hasValidMoves(const char playerSymbol) const {
     /**
-     * Verifica se ainda existem movimentos válidos para um determinado jogador.
+     * Check if there are still possiblemoves for a given player.
      *
-     * @param playerSymbol Símbolo do jogador
-     * @return true se há movimentos válidos disponíveis, false caso contrário
+     * @param playerSymbol Player symbol
+     * @return true if there are still available valid moves.
      */
     for (int row = 0; row < this->board.getHeight(); ++row) {
         for (int col = 0; col < this->board.getWidth(); ++col) {

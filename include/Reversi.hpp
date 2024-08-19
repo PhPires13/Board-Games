@@ -5,125 +5,125 @@
 #include "Player.hpp"
 #include <vector>
 
-// TODO: validar de traduzir as descrições das funções
 /**
- * Classe que representa o jogo Reversi
+ * Class that represents the Reversi game
  */
 class Reversi final : public BoardGame {
 private:
-    static const uint32_t minimumBoardSize; /**< Tamanho mínimo do tabuleiro (height == width) */
-    static const uint32_t defaultBoardSize; /**< Tamanho padrão do tabuleiro (height == width) */
+    static const uint32_t minimumBoardSize; /**< Minimum board size (height == width) */
+    static const uint32_t defaultBoardSize; /**< Default board size (height == width) */
 
 public:
     /**
-     * Construtor da classe Reversi. Inicializa o jogo com dois jogadores e um tamanho de tabuleiro.
+     * Reversi class Cconstructor. Initialize the game with two players and one board size.
      *
-     * @param _player1 Jogador 1
-     * @param _player2 Jogador 2
-     * @param boardSize Tamanho do tabuleiro (deve ser um número par, caso contrário, será usado o tamanho padrão)
+     * @param _player1 Player 1
+     * @param _player2 Player 2
+     * @param boardSize Board size (it must be an even number, otherwise, it will be used the default size)
      */
     Reversi(Player _player1, Player _player2, uint32_t boardSize = Reversi::defaultBoardSize);
 
 private:
     /**
-     * Verifica se a altura fornecida para o tabuleiro é válida.
+     * Check if the board's height is valid.
      *
-     * @param boardHeight Altura do tabuleiro
-     * @return true se a altura é válida, false caso contrário
+     * @param boardHeight
+     * @return true if it is as valid height.
      */
     bool isAValidHeight(uint32_t boardHeight) const override;
 
-    /**
-     * Verifica se a largura fornecida para o tabuleiro é válida.
-     *
-     * @param boardWidth Largura do tabuleiro
-     * @return true se a largura é válida, false caso contrário
-     */
+     /**
+      * Check if the board's width is valid.
+      *
+      * @param boardWidth
+      * @return true if it is as valid height.
+      */
     bool isAValidWidth(uint32_t boardWidth) const override;
 
     /**
-     * Valida o movimento dado, verificando se segue as regras do jogo Reversi.
+     * Check if the move made is valid, according to Reversi rules.
      *
-     * @param move Vetor com as coordenadas do movimento (linha e coluna)
-     * @throw incorrect_format se o movimento não tiver exatamente duas coordenadas
-     * @throw invalid_move se o movimento for inválido
+     * @param move Move coordinates (row, column)
+     * @throws incorrect_format if the move is empty, has more than 2 values and less than 1 value.
+     * @throws invalid_move if the move is invalid.
      */
     void validateMove(const std::vector<uint32_t> &move) const override;
 
     /**
-     * Executa o movimento no tabuleiro e vira as peças necessárias.
+     * Execute the move and flip the necessary pieces.
      *
-     * @param move Coordenadas do movimento
-     * @param symbol Símbolo do jogador que está realizando o movimento
+     * @param move Move coordinates
+     * @param symbol Symbol of the player who made the move
      *
-     * @throw invalid_move se o movimento estiver fora do tabuleiro
+     * @throws invalid_move if the move is invalid.
      */
     void makeMove(const std::vector<uint32_t> &move, char symbol) override;
 
     /**
-     * Verifica o estado atual do jogo, verificando se ainda tem jogada válidas e quem tem mais peças.
+     * Check the current state of the game, according to Reversi rules.
+     *
+     * @param move Last move
      *
      * @param move 2D vector representing the last move
-     *
-     * @return O estado atual do jogo
+     * @return The current state of the game
      */
     GameState getGameState(const std::vector<uint32_t>& move) const override;
 
     /**
-     * Vira as peças do oponente de acordo com as regras do Reversi, após um movimento válido.
+     * Flip the opponent pieces according to Reversi rules, after a valid move.
      *
-     * @param move Coordenadas do movimento
-     * @param playerSymbol Símbolo do jogador que fez o movimento
+     * @param move Move coordinates
+     * @param playerSymbol Symbol of the player who made the move
      */
     void flipPieces(const std::vector<uint32_t>& move, char playerSymbol);
 
     /**
-     * Verifica se uma direção específica a partir de uma posição é válida para virar peças.
+     * Check a specific direction from a valid position to flip the pieces.
      *
-     * @param row Linha de origem do movimento
-     * @param col Coluna de origem do movimento
-     * @param directionRow Direção na linha (-1, 0, 1)
-     * @param directionCol Direção na coluna (-1, 0, 1)
-     * @param playerSymbol Símbolo do jogador atual
-     * @return true se a direção é válida, false caso contrário
+     * @param row Move row
+     * @param col Move column
+     * @param directionRow Line direction (-1, 0, 1)
+     * @param directionCol Column direction (-1, 0, 1)
+     * @param playerSymbol Symbol of the current player
+     * @return true if it is a valid direction
      */
     bool isValidDirection(int row, int col, int directionRow, int directionCol, char playerSymbol) const;
 
     /**
-     * Vira as peças do oponente em uma direção específica.
+     * Flip the opponent pieces in a specific direction.
      *
-     * @param row Linha de origem do movimento
-     * @param col Coluna de origem do movimento
-     * @param directionRow Direção na linha (-1, 0, 1)
-     * @param directionCol Direção na coluna (-1, 0, 1)
-     * @param playerSymbol Símbolo do jogador atual
+     * @param row Move row
+     * @param col Move column
+     * @param directionRow Line direction (-1, 0, 1)
+     * @param directionCol Column direction (-1, 0, 1)
+     * @param playerSymbol Symbol of the current player
      */
     void flipInDirection(int row, int col, int directionRow, int directionCol, char playerSymbol);
 
     /**
-     * Verifica se existe alguma direção válida para o movimento dado.
+     * Check if there is any valid direction for the given move.
      *
-     * @param row Linha de origem do movimento
-     * @param col Coluna de origem do movimento
-     * @param playerSymbol Símbolo do jogador atual
-     * @return true se existe ao menos uma direção válida, false caso contrário
+     * @param row Move row
+     * @param col Move column
+     * @param playerSymbol Symbol of the current player
+     * @return true if there is at least one valid direction.
      */
     bool isAnyDirectionValid(int row, int col, char playerSymbol) const;
 
     /**
-     * Verifica se as coordenadas estão dentro dos limites do tabuleiro.
+     * Check if the coordinates are inside the board edges.
      *
-     * @param row Linha a ser verificada
-     * @param col Coluna a ser verificada
-     * @return true se as coordenadas estão dentro dos limites, false caso contrário
+     * @param row Row to be checked
+     * @param col Column to be checked.
+     * @return true if the coordinates are insde the board edges.
      */
     bool isWithinBounds(int row, int col) const;
 
     /**
-     * Verifica se ainda existem movimentos possíveis para um determinado jogador.
+     * Check if there are still possiblemoves for a given player.
      *
-     * @param playerSymbol Símbolo do jogador
-     * @return true se há movimentos válidos disponíveis, false caso contrário
+     * @param playerSymbol Player symbol
+     * @return true if there are still available valid moves.
      */
     bool hasValidMoves(char playerSymbol) const;
 };

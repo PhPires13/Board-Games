@@ -21,57 +21,59 @@ private:
 
 public:
     /**
-     * Construtor da classe ConnectFour. Inicializa o jogo com dois jogadores e as dimensões do tabuleiro.
+     * ConectFour class Cconstructor. Initialize the game with two players and the board's dimensions.
      *
-     * @param _player1 Jogador 1
-     * @param _player2 Jogador 2
-     * @param boardHeight Altura do tabuleiro
-     * @param boardWidth Largura do tabuleiro
+     * @param _player1 Player 1
+     * @param _player2 Player 2
+     * @param boardHeight Board's Height
+     * @param boardWidth Board's Width
      */
     ConnectFour(Player _player1, Player _player2, uint32_t boardHeight = ConnectFour::defaultBoardHeight, uint32_t boardWidth = ConnectFour::defaultBoardWidth);
 
 private:
 
     /**
-     * Verifica se a altura do tabuleiro é válida.
+     * Check if the board's height is valid.
      *
      * @param boardHeight
-     * @return true se é uma altura válida.
+     * @return true if it is as valid height.
      */
     bool isAValidHeight(uint32_t boardHeight) const override;
 
     /**
-     * Verifica se a largura do tabuleiro é válida.
+     * Check if the board's width is valid.
      *
      * @param boardWidth
-     * @return true se é uma largura válida.
+     * @return true if it is as valid height.
      */
     bool isAValidWidth(uint32_t boardWidth) const override;
 
     /**
-     *  Verifica se a coluna selecionada está cheia e executa o movimento da peça no tabuleiro.
+     *  Check if the selected column is full and execute piece move if it's not.
      *
-     * @param move Coordenadas da coluna.
+     * @param move Column coordinates.
      *
-     * @throws incorrect_format if the move is empty or has more than 2 values
-     * @throws invalid_move if the move is outside the board
+     * @throws incorrect_format if the move is empty or has more than 1 values.
+     * @throws invalid_move if the move is outside the board.
      */
     void validateMove(const std::vector<uint32_t> &move)const override;
 
     /**
-     * Analisa o status atual do jogo após cada jogada e verifica se há algum vencedor, de acordo com as regras do Lig4.
+     * Check the current state of the game, according to ConnectFour rules.
      *
-     * @param move Coordenadas do movimento
+     *
+     * @param move 1D vector representing the last move
+     * @return The current state of the game
      */
     GameState getGameState(const std::vector<uint32_t>& move) const override;
 
    /**
-     * Verifica se há quatro peças seguidas de mesmo símbolo em uma determinda direção no tabuleiro após uma jogada
+     * Check if there are four identical pieces in a row in certain direction after a move.
      *
-     * @param move Coordenadas do movimento
-     * @param symbol Símbolo do jogador que fez o movimento
-     * @param dRow Sinalizador para analisar casas na direção vertical
-     * @param dCol Sinalizadorpara analisar casas na direção horizontal
+     * @param move Move coordinates
+     * @param symbol Symbol of the player who made the move
+     * @param dRow Flag to analyse cells on horizontal direction
+     * @param dCol Flag to analyse cells on vertical direction
      */
     bool checkDirection(const std::vector<uint32_t> &move, char symbol, int dRow, int dCol) const;
 };
