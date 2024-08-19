@@ -21,29 +21,43 @@ TEST_SUITE("ConnectFour") {
     TEST_CASE("Constructor") {
         const Player player1("Nick1", "Name1");
         const Player player2("Nick2", "Name2");
-        int BoardHeight, BoardWidth;
+        int boardHeight, boardWidth;
 
         //Constructor with no board dimension inputs
         CHECK_NOTHROW(ConnectFour(player1, player2));
         //Constructor with one valid board dimension input (Height)
-        BoardHeight = 5;
-        CHECK_NOTHROW(ConnectFour(player1,player2, BoardHeight));
+        boardHeight = ConnectFour::minimumBoardSize+1;
+        CHECK_NOTHROW(ConnectFour(player1,player2, boardHeight));
         //Constructor with one non-valid boar dimension input (Height)
-        BoardHeight = 1;
-        CHECK_NOTHROW(ConnectFour(player1,player2, BoardHeight));
+        boardHeight = ConnectFour::minimumBoardSize-1;
+        CHECK_NOTHROW(ConnectFour(player1,player2, boardHeight));
         //Constructor with two valid board dimension inputs (Height, Width)
-        BoardHeight = BoardWidth = 5;
-        CHECK_NOTHROW(ConnectFour(player1,player2, BoardHeight, BoardWidth));
+        boardHeight = boardWidth = ConnectFour::minimumBoardSize+1;
+        CHECK_NOTHROW(ConnectFour(player1,player2, boardHeight, boardWidth));
         //Constructor with two non-valid board dimension inputs (Height, Width)
-        BoardHeight = BoardWidth = 1;
-        CHECK_NOTHROW(ConnectFour(player1,player2, BoardHeight, BoardWidth));
+        boardHeight = boardWidth = ConnectFour::minimumBoardSize-1;
+        CHECK_NOTHROW(ConnectFour(player1,player2, boardHeight, boardWidth));
         //Constructor with one valid board dimension inputs (Height) and another invalid (Width)
-        BoardHeight = 5;
-        CHECK_NOTHROW(ConnectFour(player1,player2, BoardHeight, BoardWidth));
+        boardHeight = ConnectFour::minimumBoardSize+1;
+        CHECK_NOTHROW(ConnectFour(player1,player2, boardHeight, boardWidth));
         //Constructor with one valid board dimension inputs (Width) and another invalid (Height)
-        BoardHeight = 1;
-        BoardWidth = 5;
-        CHECK_NOTHROW(ConnectFour(player1,player2, BoardHeight, BoardWidth));
+        boardHeight = ConnectFour::minimumBoardSize-1;
+        boardWidth = ConnectFour::minimumBoardSize+1;
+        CHECK_NOTHROW(ConnectFour(player1,player2, boardHeight, boardWidth));
+    }
+
+    TEST_CASE("Is a valid size") {
+        const Player player1("Nick1", "Name1");
+        const Player player2("Nick2", "Name2");
+        const ConnectFour cf(player1, player2);
+
+
+        CHECK(cf.isAValidHeight(ConnectFour::minimumBoardSize-1) == false);
+        CHECK(cf.isAValidHeight(ConnectFour::minimumBoardSize) == true);
+        CHECK(cf.isAValidHeight(ConnectFour::minimumBoardSize+1) == true);
+        CHECK(cf.isAValidWidth(ConnectFour::minimumBoardSize-1) == false);
+        CHECK(cf.isAValidWidth(ConnectFour::minimumBoardSize) == true);
+        CHECK(cf.isAValidWidth(ConnectFour::minimumBoardSize+1) == true);
     }
 
     TEST_CASE("Validate Move") {
@@ -137,7 +151,7 @@ TEST_SUITE("ConnectFour") {
         CHECK(cf4.getGameState({1}) == GameState::PLAYER2_WINS);
 
         // Tie
-        ConnectFour cf5(player1, player2);
+        ConnectFour cf5(player1, player2, ConnectFour::minimumBoardSize, ConnectFour::minimumBoardSize);
         cf5.makeMove({0}, player1.getSymbol());
         cf5.makeMove({0}, player2.getSymbol());
         cf5.makeMove({0}, player1.getSymbol());
@@ -155,7 +169,7 @@ TEST_SUITE("ConnectFour") {
         cf5.makeMove({2}, player1.getSymbol());
         CHECK(cf5.getGameState({2}) == GameState::NOT_OVER);
         cf5.makeMove({3}, player2.getSymbol());
-        CHECK(cf4.getGameState({3}) == GameState::TIE);
+        CHECK(cf5.getGameState({3}) == GameState::TIE);
     }
 
     TEST_CASE("Play Game") {

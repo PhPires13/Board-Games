@@ -10,200 +10,198 @@
 \DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exceptions_8hpp}{exceptions.hpp}}"{}}}
 \DoxyCodeLine{00007\ }
 \DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <random>}}
-\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <\_\_random/random\_device.h>}}
-\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <sstream>}}
-\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <iostream>}}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ private\ public}}
-\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#define\ protected\ public}}
-\DoxyCodeLine{00015\ }
-\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{BoardGame_8hpp}{BoardGame.hpp}}"{}}}
-\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Player_8hpp}{Player.hpp}}"{}}}
-\DoxyCodeLine{00018\ }
-\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#undef\ private}}
-\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#undef\ protected}}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00022\ \mbox{\hyperlink{BoardGameTests_8cpp_aadd3280e48ef7dcf032f810e2f0a3f99}{TEST\_SUITE}}(\textcolor{stringliteral}{"{}BoardGame"{}})\ \{}
-\DoxyCodeLine{00023\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Constructor"{}})\ \{}
-\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Player\ has\ no\ symbol}}
-\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}});}
-\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}});}
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ boardGame1(player1,\ player2);}
-\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ CHECK(boardGame1.\mbox{\hyperlink{classBoardGame_a3dbe986e81aebde93c1030704d8d2a26}{player1}}.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ !=\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ CHECK(boardGame1.\mbox{\hyperlink{classBoardGame_a10fc21977a5f383bcc8decf1e3f715a5}{player2}}.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ !=\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00030\ }
-\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Players\ have\ the\ same\ symbol}}
-\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player3(\textcolor{stringliteral}{"{}Nick3"{}},\ \textcolor{stringliteral}{"{}Name3"{}},\ \textcolor{charliteral}{'X'});}
-\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player4(\textcolor{stringliteral}{"{}Nick4"{}},\ \textcolor{stringliteral}{"{}Name4"{}},\ \textcolor{charliteral}{'X'});}
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ boardGame2(player3,\ player4);}
-\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ CHECK(boardGame2.\mbox{\hyperlink{classBoardGame_a3dbe986e81aebde93c1030704d8d2a26}{player1}}.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ !=\ boardGame2.\mbox{\hyperlink{classBoardGame_a10fc21977a5f383bcc8decf1e3f715a5}{player2}}.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00036\ }
-\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Players\ are\ fine\ with\ their\ symbols}}
-\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player5(\textcolor{stringliteral}{"{}Nick5"{}},\ \textcolor{stringliteral}{"{}Name5"{}},\ \textcolor{charliteral}{'X'});}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player6(\textcolor{stringliteral}{"{}Nick6"{}},\ \textcolor{stringliteral}{"{}Name6"{}},\ \textcolor{charliteral}{'O'});}
-\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ boardGame3(player5,\ player6);}
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ CHECK(boardGame3.\mbox{\hyperlink{classBoardGame_a3dbe986e81aebde93c1030704d8d2a26}{player1}}.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ ==\ player5.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ CHECK(boardGame3.\mbox{\hyperlink{classBoardGame_a10fc21977a5f383bcc8decf1e3f715a5}{player2}}.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ ==\ player6.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
-\DoxyCodeLine{00043\ \ \ \ \ \}}
-\DoxyCodeLine{00044\ }
-\DoxyCodeLine{00045\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Is\ a\ valid\ size"{}})\ \{}
-\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}});}
-\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}});}
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ boardGame(player1,\ player2);}
-\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ CHECK(boardGame.\mbox{\hyperlink{classBoardGame_af7251441fc9263b8b77d27aae106219c}{isAValidHeight}}(0)\ ==\ \textcolor{keyword}{false});}
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ CHECK(boardGame.\mbox{\hyperlink{classBoardGame_af7251441fc9263b8b77d27aae106219c}{isAValidHeight}}(1)\ ==\ \textcolor{keyword}{true});}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ CHECK(boardGame.\mbox{\hyperlink{classBoardGame_ae01b19538655c1d04161de92a8056e12}{isAValidWidth}}(0)\ ==\ \textcolor{keyword}{false});}
-\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ CHECK(boardGame.\mbox{\hyperlink{classBoardGame_ae01b19538655c1d04161de92a8056e12}{isAValidWidth}}(1)\ ==\ \textcolor{keyword}{true});}
-\DoxyCodeLine{00053\ \ \ \ \ \}}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Print\ Board"{}})\ \{}
-\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}});}
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}});}
-\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ boardGame(player1,\ player2);}
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(boardGame.\mbox{\hyperlink{classBoardGame_a3945f4cc72c1710e7bc834e79e97d590}{printBoard}}());}
-\DoxyCodeLine{00060\ \ \ \ \ \}}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Read\ Move"{}})\ \{}
-\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ std::streambuf*\ cinbuf\ =\ std::cin.rdbuf();\ \ \textcolor{comment}{//\ Store\ the\ original\ buffer}}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ expected\ =\ \{0,\ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9,\ 10,\ 11,\ 12,\ 13,\ 14\};\ \textcolor{comment}{//\ Expected\ output}}
-\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input(\textcolor{stringliteral}{"{}0\ 1\ 2\ 3\ d\ \ \(\backslash\)t\ 4\ 5\ c\ c\ 6\ 7\ 8\(\backslash\)t\ 9\ sjsiqs\ 10\ 11\ aodm\ \ dw\ d\ 12\ 13\ 14\(\backslash\)n"{}});\ \textcolor{comment}{//\ Custom\ input}}
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input.rdbuf());\ \textcolor{comment}{//\ Asign\ it\ to\ std::cin}}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ received;}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(received\ =\ \mbox{\hyperlink{classBoardGame_ab949ea2e2cd99632d784a1f7334af96a}{BoardGame::readMove}}());\ \textcolor{comment}{//\ Read\ the\ move}}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Compare\ input}}
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ expected.size();\ i++)\ \{}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ CHECK(expected[i]\ ==\ received[i]);}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00076\ }
-\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Restore\ std::cin\ to\ its\ original\ state}}
-\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ std::cin.rdbuf(cinbuf);}
-\DoxyCodeLine{00079\ \ \ \ \ \}}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Validate\ Move"{}})\ \{}
-\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ height\ =\ 7,\ width\ =\ 5;}
-\DoxyCodeLine{00083\ }
-\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}});}
-\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}});}
-\DoxyCodeLine{00086\ }
-\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ boardGame(player1,\ player2,\ height,\ width);}
-\DoxyCodeLine{00088\ }
-\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Valid\ moves}}
-\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{0\}));}
-\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{width-\/1\}));}
-\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{0,\ 0\}));}
-\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{0,\ width-\/1\}));}
-\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{height-\/1,\ 0\}));}
-\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{height-\/1,\ width-\/1\}));}
-\DoxyCodeLine{00096\ }
-\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Negative\ values\ are\ not\ possible\ since\ its\ uint}}
-\DoxyCodeLine{00098\ }
-\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{0\}));}
-\DoxyCodeLine{00100\ }
-\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Size\ invalid}}
-\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{\}),\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}});}
-\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{0,\ 0,\ 0\}),\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}});}
-\DoxyCodeLine{00104\ }
-\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Out\ of\ range}}
-\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{width\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
-\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{height,\ 0\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
-\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{0,\ width\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
-\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{height,\ width\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
-\DoxyCodeLine{00110\ \ \ \ \ \}}
-\DoxyCodeLine{00111\ }
-\DoxyCodeLine{00112\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Make\ Move"{}})\ \{}
-\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ height\ =\ 7,\ width\ =\ 5;}
-\DoxyCodeLine{00114\ }
-\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}});}
-\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}});}
-\DoxyCodeLine{00117\ }
-\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ boardGame(player1,\ player2,\ height,\ width);}
-\DoxyCodeLine{00119\ }
-\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Valid\ moves}}
-\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(boardGame.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0\},\ \textcolor{charliteral}{'X'}));}
-\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(boardGame.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 0\},\ \textcolor{charliteral}{'C'}));}
-\DoxyCodeLine{00123\ }
-\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Further\ tst\ is\ not\ necessary,\ since\ makeMove\ just\ calls\ board.placeSymbol\ that\ already\ has\ its\ own\ tests}}
-\DoxyCodeLine{00125\ \ \ \ \ \}}
-\DoxyCodeLine{00126\ }
-\DoxyCodeLine{00127\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Get\ Game\ State"{}})\ \{}
-\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ height\ =\ 7,\ width\ =\ 5;}
-\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ boardGame(\mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}}),\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}}),\ height,\ width);}
-\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =0;\ i\ <\ height;\ i++)\ \{}
-\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ j\ =\ 0;\ j\ <\ width;\ j++)\ \{}
-\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ boardGame.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{j\},\ \textcolor{charliteral}{'X'});}
-\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ height-\/1\ ||\ j\ !=\ width-\/1)\ CHECK(boardGame.\mbox{\hyperlink{classBoardGame_aecc780aa669fa3287bf8988becb773b4}{getGameState}}(\{\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
-\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ CHECK(boardGame.\mbox{\hyperlink{classBoardGame_aecc780aa669fa3287bf8988becb773b4}{getGameState}}(\{\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a50b3b7506fcc5435fc762f98a09a6eac}{GameState::TIE}});}
-\DoxyCodeLine{00137\ \ \ \ \ \}}
-\DoxyCodeLine{00138\ }
-\DoxyCodeLine{00139\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Whose\ Turn"{}})\ \{}
-\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}});}
-\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}});}
-\DoxyCodeLine{00142\ }
-\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ boardGame(player1,\ player2);}
-\DoxyCodeLine{00144\ }
-\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Turn\ 0\ does\ not\ exists}}
-\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ boardGame.\mbox{\hyperlink{classBoardGame_aeca0154244eb5f10db8b9b45cac24958}{turn}}++;}
-\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ CHECK(boardGame.\mbox{\hyperlink{classBoardGame_a2e2f74f86bff4949516402d3ea981436}{whoseTurn}}().\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}()\ ==\ player1.\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}());}
-\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ boardGame.\mbox{\hyperlink{classBoardGame_aeca0154244eb5f10db8b9b45cac24958}{turn}}++;}
-\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ CHECK(boardGame.\mbox{\hyperlink{classBoardGame_a2e2f74f86bff4949516402d3ea981436}{whoseTurn}}().\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}()\ ==\ player2.\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}());}
-\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ boardGame.\mbox{\hyperlink{classBoardGame_aeca0154244eb5f10db8b9b45cac24958}{turn}}++;}
-\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ CHECK(boardGame.\mbox{\hyperlink{classBoardGame_a2e2f74f86bff4949516402d3ea981436}{whoseTurn}}().\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}()\ ==\ player1.\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}());}
-\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ boardGame.\mbox{\hyperlink{classBoardGame_aeca0154244eb5f10db8b9b45cac24958}{turn}}++;}
-\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ CHECK(boardGame.\mbox{\hyperlink{classBoardGame_a2e2f74f86bff4949516402d3ea981436}{whoseTurn}}().\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}()\ ==\ player2.\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}());}
-\DoxyCodeLine{00154\ \ \ \ \ \}}
-\DoxyCodeLine{00155\ }
-\DoxyCodeLine{00156\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Play\ Game"{}})\ \{}
-\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ std::streambuf*\ cinbuf\ =\ std::cin.rdbuf();\ \ \textcolor{comment}{//\ Store\ the\ original\ buffer}}
-\DoxyCodeLine{00158\ }
-\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ height\ =\ 7,\ width\ =\ 5;}
-\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ boardGame(\mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}}),\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}}),\ height,\ width);}
-\DoxyCodeLine{00161\ }
-\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ std::random\_device\ rd;}
-\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ std::mt19937\ gen(rd());}
-\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ std::uniform\_int\_distribution<>\ dis(0,\ 10);}
-\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ a\ string\ to\ fullfill\ the\ board}}
-\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ std::string\ input\ =\ \textcolor{stringliteral}{"{}"{}};}
-\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =0;\ i\ <\ height;\ i++)\ \{}
-\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ j\ =\ 0;\ j\ <\ width;\ j++)\ \{}
-\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ random\_choice\ =\ dis(gen);}
-\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (random\_choice\ ==\ 1)\ input\ +=\ \textcolor{stringliteral}{"{}\ "{}};}
-\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (random\_choice\ ==\ 2)\ input\ +=\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
-\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (random\_choice\ ==\ 3)\ input\ +=\ \textcolor{stringliteral}{"{}lixo\ lk\ "{}};}
-\DoxyCodeLine{00173\ }
-\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ input\ +=\ std::to\_string(j);}
-\DoxyCodeLine{00175\ }
-\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Randomly\ add\ some\ trash\ command}}
-\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ random\_choice\ =\ dis(gen);}
-\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (random\_choice\ ==\ 1)\ input\ +=\ \textcolor{stringliteral}{"{}\ "{}};}
-\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (random\_choice\ ==\ 2)\ input\ +=\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
-\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (random\_choice\ ==\ 3)\ input\ +=\ \textcolor{stringliteral}{"{}\ lixo\ lk"{}};}
-\DoxyCodeLine{00181\ }
-\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ input\ +=\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};\ \textcolor{comment}{//\ Add\ a\ new\ line}}
-\DoxyCodeLine{00183\ }
-\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Randomly\ add\ some\ trash\ command}}
-\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ random\_choice\ =\ dis(gen);}
-\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (random\_choice\ ==\ 1)\ input\ +=\ \textcolor{stringliteral}{"{}ef\ \(\backslash\)t\ ,dw0l\ dwdn\ \(\backslash\)n"{}};}
-\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (random\_choice\ ==\ 2)\ input\ +=\ \textcolor{stringliteral}{"{}a\ c\(\backslash\)n"{}};}
-\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (random\_choice\ ==\ 3)\ input\ +=\ \textcolor{stringliteral}{"{}lixo\ lk\(\backslash\)n"{}};}
-\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ input\ +=\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
-\DoxyCodeLine{00192\ }
-\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Fulfill\ the\ board}}
-\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ ss(input);\ \textcolor{comment}{//\ Custom\ input}}
-\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ std::cin.rdbuf(ss.rdbuf());\ \textcolor{comment}{//\ Asign\ it\ to\ std::cin}}
-\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}}\ gamteState;}
-\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ boardGame.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
-\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a50b3b7506fcc5435fc762f98a09a6eac}{GameState::TIE}});}
-\DoxyCodeLine{00199\ }
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Restore\ std::cin\ to\ its\ original\ state}}
-\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ std::cin.rdbuf(cinbuf);}
-\DoxyCodeLine{00202\ \ \ \ \ \}}
-\DoxyCodeLine{00203\ \}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ private\ public}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ protected\ public}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{BoardGame_8hpp}{BoardGame.hpp}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Player_8hpp}{Player.hpp}}"{}}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#undef\ private}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#undef\ protected}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \mbox{\hyperlink{BoardGameTests_8cpp_aadd3280e48ef7dcf032f810e2f0a3f99}{TEST\_SUITE}}(\textcolor{stringliteral}{"{}BoardGame"{}})\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Constructor"{}})\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Player\ has\ no\ symbol}}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}});}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}});}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ boardGame1(player1,\ player2);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ CHECK(boardGame1.\mbox{\hyperlink{classBoardGame_a3dbe986e81aebde93c1030704d8d2a26}{player1}}.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ !=\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ CHECK(boardGame1.\mbox{\hyperlink{classBoardGame_a10fc21977a5f383bcc8decf1e3f715a5}{player2}}.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ !=\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Players\ have\ the\ same\ symbol}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player3(\textcolor{stringliteral}{"{}Nick3"{}},\ \textcolor{stringliteral}{"{}Name3"{}},\ \textcolor{charliteral}{'X'});}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player4(\textcolor{stringliteral}{"{}Nick4"{}},\ \textcolor{stringliteral}{"{}Name4"{}},\ \textcolor{charliteral}{'X'});}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ boardGame2(player3,\ player4);}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ CHECK(boardGame2.\mbox{\hyperlink{classBoardGame_a3dbe986e81aebde93c1030704d8d2a26}{player1}}.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ !=\ boardGame2.\mbox{\hyperlink{classBoardGame_a10fc21977a5f383bcc8decf1e3f715a5}{player2}}.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Players\ are\ fine\ with\ their\ symbols}}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player5(\textcolor{stringliteral}{"{}Nick5"{}},\ \textcolor{stringliteral}{"{}Name5"{}},\ \textcolor{charliteral}{'X'});}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player6(\textcolor{stringliteral}{"{}Nick6"{}},\ \textcolor{stringliteral}{"{}Name6"{}},\ \textcolor{charliteral}{'O'});}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ boardGame3(player5,\ player6);}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ CHECK(boardGame3.\mbox{\hyperlink{classBoardGame_a3dbe986e81aebde93c1030704d8d2a26}{player1}}.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ ==\ player5.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ CHECK(boardGame3.\mbox{\hyperlink{classBoardGame_a10fc21977a5f383bcc8decf1e3f715a5}{player2}}.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}()\ ==\ player6.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Is\ a\ valid\ size"{}})\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}});}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}});}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ boardGame(player1,\ player2);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ CHECK(boardGame.\mbox{\hyperlink{classBoardGame_af7251441fc9263b8b77d27aae106219c}{isAValidHeight}}(0)\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ CHECK(boardGame.\mbox{\hyperlink{classBoardGame_af7251441fc9263b8b77d27aae106219c}{isAValidHeight}}(1)\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ CHECK(boardGame.\mbox{\hyperlink{classBoardGame_ae01b19538655c1d04161de92a8056e12}{isAValidWidth}}(0)\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ CHECK(boardGame.\mbox{\hyperlink{classBoardGame_ae01b19538655c1d04161de92a8056e12}{isAValidWidth}}(1)\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00052\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Print\ Board"{}})\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}});}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}});}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ boardGame(player1,\ player2);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(boardGame.\mbox{\hyperlink{classBoardGame_a3945f4cc72c1710e7bc834e79e97d590}{printBoard}}());}
+\DoxyCodeLine{00059\ \ \ \ \ \}}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Read\ Move"{}})\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ std::streambuf*\ cinbuf\ =\ std::cin.rdbuf();\ \ \textcolor{comment}{//\ Store\ the\ original\ buffer}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ expected\ =\ \{0,\ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9,\ 10,\ 11,\ 12,\ 13,\ 14\};\ \textcolor{comment}{//\ Expected\ output}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input(\textcolor{stringliteral}{"{}0\ 1\ 2\ 3\ d\ \ \(\backslash\)t\ 4\ 5\ c\ c\ 6\ 7\ 8\(\backslash\)t\ 9\ sjsiqs\ 10\ 11\ aodm\ \ dw\ d\ 12\ 13\ 14\(\backslash\)n"{}});\ \textcolor{comment}{//\ Custom\ input}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input.rdbuf());\ \textcolor{comment}{//\ Asign\ it\ to\ std::cin}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ std::vector<uint32\_t>\ received;}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(received\ =\ \mbox{\hyperlink{classBoardGame_ab949ea2e2cd99632d784a1f7334af96a}{BoardGame::readMove}}());\ \textcolor{comment}{//\ Read\ the\ move}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Compare\ input}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ expected.size();\ i++)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ CHECK(expected[i]\ ==\ received[i]);}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Restore\ std::cin\ to\ its\ original\ state}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ std::cin.rdbuf(cinbuf);}
+\DoxyCodeLine{00078\ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Validate\ Move"{}})\ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ height\ =\ 7,\ width\ =\ 5;}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}});}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}});}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ boardGame(player1,\ player2,\ height,\ width);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Valid\ moves}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{0\}));}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{width-\/1\}));}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{0,\ 0\}));}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{0,\ width-\/1\}));}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{height-\/1,\ 0\}));}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{height-\/1,\ width-\/1\}));}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Negative\ values\ are\ not\ possible\ since\ its\ uint}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{0\}));}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Size\ invalid}}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{\}),\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}});}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{0,\ 0,\ 0\}),\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}});}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Out\ of\ range}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{width\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{height,\ 0\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{0,\ width\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(boardGame.\mbox{\hyperlink{classBoardGame_a5e5d7aa0e75dcc1964fbae0a97106422}{validateMove}}(\{height,\ width\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00109\ \ \ \ \ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Make\ Move"{}})\ \{}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ height\ =\ 7,\ width\ =\ 5;}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}});}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}});}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ boardGame(player1,\ player2,\ height,\ width);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Valid\ moves}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(boardGame.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0\},\ \textcolor{charliteral}{'X'}));}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(boardGame.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{0,\ 0\},\ \textcolor{charliteral}{'C'}));}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Further\ tst\ is\ not\ necessary,\ since\ makeMove\ just\ calls\ board.placeSymbol\ that\ already\ has\ its\ own\ tests}}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Get\ Game\ State"{}})\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ height\ =\ 7,\ width\ =\ 5;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ boardGame(\mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}}),\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}}),\ height,\ width);}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =0;\ i\ <\ height;\ i++)\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ j\ =\ 0;\ j\ <\ width;\ j++)\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ boardGame.\mbox{\hyperlink{classBoardGame_ace8625ebf31b8d5b2b7477f0ebc7e9a0}{makeMove}}(\{j\},\ \textcolor{charliteral}{'X'});}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ height-\/1\ ||\ j\ !=\ width-\/1)\ CHECK(boardGame.\mbox{\hyperlink{classBoardGame_aecc780aa669fa3287bf8988becb773b4}{getGameState}}(\{\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ CHECK(boardGame.\mbox{\hyperlink{classBoardGame_aecc780aa669fa3287bf8988becb773b4}{getGameState}}(\{\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a50b3b7506fcc5435fc762f98a09a6eac}{GameState::TIE}});}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Whose\ Turn"{}})\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}});}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}});}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ boardGame(player1,\ player2);}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Turn\ 0\ does\ not\ exists}}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ boardGame.\mbox{\hyperlink{classBoardGame_aeca0154244eb5f10db8b9b45cac24958}{turn}}++;}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ CHECK(boardGame.\mbox{\hyperlink{classBoardGame_a2e2f74f86bff4949516402d3ea981436}{whoseTurn}}().\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}()\ ==\ player1.\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}());}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ boardGame.\mbox{\hyperlink{classBoardGame_aeca0154244eb5f10db8b9b45cac24958}{turn}}++;}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ CHECK(boardGame.\mbox{\hyperlink{classBoardGame_a2e2f74f86bff4949516402d3ea981436}{whoseTurn}}().\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}()\ ==\ player2.\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}());}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ boardGame.\mbox{\hyperlink{classBoardGame_aeca0154244eb5f10db8b9b45cac24958}{turn}}++;}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ CHECK(boardGame.\mbox{\hyperlink{classBoardGame_a2e2f74f86bff4949516402d3ea981436}{whoseTurn}}().\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}()\ ==\ player1.\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}());}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ boardGame.\mbox{\hyperlink{classBoardGame_aeca0154244eb5f10db8b9b45cac24958}{turn}}++;}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ CHECK(boardGame.\mbox{\hyperlink{classBoardGame_a2e2f74f86bff4949516402d3ea981436}{whoseTurn}}().\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}()\ ==\ player2.\mbox{\hyperlink{classPlayer_aeb6f99400482a46e55c60f2ef6d2f764}{getNick}}());}
+\DoxyCodeLine{00153\ \ \ \ \ \}}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Play\ Game"{}})\ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ std::streambuf*\ cinbuf\ =\ std::cin.rdbuf();\ \ \textcolor{comment}{//\ Store\ the\ original\ buffer}}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ height\ =\ 7,\ width\ =\ 5;}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classBoardGame}{BoardGame}}\ boardGame(\mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick1"{}},\ \textcolor{stringliteral}{"{}Name1"{}}),\ \mbox{\hyperlink{classPlayer}{Player}}(\textcolor{stringliteral}{"{}Nick2"{}},\ \textcolor{stringliteral}{"{}Name2"{}}),\ height,\ width);}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ std::random\_device\ rd;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ std::mt19937\ gen(rd());}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ std::uniform\_int\_distribution<>\ dis(0,\ 10);}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ a\ string\ to\ fullfill\ the\ board}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ std::string\ input\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =0;\ i\ <\ height;\ i++)\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ j\ =\ 0;\ j\ <\ width;\ j++)\ \{}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ random\_choice\ =\ dis(gen);}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (random\_choice\ ==\ 1)\ input\ +=\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (random\_choice\ ==\ 2)\ input\ +=\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (random\_choice\ ==\ 3)\ input\ +=\ \textcolor{stringliteral}{"{}lixo\ lk\ "{}};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ input\ +=\ std::to\_string(j);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Randomly\ add\ some\ trash\ command}}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ random\_choice\ =\ dis(gen);}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (random\_choice\ ==\ 1)\ input\ +=\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (random\_choice\ ==\ 2)\ input\ +=\ \textcolor{stringliteral}{"{}\(\backslash\)t"{}};}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (random\_choice\ ==\ 3)\ input\ +=\ \textcolor{stringliteral}{"{}\ lixo\ lk"{}};}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ input\ +=\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};\ \textcolor{comment}{//\ Add\ a\ new\ line}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Randomly\ add\ some\ trash\ command}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ random\_choice\ =\ dis(gen);}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (random\_choice\ ==\ 1)\ input\ +=\ \textcolor{stringliteral}{"{}ef\ \(\backslash\)t\ ,dw0l\ dwdn\ \(\backslash\)n"{}};}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (random\_choice\ ==\ 2)\ input\ +=\ \textcolor{stringliteral}{"{}a\ c\(\backslash\)n"{}};}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (random\_choice\ ==\ 3)\ input\ +=\ \textcolor{stringliteral}{"{}lixo\ lk\(\backslash\)n"{}};}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Fulfill\ the\ board}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ ss(input);\ \textcolor{comment}{//\ Custom\ input}}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ std::cin.rdbuf(ss.rdbuf());\ \textcolor{comment}{//\ Asign\ it\ to\ std::cin}}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}}\ gamteState;}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gamteState\ =\ boardGame.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ CHECK(gamteState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a50b3b7506fcc5435fc762f98a09a6eac}{GameState::TIE}});}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Restore\ std::cin\ to\ its\ original\ state}}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ std::cin.rdbuf(cinbuf);}
+\DoxyCodeLine{00200\ \ \ \ \ \}}
+\DoxyCodeLine{00201\ \}}
 
 \end{DoxyCode}
