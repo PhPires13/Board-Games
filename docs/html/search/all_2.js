@@ -13,5 +13,5 @@ var searchData=
   ['connectfourtests_2ecpp_10',['ConnectFourTests.cpp',['../d9/da6/ConnectFourTests_8cpp.html',1,'']]],
   ['connectfourwins_11',['connectFourWins',['../d2/d4b/classPlayer.html#a664e20f91ba4bdf775a1a9aa6607f85d',1,'Player']]],
   ['creatematch_12',['createMatch',['../dd/dcd/classManager.html#a6e591b522fd7201d55f152e662bf24d3',1,'Manager']]],
-  ['createplayer_13',['createplayer',['../dd/dcd/classManager.html#aba37e0476aeccc0a8ccd3ac82e3a3ec5',1,'Manager::createPlayer()'],['../d2/d4b/classPlayer.html#a12f65a371cdda1f1a049752489445d48',1,'Player::createPlayer()']]]
+  ['createplayer_13',['createplayer',['../dd/dcd/classManager.html#aba37e0476aeccc0a8ccd3ac82e3a3ec5',1,'Manager::createPlayer()'],['../d2/d4b/classPlayer.html#a60f83f57c5458476d1ff622af4a382b2',1,'Player::createPlayer()']]]
 ];

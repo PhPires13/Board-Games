@@ -14,10 +14,12 @@
 ```
 Obs.:
 ?: parametros opcionais
-R: reversi, tabuleiro: quadrado, par, min 4x4   L: lig4, tabuleiro: min 4x4    V: velha, tabuleiro: 3x3
+?!: parametros que podem ser opcionais ou nao dependendo do restante do contexto
+R: reversi, tabuleiro: quadrado, par, min 4x4   L: lig4, tabuleiro: min 4x4     V: velha, tabuleiro: 3x3
 
 ------------------------------------ MENU ------------------------------------
 CJ: Cadastrar Jogador (<Apelido> <Nome> <? Simbolo>)
+EJ: Editar Jogador (<Apelido> <Atributo: [N|S]> <?! Novo Valor>)
 RJ: Remover Jogador (<Apelido>)
 LJ: Listar Jogadores (<? Ordem: [A|N]>)
 EP: Executar Partida (<Jogo: (R|L|V)> <Apelido Jogador 1> <Apelido Jogador 2> <? Altura Tabuleiro> <? Largura Tabuleiro>)
@@ -28,25 +30,29 @@ FS: Finalizar Sistema
 - Os comandos em si e os parâmetros com opções pre-definidas, são case-insensitive.
 - Porém, os demais parâmetros são case-sensitive.
 - Parâmetros opcionais são marcados com ``?``, como descrito, então se não enviados será utilizado um valor padrão.
+- Parâmetros que podem ser opcionais ou não, dependendo do contexto, são marcados com ``?!``, por exemplo ao editar o símbolo deixando vazio ele é removido.
 - Também são exibidas regras na hora de passar os parâmetros.
 - Exemplos de comandos:
   - Cadastrar Jogador: ``CJ joaozinho Joao da Silva *`` ou ``CJ joaozinho Joao da Silva``
+  - Editar Jogador: ``EJ joaozinho N Joao da Silva`` ou ``EJ joaozinho S *`` ou ``EJ joaozinho S``
   - Remover Jogador: ``RJ joaozinho``
   - Listar Jogadores: ``LJ`` ou ``lj`` ou ``LJ A`` ou ``lj a`` ou ``LJ N``
   - Executar Partida: ``EP R joaozinho mariazinha`` ou ``EP R joaozinho mariazinha 4 4`` ou ``EP R joaozinho mariazinha 4``
 
 ---
 ## Extras
-- ### Jogo da Velha
-- ### Símbolo customizado do jogador
+- ### 1 Jogo da Velha
+- ### 2 Símbolo customizado do jogador
   - Ao criar um jogador é possível que este escolha um símbolo para representá-lo no tabuleiro.
   - Com isso também é necessário tratar quais os símbolos válidos, e caso dois jogadores estejam com mesmo símbolo, mudar paar os padrões.
-- ### Tabuleiro de tamanho customizado
+- ### 3 Tabuleiro de tamanho customizado
   - É possível escolher as proporções do tabuleiro, desde que se obedeça às regras de cada jogo, caso contrário é usado o tamanho padrão.
-- ### Cores no terminal
+- ### 4 Cores no terminal
   - Para melhor legibilidade, foram utilizadas cores no menu que facilitam a interpretação do usuário.
   - Também foram utilizadas cores nos jogos para uma interfaçe mais lúdica e agradável.
-- ### Cobertura de testes
+- ### 5 Editar Jogador
+  - Foi implementada a funcionalidade de editar um jogador, podendo alterar o nome ou o símbolo, e até remover o símbolo.
+- ### 6 Cobertura de testes
   - Foi realizada a análise de cobertura de testes, um extra, mesmo que não solicitado.
 
 ---

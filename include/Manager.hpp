@@ -43,6 +43,16 @@ private:
     static void createPlayer(const std::string& arguments);
 
     /**
+     * Update a player info in the database
+     *
+     * @param arguments Nick, Attribute to be Changed, New Value of the Attribute
+     *
+     * @throws incorrect_format if was not able to parse the arguments
+     * @throws file_error if was not able to write to the file
+     */
+    static void updatePlayer(const std::string& arguments);
+
+    /**
      * Delete a player from the database
      *
      * @param arguments Nick of the player

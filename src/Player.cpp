@@ -12,6 +12,7 @@
 
 #include "exceptions.hpp"
 #include "Manager.hpp"
+#include "Utils.hpp"
 
 const std::string Player::filePath = "players.bin";
 
@@ -124,7 +125,7 @@ void Player::deserialize(std::ifstream& inputFile) {
     inputFile.read(reinterpret_cast<char*>(&tttLosses), sizeof(tttLosses));
 }
 
-void Player::createPlayer(const std::string& nick, const std::string& name, const char symbol) {
+void Player::createPlayer(std::string nick, std::string name, const char symbol) {
     // Check if player is not duplicated
     bool duplicated = true;
     try {
@@ -135,6 +136,10 @@ void Player::createPlayer(const std::string& nick, const std::string& name, cons
     }
 
     if (duplicated) throw duplicated_player();
+
+    // Clean the strings
+    nick = Utils::cleanString(nick);
+    name = Utils::cleanString(name);
 
     // Create the player
     const Player newPlayer(nick, name, symbol);
@@ -169,9 +174,32 @@ Player Player::loadPlayer(const std::string& nick) {
 }
 
 void Player::updatePlayerStats(const std::string& nick, const char game, const bool toAddWin, const bool toAddLoss) {
+    if (!toAddWin && !toAddLoss) throw incorrect_data();
+
+    Player playerToUpdate = Player::loadPlayer(nick);
+    playerToUpdate.addStats(game, toAddWin, toAddLoss);
+
+    Player::updatePlayer(nick, playerToUpdate);
+}
+
+void Player::updatePlayerInfo(const std::string& nick, const bool toUpdateName, const bool toUpdateSymbol, std::string content) {
+    content = Utils::cleanString(content);
+
+    if (toUpdateName && toUpdateSymbol) throw invalid_command();
+    if (toUpdateName && content.empty()) throw incorrect_data();
+    if (!toUpdateName && !toUpdateSymbol) throw invalid_command();
+
+    Player playerToUpdate = Player::loadPlayer(nick);
+    if (toUpdateName) playerToUpdate.name = content;
+    else if (toUpdateSymbol) playerToUpdate.setSymbol(content[0]);
+
+    Player::updatePlayer(nick, playerToUpdate);
+}
+
+void Player::updatePlayer(const std::string& nick, const Player& newPlayerData) {
     const std::string tempFilePath = "temp.bin";
 
-    // Get all players with the edition
+    // Get all players after the edition
     std::list<Player> players;
 
     std::ifstream oldFile(Player::filePath, std::ios::binary);
@@ -183,10 +211,10 @@ void Player::updatePlayerStats(const std::string& nick, const char game, const b
         iterPlayer.deserialize(oldFile);
         if (iterPlayer.getNick() == nick) {
             found = true;
-            iterPlayer.addStats(game, toAddWin, toAddLoss);
+            if (!newPlayerData.nick.empty()) players.push_back(newPlayerData);
+        } else {
+            players.push_back(iterPlayer);
         }
-
-        players.push_back(iterPlayer);
     }
 
     oldFile.close();
@@ -209,48 +237,8 @@ void Player::updatePlayerStats(const std::string& nick, const char game, const b
     if (std::rename(tempFilePath.c_str(), Player::filePath.c_str())) throw file_error();
 }
 
-void Player::updatePlayerInfo(const std::string& nick, const std::string& name, const char symbol) {
-    // TODO: remover se não der tempo
-}
-
-
 void Player::deletePlayer(const std::string& nick) {
-    const std::string tempFilePath = "temp.bin";
-
-    // Get all the remaining players
-    std::list<Player> remainingPlayers;
-
-    std::ifstream oldFile(Player::filePath, std::ios::binary);
-    if (!oldFile) throw file_error();
-
-    Player iterPlayer("", "");
-    bool found = false;
-    while (oldFile.peek() != EOF) {
-        iterPlayer.deserialize(oldFile);
-        if (iterPlayer.getNick() != nick)
-            remainingPlayers.push_back(iterPlayer);
-        else
-            found = true;
-    }
-
-    oldFile.close();
-
-    if (!found) throw player_not_found();
-
-    // Pass the remaining players to the new file
-    std::ofstream newFile(tempFilePath, std::ios::binary);
-    if (!newFile) throw file_error();
-
-    for (const Player &remainingPlayer : remainingPlayers) {
-        remainingPlayer.serialize(newFile);
-    }
-
-    newFile.close();
-
-    // Exchange the files
-    if (std::remove(Player::filePath.c_str())) throw file_error();
-
-    if (std::rename(tempFilePath.c_str(), Player::filePath.c_str())) throw file_error();
+    Player::updatePlayer(nick, Player("", ""));
 }
 
 std::list<Player> Player::getAllPlayers() {

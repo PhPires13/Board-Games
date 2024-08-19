@@ -54,6 +54,24 @@ TEST_SUITE("Manager") {
         CHECK(recoveredPlayer.getName() == name);
         CHECK(recoveredPlayer.getSymbol() == symbol);
 
+        // Update player name, remove symbol
+        const std::string newName = "NewName";
+        const std::string argumentsUpdate1 = nick + " N " + newName;
+        const std::string argumentsUpdate2 = nick + " S ";
+        const std::string argumentsUpdate3 = nick + " N ";
+        const std::string argumentsUpdate4 = nick + " Z " + newName;
+        CHECK_NOTHROW(Manager::updatePlayer(argumentsUpdate1));
+        CHECK_NOTHROW(Manager::updatePlayer(argumentsUpdate2));
+        CHECK_THROWS_AS(Manager::updatePlayer(argumentsUpdate3), incorrect_format);
+        CHECK_THROWS_AS(Manager::updatePlayer(argumentsUpdate4), invalid_command);
+        CHECK_THROWS_AS(Manager::updatePlayer(""), incorrect_format);
+
+        // Validate player attributes
+        CHECK_NOTHROW(recoveredPlayer = Player::loadPlayer(nick));
+        CHECK(recoveredPlayer.getNick() == nick);
+        CHECK(recoveredPlayer.getName() == newName);
+        CHECK(recoveredPlayer.getSymbol() == 0);
+
         // Crate player correct attributes without symbol
         const std::string nick2 = "Nick2", name2 = "Name2";
         const std::string arguments2 = nick2 + " " + name2;
@@ -63,6 +81,14 @@ TEST_SUITE("Manager") {
         CHECK(recoveredPlayer2.getNick() == nick2);
         CHECK(recoveredPlayer2.getName() == name2);
         CHECK(recoveredPlayer2.getSymbol() == 0);
+
+        // Add symbol to player
+        const std::string argumentsUpdate5 = nick2 + " S " + symbol;
+        CHECK_NOTHROW(Manager::updatePlayer(argumentsUpdate5));
+        CHECK_NOTHROW(recoveredPlayer2 = Player::loadPlayer(nick2));
+        CHECK(recoveredPlayer2.getNick() == nick2);
+        CHECK(recoveredPlayer2.getName() == name2);
+        CHECK(recoveredPlayer2.getSymbol() == symbol);
 
         // Create duplicate player
         CHECK_THROWS_AS(Manager::createPlayer(arguments), duplicated_player);
@@ -122,6 +148,13 @@ TEST_SUITE("Manager") {
         CHECK_NOTHROW(Manager::createPlayer(arguments1));
         CHECK_NOTHROW(Manager::createPlayer(arguments2));
 
+        // Check if stats are 0
+        Player recoveredPlayer1("", ""), recoveredPlayer2("", "");
+        CHECK_NOTHROW(recoveredPlayer1 = Player::loadPlayer(nick1));
+        CHECK_NOTHROW(recoveredPlayer2 = Player::loadPlayer(nick2));
+        CHECK(recoveredPlayer1.getWins(game[0]) == 0);
+        CHECK(recoveredPlayer2.getLosses(game[0]) == 0);
+
         // ---------------- Play match
         // Complete a row, player 1 wins
         const std::istringstream input1("0 0\n1 0\n0 1\n1 1\n0 2\n"); // Custom input
@@ -131,6 +164,12 @@ TEST_SUITE("Manager") {
         const std::istringstream input2("0 0\n1 0\n0 1\n1 1\n2 2\n1 2\n");
         std::cin.rdbuf(input2.rdbuf());
         CHECK_NOTHROW(Manager::playMatch(game + " " + nick1 + " " + nick2));
+
+        // Check if stats were updated
+        CHECK_NOTHROW(recoveredPlayer1 = Player::loadPlayer(nick1));
+        CHECK_NOTHROW(recoveredPlayer2 = Player::loadPlayer(nick2));
+        CHECK(recoveredPlayer1.getWins(game[0]) == 1);
+        CHECK(recoveredPlayer2.getLosses(game[0]) == 1);
 
         // Restore std::cin to its original state
         std::cin.rdbuf(cinbuf);
@@ -168,16 +207,18 @@ TEST_SUITE("Manager") {
         const std::string ent = " \n";
         const std::string game = "V";
         const std::string nick1 = "Nick1", name1 = "Name1";
-        const std::string nick2 = "Nick2", name2 = "Name2";
+        const std::string nick2 = "Nick2", name2 = "Name2", symbol2 = "0";
         const std::string nick3 = "Nick3", name3 = "Name3";
 
         const std::string cj1 = "CJ " + nick1 + " " + name1 + ent;
-        const std::string cj2 = "CJ " + nick2 + " " + name2 + ent;
+        const std::string cj2 = "CJ " + nick2 + " " + name2 + " " + symbol2 + ent;
         const std::string cj3 = "CJ " + nick3 + " " + name3 + ent;
         const std::string ep1 = "EP " + game + " " + nick1 + " " + nick2 + ent;
         const std::string tttGameP1 = "0 0\n1 0\n0 1\n1 1\n0 2\n";
         const std::string ep2 = "EP " + game + " " + nick1 + " " + nick2 + ent;
         const std::string tttGameP2 = "0 0\n1 0\n0 1\n1 1\n2 2\n1 2\n";
+        const std::string ej1 = "EJ " + nick1 + " N New" + name1 + ent;
+        const std::string ej2 = "EJ " + nick2 + " S " + ent;
         const std::string lj = "LJ" + ent;
         const std::string ljA = "LJ A" + ent;
         const std::string ljN = "LJ N" + ent;
@@ -187,6 +228,7 @@ TEST_SUITE("Manager") {
 
         const std::string input = cj1 + ent + cj2 + ent + cj3 + ent +
             ep1 + tttGameP1 + ent + ep2 + tttGameP2 + ent +
+            ej1 + ent + ej2 + ent +
             lj + ent + ljA + ent + ljN + ent +
             rj3 + ent +
             invalid + ent +

@@ -30,13 +30,15 @@ void \mbox{\hyperlink{classPlayer_a476cdc330565616e3bdc6a660c24a4b4}{deserialize
 \doxysubsubsection*{Membros públicos estáticos}
 \begin{DoxyCompactItemize}
 \item 
-static void \mbox{\hyperlink{classPlayer_a12f65a371cdda1f1a049752489445d48}{create\+Player}} (const std\+::string \&\mbox{\hyperlink{classPlayer_aac4d26817345888cde02637183497507}{nick}}, const std\+::string \&\mbox{\hyperlink{classPlayer_af9c920fabaafdeb7961a645315b521ff}{name}}, char \mbox{\hyperlink{classPlayer_a01218f5efc53791ed75c77c99fedf0e2}{symbol}}=0)
+static void \mbox{\hyperlink{classPlayer_a60f83f57c5458476d1ff622af4a382b2}{create\+Player}} (std\+::string \mbox{\hyperlink{classPlayer_aac4d26817345888cde02637183497507}{nick}}, std\+::string \mbox{\hyperlink{classPlayer_af9c920fabaafdeb7961a645315b521ff}{name}}, char \mbox{\hyperlink{classPlayer_a01218f5efc53791ed75c77c99fedf0e2}{symbol}}=0)
 \item 
 static \mbox{\hyperlink{classPlayer}{Player}} \mbox{\hyperlink{classPlayer_ae950c7e93426454a231b5e85b164caa2}{load\+Player}} (const std\+::string \&\mbox{\hyperlink{classPlayer_aac4d26817345888cde02637183497507}{nick}})
 \item 
 static void \mbox{\hyperlink{classPlayer_a29b1e59eb6040d19ce5ac384fd6471e9}{update\+Player\+Stats}} (const std\+::string \&\mbox{\hyperlink{classPlayer_aac4d26817345888cde02637183497507}{nick}}, char game, bool to\+Add\+Win, bool to\+Add\+Loss)
 \item 
-static void \mbox{\hyperlink{classPlayer_a5574664867e1d05cba067d4aaa1fac5c}{update\+Player\+Info}} (const std\+::string \&\mbox{\hyperlink{classPlayer_aac4d26817345888cde02637183497507}{nick}}, const std\+::string \&\mbox{\hyperlink{classPlayer_af9c920fabaafdeb7961a645315b521ff}{name}}="{}"{}, char \mbox{\hyperlink{classPlayer_a01218f5efc53791ed75c77c99fedf0e2}{symbol}}=0)
+static void \mbox{\hyperlink{classPlayer_a91c61f8f64e7692f0e7db5e55e85a8c0}{update\+Player\+Info}} (const std\+::string \&\mbox{\hyperlink{classPlayer_aac4d26817345888cde02637183497507}{nick}}, bool to\+Update\+Name, bool to\+Update\+Symbol, std\+::string content)
+\item 
+static void \mbox{\hyperlink{classPlayer_aae2a2e161ecf411c125fd882fa054ca1}{update\+Player}} (const std\+::string \&\mbox{\hyperlink{classPlayer_aac4d26817345888cde02637183497507}{nick}}, const \mbox{\hyperlink{classPlayer}{Player}} \&new\+Player\+Data)
 \item 
 static void \mbox{\hyperlink{classPlayer_a431643a31f1dd19c95c22a6fdb0232a6}{delete\+Player}} (const std\+::string \&\mbox{\hyperlink{classPlayer_aac4d26817345888cde02637183497507}{nick}})
 \item 
@@ -143,11 +145,11 @@ Compare two players by nick
 \begin{DoxyReturn}{Retorna}
 true if the first player is less than the second one 
 \end{DoxyReturn}
-\Hypertarget{classPlayer_a12f65a371cdda1f1a049752489445d48}\label{classPlayer_a12f65a371cdda1f1a049752489445d48} 
+\Hypertarget{classPlayer_a60f83f57c5458476d1ff622af4a382b2}\label{classPlayer_a60f83f57c5458476d1ff622af4a382b2} 
 \index{Player@{Player}!createPlayer@{createPlayer}}
 \index{createPlayer@{createPlayer}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{createPlayer()}{createPlayer()}}
-{\footnotesize\ttfamily void Player\+::create\+Player (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nick,  }\item[{const std\+::string \&}]{name,  }\item[{char}]{symbol = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void Player\+::create\+Player (\begin{DoxyParamCaption}\item[{std\+::string}]{nick,  }\item[{std\+::string}]{name,  }\item[{char}]{symbol = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Create a new player in the database
 
@@ -343,19 +345,45 @@ Guarantee that the databse file exists
 {\em \doxylink{classfile__error}{file\+\_\+error}} & if was not able to open the file \\
 \hline
 \end{DoxyExceptions}
-\Hypertarget{classPlayer_a5574664867e1d05cba067d4aaa1fac5c}\label{classPlayer_a5574664867e1d05cba067d4aaa1fac5c} 
+\Hypertarget{classPlayer_aae2a2e161ecf411c125fd882fa054ca1}\label{classPlayer_aae2a2e161ecf411c125fd882fa054ca1} 
+\index{Player@{Player}!updatePlayer@{updatePlayer}}
+\index{updatePlayer@{updatePlayer}!Player@{Player}}
+\doxysubsubsection{\texorpdfstring{updatePlayer()}{updatePlayer()}}
+{\footnotesize\ttfamily void Player\+::update\+Player (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nick,  }\item[{const \mbox{\hyperlink{classPlayer}{Player}} \&}]{new\+Player\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Update a player in the database
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em nick} & The player\textquotesingle{}s nickname \\
+\hline
+{\em new\+Player\+Data} & The new player data\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceções}
+{\em \doxylink{classplayer__not__found}{player\+\_\+not\+\_\+found}} & if the player was not found \\
+\hline
+{\em \doxylink{classfile__error}{file\+\_\+error}} & if was not able to write to the file \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classPlayer_a91c61f8f64e7692f0e7db5e55e85a8c0}\label{classPlayer_a91c61f8f64e7692f0e7db5e55e85a8c0} 
 \index{Player@{Player}!updatePlayerInfo@{updatePlayerInfo}}
 \index{updatePlayerInfo@{updatePlayerInfo}!Player@{Player}}
 \doxysubsubsection{\texorpdfstring{updatePlayerInfo()}{updatePlayerInfo()}}
-{\footnotesize\ttfamily void Player\+::update\+Player\+Info (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nick,  }\item[{const std\+::string \&}]{name = {\ttfamily "{}"{}},  }\item[{char}]{symbol = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily void Player\+::update\+Player\+Info (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nick,  }\item[{bool}]{to\+Update\+Name,  }\item[{bool}]{to\+Update\+Symbol,  }\item[{std\+::string}]{content }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 Update a player info in the database
 
 
 \begin{DoxyParams}{Parâmetros}
-{\em name} & (optional) The player\textquotesingle{}s name to be changed \\
+{\em nick} & The player\textquotesingle{}s nickname \\
 \hline
-{\em symbol} & (optional) The player\textquotesingle{}s symbol to be changed\\
+{\em to\+Update\+Name} & If the name should be changed \\
+\hline
+{\em to\+Update\+Symbol} & If the symbol should be changed \\
+\hline
+{\em content} & The new content of the field, the symbol can be empty to remove it\\
 \hline
 \end{DoxyParams}
 

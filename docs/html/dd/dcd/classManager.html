@@ -111,6 +111,8 @@ Membros privados estáticos</h2></td></tr>
 <tr class="separator:aeb05baeb0075a8235c8ddea7b43e49ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba37e0476aeccc0a8ccd3ac82e3a3ec5" id="r_aba37e0476aeccc0a8ccd3ac82e3a3ec5"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dcd/classManager.html#aba37e0476aeccc0a8ccd3ac82e3a3ec5">createPlayer</a> (const std::string &amp;arguments)</td></tr>
 <tr class="separator:aba37e0476aeccc0a8ccd3ac82e3a3ec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f03c15016f12c39936f694d845f1818" id="r_a9f03c15016f12c39936f694d845f1818"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dcd/classManager.html#a9f03c15016f12c39936f694d845f1818">updatePlayer</a> (const std::string &amp;arguments)</td></tr>
+<tr class="separator:a9f03c15016f12c39936f694d845f1818"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7f33d8e27faebdcaf2d97d143c17c26" id="r_aa7f33d8e27faebdcaf2d97d143c17c26"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dcd/classManager.html#aa7f33d8e27faebdcaf2d97d143c17c26">deletePlayer</a> (const std::string &amp;arguments)</td></tr>
 <tr class="separator:aa7f33d8e27faebdcaf2d97d143c17c26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c41295ecf1975e47623806a0416a2c9" id="r_a6c41295ecf1975e47623806a0416a2c9"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dcd/classManager.html#a6c41295ecf1975e47623806a0416a2c9">listPlayers</a> (const std::string &amp;arguments)</td></tr>
@@ -403,6 +405,46 @@ Atributos Privados Estáticos</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Print the menu of the program </p>
+
+</div>
+</div>
+<a id="a9f03c15016f12c39936f694d845f1818" name="a9f03c15016f12c39936f694d845f1818"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f03c15016f12c39936f694d845f1818">&#9670;&#160;</a></span>updatePlayer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Manager::updatePlayer </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>arguments</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Update a player info in the database</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arguments</td><td>Nick, Attribute to be Changed, New Value of the Attribute</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceções</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="../../d3/d35/classincorrect__format.html">incorrect_format</a></td><td>if was not able to parse the arguments </td></tr>
+    <tr><td class="paramname"><a class="el" href="../../db/ddf/classfile__error.html">file_error</a></td><td>if was not able to write to the file </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
