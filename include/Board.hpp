@@ -10,7 +10,7 @@
 #include <vector>
 
 /**
- * Class to simualte a board, to place pieces
+ * Class to simulate a board, to place pieces
  */
 class Board final {
     uint32_t height; /**< board height */

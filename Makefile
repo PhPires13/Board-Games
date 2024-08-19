@@ -1,8 +1,6 @@
-ifeq ($(OS),Windows_NT) # TODO: check if needed
-    SEP = \\
-    RM = del /Q
+ifeq ($(OS),Windows_NT)
+    RM = del
 else
-    SEP = /
     RM = rm -f
 endif
 
@@ -94,10 +92,10 @@ $(TESTS_BIN_DIR)/Board_Games_Tests: $(TESTS_OBJ_DIR)/UtilsTests.o $(TESTS_OBJ_DI
 
 # ------------------------------------------------- Clean
 clean: clean_coverage
-	rm -f \
+	$(RM) \
 	$(BIN_DIR)/Board_Games $(TESTS_BIN_DIR)/Board_Games_Tests \
 	$(OBJ_DIR)/*.o $(OBJ_DIR)/*/*.o \
 	$(OBJ_DIR)/*.gcno $(OBJ_DIR)/*/*.gcno
 
 clean_coverage:
-	rm -f $(OBJ_DIR)/*.gcda $(OBJ_DIR)/*/*.gcda
+	$(RM) $(OBJ_DIR)/*.gcda $(OBJ_DIR)/*/*.gcda

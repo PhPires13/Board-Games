@@ -1,3 +1,3 @@
 make main
-cd bin
-./Board_Games
+cd bin || exit
+.\Board_Games

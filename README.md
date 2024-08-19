@@ -1,7 +1,10 @@
 # BOARD-GAMES
 
 #### Observações:
+- Algumas cores de fundo do terminal podem dificultar a visualização do programa.
 - O projeto foi desenvolvido principalmente em sistemas Unix (Linux, MacOS), então está melhor otimizado e testado para os mesmos.
+  - Existe apenas uma falha conhecida no Windows, a primeira exibição do menu fica desformatada devido as cores.
+- A biblioteca de testes ``doctest`` tem maior compatibilidade com sistemas Unix, a variar do ambiente Windows.
 
 ---
 ## Descrição
@@ -52,8 +55,17 @@ FS: Finalizar Sistema
   - Também foram utilizadas cores nos jogos para uma interfaçe mais lúdica e agradável.
 - ### 5 Editar Jogador
   - Foi implementada a funcionalidade de editar um jogador, podendo alterar o nome ou o símbolo, e até remover o símbolo.
-- ### 6 Cobertura de testes
+- ### 6 Compatibilidade com Linux, MacOS e Windows
+  - Criar executáveis para ambos os sistemas operacionais.
+  - Usar códigos que funcionem corretamente em todos os sistemas.
+  - Caso não existisse código comum, identificar o sistema e roda suas equivalências, como: o ``clear`` e o ``cls``
+  ou o ``rm -f`` e o ``del /Q`` no Makefile.
+  - mesmo que no Windows haja a falha já observada acima, o programa funciona normalmente.
+- ### 7 Estatística de Cobertura de testes
   - Foi realizada a análise de cobertura de testes, um extra, mesmo que não solicitado.
+
+- ### Outros:
+  - #### 8 Executáveis prontos, 9 Clear terminal
 
 ---
 ## Como executar
@@ -62,29 +74,32 @@ FS: Finalizar Sistema
   - <b>Unix</b>: ``.sh``
   - <b>Windows</b>: ``.bat``
 
-
-- Se necessário pode ser realizada a execução manual dos comandos internos aos arquivos, porém a mesma NÃO é recomendada, pois pode causar conflitos com os arquivos de armazenamento.
+- #### Observações:
+  - Dependendo do ambiente Windows, é possível que o comando ``make`` esteja com outra keyword, como ``mingw32-make``,
+  se este for o caso, favor trocar o comando dentro dos arquivos ``.bat``.
+  - Se necessário pode ser realizada a execução manual dos comandos internos aos arquivos, porém a mesma NÃO é recomendada, 
+  pois pode causar conflitos dos arquivos de armazenamento de teste e execução.
 
 - ### Programa
-  - Basta executar alguns dos arquivos ``run``
+  - Basta executar o arquivo ``run``
     - <b>Unix</b>: ```./run.sh```
-    - <b>Windows</b>: ```run.bat```
+    - <b>Windows</b>: ```.\run.bat```
 
 - ### Testes
-  - Basta executar alguns dos arquivos ``test``
+  - Basta executar o arquivo ``test``
     - <b>Unix</b>: ```./test.sh```
-    - <b>Windows</b>: ```test.bat```
+    - <b>Windows</b>: ```.\test.bat```
 
 - ### Clean
-  - Em caso de necessidade de reset dos arquivos gerados pela compilação, basta executar alguns dos arquivos ``clean``
+  - Em caso de necessidade de reset dos arquivos gerados pela compilação, basta executar o arquivo ``clean``
     - <b>Unix</b>: ```./clean.sh```
-    - <b>Windows</b>: ```clean.bat```
 
 - #### Documentar e Cobertura
-  - O script para documentar e gerar a cobertura de testes está disponível em caso de necessidade.
+  - O script para documentar e analisar a cobertura de testes está disponível em caso de necessidade.
     - <b>Unix</b>: ```./document.sh```
     - <b>Unix</b>: ```./coverage.sh```
   - É necessário ter o ``doxygen`` e ``gcovr`` instalados para a execução dos seus respectivos.
+
 ---
 ## Documentação
 - ### Código
@@ -151,5 +166,6 @@ então armazenado em um ponteiro da classe genérica para o correto funcionament
 
 ---
 ## Requisitos
-- ### Compilador g++
+- ### Compilador G++ e Make
   - Linux: ```sudo apt install g++```
+  - Windows: https://sourceforge.net/projects/mingw/ ou https://www.mingw-w64.org
