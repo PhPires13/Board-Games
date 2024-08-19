@@ -239,6 +239,7 @@ void Manager::playMatch(const std::string &arguments) {
 void Manager::menu() {
     while (true) {
         try {
+            Utils::clearTerminal();
             Manager::printMenu();
 
             // Read command line
@@ -277,6 +278,5 @@ void Manager::menu() {
         std::cout << std::endl<< "Pressione: <ENTER>";
         std::string wait;
         std::getline(std::cin, wait); // Use getline to handle empty input
-        Utils::clearTerminal();
     }
 }

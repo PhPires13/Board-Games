@@ -2,8 +2,6 @@
 
 #### Observações:
 - Algumas cores de fundo do terminal podem dificultar a visualização do programa.
-- O projeto foi desenvolvido principalmente em sistemas Unix (Linux, MacOS), então está melhor otimizado e testado para os mesmos.
-  - Existe apenas uma falha conhecida no Windows, a primeira exibição do menu fica desformatada devido as cores.
 - A biblioteca de testes ``doctest`` tem maior compatibilidade com sistemas Unix, a variar do ambiente Windows.
 
 ---
@@ -60,7 +58,6 @@ FS: Finalizar Sistema
   - Usar códigos que funcionem corretamente em todos os sistemas.
   - Caso não existisse código comum, identificar o sistema e roda suas equivalências, como: o ``clear`` e o ``cls``
   ou o ``rm -f`` e o ``del /Q`` no Makefile.
-  - mesmo que no Windows haja a falha já observada acima, o programa funciona normalmente.
 - ### 7 Estatística de Cobertura de testes
   - Foi realizada a análise de cobertura de testes, um extra, mesmo que não solicitado.
 
