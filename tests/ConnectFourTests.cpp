@@ -171,8 +171,4 @@ TEST_SUITE("ConnectFour") {
         cf5.makeMove({3}, player2.getSymbol());
         CHECK(cf5.getGameState({3}) == GameState::TIE);
     }
-
-    TEST_CASE("Play Game") {
-        //TODO: Finalize this test scenario
-    }
 }
