@@ -101,6 +101,6 @@ TEST_SUITE("Reversi") {
         game.makeMove({4, 2}, player1.getSymbol());
 
         // Check that the pieces have been flipped correctly
-        CHECK(game.getBoard().getSymbol(3, 2) == player1.getSymbol());
+        CHECK(game.board.getSymbol(3, 2) == player1.getSymbol());
     }
 }
