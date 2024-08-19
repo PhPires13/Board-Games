@@ -1,6 +1,11 @@
 ifeq ($(OS),Windows_NT)
-    RM = del
+	SEP = \\
+    RM = del /Q
+    FIND = forfiles /P
+	DELETE_FILES = /M
+	COMMAND = /C "cmd /c del /Q @path"
 else
+	SEP = /
     RM = rm -f
 endif
 
@@ -11,8 +16,8 @@ SRC_DIR=src
 OBJ_DIR=obj
 BIN_DIR=bin
 TESTS_DIR=tests
-TESTS_OBJ_DIR=$(OBJ_DIR)/tests
-TESTS_BIN_DIR=$(BIN_DIR)/tests
+TESTS_OBJ_DIR=$(OBJ_DIR)$(SEP)tests
+TESTS_BIN_DIR=$(BIN_DIR)$(SEP)tests
 THIRD_PARTY_DIR=third_party
 
 # ------------------------------------------------- Main
@@ -92,10 +97,20 @@ $(TESTS_BIN_DIR)/Board_Games_Tests: $(TESTS_OBJ_DIR)/UtilsTests.o $(TESTS_OBJ_DI
 
 # ------------------------------------------------- Clean
 clean: clean_coverage
+ifeq ($(OS),Windows_NT)
+	$(RM) $(BIN_DIR)\Board_Games.exe $(TESTS_BIN_DIR)\Board_Games_Tests.exe
+	$(FIND) $(OBJ_DIR) $(DELETE_FILES) *.o $(COMMAND)
+	$(FIND) $(OBJ_DIR) $(DELETE_FILES) *.gcno $(COMMAND)
+else
 	$(RM) \
 	$(BIN_DIR)/Board_Games $(TESTS_BIN_DIR)/Board_Games_Tests \
 	$(OBJ_DIR)/*.o $(OBJ_DIR)/*/*.o \
 	$(OBJ_DIR)/*.gcno $(OBJ_DIR)/*/*.gcno
+endif
 
 clean_coverage:
+ifeq ($(OS),Windows_NT)
+	$(FIND) $(OBJ_DIR) $(DELETE_FILES) *.gcda $(COMMAND)
+else
 	$(RM) $(OBJ_DIR)/*.gcda $(OBJ_DIR)/*/*.gcda
+endif

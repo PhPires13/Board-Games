@@ -57,7 +57,7 @@ FS: Finalizar Sistema
   - Criar executáveis para ambos os sistemas operacionais.
   - Usar códigos que funcionem corretamente em todos os sistemas.
   - Caso não existisse código comum, identificar o sistema e roda suas equivalências, como: o ``clear`` e o ``cls``
-  ou o ``rm -f`` e o ``del`` no Makefile.
+  ou o ``rm -f`` e o ``del \Q`` no Makefile.
 - ### 7 Estatística de Cobertura de testes
   - Foi realizada a análise de cobertura de testes, um extra, mesmo que não solicitado.
 
@@ -88,8 +88,10 @@ FS: Finalizar Sistema
     - <b>Windows</b>: ```.\test.bat```
 
 - ### Clean
-  - Em caso de necessidade de reset dos arquivos gerados pela compilação, basta executar o arquivo ``clean``
+  - Em caso de necessidade de reset dos arquivos gerados pela compilação
+  - Basta executar o arquivo ``clean``
     - <b>Unix</b>: ```./clean.sh```
+    - <b>Windows</b>: ```.\clean.bat```
 
 - #### Documentar e Cobertura
   - O script para documentar e analisar a cobertura de testes está disponível em caso de necessidade.
