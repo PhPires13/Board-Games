@@ -1,7 +1,3 @@
-//
-// Created by pedro-pires on 8/17/24.
-//
-
 #include "doctest.h"
 #include "exceptions.hpp"
 
@@ -18,9 +14,10 @@
 #undef protected
 
 TEST_SUITE("Reversi") {
+
     TEST_CASE("Constructor") {
-        const Player player1("Nick1", "Name1");
-        const Player player2("Nick2", "Name2");
+        const Player player1("PED", "PEDRO");
+        const Player player2("CARL", "CARLOS");
 
         // Constructor with default board size
         CHECK_NOTHROW(Reversi(player1, player2));
@@ -36,8 +33,8 @@ TEST_SUITE("Reversi") {
     }
 
     TEST_CASE("Is a valid size") {
-        const Player player1("Nick1", "Name1");
-        const Player player2("Nick2", "Name2");
+        const Player player1("PED", "PEDRO");
+        const Player player2("CARL", "CARLOS");
         const Reversi game(player1, player2);
 
         CHECK(game.isAValidHeight(Reversi::minimumBoardSize - 1) == false);
@@ -49,58 +46,86 @@ TEST_SUITE("Reversi") {
     }
 
     TEST_CASE("Validate Move") {
-        const Player player1("Nick1", "Name1");
-        const Player player2("Nick2", "Name2");
+        const Player player1("PED", "PEDRO");
+        const Player player2("CARL", "CARLOS");
 
-        Reversi game(player1, player2, Reversi::defaultBoardSize);
+        Reversi reversiGame(player1, player2, 5); // Tabuleiro 8x8
 
-        // Valid moves
-        CHECK_NOTHROW(game.validateMove({2, 3}));
-        CHECK_NOTHROW(game.validateMove({4, 2}));
+        // Movimentos válidos
+        CHECK_NOTHROW(reversiGame.validateMove({2, 3}));
+        CHECK_NOTHROW(reversiGame.validateMove({4, 5}));
 
-        // Size invalid
-        CHECK_THROWS_AS(game.validateMove({}), incorrect_format);
-        CHECK_THROWS_AS(game.validateMove({2}), incorrect_format);
-        CHECK_THROWS_AS(game.validateMove({2, 3, 4}), incorrect_format);
+        // Tamanho inválido
+        CHECK_THROWS_AS(reversiGame.validateMove({}), incorrect_format);
+        CHECK_THROWS_AS(reversiGame.validateMove({1}), incorrect_format);
+        CHECK_THROWS_AS(reversiGame.validateMove({1, 2, 3}), incorrect_format);
 
-        // Out of range
-        CHECK_THROWS_AS(game.validateMove({Reversi::defaultBoardSize, 0}), invalid_move);
-        CHECK_THROWS_AS(game.validateMove({0, Reversi::defaultBoardSize}), invalid_move);
+        // Fora dos limites
+        CHECK_THROWS_AS(reversiGame.validateMove({8, 0}), invalid_move);  // 8x8 board
+        CHECK_THROWS_AS(reversiGame.validateMove({0, 8}), invalid_move);  // 8x8 board
+        CHECK_THROWS_AS(reversiGame.validateMove({8, 8}), invalid_move);  // 8x8 board
 
-        // Place is not empty
-        game.makeMove({2, 3}, player1.getSymbol());
-        CHECK_THROWS_AS(game.validateMove({2, 3}), invalid_move);
+        // Lugar não está vazio
+        reversiGame.makeMove({2, 3}, player1.getSymbol());
+        CHECK_THROWS_AS(reversiGame.validateMove({2, 3}), invalid_move);
+    }
+
+    TEST_CASE("Make Move and Flip Pieces") {
+        const Player player1("PED", "PEDRO", 'X');
+        const Player player2("CARL", "CARLOS", 'O');
+
+        Reversi reversiGame(player1, player2, 8); // Tabuleiro 8x8
+
+        // Executa o movimento e verifica se as peças são viradas corretamente
+        reversiGame.makeMove({2, 3}, player1.getSymbol());
+        CHECK(reversiGame.board.getSymbol(2, 3) == 'X');
+        CHECK(reversiGame.board.getSymbol(3, 3) == 'X');
     }
 
     TEST_CASE("Get Game State") {
-        const Player player1("Nick1", "Name1", 'X');
-        const Player player2("Nick2", "Name2", 'O');
+        const Player player1("PED", "PEDRO", 'X');
+        const Player player2("CARL", "CARLOS", 'O');
 
-        // Standard moves, no winner
-        Reversi game(player1, player2, Reversi::defaultBoardSize);
-        game.makeMove({2, 3}, player1.getSymbol());
-        game.makeMove({2, 2}, player2.getSymbol());
-        CHECK(game.getGameState({2, 2}) == GameState::NOT_OVER);
+        Reversi reversiGame(player1, player2, 8); // Tabuleiro 8x8
 
-        // Player 1 surrounds player 2's piece, flipping it
-        game.makeMove({4, 2}, player1.getSymbol());
-        CHECK(game.getGameState({4, 2}) == GameState::NOT_OVER);
+        // Jogo ainda não terminou
+        CHECK(reversiGame.getGameState({3, 2}) == GameState::NOT_OVER);
 
-        // Add more moves and check for a winner or tie
-        // ... Additional moves leading to a game end state.
+        // Exemplo de cenário onde o jogador 1 vence
+        reversiGame.makeMove({2, 3}, player1.getSymbol());
+        reversiGame.makeMove({2, 2}, player2.getSymbol());
+        reversiGame.makeMove({3, 2}, player1.getSymbol());
+        reversiGame.makeMove({4, 2}, player2.getSymbol());
+        reversiGame.makeMove({5, 2}, player1.getSymbol());
+        CHECK(reversiGame.getGameState({5, 2}) == GameState::PLAYER1_WINS);
+
     }
 
-    TEST_CASE("Flip Pieces") {
-        const Player player1("Nick1", "Name1", 'X');
-        const Player player2("Nick2", "Name2", 'O');
-        Reversi game(player1, player2);
+    TEST_CASE("Play Game") {
 
-        // Make initial moves to set up a flipping scenario
-        game.makeMove({2, 3}, player1.getSymbol());
-        game.makeMove({2, 2}, player2.getSymbol());
-        game.makeMove({4, 2}, player1.getSymbol());
+        const Player player1("PED", "PEDRO", 'X');
+        const Player player2("CARL", "CARLOS", 'O');
 
-        // Check that the pieces have been flipped correctly
-        CHECK(game.board.getSymbol(3, 2) == player1.getSymbol());
+        // Exemplo de cenário onde o jogador 1 vence
+        const std::istringstream input1("2 3\n2 2\n3 2\n4 2\n5 2\n"); // Entrada simulada
+        Reversi reversiGame(player1, player2, 5); // Tabuleiro 8x8
+        GameState gameState;
+        CHECK_NOTHROW(gameState = reversiGame.playGame());
+        CHECK(gameState == GameState::PLAYER1_WINS);
+
+        // Restaura o std::cin para seu estado original
+    }
+
+    TEST_CASE("Game Tie") {
+        const Player player1("PED", "PEDRO", 'X');
+        const Player player2("CARL", "CARLOS", 'O');
+
+        Reversi reversiGame(player1, player2, 8); // Tabuleiro 8x8
+
+        reversiGame.makeMove({3, 2}, player1.getSymbol());
+        reversiGame.makeMove({2, 3}, player2.getSymbol());
+        reversiGame.makeMove({4, 5}, player1.getSymbol());
+        reversiGame.makeMove({5, 4}, player2.getSymbol());
+        CHECK(reversiGame.getGameState({5, 4}) == GameState::TIE);
     }
 }
