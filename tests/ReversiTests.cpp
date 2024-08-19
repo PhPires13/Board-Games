@@ -25,8 +25,8 @@ TEST_SUITE("Reversi") {
         // Constructor with valid board size (even number)
         CHECK_NOTHROW(Reversi(player1, player2, 8));
 
-        // Constructor with invalid board size (odd number)
-        CHECK_THROWS_AS(Reversi(player1, player2, 7), std::exception);
+        // Constructor with invalid board size (odd number), will sue the default size
+        CHECK_NOTHROW(Reversi(player1, player2, 7));
 
         // Constructor with minimum valid board size
         CHECK_NOTHROW(Reversi(player1, player2, Reversi::minimumBoardSize));
