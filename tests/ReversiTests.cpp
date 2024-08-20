@@ -145,24 +145,44 @@ TEST_SUITE("Reversi") {
         CHECK(reversiGame.getGameState({0, 0}) == GameState::TIE);
     }
 
-    TEST_CASE("Player 1 Wins") {
+    TEST_CASE("Player 2 Wins") {
         const Player player1("PED", "PEDRO", 'X');
         const Player player2("CARL", "CARLOS", 'O');
 
         Reversi reversiGame(player1, player2, Reversi::minimumBoardSize); // Tabuleiro 4x4
 
-        reversiGame.makeMove({2, 0}, player1.getSymbol());
-        reversiGame.makeMove({3, 2}, player2.getSymbol());
         reversiGame.makeMove({1, 3}, player1.getSymbol());
-        reversiGame.makeMove({0, 2}, player2.getSymbol());
-        reversiGame.makeMove({2, 3}, player1.getSymbol());
-        reversiGame.makeMove({1, 0}, player2.getSymbol());
-        reversiGame.makeMove({0, 1}, player1.getSymbol());
+        reversiGame.makeMove({0, 3}, player2.getSymbol());
+        reversiGame.makeMove({2, 0}, player1.getSymbol());
         reversiGame.makeMove({3, 0}, player2.getSymbol());
-        reversiGame.makeMove({0, 3}, player1.getSymbol());
-        reversiGame.makeMove({3, 3}, player2.getSymbol());
-        reversiGame.makeMove({3, 1}, player1.getSymbol());
+        reversiGame.makeMove({0, 2}, player1.getSymbol());
+        reversiGame.makeMove({0, 1}, player2.getSymbol());
+        reversiGame.makeMove({1, 0}, player1.getSymbol());
         reversiGame.makeMove({0, 0}, player2.getSymbol());
-        CHECK(reversiGame.getGameState({0, 0}) == GameState::TIE);
+        reversiGame.makeMove({3, 1}, player1.getSymbol());
+        reversiGame.makeMove({3, 3}, player2.getSymbol());
+        reversiGame.makeMove({2, 3}, player1.getSymbol());
+        reversiGame.makeMove({3, 2}, player2.getSymbol());
+        CHECK(reversiGame.getGameState({3, 2}) == GameState::PLAYER2_WINS);
+    }
+
+    TEST_CASE("Player 1 Wins With Empty Spaces Left") {
+        const Player player1("PED", "PEDRO", 'X');
+        const Player player2("CARL", "CARLOS", 'O');
+
+        Reversi reversiGame(player1, player2, Reversi::minimumBoardSize); // Tabuleiro 4x4
+
+        reversiGame.makeMove({1, 3}, player1.getSymbol());
+        reversiGame.makeMove({2, 3}, player2.getSymbol());
+        reversiGame.makeMove({3, 3}, player1.getSymbol());
+        reversiGame.makeMove({0, 1}, player2.getSymbol());
+        reversiGame.makeMove({3, 0}, player1.getSymbol());
+        reversiGame.makeMove({2, 0}, player2.getSymbol());
+        reversiGame.makeMove({0, 0}, player1.getSymbol());
+        reversiGame.makeMove({0, 2}, player2.getSymbol());
+        reversiGame.makeMove({0, 3}, player1.getSymbol());
+        reversiGame.makeMove({3, 1}, player2.getSymbol());
+        reversiGame.makeMove({1, 0}, player1.getSymbol());
+        CHECK(reversiGame.getGameState({0, 3}) == GameState::PLAYER1_WINS);
     }
 }
