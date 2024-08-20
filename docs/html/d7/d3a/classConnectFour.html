@@ -212,13 +212,13 @@ Outros membros herdados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Construtor da classe <a class="el" href="../../d7/d3a/classConnectFour.html">ConnectFour</a>. Inicializa o jogo com dois jogadores e as dimensões do tabuleiro.</p>
+<p>ConectFour class Cconstructor. Initialize the game with two players and the board's dimensions.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">_player1</td><td>Jogador 1 </td></tr>
-    <tr><td class="paramname">_player2</td><td>Jogador 2 </td></tr>
-    <tr><td class="paramname">boardHeight</td><td>Altura do tabuleiro </td></tr>
-    <tr><td class="paramname">boardWidth</td><td>Largura do tabuleiro </td></tr>
+    <tr><td class="paramname">_player1</td><td><a class="el" href="../../d2/d4b/classPlayer.html">Player</a> 1 </td></tr>
+    <tr><td class="paramname">_player2</td><td><a class="el" href="../../d2/d4b/classPlayer.html">Player</a> 2 </td></tr>
+    <tr><td class="paramname">boardHeight</td><td><a class="el" href="../../de/d23/classBoard.html">Board</a>'s Height </td></tr>
+    <tr><td class="paramname">boardWidth</td><td><a class="el" href="../../de/d23/classBoard.html">Board</a>'s Width </td></tr>
   </table>
   </dd>
 </dl>
@@ -271,13 +271,13 @@ Outros membros herdados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Verifica se há quatro peças seguidas de mesmo símbolo em uma determinda direção no tabuleiro após uma jogada</p>
+<p>Check if there are four identical pieces in a row in certain direction after a move.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">move</td><td>Coordenadas do movimento </td></tr>
-    <tr><td class="paramname">symbol</td><td>Símbolo do jogador que fez o movimento </td></tr>
-    <tr><td class="paramname">dRow</td><td>Sinalizador para analisar casas na direção vertical </td></tr>
-    <tr><td class="paramname">dCol</td><td>Sinalizadorpara analisar casas na direção horizontal </td></tr>
+    <tr><td class="paramname">move</td><td>Move coordinates </td></tr>
+    <tr><td class="paramname">symbol</td><td>Symbol of the player who made the move </td></tr>
+    <tr><td class="paramname">dRow</td><td>Flag to analyse cells on horizontal direction </td></tr>
+    <tr><td class="paramname">dCol</td><td>Flag to analyse cells on vertical direction </td></tr>
   </table>
   </dd>
 </dl>
@@ -307,13 +307,14 @@ Outros membros herdados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Analisa o status atual do jogo após cada jogada e verifica se há algum vencedor, de acordo com as regras do Lig4.</p>
+<p>Check the current state of the game, according to <a class="el" href="../../d7/d3a/classConnectFour.html">ConnectFour</a> rules.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">move</td><td>Coordenadas do movimento </td></tr>
+    <tr><td class="paramname">move</td><td>1D vector representing the last move </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Retorna</dt><dd>The current state of the game </dd></dl>
 
 <p>Reimplementa <a class="el" href="../../d4/d08/classBoardGame.html#aecc780aa669fa3287bf8988becb773b4">BoardGame</a>.</p>
 
@@ -342,14 +343,14 @@ Outros membros herdados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Verifica se a altura do tabuleiro é válida.</p>
+<p>Check if the board's height is valid.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">boardHeight</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se é uma altura válida. </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true if it is as valid height. </dd></dl>
 
 <p>Reimplementa <a class="el" href="../../d4/d08/classBoardGame.html#af7251441fc9263b8b77d27aae106219c">BoardGame</a>.</p>
 
@@ -378,14 +379,14 @@ Outros membros herdados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Verifica se a largura do tabuleiro é válida.</p>
+<p>Check if the board's width is valid.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
     <tr><td class="paramname">boardWidth</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se é uma largura válida. </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true if it is as valid height. </dd></dl>
 
 <p>Reimplementa <a class="el" href="../../d4/d08/classBoardGame.html#ae01b19538655c1d04161de92a8056e12">BoardGame</a>.</p>
 
@@ -414,17 +415,17 @@ Outros membros herdados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Verifica se a coluna selecionada está cheia e executa o movimento da peça no tabuleiro.</p>
+<p>Check if the selected column is full and execute piece move if it's not.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">move</td><td>Coordenadas da coluna.</td></tr>
+    <tr><td class="paramname">move</td><td>Column coordinates.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Exceções</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="../../d3/d35/classincorrect__format.html">incorrect_format</a></td><td>if the move is empty or has more than 2 values </td></tr>
-    <tr><td class="paramname"><a class="el" href="../../d2/d27/classinvalid__move.html">invalid_move</a></td><td>if the move is outside the board </td></tr>
+    <tr><td class="paramname"><a class="el" href="../../d3/d35/classincorrect__format.html">incorrect_format</a></td><td>if the move is empty or has more than 1 values. </td></tr>
+    <tr><td class="paramname"><a class="el" href="../../d2/d27/classinvalid__move.html">invalid_move</a></td><td>if the move is outside the board. </td></tr>
   </table>
   </dd>
 </dl>

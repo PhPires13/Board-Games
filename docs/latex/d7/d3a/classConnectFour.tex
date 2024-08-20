@@ -93,17 +93,17 @@ Class that represents the Connect Four game
 \doxysubsubsection{\texorpdfstring{ConnectFour()}{ConnectFour()}}
 {\footnotesize\ttfamily Connect\+Four\+::\+Connect\+Four (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPlayer}{Player}}}]{\+\_\+player1,  }\item[{\mbox{\hyperlink{classPlayer}{Player}}}]{\+\_\+player2,  }\item[{uint32\+\_\+t}]{board\+Height = {\ttfamily \mbox{\hyperlink{classConnectFour_aa474c9bb396a777c070c018400e6e8dd}{Connect\+Four\+::default\+Board\+Height}}},  }\item[{uint32\+\_\+t}]{board\+Width = {\ttfamily \mbox{\hyperlink{classConnectFour_a8ddaf98a1551f5060833d14e8f787f57}{Connect\+Four\+::default\+Board\+Width}}} }\end{DoxyParamCaption})}
 
-Construtor da classe \doxylink{classConnectFour}{Connect\+Four}. Inicializa o jogo com dois jogadores e as dimensões do tabuleiro.
+Conect\+Four class Cconstructor. Initialize the game with two players and the board\textquotesingle{}s dimensions.
 
 
 \begin{DoxyParams}{Parâmetros}
-{\em \+\_\+player1} & Jogador 1 \\
+{\em \+\_\+player1} & \doxylink{classPlayer}{Player} 1 \\
 \hline
-{\em \+\_\+player2} & Jogador 2 \\
+{\em \+\_\+player2} & \doxylink{classPlayer}{Player} 2 \\
 \hline
-{\em board\+Height} & Altura do tabuleiro \\
+{\em board\+Height} & \doxylink{classBoard}{Board}\textquotesingle{}s Height \\
 \hline
-{\em board\+Width} & Largura do tabuleiro \\
+{\em board\+Width} & \doxylink{classBoard}{Board}\textquotesingle{}s Width \\
 \hline
 \end{DoxyParams}
 
@@ -115,17 +115,17 @@ Construtor da classe \doxylink{classConnectFour}{Connect\+Four}. Inicializa o jo
 \doxysubsubsection{\texorpdfstring{checkDirection()}{checkDirection()}}
 {\footnotesize\ttfamily bool Connect\+Four\+::check\+Direction (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{move,  }\item[{char}]{symbol,  }\item[{int}]{d\+Row,  }\item[{int}]{d\+Col }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
 
-Verifica se há quatro peças seguidas de mesmo símbolo em uma determinda direção no tabuleiro após uma jogada
+Check if there are four identical pieces in a row in certain direction after a move.
 
 
 \begin{DoxyParams}{Parâmetros}
-{\em move} & Coordenadas do movimento \\
+{\em move} & Move coordinates \\
 \hline
-{\em symbol} & Símbolo do jogador que fez o movimento \\
+{\em symbol} & Symbol of the player who made the move \\
 \hline
-{\em d\+Row} & Sinalizador para analisar casas na direção vertical \\
+{\em d\+Row} & Flag to analyse cells on horizontal direction \\
 \hline
-{\em d\+Col} & Sinalizadorpara analisar casas na direção horizontal \\
+{\em d\+Col} & Flag to analyse cells on vertical direction \\
 \hline
 \end{DoxyParams}
 \Hypertarget{classConnectFour_a7d74751dda08358520d8e5eba9cbd879}\label{classConnectFour_a7d74751dda08358520d8e5eba9cbd879} 
@@ -134,13 +134,16 @@ Verifica se há quatro peças seguidas de mesmo símbolo em uma determinda dire�
 \doxysubsubsection{\texorpdfstring{getGameState()}{getGameState()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} Connect\+Four\+::get\+Game\+State (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{move }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
 
-Analisa o status atual do jogo após cada jogada e verifica se há algum vencedor, de acordo com as regras do Lig4.
+Check the current state of the game, according to \doxylink{classConnectFour}{Connect\+Four} rules.
 
 
 \begin{DoxyParams}{Parâmetros}
-{\em move} & Coordenadas do movimento \\
+{\em move} & 1D vector representing the last move \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+The current state of the game 
+\end{DoxyReturn}
 
 
 Reimplementa \mbox{\hyperlink{classBoardGame_aecc780aa669fa3287bf8988becb773b4}{Board\+Game}}.
@@ -151,7 +154,7 @@ Reimplementa \mbox{\hyperlink{classBoardGame_aecc780aa669fa3287bf8988becb773b4}{
 \doxysubsubsection{\texorpdfstring{isAValidHeight()}{isAValidHeight()}}
 {\footnotesize\ttfamily bool Connect\+Four\+::is\+AValid\+Height (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{board\+Height }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
 
-Verifica se a altura do tabuleiro é válida.
+Check if the board\textquotesingle{}s height is valid.
 
 
 \begin{DoxyParams}{Parâmetros}
@@ -159,7 +162,7 @@ Verifica se a altura do tabuleiro é válida.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Retorna}
-true se é uma altura válida. 
+true if it is as valid height. 
 \end{DoxyReturn}
 
 
@@ -171,7 +174,7 @@ Reimplementa \mbox{\hyperlink{classBoardGame_af7251441fc9263b8b77d27aae106219c}{
 \doxysubsubsection{\texorpdfstring{isAValidWidth()}{isAValidWidth()}}
 {\footnotesize\ttfamily bool Connect\+Four\+::is\+AValid\+Width (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{board\+Width }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
 
-Verifica se a largura do tabuleiro é válida.
+Check if the board\textquotesingle{}s width is valid.
 
 
 \begin{DoxyParams}{Parâmetros}
@@ -179,7 +182,7 @@ Verifica se a largura do tabuleiro é válida.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Retorna}
-true se é uma largura válida. 
+true if it is as valid height. 
 \end{DoxyReturn}
 
 
@@ -191,18 +194,18 @@ Reimplementa \mbox{\hyperlink{classBoardGame_ae01b19538655c1d04161de92a8056e12}{
 \doxysubsubsection{\texorpdfstring{validateMove()}{validateMove()}}
 {\footnotesize\ttfamily void Connect\+Four\+::validate\+Move (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{move }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [private]}, {\ttfamily [virtual]}}
 
-Verifica se a coluna selecionada está cheia e executa o movimento da peça no tabuleiro.
+Check if the selected column is full and execute piece move if it\textquotesingle{}s not.
 
 
 \begin{DoxyParams}{Parâmetros}
-{\em move} & Coordenadas da coluna.\\
+{\em move} & Column coordinates.\\
 \hline
 \end{DoxyParams}
 
 \begin{DoxyExceptions}{Exceções}
-{\em \doxylink{classincorrect__format}{incorrect\+\_\+format}} & if the move is empty or has more than 2 values \\
+{\em \doxylink{classincorrect__format}{incorrect\+\_\+format}} & if the move is empty or has more than 1 values. \\
 \hline
-{\em \doxylink{classinvalid__move}{invalid\+\_\+move}} & if the move is outside the board \\
+{\em \doxylink{classinvalid__move}{invalid\+\_\+move}} & if the move is outside the board. \\
 \hline
 \end{DoxyExceptions}
 

@@ -7,7 +7,8 @@ var indexSectionsWithContent =
   4: "bcdefhilmnoprstw",
   5: "g",
   6: "cnprt",
-  7: "dp"
+  7: "dp",
+  8: "bg"
 };
 
 var indexSectionNames =
@@ -19,7 +20,8 @@ var indexSectionNames =
   4: "variables",
   5: "enums",
   6: "enumvalues",
-  7: "defines"
+  7: "defines",
+  8: "pages"
 };
 
 var indexSectionLabels =
@@ -31,6 +33,7 @@ var indexSectionLabels =
   4: "Variáveis",
   5: "Enumerações",
   6: "Enumeradores",
-  7: "Definições e Macros"
+  7: "Definições e Macros",
+  8: "Páginas"
 };
 

@@ -1,0 +1,246 @@
+\chapter{BOARD-\/\+GAMES}
+\hypertarget{md_README}{}\label{md_README}\index{BOARD-\/GAMES@{BOARD-\/GAMES}}
+\label{md_README_autotoc_md0}%
+\Hypertarget{md_README_autotoc_md0}%
+ \hypertarget{md_README_autotoc_md1}{}\doxysubsubsection{\texorpdfstring{Observações\+:}{Observações:}}\label{md_README_autotoc_md1}
+
+\begin{DoxyItemize}
+\item Algumas cores de fundo do terminal podem dificultar a visualização do programa.
+\item A biblioteca de testes {\ttfamily doctest} tem maior compatibilidade com sistemas Unix, a variar do ambiente Windows.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ \hypertarget{md_README_autotoc_md3}{}\doxysection{\texorpdfstring{Descrição}{Descrição}}\label{md_README_autotoc_md3}
+
+\begin{DoxyItemize}
+\item Esse projeto é uma interface de jogos de tabuleiro via terminal, utilizando Paradigma Orientado a Objetos com C++ 11.
+\item Também possui controle de jogadores e manutenção de estatística.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ \hypertarget{md_README_autotoc_md5}{}\doxysection{\texorpdfstring{Funcionamento}{Funcionamento}}\label{md_README_autotoc_md5}
+
+\begin{DoxyItemize}
+\item É exibido um menu inicial com as opções disponíveis de comandos. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Obs.:}
+\DoxyCodeLine{?:\ parametros\ opcionais}
+\DoxyCodeLine{?!:\ parametros\ que\ podem\ ser\ opcionais\ ou\ nao\ dependendo\ do\ restante\ do\ contexto}
+\DoxyCodeLine{R:\ reversi,\ tabuleiro:\ quadrado,\ par,\ min\ 4x4\ \ \ L:\ lig4,\ tabuleiro:\ min\ 4x4\ \ \ \ \ V:\ velha,\ tabuleiro:\ 3x3}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ MENU\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}
+\DoxyCodeLine{CJ:\ Cadastrar\ Jogador\ (<Apelido>\ <Nome>\ <?\ Simbolo>)}
+\DoxyCodeLine{EJ:\ Editar\ Jogador\ (<Apelido>\ <Atributo:\ [N|S]>\ <?!\ Novo\ Valor>)}
+\DoxyCodeLine{RJ:\ Remover\ Jogador\ (<Apelido>)}
+\DoxyCodeLine{LJ:\ Listar\ Jogadores\ (<?\ Ordem:\ [A|N]>)}
+\DoxyCodeLine{EP:\ Executar\ Partida\ (<Jogo:\ (R|L|V)>\ <Apelido\ Jogador\ 1>\ <Apelido\ Jogador\ 2>\ <?\ Altura\ Tabuleiro>\ <?\ Largura\ Tabuleiro>)}
+\DoxyCodeLine{FS:\ Finalizar\ Sistema}
+\DoxyCodeLine{}
+\DoxyCodeLine{>\ }
+
+\end{DoxyCode}
+
+\item Os comandos em si e os parâmetros com opções pre-\/definidas, são case-\/insensitive.
+\item Porém, os demais parâmetros são case-\/sensitive.
+\item Parâmetros opcionais são marcados com {\ttfamily ?}, como descrito, então se não enviados será utilizado um valor padrão.
+\item Parâmetros que podem ser opcionais ou não, dependendo do contexto, são marcados com {\ttfamily ?!}, por exemplo ao editar o símbolo deixando vazio ele é removido.
+\item Também são exibidas regras na hora de passar os parâmetros.
+\item Exemplos de comandos\+:
+\begin{DoxyItemize}
+\item Cadastrar Jogador\+: {\ttfamily CJ joaozinho Joao da Silva \texorpdfstring{$\ast$}{*}} ou {\ttfamily CJ joaozinho Joao da Silva}
+\item Editar Jogador\+: {\ttfamily EJ joaozinho N Joao da Silva} ou {\ttfamily EJ joaozinho S \texorpdfstring{$\ast$}{*}} ou {\ttfamily EJ joaozinho S}
+\item Remover Jogador\+: {\ttfamily RJ joaozinho}
+\item Listar Jogadores\+: {\ttfamily LJ} ou {\ttfamily lj} ou {\ttfamily LJ A} ou {\ttfamily lj a} ou {\ttfamily LJ N}
+\item Executar Partida\+: {\ttfamily EP R joaozinho mariazinha} ou {\ttfamily EP R joaozinho mariazinha 4 4} ou {\ttfamily EP R joaozinho mariazinha 4}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ \hypertarget{md_README_autotoc_md7}{}\doxysection{\texorpdfstring{Extras}{Extras}}\label{md_README_autotoc_md7}
+
+\begin{DoxyItemize}
+\item \#\#\# 1 Jogo da Velha
+\item \#\#\# 2 Símbolo customizado do jogador
+\begin{DoxyItemize}
+\item Ao criar um jogador é possível que este escolha um símbolo para representá-\/lo no tabuleiro.
+\item Com isso também é necessário tratar quais os símbolos válidos, e caso dois jogadores estejam com mesmo símbolo, mudar para os padrões.
+\end{DoxyItemize}
+\item \#\#\# 3 Tabuleiro de tamanho customizado
+\begin{DoxyItemize}
+\item É possível escolher as proporções do tabuleiro, desde que se obedeça às regras de cada jogo, caso contrário é usado o tamanho padrão.
+\end{DoxyItemize}
+\item \#\#\# 4 Cores no terminal
+\begin{DoxyItemize}
+\item Para melhor legibilidade, foram utilizadas cores no menu que facilitam a interpretação do usuário.
+\item Também foram utilizadas cores nos jogos para uma interface mais lúdica e agradável.
+\end{DoxyItemize}
+\item \#\#\# 5 Editar Jogador
+\begin{DoxyItemize}
+\item Foi implementada a funcionalidade de editar um jogador, podendo alterar o nome ou o símbolo, e até remover o símbolo.
+\end{DoxyItemize}
+\item \#\#\# 6 Compatibilidade com Linux, Mac\+OS e Windows
+\begin{DoxyItemize}
+\item Criar executáveis para ambos os sistemas operacionais.
+\item Usar códigos que funcionem corretamente em todos os sistemas.
+\item Caso não existisse código comum, identificar o sistema e roda suas equivalências, como\+: o {\ttfamily clear} e o {\ttfamily cls} ou o {\ttfamily rm -\/f} e o {\ttfamily del /Q /F} no Makefile e outros.
+\end{DoxyItemize}
+\item \#\#\# 7 Estatística de Cobertura de testes
+\begin{DoxyItemize}
+\item Foi gerada a análise de cobertura de testes, um extra, mesmo que não solicitado.
+\end{DoxyItemize}
+\item \#\#\# Outros\+:
+\begin{DoxyItemize}
+\item \#\#\#\# 8 Executáveis prontos, 9 Clear terminal
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ \hypertarget{md_README_autotoc_md9}{}\doxysection{\texorpdfstring{Como executar}{Como executar}}\label{md_README_autotoc_md9}
+
+\begin{DoxyItemize}
+\item Existem arquivos preparados para realizar a compilação e execução das funções do projeto.
+\item Localizados na pasta raiz do projeto e conforme o sistema operacional\+:
+\begin{DoxyItemize}
+\item {\bfseries{Unix}}\+: {\ttfamily .sh}
+\item {\bfseries{Windows}}\+: {\ttfamily .bat}
+\end{DoxyItemize}
+\item \#\#\#\# Observações\+:
+\begin{DoxyItemize}
+\item Dependendo do ambiente Windows, é possível que o comando {\ttfamily make} esteja com outra keyword, como {\ttfamily mingw32-\/make}, se este for o caso, favor trocar o comando dentro dos arquivos {\ttfamily .bat}.
+\item Se necessário pode ser realizada a execução manual dos comandos internos aos arquivos, porém a mesma NÃO é recomendada, pois pode causar conflitos dos arquivos de armazenamento de teste e execução.
+\end{DoxyItemize}
+\item \#\#\# Programa
+\begin{DoxyItemize}
+\item Basta executar o arquivo {\ttfamily run}
+\begin{DoxyItemize}
+\item {\bfseries{Unix}}\+: {\ttfamily ./run.sh}
+\item {\bfseries{Windows}}\+: {\ttfamily .\textbackslash{}run.\+bat}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item \#\#\# Testes
+\begin{DoxyItemize}
+\item Basta executar o arquivo {\ttfamily test}
+\begin{DoxyItemize}
+\item {\bfseries{Unix}}\+: {\ttfamily ./test.sh}
+\item {\bfseries{Windows}}\+: {\ttfamily .\textbackslash{}test.\+bat}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item \#\#\# Clean
+\begin{DoxyItemize}
+\item Em caso de necessidade de reset dos arquivos gerados pela compilação
+\item Basta executar o arquivo {\ttfamily clean}
+\begin{DoxyItemize}
+\item {\bfseries{Unix}}\+: {\ttfamily ./clean.sh}
+\item {\bfseries{Windows}}\+: {\ttfamily .\textbackslash{}clean.\+bat}
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item \#\#\#\# Documentar e Cobertura
+\begin{DoxyItemize}
+\item O script para documentar e analisar a cobertura de testes está disponível em caso de necessidade.
+\begin{DoxyItemize}
+\item {\bfseries{Unix}}\+: {\ttfamily ./document.sh}
+\item {\bfseries{Unix}}\+: {\ttfamily ./coverage.sh}
+\end{DoxyItemize}
+\item É necessário ter o {\ttfamily doxygen} e {\ttfamily gcovr} instalados para a execução dos seus respectivos.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ \hypertarget{md_README_autotoc_md11}{}\doxysection{\texorpdfstring{Documentação}{Documentação}}\label{md_README_autotoc_md11}
+
+\begin{DoxyItemize}
+\item \#\#\# Código
+\begin{DoxyItemize}
+\item A documentação do código foi gerada utilizando a ferramenta Doxygen.
+\item Para acessar basta abrir o arquivo {\ttfamily index.\+html} localizado na pasta {\ttfamily docs/html}.
+\end{DoxyItemize}
+\item \#\#\# Cartão Classe Responsabilidades Colaboradores (CRC)
+\begin{DoxyItemize}
+\item A documentação CRC foi gerada utilizando a ferramenta CRC Card Builder (\href{http://groups.umd.umich.edu/cis/tinytools/cis375/f19/team7/index.html}{\texttt{ http\+://groups.\+umd.\+umich.\+edu/cis/tinytools/cis375/f19/team7/index.\+html}}).
+\item Para acessar basta abrir o arquivo {\ttfamily Class Responsability Collaboration Card.\+pdf} localizado na pasta {\ttfamily docs}.
+\end{DoxyItemize}
+\item \#\#\# Cobertura de Testes
+\begin{DoxyItemize}
+\item A documentação da cobertura de testes foi gerada utilizando a ferramenta {\ttfamily gcovr}.
+\item Para acessar basta abrir o arquivo {\ttfamily relatorio.\+html} localizado na pasta {\ttfamily coverage}.
+\item Obs.\+: a porcentagem de cobertura não consegue ser muito alta devido a considerar muitos trechos não testáveis, como main, os arquivos de teste e a própria biblioteca, mas os arquivos necessários possuem uma cobertura de testes muito alta.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ \hypertarget{md_README_autotoc_md13}{}\doxysection{\texorpdfstring{Estrutura}{Estrutura}}\label{md_README_autotoc_md13}
+
+\begin{DoxyItemize}
+\item \#\#\# Pastas
+\begin{DoxyItemize}
+\item A estrutura do projeto foi dividida em pastas, conforme a seguir\+:
+\begin{DoxyItemize}
+\item root\+: contém os arquivos de configuração do projeto.
+\item {\ttfamily src}\+: contém os arquivos-\/fontes do projeto.
+\item {\ttfamily include}\+: contém os arquivos de cabeçalho do projeto.
+\item {\ttfamily tests}\+: contém os arquivos de teste do projeto.
+\item {\ttfamily docs}\+: contém a documentação do projeto.
+\item {\ttfamily coverage}\+: contém a cobertura de testes do projeto.
+\item {\ttfamily bin}\+: contém os arquivos binários gerados pela compilação do projeto.
+\item {\ttfamily obj}\+: contém os arquivos intermediários gerados pela compilação do projeto.
+\item {\ttfamily third-\/party}\+: contém bibliotecas de terceiros utilizadas no projeto.
+\end{DoxyItemize}
+\item obs.\+: dentro de {\ttfamily bin} e {\ttfamily obj} foram criados o subdiretório {\ttfamily tests} para melhorar a organização e separação para compilação e execução do programa e do teste.
+\end{DoxyItemize}
+\item \#\#\# Classes
+\begin{DoxyItemize}
+\item A estrutura do projeto foi dividida em classes, conforme a seguir\+:
+\begin{DoxyItemize}
+\item {\ttfamily Baord}\+: classe para executar ações sobre um tabuleiro, desconexo de qualquer ideia de jogo.
+\item {\ttfamily \doxylink{classPlayer}{Player}}\+: classe para armazenar informações de um jogador e gerenciar persistência dos mesmos.
+\item {\ttfamily \doxylink{classBoardGame}{Board\+Game}}\+: classe genérica com ideia simples de jogo
+\begin{DoxyItemize}
+\item Possui um {\ttfamily \doxylink{classBoard}{Board}} e executa ações sobre ele,
+\item Possui 2 {\ttfamily \doxylink{classPlayer}{Player}} que participam do jogo.
+\end{DoxyItemize}
+\item {\ttfamily \doxylink{classReversi}{Reversi}}\+: classe filha de {\ttfamily \doxylink{classBoardGame}{Board\+Game}} especializada para o jogo reversi.
+\item {\ttfamily \doxylink{classConnectFour}{Connect\+Four}}\+: classe filha de {\ttfamily \doxylink{classBoardGame}{Board\+Game}} especializada para o jogo lig4.
+\item {\ttfamily \doxylink{classTicTacToe}{Tic\+Tac\+Toe}}\+: classe filha de {\ttfamily \doxylink{classBoardGame}{Board\+Game}} especializada para o jogo velha.
+\item {\ttfamily \doxylink{classManager}{Manager}}\+: classe com métodos estáticos para gerenciar a execução do programa.
+\item {\ttfamily \doxylink{classUtils}{Utils}}\+: classe com métodos estáticos de auxílio.
+\item {\ttfamily exceptions}\+: classes de exceções personalizadas, para padronizar mensagens.
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item \#\#\# Tests
+\begin{DoxyItemize}
+\item Cada classe possui um arquivo de teste com um {\ttfamily TEST\+\_\+\+SUITE} próprio.
+\item Dentro de cada {\ttfamily TEST\+\_\+\+SUITE} os métodos são agrupados em {\ttfamily TEST\+\_\+\+CASE} por codependência.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ \hypertarget{md_README_autotoc_md15}{}\doxysection{\texorpdfstring{Funcionamento}{Funcionamento}}\label{md_README_autotoc_md15}
+
+\begin{DoxyItemize}
+\item O programa roda em loop em cima da funcionalidade do {\ttfamily manager\+::menu()} a qual chama respectivas funções para os comandos, cuidando também do seu tratamento de exceções.
+\item Essas funções por sua vez, tratam uma parte dos dados para encaminhar para o correto procedimento.
+\item {\ttfamily CRUD \doxylink{classPlayer}{Player}}\+: após tratamento descrito acima, Sào chamas as funções da classe {\ttfamily \doxylink{classPlayer}{Player}} para completar o procedimento.
+\item {\ttfamily Executar Partida}\+: após tratamento descrito acima, é escolhido qual jogo será executado, então armazenado em um ponteiro da classe genérica para o correto funcionamento do {\itshape  Dynamic Dispatch } é chamada então a função {\ttfamily play\+Game()}, e após o resultado são atualizadas as estatísticas dos jogadores.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ \hypertarget{md_README_autotoc_md17}{}\doxysection{\texorpdfstring{Principais Desafios}{Principais Desafios}}\label{md_README_autotoc_md17}
+
+\begin{DoxyItemize}
+\item Consertar input bagunçado do usuário
+\item Lidar com parâmetros opcionais, uma vez que sua disposição pode variar.
+\item Entender como jogar \doxylink{classReversi}{Reversi} rsrsrs.
+\item Realizar tests que dependeriam da interação do usuário.
+\item Validar se trechos do código funcionam em todos os sistemas, lidando principalmente com shell windows
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ \hypertarget{md_README_autotoc_md19}{}\doxysection{\texorpdfstring{Requisitos}{Requisitos}}\label{md_README_autotoc_md19}
+
+\begin{DoxyItemize}
+\item \#\#\# Compilador G++ e Make
+\begin{DoxyItemize}
+\item Linux\+: {\ttfamily sudo apt install g++}
+\item Windows\+: \href{https://sourceforge.net/projects/mingw/}{\texttt{ https\+://sourceforge.\+net/projects/mingw/}} ou \href{https://www.mingw-w64.org}{\texttt{ https\+://www.\+mingw-\/w64.\+org}} 
+\end{DoxyItemize}
+\end{DoxyItemize}

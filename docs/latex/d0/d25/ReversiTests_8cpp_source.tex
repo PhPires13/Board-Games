@@ -2,8 +2,193 @@
 \hypertarget{ReversiTests_8cpp_source}{}\label{ReversiTests_8cpp_source}\index{tests/ReversiTests.cpp@{tests/ReversiTests.cpp}}
 \mbox{\hyperlink{ReversiTests_8cpp}{Ir para a documentação desse arquivo.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{comment}{//}}
-\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ pedro-\/pires\ on\ 8/17/24.}}
-\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}doctest.h"{}}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{exceptions_8hpp}{exceptions.hpp}}"{}}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ private\ public}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ protected\ public}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Reversi_8hpp}{Reversi.hpp}}"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Player_8hpp}{Player.hpp}}"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#undef\ private}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#undef\ protected}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \mbox{\hyperlink{ReversiTests_8cpp_a8a45ffd570e0293e8c4e010c6c2eb4f8}{TEST\_SUITE}}(\textcolor{stringliteral}{"{}Reversi"{}})\ \{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Constructor"{}})\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}PED"{}},\ \textcolor{stringliteral}{"{}PEDRO"{}});}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}CARL"{}},\ \textcolor{stringliteral}{"{}CARLOS"{}});}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Constructor\ with\ default\ board\ size}}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classReversi}{Reversi}}(player1,\ player2));}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Constructor\ with\ valid\ board\ size\ (even\ number)}}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classReversi}{Reversi}}(player1,\ player2,\ \mbox{\hyperlink{classReversi_aa5efab117441a759dd829780dcdab197}{Reversi::minimumBoardSize}}));}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Constructor\ with\ invalid\ board\ size\ (odd\ number),\ will\ sue\ the\ default\ size}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classReversi}{Reversi}}(player1,\ player2,\ \mbox{\hyperlink{classReversi_aa5efab117441a759dd829780dcdab197}{Reversi::minimumBoardSize}}-\/1));}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Constructor\ with\ minimum\ valid\ board\ size}}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(\mbox{\hyperlink{classReversi}{Reversi}}(player1,\ player2,\ \mbox{\hyperlink{classReversi_aa5efab117441a759dd829780dcdab197}{Reversi::minimumBoardSize}}));}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Is\ a\ valid\ size"{}})\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}PED"{}},\ \textcolor{stringliteral}{"{}PEDRO"{}});}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}CARL"{}},\ \textcolor{stringliteral}{"{}CARLOS"{}});}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classReversi}{Reversi}}\ game(player1,\ player2);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ CHECK(game.\mbox{\hyperlink{classReversi_a466d4e00c107fef195a722254c373cce}{isAValidHeight}}(\mbox{\hyperlink{classReversi_aa5efab117441a759dd829780dcdab197}{Reversi::minimumBoardSize}}\ -\/\ 1)\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ CHECK(game.\mbox{\hyperlink{classReversi_a466d4e00c107fef195a722254c373cce}{isAValidHeight}}(\mbox{\hyperlink{classReversi_aa5efab117441a759dd829780dcdab197}{Reversi::minimumBoardSize}})\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ CHECK(game.\mbox{\hyperlink{classReversi_a466d4e00c107fef195a722254c373cce}{isAValidHeight}}(\mbox{\hyperlink{classReversi_aa5efab117441a759dd829780dcdab197}{Reversi::minimumBoardSize}}\ +\ 2)\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ CHECK(game.\mbox{\hyperlink{classReversi_a4620c65ea9531ace27ef30f5c212d4b1}{isAValidWidth}}(\mbox{\hyperlink{classReversi_aa5efab117441a759dd829780dcdab197}{Reversi::minimumBoardSize}}\ -\/\ 1)\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ CHECK(game.\mbox{\hyperlink{classReversi_a4620c65ea9531ace27ef30f5c212d4b1}{isAValidWidth}}(\mbox{\hyperlink{classReversi_aa5efab117441a759dd829780dcdab197}{Reversi::minimumBoardSize}})\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ CHECK(game.\mbox{\hyperlink{classReversi_a4620c65ea9531ace27ef30f5c212d4b1}{isAValidWidth}}(\mbox{\hyperlink{classReversi_aa5efab117441a759dd829780dcdab197}{Reversi::minimumBoardSize}}\ +\ 2)\ ==\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00046\ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Validate\ Move"{}})\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}PED"{}},\ \textcolor{stringliteral}{"{}PEDRO"{}});}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}CARL"{}},\ \textcolor{stringliteral}{"{}CARLOS"{}});}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReversi}{Reversi}}\ reversiGame(player1,\ player2,\ \mbox{\hyperlink{classReversi_aa5efab117441a759dd829780dcdab197}{Reversi::minimumBoardSize}});\ \textcolor{comment}{//\ Tabuleiro\ 4x4}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Movimento\ inválido,\ lugar\ não\ cumpre\ as\ regras}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(reversiGame.\mbox{\hyperlink{classReversi_a498106bdaa963752e31a1269ece47568}{validateMove}}(\{0,\ 0\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Movimentos\ válidos}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(reversiGame.\mbox{\hyperlink{classReversi_a498106bdaa963752e31a1269ece47568}{validateMove}}(\{3,\ 2\}));}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Tamanho\ inválido}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(reversiGame.\mbox{\hyperlink{classReversi_a498106bdaa963752e31a1269ece47568}{validateMove}}(\{\}),\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}});}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(reversiGame.\mbox{\hyperlink{classReversi_a498106bdaa963752e31a1269ece47568}{validateMove}}(\{1\}),\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}});}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(reversiGame.\mbox{\hyperlink{classReversi_a498106bdaa963752e31a1269ece47568}{validateMove}}(\{1,\ 2,\ 3\}),\ \mbox{\hyperlink{classincorrect__format}{incorrect\_format}});}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Fora\ dos\ limites}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(reversiGame.\mbox{\hyperlink{classReversi_a498106bdaa963752e31a1269ece47568}{validateMove}}(\{Reversi::minimumBoardSize,\ 0\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});\ \ \textcolor{comment}{//\ 4x4\ board}}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(reversiGame.\mbox{\hyperlink{classReversi_a498106bdaa963752e31a1269ece47568}{validateMove}}(\{0,\ Reversi::minimumBoardSize\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});\ \ \textcolor{comment}{//\ 4x4\ board}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(reversiGame.\mbox{\hyperlink{classReversi_a498106bdaa963752e31a1269ece47568}{validateMove}}(\{8,\ Reversi::minimumBoardSize\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});\ \ \textcolor{comment}{//\ 4x4\ board}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Lugar\ não\ está\ vazio}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{2,\ 3\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ CHECK\_THROWS\_AS(reversiGame.\mbox{\hyperlink{classReversi_a498106bdaa963752e31a1269ece47568}{validateMove}}(\{2,\ 3\}),\ \mbox{\hyperlink{classinvalid__move}{invalid\_move}});}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Make\ Move\ and\ Flip\ Pieces"{}})\ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}PED"{}},\ \textcolor{stringliteral}{"{}PEDRO"{}},\ \textcolor{charliteral}{'X'});}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}CARL"{}},\ \textcolor{stringliteral}{"{}CARLOS"{}},\ \textcolor{charliteral}{'O'});}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReversi}{Reversi}}\ reversiGame(player1,\ player2,\ \mbox{\hyperlink{classReversi_aa5efab117441a759dd829780dcdab197}{Reversi::minimumBoardSize}});\ \textcolor{comment}{//\ Tabuleiro\ 4x4}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Executa\ o\ movimento\ e\ verifica\ se\ as\ peças\ são\ viradas\ corretamente}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{2,\ 3\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ CHECK(reversiGame.\mbox{\hyperlink{classBoardGame_accfffd13a5f24592590c9a324cf7e8cd}{board}}.\mbox{\hyperlink{classBoard_adcccff11170293326c090a8e0ca6b060}{getSymbol}}(2,\ 3)\ ==\ \textcolor{charliteral}{'X'});}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ CHECK(reversiGame.\mbox{\hyperlink{classBoardGame_accfffd13a5f24592590c9a324cf7e8cd}{board}}.\mbox{\hyperlink{classBoard_adcccff11170293326c090a8e0ca6b060}{getSymbol}}(2,\ 2)\ ==\ \textcolor{charliteral}{'X'});}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Get\ Game\ State"{}})\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}PED"{}},\ \textcolor{stringliteral}{"{}PEDRO"{}},\ \textcolor{charliteral}{'X'});}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}CARL"{}},\ \textcolor{stringliteral}{"{}CARLOS"{}},\ \textcolor{charliteral}{'O'});}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReversi}{Reversi}}\ reversiGame(player1,\ player2,\ \mbox{\hyperlink{classReversi_aa5efab117441a759dd829780dcdab197}{Reversi::minimumBoardSize}});\ \textcolor{comment}{//\ Tabuleiro\ 4x4}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Jogo\ ainda\ não\ terminou}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ CHECK(reversiGame.\mbox{\hyperlink{classReversi_ae021a028f7f8704156abe8f41bfa8d8e}{getGameState}}(\{3,\ 2\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a63483258d13fe713f999db34f0a10287}{GameState::NOT\_OVER}});}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Exemplo\ de\ cenário\ onde\ o\ jogador\ 1\ vence}}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{3,\ 1\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{1,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{0,\ 1\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{3,\ 2\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{3,\ 3\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{2,\ 3\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{1,\ 3\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{0,\ 3\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ CHECK(reversiGame.\mbox{\hyperlink{classReversi_ae021a028f7f8704156abe8f41bfa8d8e}{getGameState}}(\{0,\ 2\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6}{GameState::PLAYER1\_WINS}});}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Play\ Game"{}})\ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ std::streambuf*\ cinbuf\ =\ std::cin.rdbuf();\ \ \textcolor{comment}{//\ Store\ the\ original\ buffer}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}PED"{}},\ \textcolor{stringliteral}{"{}PEDRO"{}},\ \textcolor{charliteral}{'X'});}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}CARL"{}},\ \textcolor{stringliteral}{"{}CARLOS"{}},\ \textcolor{charliteral}{'O'});}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::istringstream\ input1(\textcolor{stringliteral}{"{}2\ 0\(\backslash\)n3\ 2\(\backslash\)n1\ 3\(\backslash\)n0\ 2\(\backslash\)n2\ 3\(\backslash\)n1\ 0\(\backslash\)n0\ 1\(\backslash\)n3\ 0\(\backslash\)n0\ 3\(\backslash\)n3\ 3\(\backslash\)n3\ 1\(\backslash\)n0\ 0\(\backslash\)n"{}});\ \textcolor{comment}{//\ Entrada\ simulada}}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ std::cin.rdbuf(input1.rdbuf());}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReversi}{Reversi}}\ reversiGame(player1,\ player2,\ \mbox{\hyperlink{classReversi_aa5efab117441a759dd829780dcdab197}{Reversi::minimumBoardSize}});\ \textcolor{comment}{//\ Tabuleiro\ 4x4}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}}\ gameState;}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ CHECK\_NOTHROW(gameState\ =\ reversiGame.\mbox{\hyperlink{classBoardGame_a21c1e2ceca3946093027daefab20a3b7}{playGame}}());}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ CHECK(gameState\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a50b3b7506fcc5435fc762f98a09a6eac}{GameState::TIE}});}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Restore\ std::cin\ to\ its\ original\ state}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ std::cin.rdbuf(cinbuf);}
+\DoxyCodeLine{00125\ \ \ \ \ \}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Game\ Tie"{}})\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}PED"{}},\ \textcolor{stringliteral}{"{}PEDRO"{}},\ \textcolor{charliteral}{'X'});}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}CARL"{}},\ \textcolor{stringliteral}{"{}CARLOS"{}},\ \textcolor{charliteral}{'O'});}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReversi}{Reversi}}\ reversiGame(player1,\ player2,\ \mbox{\hyperlink{classReversi_aa5efab117441a759dd829780dcdab197}{Reversi::minimumBoardSize}});\ \textcolor{comment}{//\ Tabuleiro\ 4x4}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{2,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{3,\ 2\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{1,\ 3\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{0,\ 2\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{2,\ 3\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{1,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{0,\ 1\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{3,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{0,\ 3\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{3,\ 3\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{3,\ 1\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{0,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ CHECK(reversiGame.\mbox{\hyperlink{classReversi_ae021a028f7f8704156abe8f41bfa8d8e}{getGameState}}(\{0,\ 0\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285a50b3b7506fcc5435fc762f98a09a6eac}{GameState::TIE}});}
+\DoxyCodeLine{00146\ \ \ \ \ \}}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Player\ 2\ Wins"{}})\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}PED"{}},\ \textcolor{stringliteral}{"{}PEDRO"{}},\ \textcolor{charliteral}{'X'});}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}CARL"{}},\ \textcolor{stringliteral}{"{}CARLOS"{}},\ \textcolor{charliteral}{'O'});}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReversi}{Reversi}}\ reversiGame(player1,\ player2,\ \mbox{\hyperlink{classReversi_aa5efab117441a759dd829780dcdab197}{Reversi::minimumBoardSize}});\ \textcolor{comment}{//\ Tabuleiro\ 4x4}}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{1,\ 3\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{0,\ 3\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{2,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{3,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{0,\ 2\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{0,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{1,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{0,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{3,\ 1\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{3,\ 3\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{2,\ 3\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{3,\ 2\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ CHECK(reversiGame.\mbox{\hyperlink{classReversi_ae021a028f7f8704156abe8f41bfa8d8e}{getGameState}}(\{3,\ 2\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285aa9be172d618e15fe6de39fd99100cb20}{GameState::PLAYER2\_WINS}});}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ TEST\_CASE(\textcolor{stringliteral}{"{}Player\ 1\ Wins\ With\ Empty\ Spaces\ Left"{}})\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player1(\textcolor{stringliteral}{"{}PED"{}},\ \textcolor{stringliteral}{"{}PEDRO"{}},\ \textcolor{charliteral}{'X'});}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classPlayer}{Player}}\ player2(\textcolor{stringliteral}{"{}CARL"{}},\ \textcolor{stringliteral}{"{}CARLOS"{}},\ \textcolor{charliteral}{'O'});}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classReversi}{Reversi}}\ reversiGame(player1,\ player2,\ \mbox{\hyperlink{classReversi_aa5efab117441a759dd829780dcdab197}{Reversi::minimumBoardSize}});\ \textcolor{comment}{//\ Tabuleiro\ 4x4}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{1,\ 3\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{2,\ 3\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{3,\ 3\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{0,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{3,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{2,\ 0\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{0,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{0,\ 2\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{0,\ 3\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{3,\ 1\},\ player2.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ reversiGame.\mbox{\hyperlink{classReversi_a6ff01487a33a53b990b860eea97b5e14}{makeMove}}(\{1,\ 0\},\ player1.\mbox{\hyperlink{classPlayer_acafb522e729c2fe951550f09809e075c}{getSymbol}}());}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ CHECK(reversiGame.\mbox{\hyperlink{classReversi_ae021a028f7f8704156abe8f41bfa8d8e}{getGameState}}(\{0,\ 3\})\ ==\ \mbox{\hyperlink{BoardGame_8hpp_a7899b65f1ea0f655e4bbf8d2a5714285acec286ee27962700ce84eef9bb57f7e6}{GameState::PLAYER1\_WINS}});}
+\DoxyCodeLine{00187\ \ \ \ \ \}}
+\DoxyCodeLine{00188\ \}}
 
 \end{DoxyCode}

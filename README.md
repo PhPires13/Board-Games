@@ -45,21 +45,21 @@ FS: Finalizar Sistema
 - ### 1 Jogo da Velha
 - ### 2 Símbolo customizado do jogador
   - Ao criar um jogador é possível que este escolha um símbolo para representá-lo no tabuleiro.
-  - Com isso também é necessário tratar quais os símbolos válidos, e caso dois jogadores estejam com mesmo símbolo, mudar paar os padrões.
+  - Com isso também é necessário tratar quais os símbolos válidos, e caso dois jogadores estejam com mesmo símbolo, mudar para os padrões.
 - ### 3 Tabuleiro de tamanho customizado
   - É possível escolher as proporções do tabuleiro, desde que se obedeça às regras de cada jogo, caso contrário é usado o tamanho padrão.
 - ### 4 Cores no terminal
   - Para melhor legibilidade, foram utilizadas cores no menu que facilitam a interpretação do usuário.
-  - Também foram utilizadas cores nos jogos para uma interfaçe mais lúdica e agradável.
+  - Também foram utilizadas cores nos jogos para uma interface mais lúdica e agradável.
 - ### 5 Editar Jogador
   - Foi implementada a funcionalidade de editar um jogador, podendo alterar o nome ou o símbolo, e até remover o símbolo.
 - ### 6 Compatibilidade com Linux, MacOS e Windows
   - Criar executáveis para ambos os sistemas operacionais.
   - Usar códigos que funcionem corretamente em todos os sistemas.
   - Caso não existisse código comum, identificar o sistema e roda suas equivalências, como: o ``clear`` e o ``cls``
-  ou o ``rm -f`` e o ``del \Q`` no Makefile.
+  ou o ``rm -f`` e o ``del /Q /F`` no Makefile e outros.
 - ### 7 Estatística de Cobertura de testes
-  - Foi realizada a análise de cobertura de testes, um extra, mesmo que não solicitado.
+  - Foi gerada a análise de cobertura de testes, um extra, mesmo que não solicitado.
 
 - ### Outros:
   - #### 8 Executáveis prontos, 9 Clear terminal

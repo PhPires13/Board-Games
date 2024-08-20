@@ -25,6 +25,17 @@
 var NAVTREE =
 [
   [ "Board Games", "index.html", [
+    [ "BOARD-GAMES", "d0/d30/md_README.html", [
+      [ "Descrição", "d0/d30/md_README.html#autotoc_md3", null ],
+      [ "Funcionamento", "d0/d30/md_README.html#autotoc_md5", null ],
+      [ "Extras", "d0/d30/md_README.html#autotoc_md7", null ],
+      [ "Como executar", "d0/d30/md_README.html#autotoc_md9", null ],
+      [ "Documentação", "d0/d30/md_README.html#autotoc_md11", null ],
+      [ "Estrutura", "d0/d30/md_README.html#autotoc_md13", null ],
+      [ "Funcionamento", "d0/d30/md_README.html#autotoc_md15", null ],
+      [ "Principais Desafios", "d0/d30/md_README.html#autotoc_md17", null ],
+      [ "Requisitos", "d0/d30/md_README.html#autotoc_md19", null ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "Lista de Classes", "annotated.html", "annotated_dup" ],
       [ "Índice dos Componentes", "classes.html", null ],

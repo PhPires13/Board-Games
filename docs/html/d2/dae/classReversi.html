@@ -181,7 +181,7 @@ Outros membros herdados</h2></td></tr>
 <tr class="separator:a1f911ef285f2c528caf01d5ab34d9df2 inherit pro_static_attribs_classBoardGame"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Descrição detalhada</h2>
-<div class="textblock"><p>Classe que representa o jogo <a class="el" href="../../d2/dae/classReversi.html">Reversi</a> </p>
+<div class="textblock"><p>Class that represents the <a class="el" href="../../d2/dae/classReversi.html">Reversi</a> game </p>
 </div><h2 class="groupheader">Construtores e Destrutores</h2>
 <a id="a53b7ed598bb879c3356820f5ec897f3a" name="a53b7ed598bb879c3356820f5ec897f3a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a53b7ed598bb879c3356820f5ec897f3a">&#9670;&#160;</a></span>Reversi()</h2>
@@ -214,12 +214,12 @@ Outros membros herdados</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Construtor da classe <a class="el" href="../../d2/dae/classReversi.html">Reversi</a>. Inicializa o jogo com dois jogadores e um tamanho de tabuleiro.</p>
+<p><a class="el" href="../../d2/dae/classReversi.html">Reversi</a> class Cconstructor. Initialize the game with two players and one board size.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">_player1</td><td>Jogador 1 </td></tr>
-    <tr><td class="paramname">_player2</td><td>Jogador 2 </td></tr>
-    <tr><td class="paramname">boardSize</td><td>Tamanho do tabuleiro (deve ser um número par, caso contrário, será usado o tamanho padrão) </td></tr>
+    <tr><td class="paramname">_player1</td><td><a class="el" href="../../d2/d4b/classPlayer.html">Player</a> 1 </td></tr>
+    <tr><td class="paramname">_player2</td><td><a class="el" href="../../d2/d4b/classPlayer.html">Player</a> 2 </td></tr>
+    <tr><td class="paramname">boardSize</td><td><a class="el" href="../../de/d23/classBoard.html">Board</a> size (it must be an even number, otherwise, it will be used the default size) </td></tr>
   </table>
   </dd>
 </dl>
@@ -278,25 +278,25 @@ Outros membros herdados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Vira as peças do oponente em uma direção específica.</p>
+<p>Flip the opponent pieces in a specific direction.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td>Linha de origem do movimento </td></tr>
-    <tr><td class="paramname">col</td><td>Coluna de origem do movimento </td></tr>
-    <tr><td class="paramname">directionRow</td><td>Direção na linha (-1, 0, 1) </td></tr>
-    <tr><td class="paramname">directionCol</td><td>Direção na coluna (-1, 0, 1) </td></tr>
-    <tr><td class="paramname">playerSymbol</td><td>Símbolo do jogador atual </td></tr>
+    <tr><td class="paramname">row</td><td>Move row </td></tr>
+    <tr><td class="paramname">col</td><td>Move column </td></tr>
+    <tr><td class="paramname">directionRow</td><td>Line direction (-1, 0, 1) </td></tr>
+    <tr><td class="paramname">directionCol</td><td>Column direction (-1, 0, 1) </td></tr>
+    <tr><td class="paramname">playerSymbol</td><td>Symbol of the current player </td></tr>
   </table>
   </dd>
 </dl>
-<p>Vira as peças do oponente em uma direção específica.</p>
+<p>Flip the opponent pieces in a specific direction.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td>Linha de origem do movimento </td></tr>
-    <tr><td class="paramname">col</td><td>Coluna de origem do movimento </td></tr>
-    <tr><td class="paramname">directionRow</td><td>Direção na linha (-1, 0, 1) </td></tr>
-    <tr><td class="paramname">directionCol</td><td>Direção na coluna (-1, 0, 1) </td></tr>
-    <tr><td class="paramname">playerSymbol</td><td>Símbolo do jogador atual</td></tr>
+    <tr><td class="paramname">row</td><td>Move row </td></tr>
+    <tr><td class="paramname">col</td><td>Move column </td></tr>
+    <tr><td class="paramname">directionRow</td><td>Line direction (-1, 0, 1) </td></tr>
+    <tr><td class="paramname">directionCol</td><td>Column direction (-1, 0, 1) </td></tr>
+    <tr><td class="paramname">playerSymbol</td><td>Symbol of the current player</td></tr>
   </table>
   </dd>
 </dl>
@@ -336,19 +336,19 @@ Outros membros herdados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Vira as peças do oponente de acordo com as regras do <a class="el" href="../../d2/dae/classReversi.html">Reversi</a>, após um movimento válido.</p>
+<p>Flip the opponent pieces according to <a class="el" href="../../d2/dae/classReversi.html">Reversi</a> rules, after a valid move.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">move</td><td>Coordenadas do movimento </td></tr>
-    <tr><td class="paramname">playerSymbol</td><td>Símbolo do jogador que fez o movimento </td></tr>
+    <tr><td class="paramname">move</td><td>Move coordinates </td></tr>
+    <tr><td class="paramname">playerSymbol</td><td>Symbol of the player who made the move </td></tr>
   </table>
   </dd>
 </dl>
-<p>Vira as peças do oponente de acordo com as regras do <a class="el" href="../../d2/dae/classReversi.html">Reversi</a>, após um movimento válido.</p>
+<p>Flip the opponent pieces according to <a class="el" href="../../d2/dae/classReversi.html">Reversi</a> rules, after a valid move.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">move</td><td>Coordenadas do movimento </td></tr>
-    <tr><td class="paramname">playerSymbol</td><td>Símbolo do jogador que fez o movimento</td></tr>
+    <tr><td class="paramname">move</td><td>Move coordinates </td></tr>
+    <tr><td class="paramname">playerSymbol</td><td>Symbol of the player who made the move</td></tr>
   </table>
   </dd>
 </dl>
@@ -378,14 +378,15 @@ Outros membros herdados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Verifica o estado atual do jogo, verificando se ainda tem jogada válidas e quem tem mais peças.</p>
+<p>Check the current state of the game, according to <a class="el" href="../../d2/dae/classReversi.html">Reversi</a> rules.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">move</td><td>2D vector representing the last move</td></tr>
+    <tr><td class="paramname">move</td><td>Last move</td></tr>
+    <tr><td class="paramname">move</td><td>2D vector representing the last move </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>O estado atual do jogo </dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>The current state of the game </dd></dl>
 
 <p>Reimplementa <a class="el" href="../../d4/d08/classBoardGame.html#aecc780aa669fa3287bf8988becb773b4">BoardGame</a>.</p>
 
@@ -414,22 +415,22 @@ Outros membros herdados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Verifica se ainda existem movimentos possíveis para um determinado jogador.</p>
+<p>Check if there are still possiblemoves for a given player.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">playerSymbol</td><td>Símbolo do jogador </td></tr>
+    <tr><td class="paramname">playerSymbol</td><td><a class="el" href="../../d2/d4b/classPlayer.html">Player</a> symbol </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se há movimentos válidos disponíveis, false caso contrário </dd></dl>
-<p>Verifica se ainda existem movimentos válidos para um determinado jogador.</p>
+<dl class="section return"><dt>Retorna</dt><dd>true if there are still available valid moves. </dd></dl>
+<p>Check if there are still possiblemoves for a given player.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">playerSymbol</td><td>Símbolo do jogador </td></tr>
+    <tr><td class="paramname">playerSymbol</td><td><a class="el" href="../../d2/d4b/classPlayer.html">Player</a> symbol </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se há movimentos válidos disponíveis, false caso contrário</dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true if there are still available valid moves.</dd></dl>
 
 </div>
 </div>
@@ -472,26 +473,26 @@ Outros membros herdados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Verifica se existe alguma direção válida para o movimento dado.</p>
+<p>Check if there is any valid direction for the given move.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td>Linha de origem do movimento </td></tr>
-    <tr><td class="paramname">col</td><td>Coluna de origem do movimento </td></tr>
-    <tr><td class="paramname">playerSymbol</td><td>Símbolo do jogador atual </td></tr>
+    <tr><td class="paramname">row</td><td>Move row </td></tr>
+    <tr><td class="paramname">col</td><td>Move column </td></tr>
+    <tr><td class="paramname">playerSymbol</td><td>Symbol of the current player </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se existe ao menos uma direção válida, false caso contrário </dd></dl>
-<p>Verifica se existe alguma direção válida para o movimento dado.</p>
+<dl class="section return"><dt>Retorna</dt><dd>true if there is at least one valid direction. </dd></dl>
+<p>Check if there is any valid direction for the given move.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td>Linha de origem do movimento </td></tr>
-    <tr><td class="paramname">col</td><td>Coluna de origem do movimento </td></tr>
-    <tr><td class="paramname">playerSymbol</td><td>Símbolo do jogador atual </td></tr>
+    <tr><td class="paramname">row</td><td>Move row </td></tr>
+    <tr><td class="paramname">col</td><td>Move column </td></tr>
+    <tr><td class="paramname">playerSymbol</td><td>Symbol of the current player </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se ao menos uma direção for válida, false caso contrário</dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true if there is at least one valid direction.</dd></dl>
 
 </div>
 </div>
@@ -518,22 +519,22 @@ Outros membros herdados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Verifica se a altura fornecida para o tabuleiro é válida.</p>
+<p>Check if the board's height is valid.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">boardHeight</td><td>Altura do tabuleiro </td></tr>
+    <tr><td class="paramname">boardHeight</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se a altura é válida, false caso contrário </dd></dl>
-<p>Verifica se a altura do tabuleiro é válida.</p>
+<dl class="section return"><dt>Retorna</dt><dd>true if it is as valid height. </dd></dl>
+<p>Check if the board's height is valid.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">boardHeight</td><td>Altura do tabuleiro </td></tr>
+    <tr><td class="paramname">boardHeight</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se a altura é maior ou igual ao tamanho mínimo e é um número par, false caso contrário</dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true if it is as valid height.</dd></dl>
 
 <p>Reimplementa <a class="el" href="../../d4/d08/classBoardGame.html#af7251441fc9263b8b77d27aae106219c">BoardGame</a>.</p>
 
@@ -562,22 +563,22 @@ Outros membros herdados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Verifica se a largura fornecida para o tabuleiro é válida.</p>
+<p>Check if the board's width is valid.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">boardWidth</td><td>Largura do tabuleiro </td></tr>
+    <tr><td class="paramname">boardWidth</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se a largura é válida, false caso contrário </dd></dl>
-<p>Verifica se a largura do tabuleiro é válida.</p>
+<dl class="section return"><dt>Retorna</dt><dd>true if it is as valid height. </dd></dl>
+<p>Check if the board's width is valid.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">boardWidth</td><td>Largura do tabuleiro </td></tr>
+    <tr><td class="paramname">boardWidth</td><td></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se a largura é válida, false caso contrário</dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true if it is as valid height.</dd></dl>
 
 <p>Reimplementa <a class="el" href="../../d4/d08/classBoardGame.html#ae01b19538655c1d04161de92a8056e12">BoardGame</a>.</p>
 
@@ -634,30 +635,30 @@ Outros membros herdados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Verifica se uma direção específica a partir de uma posição é válida para virar peças.</p>
+<p>Check a specific direction from a valid position to flip the pieces.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td>Linha de origem do movimento </td></tr>
-    <tr><td class="paramname">col</td><td>Coluna de origem do movimento </td></tr>
-    <tr><td class="paramname">directionRow</td><td>Direção na linha (-1, 0, 1) </td></tr>
-    <tr><td class="paramname">directionCol</td><td>Direção na coluna (-1, 0, 1) </td></tr>
-    <tr><td class="paramname">playerSymbol</td><td>Símbolo do jogador atual </td></tr>
+    <tr><td class="paramname">row</td><td>Move row </td></tr>
+    <tr><td class="paramname">col</td><td>Move column </td></tr>
+    <tr><td class="paramname">directionRow</td><td>Line direction (-1, 0, 1) </td></tr>
+    <tr><td class="paramname">directionCol</td><td>Column direction (-1, 0, 1) </td></tr>
+    <tr><td class="paramname">playerSymbol</td><td>Symbol of the current player </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se a direção é válida, false caso contrário </dd></dl>
-<p>Verifica se uma direção específica a partir de uma posição é válida para virar peças.</p>
+<dl class="section return"><dt>Retorna</dt><dd>true if it is a valid direction </dd></dl>
+<p>Check a specific direction from a valid position to flip the pieces.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td>Linha de origem do movimento </td></tr>
-    <tr><td class="paramname">col</td><td>Coluna de origem do movimento </td></tr>
-    <tr><td class="paramname">directionRow</td><td>Direção na linha (-1, 0, 1) </td></tr>
-    <tr><td class="paramname">directionCol</td><td>Direção na coluna (-1, 0, 1) </td></tr>
-    <tr><td class="paramname">playerSymbol</td><td>Símbolo do jogador atual </td></tr>
+    <tr><td class="paramname">row</td><td>Move row </td></tr>
+    <tr><td class="paramname">col</td><td>Move column </td></tr>
+    <tr><td class="paramname">directionRow</td><td>Line direction (-1, 0, 1) </td></tr>
+    <tr><td class="paramname">directionCol</td><td>Column direction (-1, 0, 1) </td></tr>
+    <tr><td class="paramname">playerSymbol</td><td>Symbol of the current player </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se a direção é válida, false caso contrário</dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true if it is a valid direction</dd></dl>
 
 </div>
 </div>
@@ -694,24 +695,24 @@ Outros membros herdados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Verifica se as coordenadas estão dentro dos limites do tabuleiro.</p>
+<p>Check if the coordinates are inside the board edges.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td>Linha a ser verificada </td></tr>
-    <tr><td class="paramname">col</td><td>Coluna a ser verificada </td></tr>
+    <tr><td class="paramname">row</td><td>Row to be checked </td></tr>
+    <tr><td class="paramname">col</td><td>Column to be checked. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se as coordenadas estão dentro dos limites, false caso contrário </dd></dl>
-<p>Verifica se as coordenadas estão dentro dos limites do tabuleiro.</p>
+<dl class="section return"><dt>Retorna</dt><dd>true if the coordinates are insde the board edges. </dd></dl>
+<p>Check if the coordinates are inside the board edges.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">row</td><td>Linha a ser verificada </td></tr>
-    <tr><td class="paramname">col</td><td>Coluna a ser verificada </td></tr>
+    <tr><td class="paramname">row</td><td>Row to be checked </td></tr>
+    <tr><td class="paramname">col</td><td>Column to be checked. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Retorna</dt><dd>true se as coordenadas estão dentro dos limites, false caso contrário</dd></dl>
+<dl class="section return"><dt>Retorna</dt><dd>true if the coordinates are insde the board edges.</dd></dl>
 
 </div>
 </div>
@@ -748,25 +749,25 @@ Outros membros herdados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Executa o movimento no tabuleiro e vira as peças necessárias.</p>
+<p>Execute the move and flip the necessary pieces.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">move</td><td>Coordenadas do movimento </td></tr>
-    <tr><td class="paramname">symbol</td><td>Símbolo do jogador que está realizando o movimento</td></tr>
+    <tr><td class="paramname">move</td><td>Move coordinates </td></tr>
+    <tr><td class="paramname">symbol</td><td>Symbol of the player who made the move</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Exceções</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="../../d2/d27/classinvalid__move.html">invalid_move</a></td><td>se o movimento estiver fora do tabuleiro </td></tr>
+    <tr><td class="paramname"><a class="el" href="../../d2/d27/classinvalid__move.html">invalid_move</a></td><td>if the move is invalid. </td></tr>
   </table>
   </dd>
 </dl>
-<p>Executa o movimento no tabuleiro e vira as peças do oponente conforme necessário.</p>
+<p>Execute the move and flip the necessary pieces.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">move</td><td>Coordenadas do movimento </td></tr>
-    <tr><td class="paramname">symbol</td><td>Símbolo do jogador que está realizando o movimento</td></tr>
+    <tr><td class="paramname">move</td><td>Move coordinates </td></tr>
+    <tr><td class="paramname">symbol</td><td>Symbol of the player who made the move</td></tr>
   </table>
   </dd>
 </dl>
@@ -798,31 +799,31 @@ Outros membros herdados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Valida o movimento dado, verificando se segue as regras do jogo <a class="el" href="../../d2/dae/classReversi.html">Reversi</a>.</p>
+<p>Check if the move made is valid, according to <a class="el" href="../../d2/dae/classReversi.html">Reversi</a> rules.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">move</td><td>Vetor com as coordenadas do movimento (linha e coluna) </td></tr>
+    <tr><td class="paramname">move</td><td>Move coordinates (row, column) </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Exceções</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="../../d3/d35/classincorrect__format.html">incorrect_format</a></td><td>se o movimento não tiver exatamente duas coordenadas </td></tr>
-    <tr><td class="paramname"><a class="el" href="../../d2/d27/classinvalid__move.html">invalid_move</a></td><td>se o movimento for inválido </td></tr>
+    <tr><td class="paramname"><a class="el" href="../../d3/d35/classincorrect__format.html">incorrect_format</a></td><td>if the move is empty, has more than 2 values and less than 1 value. </td></tr>
+    <tr><td class="paramname"><a class="el" href="../../d2/d27/classinvalid__move.html">invalid_move</a></td><td>if the move is invalid. </td></tr>
   </table>
   </dd>
 </dl>
-<p>Valida o movimento dado de acordo com as regras do jogo <a class="el" href="../../d2/dae/classReversi.html">Reversi</a>.</p>
+<p>Check if the move made is valid, according to <a class="el" href="../../d2/dae/classReversi.html">Reversi</a> rules.</p>
 <dl class="params"><dt>Parâmetros</dt><dd>
   <table class="params">
-    <tr><td class="paramname">move</td><td>Vetor com as coordenadas do movimento (linha e coluna) </td></tr>
+    <tr><td class="paramname">move</td><td>Move coordinates (row, column) </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="exception"><dt>Exceções</dt><dd>
   <table class="exception">
-    <tr><td class="paramname"><a class="el" href="../../d3/d35/classincorrect__format.html">incorrect_format</a></td><td>se o movimento não tiver exatamente duas coordenadas </td></tr>
-    <tr><td class="paramname"><a class="el" href="../../d2/d27/classinvalid__move.html">invalid_move</a></td><td>se o movimento não for válido</td></tr>
+    <tr><td class="paramname"><a class="el" href="../../d3/d35/classincorrect__format.html">incorrect_format</a></td><td>if the move is empty, has more than 2 values and less than 1 value. </td></tr>
+    <tr><td class="paramname"><a class="el" href="../../d2/d27/classinvalid__move.html">invalid_move</a></td><td>if the move is invalid.</td></tr>
   </table>
   </dd>
 </dl>
@@ -851,7 +852,7 @@ Outros membros herdados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Tamanho padrão do tabuleiro (height == width) </p>
+<p>Default board size (height == width) </p>
 
 </div>
 </div>
@@ -874,7 +875,7 @@ Outros membros herdados</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Tamanho mínimo do tabuleiro (height == width) </p>
+<p>Minimum board size (height == width) </p>
 
 </div>
 </div>

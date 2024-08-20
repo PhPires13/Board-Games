@@ -1,0 +1,335 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Board Games: BOARD-GAMES</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Board Games
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('d0/d30/md_README.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">BOARD-GAMES</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a> </p>
+<h3><a class="anchor" id="autotoc_md1"></a>
+Observações:</h3>
+<ul>
+<li>Algumas cores de fundo do terminal podem dificultar a visualização do programa.</li>
+<li>A biblioteca de testes <code>doctest</code> tem maior compatibilidade com sistemas Unix, a variar do ambiente Windows.</li>
+</ul>
+<hr  />
+ <h1><a class="anchor" id="autotoc_md3"></a>
+Descrição</h1>
+<ul>
+<li>Esse projeto é uma interface de jogos de tabuleiro via terminal, utilizando Paradigma Orientado a Objetos com C++ 11.</li>
+<li>Também possui controle de jogadores e manutenção de estatística.</li>
+</ul>
+<hr  />
+ <h1><a class="anchor" id="autotoc_md5"></a>
+Funcionamento</h1>
+<ul>
+<li>É exibido um menu inicial com as opções disponíveis de comandos. <div class="fragment"><div class="line">Obs.:</div>
+<div class="line">?: parametros opcionais</div>
+<div class="line">?!: parametros que podem ser opcionais ou nao dependendo do restante do contexto</div>
+<div class="line">R: reversi, tabuleiro: quadrado, par, min 4x4   L: lig4, tabuleiro: min 4x4     V: velha, tabuleiro: 3x3</div>
+<div class="line"> </div>
+<div class="line">------------------------------------ MENU ------------------------------------</div>
+<div class="line">CJ: Cadastrar Jogador (&lt;Apelido&gt; &lt;Nome&gt; &lt;? Simbolo&gt;)</div>
+<div class="line">EJ: Editar Jogador (&lt;Apelido&gt; &lt;Atributo: [N|S]&gt; &lt;?! Novo Valor&gt;)</div>
+<div class="line">RJ: Remover Jogador (&lt;Apelido&gt;)</div>
+<div class="line">LJ: Listar Jogadores (&lt;? Ordem: [A|N]&gt;)</div>
+<div class="line">EP: Executar Partida (&lt;Jogo: (R|L|V)&gt; &lt;Apelido Jogador 1&gt; &lt;Apelido Jogador 2&gt; &lt;? Altura Tabuleiro&gt; &lt;? Largura Tabuleiro&gt;)</div>
+<div class="line">FS: Finalizar Sistema</div>
+<div class="line"> </div>
+<div class="line">&gt; </div>
+</div><!-- fragment --></li>
+<li>Os comandos em si e os parâmetros com opções pre-definidas, são case-insensitive.</li>
+<li>Porém, os demais parâmetros são case-sensitive.</li>
+<li>Parâmetros opcionais são marcados com <code>?</code>, como descrito, então se não enviados será utilizado um valor padrão.</li>
+<li>Parâmetros que podem ser opcionais ou não, dependendo do contexto, são marcados com <code>?!</code>, por exemplo ao editar o símbolo deixando vazio ele é removido.</li>
+<li>Também são exibidas regras na hora de passar os parâmetros.</li>
+<li>Exemplos de comandos:<ul>
+<li>Cadastrar Jogador: <code>CJ joaozinho Joao da Silva *</code> ou <code>CJ joaozinho Joao da Silva</code></li>
+<li>Editar Jogador: <code>EJ joaozinho N Joao da Silva</code> ou <code>EJ joaozinho S *</code> ou <code>EJ joaozinho S</code></li>
+<li>Remover Jogador: <code>RJ joaozinho</code></li>
+<li>Listar Jogadores: <code>LJ</code> ou <code>lj</code> ou <code>LJ A</code> ou <code>lj a</code> ou <code>LJ N</code></li>
+<li>Executar Partida: <code>EP R joaozinho mariazinha</code> ou <code>EP R joaozinho mariazinha 4 4</code> ou <code>EP R joaozinho mariazinha 4</code></li>
+</ul>
+</li>
+</ul>
+<hr  />
+ <h1><a class="anchor" id="autotoc_md7"></a>
+Extras</h1>
+<ul>
+<li>### 1 Jogo da Velha</li>
+<li>### 2 Símbolo customizado do jogador<ul>
+<li>Ao criar um jogador é possível que este escolha um símbolo para representá-lo no tabuleiro.</li>
+<li>Com isso também é necessário tratar quais os símbolos válidos, e caso dois jogadores estejam com mesmo símbolo, mudar para os padrões.</li>
+</ul>
+</li>
+<li>### 3 Tabuleiro de tamanho customizado<ul>
+<li>É possível escolher as proporções do tabuleiro, desde que se obedeça às regras de cada jogo, caso contrário é usado o tamanho padrão.</li>
+</ul>
+</li>
+<li>### 4 Cores no terminal<ul>
+<li>Para melhor legibilidade, foram utilizadas cores no menu que facilitam a interpretação do usuário.</li>
+<li>Também foram utilizadas cores nos jogos para uma interface mais lúdica e agradável.</li>
+</ul>
+</li>
+<li>### 5 Editar Jogador<ul>
+<li>Foi implementada a funcionalidade de editar um jogador, podendo alterar o nome ou o símbolo, e até remover o símbolo.</li>
+</ul>
+</li>
+<li>### 6 Compatibilidade com Linux, MacOS e Windows<ul>
+<li>Criar executáveis para ambos os sistemas operacionais.</li>
+<li>Usar códigos que funcionem corretamente em todos os sistemas.</li>
+<li>Caso não existisse código comum, identificar o sistema e roda suas equivalências, como: o <code>clear</code> e o <code>cls</code> ou o <code>rm -f</code> e o <code>del /Q /F</code> no Makefile e outros.</li>
+</ul>
+</li>
+<li>### 7 Estatística de Cobertura de testes<ul>
+<li>Foi gerada a análise de cobertura de testes, um extra, mesmo que não solicitado.</li>
+</ul>
+</li>
+<li>### Outros:<ul>
+<li>#### 8 Executáveis prontos, 9 Clear terminal</li>
+</ul>
+</li>
+</ul>
+<hr  />
+ <h1><a class="anchor" id="autotoc_md9"></a>
+Como executar</h1>
+<ul>
+<li>Existem arquivos preparados para realizar a compilação e execução das funções do projeto.</li>
+<li>Localizados na pasta raiz do projeto e conforme o sistema operacional:<ul>
+<li><b>Unix</b>: <code>.sh</code></li>
+<li><b>Windows</b>: <code>.bat</code></li>
+</ul>
+</li>
+<li>#### Observações:<ul>
+<li>Dependendo do ambiente Windows, é possível que o comando <code>make</code> esteja com outra keyword, como <code>mingw32-make</code>, se este for o caso, favor trocar o comando dentro dos arquivos <code>.bat</code>.</li>
+<li>Se necessário pode ser realizada a execução manual dos comandos internos aos arquivos, porém a mesma NÃO é recomendada, pois pode causar conflitos dos arquivos de armazenamento de teste e execução.</li>
+</ul>
+</li>
+<li>### Programa<ul>
+<li>Basta executar o arquivo <code>run</code><ul>
+<li><b>Unix</b>: <code>./run.sh</code></li>
+<li><b>Windows</b>: <code>.\run.bat</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>### Testes<ul>
+<li>Basta executar o arquivo <code>test</code><ul>
+<li><b>Unix</b>: <code>./test.sh</code></li>
+<li><b>Windows</b>: <code>.\test.bat</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>### Clean<ul>
+<li>Em caso de necessidade de reset dos arquivos gerados pela compilação</li>
+<li>Basta executar o arquivo <code>clean</code><ul>
+<li><b>Unix</b>: <code>./clean.sh</code></li>
+<li><b>Windows</b>: <code>.\clean.bat</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>#### Documentar e Cobertura<ul>
+<li>O script para documentar e analisar a cobertura de testes está disponível em caso de necessidade.<ul>
+<li><b>Unix</b>: <code>./document.sh</code></li>
+<li><b>Unix</b>: <code>./coverage.sh</code></li>
+</ul>
+</li>
+<li>É necessário ter o <code>doxygen</code> e <code>gcovr</code> instalados para a execução dos seus respectivos.</li>
+</ul>
+</li>
+</ul>
+<hr  />
+ <h1><a class="anchor" id="autotoc_md11"></a>
+Documentação</h1>
+<ul>
+<li>### Código<ul>
+<li>A documentação do código foi gerada utilizando a ferramenta Doxygen.</li>
+<li>Para acessar basta abrir o arquivo <code>index.html</code> localizado na pasta <code>docs/html</code>.</li>
+</ul>
+</li>
+<li>### Cartão Classe Responsabilidades Colaboradores (CRC)<ul>
+<li>A documentação CRC foi gerada utilizando a ferramenta CRC Card Builder (<a href="http://groups.umd.umich.edu/cis/tinytools/cis375/f19/team7/index.html">http://groups.umd.umich.edu/cis/tinytools/cis375/f19/team7/index.html</a>).</li>
+<li>Para acessar basta abrir o arquivo <code>Class Responsability Collaboration Card.pdf</code> localizado na pasta <code>docs</code>.</li>
+</ul>
+</li>
+<li>### Cobertura de Testes<ul>
+<li>A documentação da cobertura de testes foi gerada utilizando a ferramenta <code>gcovr</code>.</li>
+<li>Para acessar basta abrir o arquivo <code>relatorio.html</code> localizado na pasta <code>coverage</code>.</li>
+<li>Obs.: a porcentagem de cobertura não consegue ser muito alta devido a considerar muitos trechos não testáveis, como main, os arquivos de teste e a própria biblioteca, mas os arquivos necessários possuem uma cobertura de testes muito alta.</li>
+</ul>
+</li>
+</ul>
+<hr  />
+ <h1><a class="anchor" id="autotoc_md13"></a>
+Estrutura</h1>
+<ul>
+<li>### Pastas<ul>
+<li>A estrutura do projeto foi dividida em pastas, conforme a seguir:<ul>
+<li>root: contém os arquivos de configuração do projeto.</li>
+<li><code>src</code>: contém os arquivos-fontes do projeto.</li>
+<li><code>include</code>: contém os arquivos de cabeçalho do projeto.</li>
+<li><code>tests</code>: contém os arquivos de teste do projeto.</li>
+<li><code>docs</code>: contém a documentação do projeto.</li>
+<li><code>coverage</code>: contém a cobertura de testes do projeto.</li>
+<li><code>bin</code>: contém os arquivos binários gerados pela compilação do projeto.</li>
+<li><code>obj</code>: contém os arquivos intermediários gerados pela compilação do projeto.</li>
+<li><code>third-party</code>: contém bibliotecas de terceiros utilizadas no projeto.</li>
+</ul>
+</li>
+<li>obs.: dentro de <code>bin</code> e <code>obj</code> foram criados o subdiretório <code>tests</code> para melhorar a organização e separação para compilação e execução do programa e do teste.</li>
+</ul>
+</li>
+<li>### Classes<ul>
+<li>A estrutura do projeto foi dividida em classes, conforme a seguir:<ul>
+<li><code>Baord</code>: classe para executar ações sobre um tabuleiro, desconexo de qualquer ideia de jogo.</li>
+<li><code><a class="el" href="../../d2/d4b/classPlayer.html">Player</a></code>: classe para armazenar informações de um jogador e gerenciar persistência dos mesmos.</li>
+<li><code><a class="el" href="../../d4/d08/classBoardGame.html">BoardGame</a></code>: classe genérica com ideia simples de jogo<ul>
+<li>Possui um <code><a class="el" href="../../de/d23/classBoard.html">Board</a></code> e executa ações sobre ele,</li>
+<li>Possui 2 <code><a class="el" href="../../d2/d4b/classPlayer.html">Player</a></code> que participam do jogo.</li>
+</ul>
+</li>
+<li><code><a class="el" href="../../d2/dae/classReversi.html">Reversi</a></code>: classe filha de <code><a class="el" href="../../d4/d08/classBoardGame.html">BoardGame</a></code> especializada para o jogo reversi.</li>
+<li><code><a class="el" href="../../d7/d3a/classConnectFour.html">ConnectFour</a></code>: classe filha de <code><a class="el" href="../../d4/d08/classBoardGame.html">BoardGame</a></code> especializada para o jogo lig4.</li>
+<li><code><a class="el" href="../../de/df8/classTicTacToe.html">TicTacToe</a></code>: classe filha de <code><a class="el" href="../../d4/d08/classBoardGame.html">BoardGame</a></code> especializada para o jogo velha.</li>
+<li><code><a class="el" href="../../dd/dcd/classManager.html">Manager</a></code>: classe com métodos estáticos para gerenciar a execução do programa.</li>
+<li><code><a class="el" href="../../dc/dc5/classUtils.html">Utils</a></code>: classe com métodos estáticos de auxílio.</li>
+<li><code>exceptions</code>: classes de exceções personalizadas, para padronizar mensagens.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>### Tests<ul>
+<li>Cada classe possui um arquivo de teste com um <code>TEST_SUITE</code> próprio.</li>
+<li>Dentro de cada <code>TEST_SUITE</code> os métodos são agrupados em <code>TEST_CASE</code> por codependência.</li>
+</ul>
+</li>
+</ul>
+<hr  />
+ <h1><a class="anchor" id="autotoc_md15"></a>
+Funcionamento</h1>
+<ul>
+<li>O programa roda em loop em cima da funcionalidade do <code>manager::menu()</code> a qual chama respectivas funções para os comandos, cuidando também do seu tratamento de exceções.</li>
+<li>Essas funções por sua vez, tratam uma parte dos dados para encaminhar para o correto procedimento.</li>
+<li><code>CRUD <a class="el" href="../../d2/d4b/classPlayer.html">Player</a></code>: após tratamento descrito acima, Sào chamas as funções da classe <code><a class="el" href="../../d2/d4b/classPlayer.html">Player</a></code> para completar o procedimento.</li>
+<li><code>Executar Partida</code>: após tratamento descrito acima, é escolhido qual jogo será executado, então armazenado em um ponteiro da classe genérica para o correto funcionamento do <em> Dynamic Dispatch </em> é chamada então a função <code>playGame()</code>, e após o resultado são atualizadas as estatísticas dos jogadores.</li>
+</ul>
+<hr  />
+ <h1><a class="anchor" id="autotoc_md17"></a>
+Principais Desafios</h1>
+<ul>
+<li>Consertar input bagunçado do usuário</li>
+<li>Lidar com parâmetros opcionais, uma vez que sua disposição pode variar.</li>
+<li>Entender como jogar <a class="el" href="../../d2/dae/classReversi.html">Reversi</a> rsrsrs.</li>
+<li>Realizar tests que dependeriam da interação do usuário.</li>
+<li>Validar se trechos do código funcionam em todos os sistemas, lidando principalmente com shell windows</li>
+</ul>
+<hr  />
+ <h1><a class="anchor" id="autotoc_md19"></a>
+Requisitos</h1>
+<ul>
+<li>### Compilador G++ e Make<ul>
+<li>Linux: <code>sudo apt install g++</code></li>
+<li>Windows: <a href="https://sourceforge.net/projects/mingw/">https://sourceforge.net/projects/mingw/</a> ou <a href="https://www.mingw-w64.org">https://www.mingw-w64.org</a> </li>
+</ul>
+</li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Gerado por <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>
