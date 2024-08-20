@@ -23,10 +23,10 @@ TEST_SUITE("Reversi") {
         CHECK_NOTHROW(Reversi(player1, player2));
 
         // Constructor with valid board size (even number)
-        CHECK_NOTHROW(Reversi(player1, player2, 4));
+        CHECK_NOTHROW(Reversi(player1, player2, Reversi::minimumBoardSize));
 
         // Constructor with invalid board size (odd number), will sue the default size
-        CHECK_NOTHROW(Reversi(player1, player2, 4));
+        CHECK_NOTHROW(Reversi(player1, player2, Reversi::minimumBoardSize-1));
 
         // Constructor with minimum valid board size
         CHECK_NOTHROW(Reversi(player1, player2, Reversi::minimumBoardSize));
@@ -73,7 +73,7 @@ TEST_SUITE("Reversi") {
         const Player player1("PED", "PEDRO", 'X');
         const Player player2("CARL", "CARLOS", 'O');
 
-        Reversi reversiGame(player1, player2, 4); // Tabuleiro 8x8
+        Reversi reversiGame(player1, player2, Reversi::minimumBoardSize); // Tabuleiro 8x8
 
         // Executa o movimento e verifica se as peças são viradas corretamente
         reversiGame.makeMove({2, 3}, player1.getSymbol());
@@ -85,7 +85,7 @@ TEST_SUITE("Reversi") {
         const Player player1("PED", "PEDRO", 'X');
         const Player player2("CARL", "CARLOS", 'O');
 
-        Reversi reversiGame(player1, player2, 4); // Tabuleiro 8x8
+        Reversi reversiGame(player1, player2, Reversi::minimumBoardSize); // Tabuleiro 4x4
 
         // Jogo ainda não terminou
         CHECK(reversiGame.getGameState({3, 2}) == GameState::NOT_OVER);
@@ -105,28 +105,40 @@ TEST_SUITE("Reversi") {
     }
 
     TEST_CASE("Play Game") {
+        std::streambuf* cinbuf = std::cin.rdbuf();  // Store the original buffer
 
         const Player player1("PED", "PEDRO", 'X');
         const Player player2("CARL", "CARLOS", 'O');
 
-        const std::istringstream input1("2 3\n2 2\n3 2\n4 2\n5 2\n"); // Entrada simulada
-        Reversi reversiGame(player1, player2, 4); // Tabuleiro 8x8
+        const std::istringstream input1("2 0\n3 2\n1 3\n0 2\n2 3\n1 0\n0 1\n3 0\n0 3\n3 3\n3 1\n0 0\n"); // Entrada simulada
+        std::cin.rdbuf(input1.rdbuf());
+        Reversi reversiGame(player1, player2, Reversi::minimumBoardSize); // Tabuleiro 4x4
         GameState gameState;
         CHECK_NOTHROW(gameState = reversiGame.playGame());
-        CHECK(gameState == GameState::PLAYER1_WINS);
+        CHECK(gameState == GameState::TIE);
 
+        // Restore std::cin to its original state
+        std::cin.rdbuf(cinbuf);
     }
 
     TEST_CASE("Game Tie") {
         const Player player1("PED", "PEDRO", 'X');
         const Player player2("CARL", "CARLOS", 'O');
 
-        Reversi reversiGame(player1, player2, 4); // Tabuleiro 8x8
+        Reversi reversiGame(player1, player2, Reversi::minimumBoardSize); // Tabuleiro 8x8
 
-        reversiGame.makeMove({3, 2}, player1.getSymbol());
-        reversiGame.makeMove({2, 3}, player2.getSymbol());
-        reversiGame.makeMove({4, 5}, player1.getSymbol());
-        reversiGame.makeMove({5, 4}, player2.getSymbol());
-        CHECK(reversiGame.getGameState({5, 4}) == GameState::TIE);
+        reversiGame.makeMove({2, 0}, player1.getSymbol());
+        reversiGame.makeMove({3, 2}, player2.getSymbol());
+        reversiGame.makeMove({1, 3}, player1.getSymbol());
+        reversiGame.makeMove({0, 2}, player2.getSymbol());
+        reversiGame.makeMove({2, 3}, player1.getSymbol());
+        reversiGame.makeMove({1, 0}, player2.getSymbol());
+        reversiGame.makeMove({0, 1}, player1.getSymbol());
+        reversiGame.makeMove({3, 0}, player2.getSymbol());
+        reversiGame.makeMove({0, 3}, player1.getSymbol());
+        reversiGame.makeMove({3, 3}, player2.getSymbol());
+        reversiGame.makeMove({3, 1}, player1.getSymbol());
+        reversiGame.makeMove({0, 0}, player2.getSymbol());
+        CHECK(reversiGame.getGameState({0, 0}) == GameState::TIE);
     }
 }

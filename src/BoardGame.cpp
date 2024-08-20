@@ -110,7 +110,7 @@ GameState BoardGame::playGame() {
 
         this->printBoard();
 
-        // Check game satate
+        // Check game state
         const GameState gameState = this->getGameState(move);
         if (gameState != GameState::NOT_OVER) {
             if (gameState == GameState::TIE) std::cout << "O jogo empatou!" << std::endl;
