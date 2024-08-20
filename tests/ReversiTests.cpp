@@ -49,7 +49,10 @@ TEST_SUITE("Reversi") {
         const Player player1("PED", "PEDRO");
         const Player player2("CARL", "CARLOS");
 
-        Reversi reversiGame(player1, player2, 4); // Tabuleiro 8x8
+        Reversi reversiGame(player1, player2, Reversi::minimumBoardSize); // Tabuleiro 4x4
+
+        // Movimento inválido, lugar não cumpre as regras
+        CHECK_THROWS_AS(reversiGame.validateMove({0, 0}), invalid_move);
 
         // Movimentos válidos
         CHECK_NOTHROW(reversiGame.validateMove({3, 2}));
@@ -60,9 +63,9 @@ TEST_SUITE("Reversi") {
         CHECK_THROWS_AS(reversiGame.validateMove({1, 2, 3}), incorrect_format);
 
         // Fora dos limites
-        CHECK_THROWS_AS(reversiGame.validateMove({8, 0}), invalid_move);  // 8x8 board
-        CHECK_THROWS_AS(reversiGame.validateMove({0, 8}), invalid_move);  // 8x8 board
-        CHECK_THROWS_AS(reversiGame.validateMove({8, 8}), invalid_move);  // 8x8 board
+        CHECK_THROWS_AS(reversiGame.validateMove({Reversi::minimumBoardSize, 0}), invalid_move);  // 4x4 board
+        CHECK_THROWS_AS(reversiGame.validateMove({0, Reversi::minimumBoardSize}), invalid_move);  // 4x4 board
+        CHECK_THROWS_AS(reversiGame.validateMove({8, Reversi::minimumBoardSize}), invalid_move);  // 4x4 board
 
         // Lugar não está vazio
         reversiGame.makeMove({2, 3}, player1.getSymbol());
@@ -73,7 +76,7 @@ TEST_SUITE("Reversi") {
         const Player player1("PED", "PEDRO", 'X');
         const Player player2("CARL", "CARLOS", 'O');
 
-        Reversi reversiGame(player1, player2, Reversi::minimumBoardSize); // Tabuleiro 8x8
+        Reversi reversiGame(player1, player2, Reversi::minimumBoardSize); // Tabuleiro 4x4
 
         // Executa o movimento e verifica se as peças são viradas corretamente
         reversiGame.makeMove({2, 3}, player1.getSymbol());
@@ -125,7 +128,28 @@ TEST_SUITE("Reversi") {
         const Player player1("PED", "PEDRO", 'X');
         const Player player2("CARL", "CARLOS", 'O');
 
-        Reversi reversiGame(player1, player2, Reversi::minimumBoardSize); // Tabuleiro 8x8
+        Reversi reversiGame(player1, player2, Reversi::minimumBoardSize); // Tabuleiro 4x4
+
+        reversiGame.makeMove({2, 0}, player1.getSymbol());
+        reversiGame.makeMove({3, 2}, player2.getSymbol());
+        reversiGame.makeMove({1, 3}, player1.getSymbol());
+        reversiGame.makeMove({0, 2}, player2.getSymbol());
+        reversiGame.makeMove({2, 3}, player1.getSymbol());
+        reversiGame.makeMove({1, 0}, player2.getSymbol());
+        reversiGame.makeMove({0, 1}, player1.getSymbol());
+        reversiGame.makeMove({3, 0}, player2.getSymbol());
+        reversiGame.makeMove({0, 3}, player1.getSymbol());
+        reversiGame.makeMove({3, 3}, player2.getSymbol());
+        reversiGame.makeMove({3, 1}, player1.getSymbol());
+        reversiGame.makeMove({0, 0}, player2.getSymbol());
+        CHECK(reversiGame.getGameState({0, 0}) == GameState::TIE);
+    }
+
+    TEST_CASE("Player 1 Wins") {
+        const Player player1("PED", "PEDRO", 'X');
+        const Player player2("CARL", "CARLOS", 'O');
+
+        Reversi reversiGame(player1, player2, Reversi::minimumBoardSize); // Tabuleiro 4x4
 
         reversiGame.makeMove({2, 0}, player1.getSymbol());
         reversiGame.makeMove({3, 2}, player2.getSymbol());
